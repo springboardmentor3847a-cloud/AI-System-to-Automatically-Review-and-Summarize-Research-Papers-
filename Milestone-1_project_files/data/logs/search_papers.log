@@ -1,0 +1,427 @@
+2025-12-10 20:43:15,293 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 3
+2025-12-10 20:43:15,298 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 4
+2025-12-10 20:43:16,502 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 3
+2025-12-10 20:43:16,503 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 4
+2025-12-10 20:43:16,518 - modules.search_papers - INFO - Starting paper search for topic: 'deep learning natural language processing' (limit=10)
+2025-12-10 20:43:16,519 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-10 20:43:23,724 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 200 OK"
+2025-12-10 20:43:23,948 - modules.search_papers - WARNING - API request failed (attempt 1/3): 'Author' object has no attribute 'get'
+2025-12-10 20:43:23,949 - modules.search_papers - INFO - Waiting 2 seconds before retry...
+2025-12-10 20:43:25,949 - modules.search_papers - INFO - Attempting API request (attempt 2/3)
+2025-12-10 20:43:26,755 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 429 "
+2025-12-10 20:43:57,470 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 429 "
+2025-12-10 20:44:28,185 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 429 "
+2025-12-10 20:45:01,385 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 200 OK"
+2025-12-10 20:45:01,582 - modules.search_papers - WARNING - API request failed (attempt 2/3): 'Author' object has no attribute 'get'
+2025-12-10 20:45:01,583 - modules.search_papers - INFO - Waiting 4 seconds before retry...
+2025-12-10 20:45:05,584 - modules.search_papers - INFO - Attempting API request (attempt 3/3)
+2025-12-10 20:45:07,932 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 200 OK"
+2025-12-10 20:45:08,135 - modules.search_papers - WARNING - API request failed (attempt 3/3): 'Author' object has no attribute 'get'
+2025-12-10 20:45:08,135 - modules.search_papers - ERROR - All retry attempts failed. Error: 'Author' object has no attribute 'get'
+2025-12-10 20:45:40,045 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 3
+2025-12-10 20:45:40,047 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 4
+2025-12-10 20:45:41,151 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 3
+2025-12-10 20:45:41,152 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 4
+2025-12-10 20:45:41,158 - modules.search_papers - INFO - Starting paper search for topic: 'deep learning natural language processing' (limit=10)
+2025-12-10 20:45:41,159 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-10 20:45:44,027 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 200 OK"
+2025-12-10 20:45:44,191 - modules.search_papers - WARNING - API request failed (attempt 1/3): 'Author' object has no attribute 'get'
+2025-12-10 20:45:44,191 - modules.search_papers - INFO - Waiting 2 seconds before retry...
+2025-12-10 20:45:46,192 - modules.search_papers - INFO - Attempting API request (attempt 2/3)
+2025-12-10 20:45:47,082 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 429 "
+2025-12-10 20:46:19,844 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 200 OK"
+2025-12-10 20:46:20,037 - modules.search_papers - WARNING - API request failed (attempt 2/3): 'Author' object has no attribute 'get'
+2025-12-10 20:46:20,037 - modules.search_papers - INFO - Waiting 4 seconds before retry...
+2025-12-10 20:46:24,038 - modules.search_papers - INFO - Attempting API request (attempt 3/3)
+2025-12-10 20:46:24,867 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 429 "
+2025-12-10 20:46:57,169 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 200 OK"
+2025-12-10 20:46:57,362 - modules.search_papers - WARNING - API request failed (attempt 3/3): 'Author' object has no attribute 'get'
+2025-12-10 20:46:57,363 - modules.search_papers - ERROR - All retry attempts failed. Error: 'Author' object has no attribute 'get'
+2025-12-10 20:47:04,222 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 3
+2025-12-10 20:47:04,223 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 4
+2025-12-10 20:47:04,980 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 3
+2025-12-10 20:47:04,980 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 4
+2025-12-10 20:47:04,981 - modules.search_papers - INFO - Starting paper search for topic: 'machine learning' (limit=3)
+2025-12-10 20:47:04,981 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-10 20:47:07,184 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=6 "HTTP/1.1 200 OK"
+2025-12-10 20:47:07,197 - modules.search_papers - WARNING - API request failed (attempt 1/3): 'Author' object has no attribute 'get'
+2025-12-10 20:47:07,197 - modules.search_papers - INFO - Waiting 2 seconds before retry...
+2025-12-10 20:47:09,198 - modules.search_papers - INFO - Attempting API request (attempt 2/3)
+2025-12-10 20:47:11,326 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=6 "HTTP/1.1 200 OK"
+2025-12-10 20:47:11,328 - modules.search_papers - WARNING - API request failed (attempt 2/3): 'Author' object has no attribute 'get'
+2025-12-10 20:47:11,329 - modules.search_papers - INFO - Waiting 4 seconds before retry...
+2025-12-10 20:47:15,329 - modules.search_papers - INFO - Attempting API request (attempt 3/3)
+2025-12-10 20:47:17,780 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=6 "HTTP/1.1 200 OK"
+2025-12-10 20:47:17,783 - modules.search_papers - WARNING - API request failed (attempt 3/3): 'Author' object has no attribute 'get'
+2025-12-10 20:47:17,783 - modules.search_papers - ERROR - All retry attempts failed. Error: 'Author' object has no attribute 'get'
+2025-12-10 20:48:14,248 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 3
+2025-12-10 20:48:14,250 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 4
+2025-12-10 20:48:15,033 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 3
+2025-12-10 20:48:15,034 - dotenv.main - WARNING - python-dotenv could not parse statement starting at line 4
+2025-12-10 20:48:15,036 - modules.search_papers - INFO - Starting paper search for topic: 'machine learning' (limit=3)
+2025-12-10 20:48:15,036 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-10 20:48:21,204 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=6 "HTTP/1.1 200 OK"
+2025-12-10 20:48:21,212 - modules.search_papers - INFO - Successfully retrieved 3 papers
+2025-12-10 20:48:40,373 - modules.search_papers - INFO - Starting paper search for topic: 'machine learning' (limit=3)
+2025-12-10 20:48:40,373 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-10 20:48:42,500 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=6 "HTTP/1.1 200 OK"
+2025-12-10 20:48:42,506 - modules.search_papers - INFO - Successfully retrieved 3 papers
+2025-12-10 20:57:13,690 - modules.search_papers - INFO - Starting paper search for topic: 'machine learning' (limit=3)
+2025-12-10 20:57:13,692 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-10 20:57:15,901 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=6 "HTTP/1.1 200 OK"
+2025-12-10 20:57:15,908 - modules.search_papers - INFO - Successfully retrieved 3 papers
+2025-12-10 21:03:24,685 - modules.search_papers - INFO - Starting paper search for topic: 'machine learning' (limit=3)
+2025-12-10 21:03:24,686 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-10 21:03:26,758 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=6 "HTTP/1.1 200 OK"
+2025-12-10 21:03:29,376 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=6&limit=6 "HTTP/1.1 200 OK"
+2025-12-10 21:03:29,378 - modules.search_papers - INFO - Successfully retrieved 3 papers
+2025-12-10 21:10:15,482 - modules.search_papers - INFO - Starting paper search for topic: 'deep learning natural language processing' (limit=10)
+2025-12-10 21:10:15,482 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-10 21:10:19,108 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 200 OK"
+2025-12-10 21:10:21,060 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=20&limit=20 "HTTP/1.1 200 OK"
+2025-12-10 21:10:21,088 - modules.search_papers - INFO - Successfully retrieved 10 papers
+2025-12-10 21:10:21,094 - modules.search_papers - ERROR - Failed to save metadata: Object of type datetime is not JSON serializable
+2025-12-10 21:10:22,593 - modules.search_papers - INFO - Starting paper search for topic: 'machine learning' (limit=3)
+2025-12-10 21:10:22,594 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-10 21:10:24,713 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=6 "HTTP/1.1 200 OK"
+2025-12-10 21:10:26,883 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=6&limit=6 "HTTP/1.1 200 OK"
+2025-12-10 21:10:26,887 - modules.search_papers - INFO - Successfully retrieved 3 papers
+2025-12-10 21:13:42,552 - modules.search_papers - INFO - Starting paper search for topic: 'machine learning' (limit=3)
+2025-12-10 21:13:42,553 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-10 21:13:44,995 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=6 "HTTP/1.1 200 OK"
+2025-12-10 21:13:46,774 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=6&limit=6 "HTTP/1.1 200 OK"
+2025-12-10 21:13:46,777 - modules.search_papers - INFO - Successfully retrieved 3 papers
+2025-12-10 21:24:38,085 - modules.search_papers - INFO - Starting paper search for topic: 'deep learning natural language processing' (limit=10)
+2025-12-10 21:24:38,086 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-10 21:24:40,732 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 200 OK"
+2025-12-10 21:24:44,223 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=20&limit=20 "HTTP/1.1 200 OK"
+2025-12-10 21:24:44,424 - modules.search_papers - INFO - Successfully retrieved 10 papers
+2025-12-10 21:24:44,431 - modules.search_papers - ERROR - Failed to save metadata: Object of type datetime is not JSON serializable
+2025-12-10 21:24:54,515 - modules.search_papers - INFO - Starting paper search for topic: 'machine learning' (limit=3)
+2025-12-10 21:24:54,516 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-10 21:25:02,968 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=6 "HTTP/1.1 200 OK"
+2025-12-10 21:25:05,172 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=6&limit=6 "HTTP/1.1 200 OK"
+2025-12-10 21:25:05,177 - modules.search_papers - INFO - Successfully retrieved 3 papers
+2025-12-11 16:54:57,231 - modules.search_papers - INFO - Starting paper search for topic: 'deep learning natural language processing' (limit=10)
+2025-12-11 16:54:57,235 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-11 16:55:00,652 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 200 OK"
+2025-12-11 16:55:03,620 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=20&limit=20 "HTTP/1.1 200 OK"
+2025-12-11 16:55:03,826 - modules.search_papers - INFO - Successfully retrieved 10 papers
+2025-12-11 16:55:03,851 - modules.search_papers - ERROR - Failed to save metadata: Object of type datetime is not JSON serializable
+2025-12-11 16:57:39,626 - modules.search_papers - INFO - Starting paper search for topic: 'deep learning natural language processing' (limit=10)
+2025-12-11 16:57:39,627 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-11 16:57:42,245 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 200 OK"
+2025-12-11 16:57:44,805 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=20&limit=20 "HTTP/1.1 200 OK"
+2025-12-11 16:57:45,016 - modules.search_papers - INFO - Successfully retrieved 10 papers
+2025-12-11 16:57:45,056 - modules.search_papers - INFO - Metadata saved successfully to data/metadata/paper_metadata.json
+2025-12-11 16:57:45,057 - modules.download_pdf - INFO - Starting batch download of 10 papers
+2025-12-11 16:57:45,059 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): http://arxiv.org/pdf/2105.02388
+2025-12-11 16:57:50,576 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.pdf
+2025-12-11 16:57:50,576 - modules.download_pdf - INFO - Successfully downloaded PDF: data/pdfs\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.pdf
+2025-12-11 16:57:50,607 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 16:57:51,561 - modules.download_pdf - WARNING - Download attempt 1 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 16:57:51,562 - modules.download_pdf - INFO - Waiting 2 seconds before retry...
+2025-12-11 16:57:53,563 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 16:57:53,998 - modules.download_pdf - WARNING - Download attempt 2 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 16:57:53,999 - modules.download_pdf - INFO - Waiting 4 seconds before retry...
+2025-12-11 16:57:58,001 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 16:57:58,626 - modules.download_pdf - WARNING - Download attempt 3 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 16:57:58,627 - modules.download_pdf - ERROR - All download attempts failed for: https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 16:57:58,631 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 16:58:02,619 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 16:58:02,646 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 16:58:02,666 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 16:58:04,080 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 16:58:04,081 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 16:58:04,084 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 16:58:05,398 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 16:58:05,399 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 16:58:05,404 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://ajpojournals.org/journals/index.php/EJT/article/download/1473/1597
+2025-12-11 16:58:10,572 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.pdf
+2025-12-11 16:58:10,572 - modules.download_pdf - INFO - Successfully downloaded PDF: data/pdfs\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.pdf
+2025-12-11 16:58:10,574 - modules.download_pdf - WARNING - No PDF URL available for paper: Depression Detection from Social Media Text Analysis using Natural Language Processing Techniques and Hybrid Deep Learning Model
+2025-12-11 16:58:10,577 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://link.springer.com/content/pdf/10.1007/s10462-022-10204-6.pdf
+2025-12-11 16:58:16,138 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.pdf
+2025-12-11 16:58:16,139 - modules.download_pdf - INFO - Successfully downloaded PDF: data/pdfs\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.pdf
+2025-12-11 16:58:16,142 - modules.download_pdf - WARNING - No PDF URL available for paper: Natural Language Processing Advancements By Deep Learning: A Survey
+2025-12-11 16:58:16,148 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 16:58:17,596 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 16:58:17,597 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 16:58:17,599 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 16:58:19,244 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 16:58:19,249 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 16:58:19,254 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 16:58:20,470 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 16:58:20,474 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 16:58:20,492 - modules.download_pdf - WARNING - No PDF URL available for paper: Adversarial Attacks on Deep-learning Models in Natural Language Processing
+2025-12-11 16:58:20,507 - modules.download_pdf - WARNING - No PDF URL available for paper: An introduction to Deep Learning in Natural Language Processing: Models, techniques, and tools
+2025-12-11 16:58:20,510 - modules.download_pdf - INFO - Batch download complete. Success: 3, Failed: 7
+2025-12-11 16:58:20,526 - modules.download_pdf - INFO - Metadata saved successfully to: data/metadata\selected_papers.json
+2025-12-11 16:59:39,543 - modules.search_papers - INFO - Starting paper search for topic: 'machine learning' (limit=5)
+2025-12-11 16:59:39,545 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-11 16:59:41,813 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=10 "HTTP/1.1 200 OK"
+2025-12-11 16:59:43,733 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=machine+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=10&limit=10 "HTTP/1.1 200 OK"
+2025-12-11 16:59:43,736 - modules.search_papers - INFO - Successfully retrieved 5 papers
+2025-12-11 16:59:43,740 - modules.search_papers - INFO - Metadata saved successfully to data/metadata/paper_metadata.json
+2025-12-11 16:59:43,742 - modules.download_pdf - INFO - Starting batch download of 5 papers
+2025-12-11 16:59:43,743 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://www.osti.gov/biblio/2282016
+2025-12-11 16:59:46,395 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\53c9f3c34d8481adaf24df3b25581ccf1bc53f5c_Physics-informed machine learning.pdf
+2025-12-11 16:59:47,042 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\53c9f3c34d8481adaf24df3b25581ccf1bc53f5c_Physics-informed machine learning.pdf
+2025-12-11 16:59:47,188 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://www.osti.gov/biblio/2282016
+2025-12-11 16:59:48,874 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\53c9f3c34d8481adaf24df3b25581ccf1bc53f5c_Physics-informed machine learning.pdf
+2025-12-11 16:59:48,874 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\53c9f3c34d8481adaf24df3b25581ccf1bc53f5c_Physics-informed machine learning.pdf
+2025-12-11 16:59:48,875 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://www.osti.gov/biblio/2282016
+2025-12-11 16:59:50,046 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\53c9f3c34d8481adaf24df3b25581ccf1bc53f5c_Physics-informed machine learning.pdf
+2025-12-11 16:59:50,047 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\53c9f3c34d8481adaf24df3b25581ccf1bc53f5c_Physics-informed machine learning.pdf
+2025-12-11 16:59:50,051 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://link.springer.com/content/pdf/10.1007/s42979-021-00592-x.pdf
+2025-12-11 16:59:53,293 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\7872f34e2a164c5cf3c34a7a7433dc3342b6c7ea_Machine Learning_ Algorithms, Real-World Applications and Research Directions.pdf
+2025-12-11 16:59:53,294 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\7872f34e2a164c5cf3c34a7a7433dc3342b6c7ea_Machine Learning_ Algorithms, Real-World Applications and Research Directions.pdf
+2025-12-11 16:59:53,484 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://link.springer.com/content/pdf/10.1007/s42979-021-00592-x.pdf
+2025-12-11 16:59:55,970 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\7872f34e2a164c5cf3c34a7a7433dc3342b6c7ea_Machine Learning_ Algorithms, Real-World Applications and Research Directions.pdf
+2025-12-11 16:59:55,970 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\7872f34e2a164c5cf3c34a7a7433dc3342b6c7ea_Machine Learning_ Algorithms, Real-World Applications and Research Directions.pdf
+2025-12-11 16:59:56,078 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://link.springer.com/content/pdf/10.1007/s42979-021-00592-x.pdf
+2025-12-11 16:59:59,078 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\7872f34e2a164c5cf3c34a7a7433dc3342b6c7ea_Machine Learning_ Algorithms, Real-World Applications and Research Directions.pdf
+2025-12-11 16:59:59,078 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\7872f34e2a164c5cf3c34a7a7433dc3342b6c7ea_Machine Learning_ Algorithms, Real-World Applications and Research Directions.pdf
+2025-12-11 16:59:59,079 - modules.download_pdf - WARNING - No PDF URL available for paper: Open Graph Benchmark: Datasets for Machine Learning on Graphs
+2025-12-11 16:59:59,080 - modules.download_pdf - WARNING - No PDF URL available for paper: Foundations of Machine Learning
+2025-12-11 16:59:59,081 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://www.nature.com/articles/s41598-024-56706-x.pdf
+2025-12-11 17:00:04,735 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\4a2b5058000d567036fc9aaad75bbf71cce53002_Evaluation metrics and statistical tests for machine learning.pdf
+2025-12-11 17:00:04,736 - modules.download_pdf - INFO - Successfully downloaded PDF: data/pdfs\4a2b5058000d567036fc9aaad75bbf71cce53002_Evaluation metrics and statistical tests for machine learning.pdf
+2025-12-11 17:00:04,738 - modules.download_pdf - INFO - Batch download complete. Success: 1, Failed: 4
+2025-12-11 17:00:04,741 - modules.download_pdf - INFO - Metadata saved successfully to: data/metadata\selected_papers.json
+2025-12-11 17:00:15,427 - modules.search_papers - INFO - Starting paper search for topic: 'deep learning' (limit=5)
+2025-12-11 17:00:15,428 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-11 17:00:17,172 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=10 "HTTP/1.1 200 OK"
+2025-12-11 17:00:17,179 - modules.search_papers - INFO - Successfully retrieved 5 papers
+2025-12-11 17:00:17,182 - modules.download_pdf - INFO - Starting batch download of 2 papers
+2025-12-11 17:00:17,183 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://arxiv.org/pdf/1904.08128
+2025-12-11 17:00:21,257 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\f28e387d4229c5f690ce4570a391c0f47e7155c7_nnU-Net_ a self-configuring method for deep learning-based biomedical image segmentation.pdf
+2025-12-11 17:00:21,258 - modules.download_pdf - INFO - Successfully downloaded PDF: data/pdfs\f28e387d4229c5f690ce4570a391c0f47e7155c7_nnU-Net_ a self-configuring method for deep learning-based biomedical image segmentation.pdf
+2025-12-11 17:00:21,262 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://journalofbigdata.springeropen.com/counter/pdf/10.1186/s40537-021-00444-8
+2025-12-11 17:00:28,230 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\0084f3cb0a1754272151c5268a783f24bf5676a0_Review of deep learning_ concepts, CNN architectures, challenges, applications, future directions.pdf
+2025-12-11 17:00:28,232 - modules.download_pdf - INFO - Successfully downloaded PDF: data/pdfs\0084f3cb0a1754272151c5268a783f24bf5676a0_Review of deep learning_ concepts, CNN architectures, challenges, applications, future directions.pdf
+2025-12-11 17:00:28,234 - modules.download_pdf - INFO - Batch download complete. Success: 2, Failed: 0
+2025-12-11 17:16:22,910 - modules.search_papers - INFO - Starting paper search for topic: 'deep learning natural language processing' (limit=10)
+2025-12-11 17:16:22,911 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-11 17:16:25,898 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 200 OK"
+2025-12-11 17:16:28,779 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=20&limit=20 "HTTP/1.1 200 OK"
+2025-12-11 17:16:28,972 - modules.search_papers - INFO - Successfully retrieved 10 papers
+2025-12-11 17:16:28,991 - modules.search_papers - INFO - Metadata saved successfully to data/metadata/paper_metadata.json
+2025-12-11 17:16:28,996 - modules.download_pdf - INFO - Starting batch download of 10 papers
+2025-12-11 17:16:28,999 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.pdf
+2025-12-11 17:16:29,000 - modules.download_pdf - INFO - PDF already exists: data/pdfs\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.pdf
+2025-12-11 17:16:29,011 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:16:29,664 - modules.download_pdf - WARNING - Download attempt 1 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 17:16:29,665 - modules.download_pdf - INFO - Waiting 2 seconds before retry...
+2025-12-11 17:16:31,666 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:16:32,701 - modules.download_pdf - WARNING - Download attempt 2 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 17:16:32,702 - modules.download_pdf - INFO - Waiting 4 seconds before retry...
+2025-12-11 17:16:36,703 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:16:37,797 - modules.download_pdf - WARNING - Download attempt 3 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 17:16:37,798 - modules.download_pdf - ERROR - All download attempts failed for: https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:16:37,801 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 17:16:39,114 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:16:39,117 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:16:39,130 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 17:16:40,239 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:16:40,240 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:16:40,242 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 17:16:41,674 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:16:41,674 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:16:41,682 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.pdf
+2025-12-11 17:16:41,683 - modules.download_pdf - INFO - PDF already exists: data/pdfs\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.pdf
+2025-12-11 17:16:41,685 - modules.download_pdf - WARNING - No PDF URL available for paper: Depression Detection from Social Media Text Analysis using Natural Language Processing Techniques and Hybrid Deep Learning Model
+2025-12-11 17:16:41,691 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.pdf
+2025-12-11 17:16:41,691 - modules.download_pdf - INFO - PDF already exists: data/pdfs\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.pdf
+2025-12-11 17:16:41,693 - modules.download_pdf - WARNING - No PDF URL available for paper: Natural Language Processing Advancements By Deep Learning: A Survey
+2025-12-11 17:16:41,696 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 17:16:42,830 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:16:42,830 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:16:42,832 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 17:16:43,960 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:16:43,961 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:16:43,962 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 17:16:45,079 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:16:45,080 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:16:45,083 - modules.download_pdf - WARNING - No PDF URL available for paper: Adversarial Attacks on Deep-learning Models in Natural Language Processing
+2025-12-11 17:16:45,083 - modules.download_pdf - WARNING - No PDF URL available for paper: An introduction to Deep Learning in Natural Language Processing: Models, techniques, and tools
+2025-12-11 17:16:45,085 - modules.download_pdf - INFO - Batch download complete. Success: 3, Failed: 7
+2025-12-11 17:16:45,088 - modules.download_pdf - INFO - Metadata saved successfully to: data/metadata\selected_papers.json
+2025-12-11 17:16:48,835 - modules.download_pdf - INFO - Starting batch download of 6 papers
+2025-12-11 17:16:48,838 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.pdf
+2025-12-11 17:16:48,838 - modules.download_pdf - INFO - PDF already exists: data/pdfs\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.pdf
+2025-12-11 17:16:48,840 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:16:49,223 - modules.download_pdf - WARNING - Download attempt 1 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 17:16:49,223 - modules.download_pdf - INFO - Waiting 2 seconds before retry...
+2025-12-11 17:16:51,224 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:16:52,063 - modules.download_pdf - WARNING - Download attempt 2 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 17:16:52,064 - modules.download_pdf - INFO - Waiting 4 seconds before retry...
+2025-12-11 17:16:56,065 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:16:56,416 - modules.download_pdf - WARNING - Download attempt 3 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 17:16:56,418 - modules.download_pdf - ERROR - All download attempts failed for: https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:16:56,429 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 17:16:57,652 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:16:57,652 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:16:57,654 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 17:16:58,825 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:16:58,826 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:16:58,828 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 17:16:59,860 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:16:59,861 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:16:59,866 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.pdf
+2025-12-11 17:16:59,867 - modules.download_pdf - INFO - PDF already exists: data/pdfs\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.pdf
+2025-12-11 17:16:59,869 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.pdf
+2025-12-11 17:16:59,870 - modules.download_pdf - INFO - PDF already exists: data/pdfs\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.pdf
+2025-12-11 17:16:59,871 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 17:17:00,893 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:17:00,894 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:17:00,895 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 17:17:01,964 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:17:01,965 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:17:01,966 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 17:17:03,025 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:17:03,026 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:17:03,031 - modules.download_pdf - INFO - Batch download complete. Success: 3, Failed: 3
+2025-12-11 17:17:03,036 - modules.download_pdf - INFO - Metadata saved successfully to: data/metadata\selected_papers.json
+2025-12-11 17:17:03,076 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.pdf
+2025-12-11 17:17:03,135 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.pdf
+2025-12-11 17:17:03,327 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.pdf
+2025-12-11 17:17:03,330 - modules.download_pdf - INFO - Metadata saved successfully to: data/metadata\selected_papers.json
+2025-12-11 17:32:04,469 - modules.search_papers - INFO - Starting paper search for topic: 'deep learning natural language processing' (limit=10)
+2025-12-11 17:32:04,470 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-11 17:32:06,710 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 200 OK"
+2025-12-11 17:32:09,324 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=20&limit=20 "HTTP/1.1 200 OK"
+2025-12-11 17:32:09,517 - modules.search_papers - INFO - Successfully retrieved 10 papers
+2025-12-11 17:32:09,533 - modules.search_papers - INFO - Metadata saved successfully to data/metadata/paper_metadata.json
+2025-12-11 17:32:09,534 - modules.download_pdf - INFO - Starting batch download of 10 papers
+2025-12-11 17:32:09,540 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.pdf
+2025-12-11 17:32:09,540 - modules.download_pdf - INFO - PDF already exists: data/pdfs\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.pdf
+2025-12-11 17:32:09,542 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:32:09,969 - modules.download_pdf - WARNING - Download attempt 1 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 17:32:09,969 - modules.download_pdf - INFO - Waiting 2 seconds before retry...
+2025-12-11 17:32:11,970 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:32:12,792 - modules.download_pdf - WARNING - Download attempt 2 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 17:32:12,793 - modules.download_pdf - INFO - Waiting 4 seconds before retry...
+2025-12-11 17:32:16,794 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:32:17,586 - modules.download_pdf - WARNING - Download attempt 3 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 17:32:17,587 - modules.download_pdf - ERROR - All download attempts failed for: https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:32:17,591 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 17:32:19,269 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:32:19,271 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:32:19,295 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 17:32:20,390 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:32:20,391 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:32:20,393 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 17:32:21,400 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:32:21,402 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:32:21,409 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.pdf
+2025-12-11 17:32:21,410 - modules.download_pdf - INFO - PDF already exists: data/pdfs\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.pdf
+2025-12-11 17:32:21,411 - modules.download_pdf - WARNING - No PDF URL available for paper: Depression Detection from Social Media Text Analysis using Natural Language Processing Techniques and Hybrid Deep Learning Model
+2025-12-11 17:32:21,414 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.pdf
+2025-12-11 17:32:21,415 - modules.download_pdf - INFO - PDF already exists: data/pdfs\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.pdf
+2025-12-11 17:32:21,415 - modules.download_pdf - WARNING - No PDF URL available for paper: Natural Language Processing Advancements By Deep Learning: A Survey
+2025-12-11 17:32:21,417 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 17:32:22,671 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:32:22,672 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:32:22,673 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 17:32:23,764 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:32:23,765 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:32:23,767 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 17:32:24,830 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:32:24,831 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:32:24,835 - modules.download_pdf - WARNING - No PDF URL available for paper: Adversarial Attacks on Deep-learning Models in Natural Language Processing
+2025-12-11 17:32:24,836 - modules.download_pdf - WARNING - No PDF URL available for paper: An introduction to Deep Learning in Natural Language Processing: Models, techniques, and tools
+2025-12-11 17:32:24,839 - modules.download_pdf - INFO - Batch download complete. Success: 3, Failed: 7
+2025-12-11 17:32:24,842 - modules.download_pdf - INFO - Metadata saved successfully to: data/metadata\selected_papers.json
+2025-12-11 17:56:11,752 - modules.search_papers - INFO - Starting paper search for topic: 'deep learning natural language processing' (limit=10)
+2025-12-11 17:56:11,753 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-11 17:56:14,328 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 200 OK"
+2025-12-11 17:56:16,221 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=20&limit=20 "HTTP/1.1 200 OK"
+2025-12-11 17:56:16,412 - modules.search_papers - INFO - Successfully retrieved 10 papers
+2025-12-11 17:56:16,421 - modules.search_papers - INFO - Metadata saved successfully to data/metadata/paper_metadata.json
+2025-12-11 17:56:16,421 - modules.download_pdf - INFO - Starting batch download of 10 papers
+2025-12-11 17:56:16,425 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.pdf
+2025-12-11 17:56:16,426 - modules.download_pdf - INFO - PDF already exists: data/pdfs\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.pdf
+2025-12-11 17:56:16,427 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:56:16,974 - modules.download_pdf - WARNING - Download attempt 1 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 17:56:16,974 - modules.download_pdf - INFO - Waiting 2 seconds before retry...
+2025-12-11 17:56:18,975 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:56:19,346 - modules.download_pdf - WARNING - Download attempt 2 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 17:56:19,346 - modules.download_pdf - INFO - Waiting 4 seconds before retry...
+2025-12-11 17:56:23,347 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:56:23,690 - modules.download_pdf - WARNING - Download attempt 3 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 17:56:23,690 - modules.download_pdf - ERROR - All download attempts failed for: https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 17:56:23,692 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 17:56:27,247 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:56:27,247 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:56:27,248 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 17:56:28,210 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:56:28,211 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:56:28,213 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 17:56:29,414 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:56:29,414 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 17:56:29,419 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.pdf
+2025-12-11 17:56:29,420 - modules.download_pdf - INFO - PDF already exists: data/pdfs\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.pdf
+2025-12-11 17:56:29,420 - modules.download_pdf - WARNING - No PDF URL available for paper: Depression Detection from Social Media Text Analysis using Natural Language Processing Techniques and Hybrid Deep Learning Model
+2025-12-11 17:56:29,423 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.pdf
+2025-12-11 17:56:29,424 - modules.download_pdf - INFO - PDF already exists: data/pdfs\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.pdf
+2025-12-11 17:56:29,424 - modules.download_pdf - WARNING - No PDF URL available for paper: Natural Language Processing Advancements By Deep Learning: A Survey
+2025-12-11 17:56:29,425 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 17:56:30,715 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:56:30,715 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:56:30,717 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 17:56:31,935 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:56:31,936 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:56:31,937 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 17:56:33,236 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:56:33,237 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 17:56:33,240 - modules.download_pdf - WARNING - No PDF URL available for paper: Adversarial Attacks on Deep-learning Models in Natural Language Processing
+2025-12-11 17:56:33,240 - modules.download_pdf - WARNING - No PDF URL available for paper: An introduction to Deep Learning in Natural Language Processing: Models, techniques, and tools
+2025-12-11 17:56:33,242 - modules.download_pdf - INFO - Batch download complete. Success: 3, Failed: 7
+2025-12-11 17:56:33,245 - modules.download_pdf - INFO - Metadata saved successfully to: data/metadata\selected_papers.json
+2025-12-11 19:10:06,356 - modules.search_papers - INFO - Starting paper search for topic: 'deep learning natural language processing' (limit=10)
+2025-12-11 19:10:06,358 - modules.search_papers - INFO - Attempting API request (attempt 1/3)
+2025-12-11 19:10:10,078 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=0&limit=20 "HTTP/1.1 200 OK"
+2025-12-11 19:10:12,849 - httpx - INFO - HTTP Request: GET https://api.semanticscholar.org/graph/v1/paper/search?query=deep+learning+natural+language+processing&fields=title%2Cabstract%2Cyear%2Cauthors%2CcitationCount%2CpaperId%2Curl%2CopenAccessPdf%2CpublicationDate%2Cvenue%2CpublicationTypes%2CexternalIds%2CinfluentialCitationCount&offset=20&limit=20 "HTTP/1.1 200 OK"
+2025-12-11 19:10:13,082 - modules.search_papers - INFO - Successfully retrieved 10 papers
+2025-12-11 19:10:13,097 - modules.search_papers - INFO - Metadata saved successfully to data/metadata/paper_metadata.json
+2025-12-11 19:10:13,098 - modules.download_pdf - INFO - Starting batch download of 10 papers
+2025-12-11 19:10:13,163 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.pdf
+2025-12-11 19:10:13,164 - modules.download_pdf - INFO - PDF already exists: data/pdfs\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.pdf
+2025-12-11 19:10:13,167 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 19:10:13,627 - modules.download_pdf - WARNING - Download attempt 1 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 19:10:13,628 - modules.download_pdf - INFO - Waiting 2 seconds before retry...
+2025-12-11 19:10:15,630 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 19:10:15,980 - modules.download_pdf - WARNING - Download attempt 2 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 19:10:15,981 - modules.download_pdf - INFO - Waiting 4 seconds before retry...
+2025-12-11 19:10:19,981 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 19:10:20,348 - modules.download_pdf - WARNING - Download attempt 3 failed: 418 Client Error: Unknown Code for url: https://ieeexplore.ieee.org/document/9075398/
+2025-12-11 19:10:20,348 - modules.download_pdf - ERROR - All download attempts failed for: https://doi.org/10.1109/tnnls.2020.2979670
+2025-12-11 19:10:20,353 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 19:10:22,358 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 19:10:22,359 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 19:10:22,363 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 19:10:23,754 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 19:10:23,755 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 19:10:23,758 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1016/j.nlp.2023.100026
+2025-12-11 19:10:24,873 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 19:10:24,874 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\2baa3d2699e680bd6b16bce603f1df6827ff98d8_Exploring the frontiers of deep learning and natural language processing_ A comprehensive overview of key challenges and emerging trends.pdf
+2025-12-11 19:10:25,719 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.pdf
+2025-12-11 19:10:25,720 - modules.download_pdf - INFO - PDF already exists: data/pdfs\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.pdf
+2025-12-11 19:10:25,722 - modules.download_pdf - WARNING - No PDF URL available for paper: Depression Detection from Social Media Text Analysis using Natural Language Processing Techniques and Hybrid Deep Learning Model
+2025-12-11 19:10:25,785 - modules.download_pdf - INFO - PDF validation successful: data/pdfs\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.pdf
+2025-12-11 19:10:25,786 - modules.download_pdf - INFO - PDF already exists: data/pdfs\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.pdf
+2025-12-11 19:10:25,787 - modules.download_pdf - WARNING - No PDF URL available for paper: Natural Language Processing Advancements By Deep Learning: A Survey
+2025-12-11 19:10:25,790 - modules.download_pdf - INFO - Downloading PDF (attempt 1/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 19:10:27,141 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 19:10:27,143 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 19:10:27,147 - modules.download_pdf - INFO - Downloading PDF (attempt 2/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 19:10:28,182 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 19:10:28,183 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 19:10:28,186 - modules.download_pdf - INFO - Downloading PDF (attempt 3/3): https://doi.org/10.1016/j.jbi.2021.103984
+2025-12-11 19:10:29,364 - modules.download_pdf - WARNING - File does not have PDF header: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 19:10:29,365 - modules.download_pdf - WARNING - Downloaded file is not a valid PDF: data/pdfs\a346971a2e65e1e2f9f749ec7944023d1b6ad2be_Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing.pdf
+2025-12-11 19:10:29,371 - modules.download_pdf - WARNING - No PDF URL available for paper: Adversarial Attacks on Deep-learning Models in Natural Language Processing
+2025-12-11 19:10:29,373 - modules.download_pdf - WARNING - No PDF URL available for paper: An introduction to Deep Learning in Natural Language Processing: Models, techniques, and tools
+2025-12-11 19:10:29,375 - modules.download_pdf - INFO - Batch download complete. Success: 3, Failed: 7
+2025-12-11 19:10:29,382 - modules.download_pdf - INFO - Metadata saved successfully to: data/metadata\selected_papers.json
