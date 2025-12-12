@@ -1,0 +1,17 @@
+▪ Module 1:
+User enters topic
+Searches papers
+Applies filters
+Saves metadata
+Displays results
+
+▪ Module 2:
+Loads module 1 results
+Filters papers with PDFs
+Ranks papers
+Selects top papers
+Downloads + verifies PDFs
+Saves per-paper metadata
+Builds dataset CSV + JSONL
+Saves run report
+Verifies PDFs
