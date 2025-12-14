@@ -30,3 +30,4 @@ Results are displayed and saved automatically.
 
 - **Output Screenshot**
 
+![Example Output](screenshots/output.png)
