@@ -30,4 +30,4 @@ Results are displayed and saved automatically.
 
 - **Output Screenshot**
 
-![Example Output](Milestone1/ScreenshotMilestone1.png)
+![Example Output](ScreenshotMilestone1.png)
