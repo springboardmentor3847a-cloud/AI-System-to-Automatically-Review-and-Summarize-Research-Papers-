@@ -1,0 +1,57 @@
+Milestone 2: Week 3–4 
+• Implement text extraction module for parsing downloaded PDFs. 
+• Extract section-wise text data and store it for analysis. 
+• Develop key-finding extraction logic and cross-paper comparison module. 
+• Validate correctness and completeness of extracted textual data. 
+
+1️- PDF Text Extraction
+Purpose
+Extract readable text from downloaded research PDFs.
+Uses PyMuPDF (fitz) for reliable text extraction
+Uses pymupdf4llm for layout-aware extraction when available
+Automatically skips restricted or corrupted PDFs
+
+
+2️-Text Cleaning & Preprocessing
+Purpose
+Remove noise introduced by PDF formatting.
+
+
+
+3️- Robust Section-Wise Extraction ⭐ (Major Enhancement)
+Purpose
+Automatically identify academic sections.
+Sections Extracted
+Title
+Abstract
+Introduction
+Methods
+Results
+Conclusion
+References
+
+
+
+4️- Key-Finding Extraction ⭐
+Purpose
+Automatically extract important concepts from each paper.
+
+
+5️- Validation of Extracted Data ⭐
+Purpose
+Ensure correctness and completeness.
+Validation Checks
+Abstract exists
+Methods section exists
+Results section exists
+Text length is sufficient
+
+6️- Cross-Paper Comparison Module ⭐
+Purpose
+Compare research papers based on textual similarity.
+Metrics Used
+Cosine Similarity (TF-IDF based)
+Keyword Overlap Ratio
+
+
+keyword_overlap(k1, k2)
