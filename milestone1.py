@@ -9,102 +9,189 @@ Original file is located at
 # MODULE 1: Topic Input & Paper Search (Milestone 1)
 This notebook implements Semantic Scholar search, metadata saving, and result display.
 """
-
-!pip install semanticscholar python-dotenv requests -q
-
 import os
-import json
-from semanticscholar import SemanticScholar
+import re
+import requests
+import pandas as pd
+from tqdm import tqdm
 from dotenv import load_dotenv
+from datetime import datetime
 
-# ====================
-# 1. SETUP API KEY
-# ====================
+# =========================
+# ENV + PATH SETUP
+# =========================
+load_dotenv()
+API_KEY = os.getenv("SEMANTIC_SCHOLAR_API_KEY")
 
-def setup_api_key():
-    load_dotenv()
-    API_KEY = os.getenv("SEMANTIC_SCHOLAR_API_KEY")
+HEADERS = {"x-api-key": API_KEY} if API_KEY else {}
+SEARCH_URL = "https://api.semanticscholar.org/graph/v1/paper/search"
 
-    if not API_KEY:
-        with open(".env","w") as f:
-            f.write("SEMANTIC_SCHOLAR_API_KEY=LIh1hqt2wg8fh3a1q4ooK2ltZS5lJePH5Ydb66ew\n")
-        load_dotenv()
-        API_KEY = os.getenv("SEMANTIC_SCHOLAR_API_KEY")
+BASE_DIR = "data"
+PDF_DIR = os.path.join(BASE_DIR, "pdfs")
+LOG_DIR = os.path.join(BASE_DIR, "logs")
+DATASET_DIR = os.path.join(BASE_DIR, "dataset")
 
-    print("Semantic Scholar initialized with API key")
-    return SemanticScholar(api_key=API_KEY)
+os.makedirs(PDF_DIR, exist_ok=True)
+os.makedirs(LOG_DIR, exist_ok=True)
+os.makedirs(DATASET_DIR, exist_ok=True)
 
-# ====================
-# 2. PAPER SEARCH
-# ====================
+LOG_FILE = os.path.join(LOG_DIR, "pdf_errors.log")
 
-def search_papers(topic, limit=20):
-    print(f"\n Searching for papers on: '{topic}'")
-    sch = setup_api_key()
-    try:
-        results = sch.search_paper(
-            query=topic,
-            limit=limit,
-            fields=["paperId","title","abstract","year","authors","citationCount","openAccessPdf","url","venue"]
-        )
-        papers=[]
-        for p in results:
-            papers.append({
-                "title": p.title,
-                "authors": [a["name"] for a in p.authors] if p.authors else [],
-                "year": p.year,
-                "venue": p.venue,
-                "citationCount": p.citationCount,
-                "abstract": p.abstract,
-                "url": p.url,
-                "has_pdf": True if p.openAccessPdf else False,
-                "pdf_url": p.openAccessPdf["url"] if p.openAccessPdf else None
-            })
-        return {"topic":topic,"papers":papers}
-    except Exception as e:
-        print("Error:",e)
+# =========================
+# SEARCH PAPERS
+# =========================
+def search_papers(topic, limit, min_year=None, open_access_only=False):
+    params = {
+        "query": topic,
+        "limit": limit,
+        "fields": "title,authors,year,venue,citationCount,openAccessPdf,isOpenAccess"
+    }
+
+    response = requests.get(SEARCH_URL, headers=HEADERS, params=params, timeout=20)
+    response.raise_for_status()
+    papers = response.json().get("data", [])
+
+    filtered = []
+    for p in papers:
+        if min_year and (p.get("year") or 0) < min_year:
+            continue
+        if open_access_only and not p.get("isOpenAccess"):
+            continue
+        filtered.append(p)
+
+    return filtered
+
+# =========================
+# PDF DOWNLOAD (ROBUST)
+# =========================
+def download_pdf(paper):
+    pdf_info = paper.get("openAccessPdf")
+    if not pdf_info or not pdf_info.get("url"):
         return None
 
-# ====================
-# 3. SAVE METADATA
-# ====================
+    url = pdf_info["url"]
+    filename = re.sub(r"[^A-Za-z0-9]+", "_", paper["title"])[:60] + ".pdf"
+    filepath = os.path.join(PDF_DIR, filename)
 
-def save_search_results(data, filename=None):
-    if not filename:
-        safe_topic = "".join(c for c in data["topic"] if c.isalnum() or c==" ").replace(" ","_")
-        filename = f"paper_search_results_{safe_topic}.json"
-    os.makedirs("data/search_results", exist_ok=True)
-    path = os.path.join("data/search_results", filename)
-    with open(path,"w",encoding="utf-8") as f:
-        json.dump(data,f,indent=4,ensure_ascii=False)
-    print("Saved:",path)
-    return path
+    try:
+        r = requests.get(
+            url,
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=30,
+            stream=True
+        )
 
-# ====================
-# 4. DISPLAY RESULTS
-# ====================
+        if r.status_code != 200:
+            raise Exception(f"HTTP {r.status_code}")
 
-def display_search_results(data, max_display=10):
-    papers=data["papers"]
-    print("\nResults for:",data["topic"])
-    print("Total papers:",len(papers))
-    print("PDF available:", sum(1 for p in papers if p["has_pdf"]))
-    for i,p in enumerate(papers[:max_display]):
-        print(f"\n{i+1}. {p['title']}")
-        print(" Authors:",", ".join(p["authors"][:3]))
-        print(" Year:",p["year"],"| Citations:",p["citationCount"])
-        print(" PDF:", "Yes" if p["has_pdf"] else "No")
+        if "application/pdf" not in r.headers.get("Content-Type", ""):
+            raise Exception("Not a PDF")
 
-# ====================
-# 5. MAIN SEARCH
-# ====================
+        with open(filepath, "wb") as f:
+            for chunk in r.iter_content(1024):
+                f.write(chunk)
 
-def main_search():
-    topic = input("Enter topic: ")
-    if not topic: topic="machine learning"
-    data = search_papers(topic, limit=20)
-    if data:
-        save_path = save_search_results(data)
-        display_search_results(data)
-        print("Module 1 complete. Saved to:", save_path)
-    return data
+        if os.path.getsize(filepath) == 0:
+            raise Exception("Empty PDF")
+
+        return filepath
+
+    except Exception as e:
+        with open(LOG_FILE, "a", encoding="utf-8") as log:
+            log.write(f"[{datetime.now()}] {paper['title']} → {e}\n")
+        return None
+
+# =========================
+# PAPER SELECTION
+# =========================
+def manual_selection(papers):
+    choice = input("Enter paper numbers (e.g., 1,3,5): ").strip()
+    indices = [int(i)-1 for i in choice.split(",") if i.strip().isdigit()]
+    return [papers[i] for i in indices if 0 <= i < len(papers)]
+
+def auto_select_recent(papers, n):
+    papers_sorted = sorted(papers, key=lambda x: x.get("year") or 0, reverse=True)
+    return papers_sorted[:n]
+
+# =========================
+# DATASET SAVE
+# =========================
+def save_dataset(papers):
+    rows = []
+    for p in papers:
+        rows.append({
+            "title": p["title"],
+            "year": p.get("year"),
+            "venue": p.get("venue"),
+            "citationCount": p.get("citationCount"),
+            "isOpenAccess": p.get("isOpenAccess"),
+            "pdf_downloaded": p.get("pdf_downloaded", False),
+            "pdf_path": p.get("pdf_path")
+        })
+
+    df = pd.DataFrame(rows)
+    out_path = os.path.join(DATASET_DIR, "papers_dataset.csv")
+    df.to_csv(out_path, index=False)
+    print(f"\n📁 Dataset saved → {out_path}")
+
+# =========================
+# MAIN
+# =========================
+def main():
+    print("\n=== MILESTONE 1 – RESEARCH AUTOMATION ===\n")
+
+    topic = input("Enter research topic: ").strip() or "Machine Learning"
+    limit = int(input("Number of papers to fetch (default 10): ").strip() or 10)
+
+    min_year_input = input("Minimum publication year (optional): ").strip()
+    min_year = int(min_year_input) if min_year_input.isdigit() else None
+
+    oa_only = input("Download only open-access papers? (y/n): ").strip().lower() == "y"
+
+    print("\n[INFO] Searching papers...")
+    papers = search_papers(topic, limit, min_year, oa_only)
+
+    print(f"[INFO] {len(papers)} papers available\n")
+
+    print("Available papers:\n")
+    for i, p in enumerate(papers, 1):
+        print(f"{i}. {p['title']} ({p.get('year')})")
+
+    print("\nChoose PDF selection mode:")
+    print("1 → Manually select papers")
+    print("2 → Auto-download Top-N recent papers")
+
+    mode = input("Enter choice (1/2): ").strip()
+
+    if mode == "1":
+        selected = manual_selection(papers)
+    elif mode == "2":
+        n = int(input("Enter N (number of recent papers): ").strip())
+        print("[INFO] Auto-selected papers based on most recent year.")
+        selected = auto_select_recent(papers, n)
+    else:
+        print("Invalid choice. Exiting.")
+        return
+
+    print("\n[INFO] Downloading selected PDFs...")
+    success = 0
+
+    for p in tqdm(selected):
+        path = download_pdf(p)
+        if path:
+            p["pdf_downloaded"] = True
+            p["pdf_path"] = path
+            success += 1
+        else:
+            p["pdf_downloaded"] = False
+            p["pdf_path"] = None
+
+    print(f"\n[INFO] PDFs successfully downloaded: {success}/{len(selected)}")
+
+    save_dataset(selected)
+
+    print("\n✅ Milestone 1 completed successfully.")
+
+# =========================
+if __name__ == "__main__":
+    main()
