@@ -15,9 +15,7 @@ Due to local environment and rendering issues, the project notebook is hosted on
 
 👉 **Open Milestone 1 Notebook here:**  
 https://colab.research.google.com/drive/1QOrUCpm4OjPMYNyMlc6b7YEqa6NPjyEW?usp=sharing
-👉 **Open Milestone 1 Notebook here:**  
 
-https://colab.research.google.com/drive/1QOrUCpm4OjPMYNyMlc6b7YEqa6NPjyEW#scrollTo=dJvsep_n56VN
 
 No local setup is required. The notebook can be viewed and executed directly.
 
