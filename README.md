@@ -88,5 +88,3 @@ Milestone 1 successfully establishes a reliable and automated pipeline for colle
 
 ---
 
-
-## 📁 Folder Structure
