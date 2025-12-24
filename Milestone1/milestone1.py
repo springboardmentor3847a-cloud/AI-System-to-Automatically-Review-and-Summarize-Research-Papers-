@@ -27,7 +27,7 @@ class Config:
     PDF_DIR = os.path.join(BASE_DIR, "pdfs")
     DATASET_PATH = os.path.join(BASE_DIR, "research_dataset.csv")
 
-    API_KEY = "esyhXUy8KZc2T3lZmJqlDDmda5pBVa4jheFA4Dg0"
+    API_KEY = "esyhXUy8KZc2T3lZmJqlDDmda5pBVa4jh_to_fill" # Need to fill the missing key
     USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
 
     @staticmethod
