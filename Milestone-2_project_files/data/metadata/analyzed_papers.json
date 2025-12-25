@@ -1,0 +1,335 @@
+{
+    "total": 3,
+    "success": 3,
+    "failed": 0,
+    "missing_text": 0,
+    "results": [
+        {
+            "paper_id": "7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6",
+            "title": "Security Vulnerability Detection Using Deep Learning Natural Language Processing",
+            "analysis_status": "success",
+            "text_path": "data/extracted\\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.txt",
+            "stats": {
+                "characters": 33044,
+                "words": 4991,
+                "sentences": 303,
+                "avg_word_length": 5.18,
+                "avg_sentence_length": 16.47,
+                "type_token_ratio": 0.249,
+                "flesch_reading_ease": 42.68,
+                "flesch_kincaid_grade": 11.4,
+                "top_terms": [
+                    [
+                        "the",
+                        251
+                    ],
+                    [
+                        "of",
+                        136
+                    ],
+                    [
+                        "to",
+                        135
+                    ],
+                    [
+                        "in",
+                        129
+                    ],
+                    [
+                        "a",
+                        109
+                    ],
+                    [
+                        "and",
+                        101
+                    ],
+                    [
+                        "is",
+                        66
+                    ],
+                    [
+                        "code",
+                        55
+                    ],
+                    [
+                        "models",
+                        53
+                    ],
+                    [
+                        "for",
+                        52
+                    ]
+                ],
+                "top_bigrams": [
+                    [
+                        "in the",
+                        24
+                    ],
+                    [
+                        "of the",
+                        24
+                    ],
+                    [
+                        "deep learning",
+                        23
+                    ],
+                    [
+                        "security vulnerabilities",
+                        19
+                    ],
+                    [
+                        "in a",
+                        14
+                    ]
+                ],
+                "top_trigrams": [
+                    [
+                        "deep learning models",
+                        12
+                    ],
+                    [
+                        "software vulnerability detection",
+                        8
+                    ],
+                    [
+                        "a variety of",
+                        8
+                    ],
+                    [
+                        "nlp deep learning",
+                        8
+                    ],
+                    [
+                        "static code analysis",
+                        5
+                    ]
+                ],
+                "noun_phrases": [
+                    "deep learning",
+                    "security vulnerabilities",
+                    "vulnerability detection",
+                    "learning models",
+                    "deep learning models"
+                ]
+            }
+        },
+        {
+            "paper_id": "5263141f4c7c3b7b6e6abdb1c88f190005f9c755",
+            "title": "A Comprehensive Survey of Deep Learning Techniques Natural Language Processing",
+            "analysis_status": "success",
+            "text_path": "data/extracted\\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.txt",
+            "stats": {
+                "characters": 24259,
+                "words": 3279,
+                "sentences": 184,
+                "avg_word_length": 5.55,
+                "avg_sentence_length": 17.82,
+                "type_token_ratio": 0.304,
+                "flesch_reading_ease": 29.58,
+                "flesch_kincaid_grade": 13.56,
+                "top_terms": [
+                    [
+                        "of",
+                        152
+                    ],
+                    [
+                        "the",
+                        126
+                    ],
+                    [
+                        "and",
+                        91
+                    ],
+                    [
+                        "to",
+                        72
+                    ],
+                    [
+                        "in",
+                        68
+                    ],
+                    [
+                        "language",
+                        61
+                    ],
+                    [
+                        "a",
+                        53
+                    ],
+                    [
+                        "is",
+                        50
+                    ],
+                    [
+                        "are",
+                        45
+                    ],
+                    [
+                        "data",
+                        38
+                    ]
+                ],
+                "top_bigrams": [
+                    [
+                        "natural language",
+                        31
+                    ],
+                    [
+                        "of the",
+                        18
+                    ],
+                    [
+                        "language processing",
+                        15
+                    ],
+                    [
+                        "in the",
+                        14
+                    ],
+                    [
+                        "machine translation",
+                        13
+                    ]
+                ],
+                "top_trigrams": [
+                    [
+                        "natural language processing",
+                        15
+                    ],
+                    [
+                        "of natural language",
+                        11
+                    ],
+                    [
+                        "european journal of",
+                        9
+                    ],
+                    [
+                        "journal of technology",
+                        9
+                    ],
+                    [
+                        "of technology issn",
+                        9
+                    ]
+                ],
+                "noun_phrases": [
+                    "natural language",
+                    "language processing",
+                    "natural language processing",
+                    "machine translation",
+                    "that are"
+                ]
+            }
+        },
+        {
+            "paper_id": "6b251abe70615f4c3a34a67cfa776a914367ad6e",
+            "title": "How to keep text private? A systematic review of deep learning methods for privacy-preserving natural language processing",
+            "analysis_status": "success",
+            "text_path": "data/extracted\\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.txt",
+            "stats": {
+                "characters": 219738,
+                "words": 31959,
+                "sentences": 1973,
+                "avg_word_length": 5.19,
+                "avg_sentence_length": 16.2,
+                "type_token_ratio": 0.133,
+                "flesch_reading_ease": 38.74,
+                "flesch_kincaid_grade": 11.88,
+                "top_terms": [
+                    [
+                        "the",
+                        1542
+                    ],
+                    [
+                        "of",
+                        910
+                    ],
+                    [
+                        "and",
+                        783
+                    ],
+                    [
+                        "a",
+                        615
+                    ],
+                    [
+                        "in",
+                        590
+                    ],
+                    [
+                        "al",
+                        574
+                    ],
+                    [
+                        "to",
+                        572
+                    ],
+                    [
+                        "et",
+                        566
+                    ],
+                    [
+                        "for",
+                        514
+                    ],
+                    [
+                        "privacy",
+                        357
+                    ]
+                ],
+                "top_bigrams": [
+                    [
+                        "et al",
+                        566
+                    ],
+                    [
+                        "of the",
+                        190
+                    ],
+                    [
+                        "in the",
+                        135
+                    ],
+                    [
+                        "https doi",
+                        101
+                    ],
+                    [
+                        "doi org",
+                        101
+                    ]
+                ],
+                "top_trigrams": [
+                    [
+                        "https doi org",
+                        101
+                    ],
+                    [
+                        "pp https doi",
+                        61
+                    ],
+                    [
+                        "proceedings of the",
+                        49
+                    ],
+                    [
+                        "privacy preserving nlp",
+                        47
+                    ],
+                    [
+                        "in proceedings of",
+                        47
+                    ]
+                ],
+                "noun_phrases": [
+                    "https doi",
+                    "doi org",
+                    "https doi org",
+                    "privacy preserving",
+                    "the authors"
+                ]
+            }
+        }
+    ]
+}

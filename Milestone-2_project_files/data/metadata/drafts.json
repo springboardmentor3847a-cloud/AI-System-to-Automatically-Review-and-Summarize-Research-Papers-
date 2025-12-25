@@ -1,0 +1,401 @@
+{
+    "total": 3,
+    "drafts": [
+        {
+            "title": "Security Vulnerability Detection Using Deep Learning Natural Language Processing",
+            "paper_id": "7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6",
+            "year": 2021,
+            "citations": 68,
+            "abstract": "Detecting security vulnerabilities in software before they are exploited has been a challenging problem for decades. Traditional code analysis methods have been proposed, but are often ineffective and inefficient. In this work, we model software vulnerability detection as a natural language processing (NLP) problem with source code treated as texts, and address the auto-mated software venerability detection with recent advanced deep learning NLP models assisted by transfer learning on written English. For training and testing, we have preprocessed the NIST NVD/SARD databases and built a dataset of over 100,000 files in C programming language with 123 types of vulnerabilities. The extensive experiments generate the best performance of over 93% accuracy in detecting security vulnerabilities.",
+            "text_path": "data/extracted\\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.txt",
+            "analysis_status": "success",
+            "stats": {
+                "characters": 33044,
+                "words": 4991,
+                "sentences": 303,
+                "avg_word_length": 5.18,
+                "avg_sentence_length": 16.47,
+                "type_token_ratio": 0.249,
+                "flesch_reading_ease": 42.68,
+                "flesch_kincaid_grade": 11.4,
+                "top_terms": [
+                    [
+                        "the",
+                        251
+                    ],
+                    [
+                        "of",
+                        136
+                    ],
+                    [
+                        "to",
+                        135
+                    ],
+                    [
+                        "in",
+                        129
+                    ],
+                    [
+                        "a",
+                        109
+                    ],
+                    [
+                        "and",
+                        101
+                    ],
+                    [
+                        "is",
+                        66
+                    ],
+                    [
+                        "code",
+                        55
+                    ],
+                    [
+                        "models",
+                        53
+                    ],
+                    [
+                        "for",
+                        52
+                    ]
+                ],
+                "top_bigrams": [
+                    [
+                        "in the",
+                        24
+                    ],
+                    [
+                        "of the",
+                        24
+                    ],
+                    [
+                        "deep learning",
+                        23
+                    ],
+                    [
+                        "security vulnerabilities",
+                        19
+                    ],
+                    [
+                        "in a",
+                        14
+                    ]
+                ],
+                "top_trigrams": [
+                    [
+                        "deep learning models",
+                        12
+                    ],
+                    [
+                        "software vulnerability detection",
+                        8
+                    ],
+                    [
+                        "a variety of",
+                        8
+                    ],
+                    [
+                        "nlp deep learning",
+                        8
+                    ],
+                    [
+                        "static code analysis",
+                        5
+                    ]
+                ],
+                "noun_phrases": [
+                    "deep learning",
+                    "security vulnerabilities",
+                    "vulnerability detection",
+                    "learning models",
+                    "deep learning models"
+                ]
+            },
+            "strengths": [
+                "Readable score: 42.68",
+                "Grade level: 11.4",
+                "Avg sentence length: 16.47",
+                "Top terms: the, of, to, in, a",
+                "Key noun phrases: deep learning, security vulnerabilities, vulnerability detection, learning models, deep learning models"
+            ],
+            "key_terms": [
+                "the",
+                "of",
+                "to",
+                "in",
+                "a"
+            ],
+            "draft_text": "Security Vulnerability Detection Using Deep Learning Natural Language Processing (2021) (citations: 68). Content profile: ~4991 words; avg sentence 16.47 words; Flesch 42.68. Key terms: the, of, to, in, a. Abstract: Detecting security vulnerabilities in software before they are exploited has been a challenging problem for decades. Traditional code analysis methods have been proposed, but are often ineffective and inefficient. In this work, we model software vulnerability detection as a natural language processing (NLP) problem with source code treated as texts, and address the auto-mated software venerability detection with recent advanced deep learning NLP models assisted by transfer learning on written English. For training and testing, we have preprocessed the NIST NVD/SARD databases and built a dataset of over 100,000 files in C programming language with 123 types of vulnerabilities. The extensive experiments generate the best performance of over 93% accuracy in detecting security vulnerabilities.",
+            "sections": {
+                "contribution": "Addresses deep learning with focus on of, to.",
+                "method": "Method centers on in the, of the.",
+                "results": "Results not explicitly provided in metadata; highlight key findings and evaluation metrics when available."
+            }
+        },
+        {
+            "title": "A Comprehensive Survey of Deep Learning Techniques Natural Language Processing",
+            "paper_id": "5263141f4c7c3b7b6e6abdb1c88f190005f9c755",
+            "year": 2023,
+            "citations": 57,
+            "abstract": "In NLP research, unsupervised or semi-supervised learning techniques are increasingly getting more attention. These learning techniques are capable of learning from data that has not been manually annotated with the necessary answers or by combining non-annotated and annotated data. This essay presents a survey of various natural language processing methods. The discipline of natural language processing, which integrates linguistics, artificial intelligence, and computer science, was established to make it easier for computers and human language to communicate with one another. It is, as we can say, relevant psychopathology for the study of computer-human interaction. The understanding of natural language, which entails enabling machines to naturally interpret human language, is one of the many challenges this area faces. Discourse analysis, morphological separation, machine translation, production and understanding of NLP, part-of-speech tagging, recognition of optical characters, speech recognition, and sentiment analysis are some of the most frequent NLP tasks. As opposed to learning, which is supervised and typically yields few correct results for a given amount of input data, this job is typically quite difficult. However, there is a sizable amount of data available that is unannotated in nature, i.e. the entire contents are available on the internet, and it typically yields less accurate findings. \n ",
+            "text_path": "data/extracted\\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.txt",
+            "analysis_status": "success",
+            "stats": {
+                "characters": 24259,
+                "words": 3279,
+                "sentences": 184,
+                "avg_word_length": 5.55,
+                "avg_sentence_length": 17.82,
+                "type_token_ratio": 0.304,
+                "flesch_reading_ease": 29.58,
+                "flesch_kincaid_grade": 13.56,
+                "top_terms": [
+                    [
+                        "of",
+                        152
+                    ],
+                    [
+                        "the",
+                        126
+                    ],
+                    [
+                        "and",
+                        91
+                    ],
+                    [
+                        "to",
+                        72
+                    ],
+                    [
+                        "in",
+                        68
+                    ],
+                    [
+                        "language",
+                        61
+                    ],
+                    [
+                        "a",
+                        53
+                    ],
+                    [
+                        "is",
+                        50
+                    ],
+                    [
+                        "are",
+                        45
+                    ],
+                    [
+                        "data",
+                        38
+                    ]
+                ],
+                "top_bigrams": [
+                    [
+                        "natural language",
+                        31
+                    ],
+                    [
+                        "of the",
+                        18
+                    ],
+                    [
+                        "language processing",
+                        15
+                    ],
+                    [
+                        "in the",
+                        14
+                    ],
+                    [
+                        "machine translation",
+                        13
+                    ]
+                ],
+                "top_trigrams": [
+                    [
+                        "natural language processing",
+                        15
+                    ],
+                    [
+                        "of natural language",
+                        11
+                    ],
+                    [
+                        "european journal of",
+                        9
+                    ],
+                    [
+                        "journal of technology",
+                        9
+                    ],
+                    [
+                        "of technology issn",
+                        9
+                    ]
+                ],
+                "noun_phrases": [
+                    "natural language",
+                    "language processing",
+                    "natural language processing",
+                    "machine translation",
+                    "that are"
+                ]
+            },
+            "strengths": [
+                "Readable score: 29.58",
+                "Grade level: 13.56",
+                "Avg sentence length: 17.82",
+                "Top terms: of, the, and, to, in",
+                "Key noun phrases: natural language, language processing, natural language processing, machine translation, that are"
+            ],
+            "key_terms": [
+                "of",
+                "the",
+                "and",
+                "to",
+                "in"
+            ],
+            "draft_text": "A Comprehensive Survey of Deep Learning Techniques Natural Language Processing (2023) (citations: 57). Content profile: ~3279 words; avg sentence 17.82 words; Flesch 29.58. Key terms: of, the, and, to, in. Abstract: In NLP research, unsupervised or semi-supervised learning techniques are increasingly getting more attention. These learning techniques are capable of learning from data that has not been manually annotated with the necessary answers or by combining non-annotated and annotated data. This essay presents a survey of various natural language processing methods. The discipline of natural language processing, which integrates linguistics, artificial intelligence, and computer science, was established to make it easier for computers and human language to communicate with one another. It is, as we can say, relevant psychopathology for the study of computer-human interaction. The understanding of natural language, which entails enabling machines to naturally interpret human language, is one of the many challenges this area faces. Discourse analysis, morphological separation, machine translation, production and understanding of NLP, part-of-speech tagging, recognition of optical characters, speech recognition, and sentiment analysis are some of the most frequent NLP tasks. As opposed to learning, which is supervised and typically yields few correct results for a given amount of input data, this job is typically quite difficult. However, there is a sizable amount of data available that is unannotated in nature, i.e. the entire contents are available on the internet, and it typically yields less accurate findings. \n ",
+            "sections": {
+                "contribution": "Addresses natural language with focus on the, and.",
+                "method": "Method centers on natural language, of the.",
+                "results": "Results not explicitly provided in metadata; highlight key findings and evaluation metrics when available."
+            }
+        },
+        {
+            "title": "How to keep text private? A systematic review of deep learning methods for privacy-preserving natural language processing",
+            "paper_id": "6b251abe70615f4c3a34a67cfa776a914367ad6e",
+            "year": 2022,
+            "citations": 58,
+            "abstract": "Deep learning (DL) models for natural language processing (NLP) tasks often handle private data, demanding protection against breaches and disclosures. Data protection laws, such as the European Union’s General Data Protection Regulation (GDPR), thereby enforce the need for privacy. Although many privacy-preserving NLP methods have been proposed in recent years, no categories to organize them have been introduced yet, making it hard to follow the progress of the literature. To close this gap, this article systematically reviews over sixty DL methods for privacy-preserving NLP published between 2016 and 2020, covering theoretical foundations, privacy-enhancing technologies, and analysis of their suitability for real-world scenarios. First, we introduce a novel taxonomy for classifying the existing methods into three categories: data safeguarding methods, trusted methods, and verification methods. Second, we present an extensive summary of privacy threats, datasets for applications, and metrics for privacy evaluation. Third, throughout the review, we describe privacy issues in the NLP pipeline in a holistic view. Further, we discuss open challenges in privacy-preserving NLP regarding data traceability, computation overhead, dataset size, the prevalence of human biases in embeddings, and the privacy-utility tradeoff. Finally, this review presents future research directions to guide successive research and development of privacy-preserving NLP models.",
+            "text_path": "data/extracted\\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.txt",
+            "analysis_status": "success",
+            "stats": {
+                "characters": 219738,
+                "words": 31959,
+                "sentences": 1973,
+                "avg_word_length": 5.19,
+                "avg_sentence_length": 16.2,
+                "type_token_ratio": 0.133,
+                "flesch_reading_ease": 38.74,
+                "flesch_kincaid_grade": 11.88,
+                "top_terms": [
+                    [
+                        "the",
+                        1542
+                    ],
+                    [
+                        "of",
+                        910
+                    ],
+                    [
+                        "and",
+                        783
+                    ],
+                    [
+                        "a",
+                        615
+                    ],
+                    [
+                        "in",
+                        590
+                    ],
+                    [
+                        "al",
+                        574
+                    ],
+                    [
+                        "to",
+                        572
+                    ],
+                    [
+                        "et",
+                        566
+                    ],
+                    [
+                        "for",
+                        514
+                    ],
+                    [
+                        "privacy",
+                        357
+                    ]
+                ],
+                "top_bigrams": [
+                    [
+                        "et al",
+                        566
+                    ],
+                    [
+                        "of the",
+                        190
+                    ],
+                    [
+                        "in the",
+                        135
+                    ],
+                    [
+                        "https doi",
+                        101
+                    ],
+                    [
+                        "doi org",
+                        101
+                    ]
+                ],
+                "top_trigrams": [
+                    [
+                        "https doi org",
+                        101
+                    ],
+                    [
+                        "pp https doi",
+                        61
+                    ],
+                    [
+                        "proceedings of the",
+                        49
+                    ],
+                    [
+                        "privacy preserving nlp",
+                        47
+                    ],
+                    [
+                        "in proceedings of",
+                        47
+                    ]
+                ],
+                "noun_phrases": [
+                    "https doi",
+                    "doi org",
+                    "https doi org",
+                    "privacy preserving",
+                    "the authors"
+                ]
+            },
+            "strengths": [
+                "Readable score: 38.74",
+                "Grade level: 11.88",
+                "Avg sentence length: 16.2",
+                "Top terms: the, of, and, a, in",
+                "Key noun phrases: https doi, doi org, https doi org, privacy preserving, the authors"
+            ],
+            "key_terms": [
+                "the",
+                "of",
+                "and",
+                "a",
+                "in"
+            ],
+            "draft_text": "How to keep text private? A systematic review of deep learning methods for privacy-preserving natural language processing (2022) (citations: 58). Content profile: ~31959 words; avg sentence 16.2 words; Flesch 38.74. Key terms: the, of, and, a, in. Abstract: Deep learning (DL) models for natural language processing (NLP) tasks often handle private data, demanding protection against breaches and disclosures. Data protection laws, such as the European Union’s General Data Protection Regulation (GDPR), thereby enforce the need for privacy. Although many privacy-preserving NLP methods have been proposed in recent years, no categories to organize them have been introduced yet, making it hard to follow the progress of the literature. To close this gap, this article systematically reviews over sixty DL methods for privacy-preserving NLP published between 2016 and 2020, covering theoretical foundations, privacy-enhancing technologies, and analysis of their suitability for real-world scenarios. First, we introduce a novel taxonomy for classifying the existing methods into three categories: data safeguarding methods, trusted methods, and verification methods. Second, we present an extensive summary of privacy threats, datasets for applications, and metrics for privacy evaluation. Third, throughout the review, we describe privacy issues in the NLP pipeline in a holistic view. Further, we discuss open challenges in privacy-preserving NLP regarding data traceability, computation overhead, dataset size, the prevalence of human biases in embeddings, and the privacy-utility tradeoff. Finally, this review presents future research directions to guide successive research and development of privacy-preserving NLP models.",
+            "sections": {
+                "contribution": "Addresses https doi with focus on of, and.",
+                "method": "Method centers on et al, of the.",
+                "results": "Results not explicitly provided in metadata; highlight key findings and evaluation metrics when available."
+            }
+        }
+    ]
+}

@@ -1,0 +1,296 @@
+{
+    "topic": "deep learning natural language processing",
+    "search_date": "2025-12-25 22:06:05",
+    "filters": {
+        "year_min": 2020,
+        "year_max": null,
+        "min_citations": 50,
+        "author": null
+    },
+    "total_papers": 10,
+    "papers": [
+        {
+            "title": "Security Vulnerability Detection Using Deep Learning Natural Language Processing",
+            "abstract": "Detecting security vulnerabilities in software before they are exploited has been a challenging problem for decades. Traditional code analysis methods have been proposed, but are often ineffective and inefficient. In this work, we model software vulnerability detection as a natural language processing (NLP) problem with source code treated as texts, and address the auto-mated software venerability detection with recent advanced deep learning NLP models assisted by transfer learning on written English. For training and testing, we have preprocessed the NIST NVD/SARD databases and built a dataset of over 100,000 files in C programming language with 123 types of vulnerabilities. The extensive experiments generate the best performance of over 93% accuracy in detecting security vulnerabilities.",
+            "authors": [
+                "Noah Ziems",
+                "Shaoen Wu"
+            ],
+            "year": 2021,
+            "citation_count": 68,
+            "influential_citation_count": 5,
+            "paper_id": "7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6",
+            "url": "https://www.semanticscholar.org/paper/7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6",
+            "pdf_url": "http://arxiv.org/pdf/2105.02388",
+            "publication_date": "2021-05-06T00:00:00",
+            "venue": "Conference on Computer Communications Workshops",
+            "publication_types": [
+                "JournalArticle",
+                "Conference"
+            ],
+            "external_ids": {
+                "DBLP": "conf/infocom/ZiemsW21",
+                "ArXiv": "2105.02388",
+                "DOI": "10.1109/INFOCOMWKSHPS51825.2021.9484500",
+                "CorpusId": 233864893
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "A Survey of the Usages of Deep Learning for Natural Language Processing",
+            "abstract": "Over the last several years, the field of natural language processing has been propelled forward by an explosion in the use of deep learning models. This article provides a brief introduction to the field and a quick overview of deep learning architectures and methods. It then sifts through the plethora of recent studies and summarizes a large assortment of relevant contributions. Analyzed research areas include several core linguistic processing issues in addition to many applications of computational linguistics. A discussion of the current state of the art is then provided along with recommendations for future research in the field.",
+            "authors": [
+                "Dan Otter",
+                "Julian R. Medina",
+                "J. Kalita"
+            ],
+            "year": 2020,
+            "citation_count": 1510,
+            "influential_citation_count": 33,
+            "paper_id": "7b9b756ab509cb9f52dbac95e3e901d571f0784f",
+            "url": "https://www.semanticscholar.org/paper/7b9b756ab509cb9f52dbac95e3e901d571f0784f",
+            "pdf_url": "https://doi.org/10.1109/tnnls.2020.2979670",
+            "publication_date": "2020-04-21T00:00:00",
+            "venue": "IEEE Transactions on Neural Networks and Learning Systems",
+            "publication_types": [
+                "JournalArticle",
+                "Review"
+            ],
+            "external_ids": {
+                "DBLP": "journals/tnn/OtterMK21",
+                "MAG": "3019166713",
+                "DOI": "10.1109/TNNLS.2020.2979670",
+                "CorpusId": 51872504,
+                "PubMed": "32324570"
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "Exploring the frontiers of deep learning and natural language processing: A comprehensive overview of key challenges and emerging trends",
+            "abstract": "N/A",
+            "authors": [
+                "Wahab Khan",
+                "Ali Daud",
+                "Khairullah Khan",
+                "Shakoor Muhammad",
+                "Rafiul Haq"
+            ],
+            "year": 2023,
+            "citation_count": 150,
+            "influential_citation_count": 2,
+            "paper_id": "2baa3d2699e680bd6b16bce603f1df6827ff98d8",
+            "url": "https://www.semanticscholar.org/paper/2baa3d2699e680bd6b16bce603f1df6827ff98d8",
+            "pdf_url": "https://doi.org/10.1016/j.nlp.2023.100026",
+            "publication_date": "2023-07-01T00:00:00",
+            "venue": "Natural Language Processing Journal",
+            "publication_types": [
+                "JournalArticle",
+                "Review"
+            ],
+            "external_ids": {
+                "DBLP": "journals/nlpj/KhanDKMH23",
+                "DOI": "10.1016/j.nlp.2023.100026",
+                "CorpusId": 260183815
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "A Comprehensive Survey of Deep Learning Techniques Natural Language Processing",
+            "abstract": "In NLP research, unsupervised or semi-supervised learning techniques are increasingly getting more attention. These learning techniques are capable of learning from data that has not been manually annotated with the necessary answers or by combining non-annotated and annotated data. This essay presents a survey of various natural language processing methods. The discipline of natural language processing, which integrates linguistics, artificial intelligence, and computer science, was established to make it easier for computers and human language to communicate with one another. It is, as we can say, relevant psychopathology for the study of computer-human interaction. The understanding of natural language, which entails enabling machines to naturally interpret human language, is one of the many challenges this area faces. Discourse analysis, morphological separation, machine translation, production and understanding of NLP, part-of-speech tagging, recognition of optical characters, speech recognition, and sentiment analysis are some of the most frequent NLP tasks. As opposed to learning, which is supervised and typically yields few correct results for a given amount of input data, this job is typically quite difficult. However, there is a sizable amount of data available that is unannotated in nature, i.e. the entire contents are available on the internet, and it typically yields less accurate findings. \n ",
+            "authors": [
+                "Jasmin Praful Bharadiya"
+            ],
+            "year": 2023,
+            "citation_count": 57,
+            "influential_citation_count": 1,
+            "paper_id": "5263141f4c7c3b7b6e6abdb1c88f190005f9c755",
+            "url": "https://www.semanticscholar.org/paper/5263141f4c7c3b7b6e6abdb1c88f190005f9c755",
+            "pdf_url": "https://ajpojournals.org/journals/index.php/EJT/article/download/1473/1597",
+            "publication_date": "2023-05-23T00:00:00",
+            "venue": "European journal of technology",
+            "publication_types": [
+                "JournalArticle",
+                "Review"
+            ],
+            "external_ids": {
+                "DOI": "10.47672/ejt.1473",
+                "CorpusId": 258880271
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "Depression Detection from Social Media Text Analysis using Natural Language Processing Techniques and Hybrid Deep Learning Model",
+            "abstract": "Depression is a kind of emotion that negatively impacts people's daily lives. The number of people suffering from long-term feelings is increasing every year across the globe. Depressed patients may engage in self-harm behaviors, which occasionally result in suicide. Many psychiatrists struggle to identify the presence of mental illness or negative emotion early to provide a better course of treatment before they reach a critical stage. One of the most challenging problems is detecting depression in people at the earliest possible stage. Researchers are using Natural Language Processing (NLP) techniques to analyze text content uploaded on social media, which helps to design approaches for detecting depression. This work analyses numerous prior studies that used learning techniques to identify depression. The existing methods suffer from better model representation problems to detect depression from the text with high accuracy. The present work addresses a solution to these problems by creating a new hybrid deep learning neural network design with better text representations called “Fasttext Convolution Neural Network with Long Short-Term Memory (FCL).” In addition, this work utilizes the advantage of NLP to simplify the text analysis during the model development. The FCL model comprises fasttext embedding for better text representation considering out-of-vocabulary (OOV) with semantic information, a convolution neural network (CNN) architecture to extract global information, and Long Short-Term Memory (LSTM) architecture to extract local features with dependencies. The present work was implemented on real-world datasets utilized in the literature. The proposed technique provides better results than the state-of-the-art to detect depression with high accuracy.",
+            "authors": [
+                "Vankayala Tejaswini",
+                "Korra Sathya Babu",
+                "Bibhudatta Sahoo"
+            ],
+            "year": 2022,
+            "citation_count": 84,
+            "influential_citation_count": 5,
+            "paper_id": "3e8c35a77b4b2f263fda6223ba1c5026ecfdfd7e",
+            "url": "https://www.semanticscholar.org/paper/3e8c35a77b4b2f263fda6223ba1c5026ecfdfd7e",
+            "pdf_url": "",
+            "publication_date": "2022-11-05T00:00:00",
+            "venue": "ACM Trans. Asian Low Resour. Lang. Inf. Process.",
+            "publication_types": [
+                "JournalArticle"
+            ],
+            "external_ids": {
+                "DBLP": "journals/talip/TejaswiniBS24",
+                "DOI": "10.1145/3569580",
+                "CorpusId": 253304155
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "How to keep text private? A systematic review of deep learning methods for privacy-preserving natural language processing",
+            "abstract": "Deep learning (DL) models for natural language processing (NLP) tasks often handle private data, demanding protection against breaches and disclosures. Data protection laws, such as the European Union’s General Data Protection Regulation (GDPR), thereby enforce the need for privacy. Although many privacy-preserving NLP methods have been proposed in recent years, no categories to organize them have been introduced yet, making it hard to follow the progress of the literature. To close this gap, this article systematically reviews over sixty DL methods for privacy-preserving NLP published between 2016 and 2020, covering theoretical foundations, privacy-enhancing technologies, and analysis of their suitability for real-world scenarios. First, we introduce a novel taxonomy for classifying the existing methods into three categories: data safeguarding methods, trusted methods, and verification methods. Second, we present an extensive summary of privacy threats, datasets for applications, and metrics for privacy evaluation. Third, throughout the review, we describe privacy issues in the NLP pipeline in a holistic view. Further, we discuss open challenges in privacy-preserving NLP regarding data traceability, computation overhead, dataset size, the prevalence of human biases in embeddings, and the privacy-utility tradeoff. Finally, this review presents future research directions to guide successive research and development of privacy-preserving NLP models.",
+            "authors": [
+                "S. Sousa",
+                "Roman Kern"
+            ],
+            "year": 2022,
+            "citation_count": 58,
+            "influential_citation_count": 1,
+            "paper_id": "6b251abe70615f4c3a34a67cfa776a914367ad6e",
+            "url": "https://www.semanticscholar.org/paper/6b251abe70615f4c3a34a67cfa776a914367ad6e",
+            "pdf_url": "https://link.springer.com/content/pdf/10.1007/s10462-022-10204-6.pdf",
+            "publication_date": "2022-05-20T00:00:00",
+            "venue": "Artificial Intelligence Review",
+            "publication_types": [
+                "JournalArticle",
+                "Review"
+            ],
+            "external_ids": {
+                "DBLP": "journals/iacr/SousaK22",
+                "ArXiv": "2205.10095",
+                "DOI": "10.1007/s10462-022-10204-6",
+                "CorpusId": 248965356
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "Natural Language Processing Advancements By Deep Learning: A Survey",
+            "abstract": "Natural Language Processing (NLP) helps empower intelligent machines by enhancing a better understanding of the human language for linguistic-based human-computer communication. Recent developments in computational power and the advent of large amounts of linguistic data have heightened the need and demand for automating semantic analysis using data-driven approaches. The utilization of data-driven strategies is pervasive now due to the significant improvements demonstrated through the usage of deep learning methods in areas such as Computer Vision, Automatic Speech Recognition, and in particular, NLP. This survey categorizes and addresses the different aspects and applications of NLP that have benefited from deep learning. It covers core NLP tasks and applications and describes how deep learning methods and models advance these areas. We further analyze and compare different approaches and state-of-the-art models.",
+            "authors": [
+                "A. Torfi",
+                "Rouzbeh A. Shirvani",
+                "Yaser Keneshloo",
+                "Nader Tavvaf",
+                "E. Fox"
+            ],
+            "year": 2020,
+            "citation_count": 247,
+            "influential_citation_count": 6,
+            "paper_id": "77b91d7607518994d04f75119db4138b23e2eb87",
+            "url": "https://www.semanticscholar.org/paper/77b91d7607518994d04f75119db4138b23e2eb87",
+            "pdf_url": "",
+            "publication_date": "2020-03-02T00:00:00",
+            "venue": "arXiv.org",
+            "publication_types": [
+                "JournalArticle",
+                "Review"
+            ],
+            "external_ids": {
+                "ArXiv": "2003.01200",
+                "DBLP": "journals/corr/abs-2003-01200",
+                "MAG": "3009431628",
+                "CorpusId": 211818180
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "Classifying social determinants of health from unstructured electronic health records using deep learning-based natural language processing",
+            "abstract": "N/A",
+            "authors": [
+                "Sifei Han",
+                "Robert F. Zhang",
+                "Lingyun Shi",
+                "Russell Richie",
+                "Haixia Liu",
+                "Andrew Tseng",
+                "Wei Quan",
+                "N. Ryan",
+                "D. Brent",
+                "F. Tsui"
+            ],
+            "year": 2022,
+            "citation_count": 102,
+            "influential_citation_count": 7,
+            "paper_id": "a346971a2e65e1e2f9f749ec7944023d1b6ad2be",
+            "url": "https://www.semanticscholar.org/paper/a346971a2e65e1e2f9f749ec7944023d1b6ad2be",
+            "pdf_url": "https://doi.org/10.1016/j.jbi.2021.103984",
+            "publication_date": "2022-01-01T00:00:00",
+            "venue": "Journal of Biomedical Informatics",
+            "publication_types": [
+                "JournalArticle"
+            ],
+            "external_ids": {
+                "DBLP": "journals/jbi/HanZSRLTQRBT22",
+                "DOI": "10.1016/j.jbi.2021.103984",
+                "CorpusId": 245825778,
+                "PubMed": "35007754"
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "Adversarial Attacks on Deep-learning Models in Natural Language Processing",
+            "abstract": "With the development of high computational devices, deep neural networks (DNNs), in recent years, have gained significant popularity in many Artificial Intelligence (AI) applications. However, previous efforts have shown that DNNs are vulnerable to strategically modified samples, named adversarial examples. These samples are generated with some imperceptible perturbations, but can fool the DNNs to give false predictions. Inspired by the popularity of generating adversarial examples against DNNs in Computer Vision (CV), research efforts on attacking DNNs for Natural Language Processing (NLP) applications have emerged in recent years. However, the intrinsic difference between image (CV) and text (NLP) renders challenges to directly apply attacking methods in CV to NLP. Various methods are proposed addressing this difference and attack a wide range of NLP applications. In this article, we present a systematic survey on these works. We collect all related academic works since the first appearance in 2017. We then select, summarize, discuss, and analyze 40 representative works in a comprehensive way. To make the article self-contained, we cover preliminary knowledge of NLP and discuss related seminal works in computer vision. We conclude our survey with a discussion on open issues to bridge the gap between the existing progress and more robust adversarial attacks on NLP DNNs.",
+            "authors": [
+                "W. Zhang",
+                "Quan Z. Sheng",
+                "A. Alhazmi",
+                "Chenliang Li"
+            ],
+            "year": 2020,
+            "citation_count": 263,
+            "influential_citation_count": 12,
+            "paper_id": "88338c58701f34503c7af77e34f19d9a5cd66313",
+            "url": "https://www.semanticscholar.org/paper/88338c58701f34503c7af77e34f19d9a5cd66313",
+            "pdf_url": "",
+            "publication_date": "2020-04-01T00:00:00",
+            "venue": "ACM Transactions on Intelligent Systems and Technology",
+            "publication_types": [
+                "JournalArticle",
+                "Review"
+            ],
+            "external_ids": {
+                "DBLP": "journals/tist/ZhangSAL20",
+                "MAG": "3015001695",
+                "DOI": "10.1145/3374217",
+                "CorpusId": 118674722
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "An introduction to Deep Learning in Natural Language Processing: Models, techniques, and tools",
+            "abstract": "N/A",
+            "authors": [
+                "Ivano Lauriola",
+                "A. Lavelli",
+                "F. Aiolli"
+            ],
+            "year": 2021,
+            "citation_count": 506,
+            "influential_citation_count": 6,
+            "paper_id": "106176d796eda5efcd8a4d84ce98267350d679b9",
+            "url": "https://www.semanticscholar.org/paper/106176d796eda5efcd8a4d84ce98267350d679b9",
+            "pdf_url": "",
+            "publication_date": "2021-07-01T00:00:00",
+            "venue": "Neurocomputing",
+            "publication_types": [
+                "JournalArticle",
+                "Review"
+            ],
+            "external_ids": {
+                "DBLP": "journals/ijon/LauriolaLA22",
+                "MAG": "3190730109",
+                "DOI": "10.1016/j.neucom.2021.05.103",
+                "CorpusId": 238835461
+            },
+            "pdf_available": true
+        }
+    ]
+}
