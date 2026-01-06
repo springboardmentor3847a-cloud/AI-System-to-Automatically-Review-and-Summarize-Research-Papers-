@@ -1,27 +1,64 @@
-# AI System to Automatically Review and Summarize Research Papers
+📘 AI System to Automatically Review and Summarize Research Papers
 
-## 📌 Project Description
-This project focuses on building an AI-based system that automatically reviews and summarizes research papers.
-The system fetches papers, preprocesses text, and generates meaningful summaries to assist researchers and reviewers.
+An AI-powered end-to-end system that automates the process of reviewing academic research papers — from paper retrieval to a refined final literature review — using LLMs and structured NLP pipelines.
 
-## 🚀 Milestone 1 – Implementation
-Milestone 1 includes:
-- Research paper fetching
-- Text preprocessing
-- Initial analysis and summarization pipeline
+🚀 Features
 
-## 🔗 Google Colab Notebook (Recommended)
-Due to local environment and rendering issues, the project notebook is hosted on Google Colab.
+🔍 Automated research paper search & PDF retrieval
 
-👉 **Open Milestone 1 Notebook here:**  
-https://colab.research.google.com/drive/1QOrUCpm4OjPMYNyMlc6b7YEqa6NPjyEW?usp=sharing
+📄 Section-wise PDF text extraction
 
+🧠 GPT-based generation of Abstract, Methods, and Results
 
-No local setup is required. The notebook can be viewed and executed directly.
+📊 Cross-paper synthesis and literature review generation
 
-## 📂 Repository Files
-- `milestone1.ipynb` – Original notebook file
-- `README.md` – Project documentation
+✍️ Review, critique, and refinement cycle
 
-## ✅ Status
-Milestone 1 completed and submitted for evaluation.
+📘 Final consolidated academic report
+
+🖥️ Gradio-based UI (designed for local execution)
+)
+
+🧠Workflow
+Paper Search → PDF Extraction → Section Analysis
+→ Draft Generation → Cross-Paper Synthesis
+→ Review & Refinement → Final Report
+🛠️ Tech Stack
+
+Python
+
+OpenAI (GPT-based models)
+
+Semantic Scholar API
+
+PyMuPDF / PyMuPDF4LLM
+
+Gradio (UI)
+
+JSON-based modular pipeline
+
+🗓️ Milestones Covered
+✅ Milestone 1: Paper Retrieval
+
+✅ Milestone 2: PDF Extraction & Analysis
+
+✅ Milestone 3: Draft Generation & Synthesis
+
+✅ Milestone 4: Review, Refinement & Final Report
+
+⚠️ UI Note
+
+The Gradio interface is fully implemented but intended for local execution.
+Due to Python 3.12 and uvicorn limitations in Google Colab, UI execution in Colab may be unstable. The core AI pipeline runs successfully.📄 Output
+
+Structured section summaries
+
+Synthesized literature review
+
+Quality-evaluated and refined final report
+
+✅ Status
+
+✔ End-to-end pipeline implemented
+✔ All milestones completed
+✔ Ready for evaluation and presentation
