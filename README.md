@@ -98,7 +98,7 @@ References are auto-generated using extracted metadata
 ⚙️ Configuration
 🔑 Environment Variables (.env)
 GEMINI_API_KEY=your_gemini_api_key_here
-⚠️ .env is excluded from version control for security reasons.
+⚠️ .env is excluded from version control for security reasons(but still uploaded for your review).
 
 ▶️ How to Run
 python week_5_6_milestone3.py
