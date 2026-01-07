@@ -86,7 +86,7 @@ AI-System-to-Automatically-Review-and-Summarize-Research-Papers/
 
 ## 👩‍💻 Author
 
-**Likuna (Liku)**  
+**Likuna**  
 Student | Aspiring AI Engineer
 
 ---
