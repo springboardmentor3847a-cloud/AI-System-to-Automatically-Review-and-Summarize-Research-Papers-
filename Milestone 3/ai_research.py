@@ -30,7 +30,7 @@ class Config:
     OUTPUT_DIR = os.path.join(BASE_DIR, "outputs")
     DATASET_PATH = os.path.join(BASE_DIR, "dataset.csv")
 
-    API_KEY = "esyhXUy8KZc2T3lZmJqlDDmda5pBVa4jheFA4Dg0"  # need to complete the api key
+    API_KEY = "esyhXUy8KZc2T3lZmJqlDDmda5pBVa4sdfghjk"  # need to complete the api key
     USER_AGENT = "Mozilla/5.0"
 
     @staticmethod
@@ -266,8 +266,8 @@ class Config:
     DATASET_PATH = os.path.join(BASE_DIR, "dataset.csv")
 
     # API KEYS
-    GEMINI_API_KEY = "AIzaSyCdkbi8wU4z8vlgCjJFwI-4X0ky5oaoFIE" # <--- PASTE KEY HERE
-    SEMANTIC_SCHOLAR_KEY = "esyhXUy8KZc2T3lZmJqlDDmda5pBVa4jheFA4Dg0" # Optional
+    GEMINI_API_KEY = "AIzaSyCdkbi8wU4z8vlgCjJFwI-4X0kasdfghjk" # <--- PASTE KEY HERE
+    SEMANTIC_SCHOLAR_KEY = "esyhXUy8KZc2T3lZmJqlDDmda5pBVaasdfghjkl" # Optional
 
     USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
 
