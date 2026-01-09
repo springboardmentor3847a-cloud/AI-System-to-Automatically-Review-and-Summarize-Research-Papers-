@@ -1,0 +1,10 @@
+You are synthesizing results across multiple research papers.
+
+Context:
+{CONTEXT}
+
+Summarize recurring findings and observed trends.
+Avoid overgeneralization and speculation.
+
+Content:
+{CONTENT}

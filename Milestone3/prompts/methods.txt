@@ -1,0 +1,11 @@
+You are summarizing and comparing methodologies used across multiple research papers.
+
+Context:
+{CONTEXT}
+
+Describe common approaches and notable variations.
+Maintain an academic tone.
+Do not fabricate techniques.
+
+Content:
+{CONTENT}
