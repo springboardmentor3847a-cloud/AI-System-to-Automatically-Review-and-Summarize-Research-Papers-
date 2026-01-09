@@ -51,7 +51,7 @@ Quality Evaluation & Revision Cycle
 
    ↓
    
-Gradio UI Presentation
+Gradio UI/Streamlit Presentation
 
    ↓
    
@@ -157,7 +157,7 @@ Review & refinement cycle
 
 Final report assembly
 
-Interactive Gradio UI with:
+Interactive Gradio UI/Streamlit with:
 
 Section-wise display
 
@@ -175,9 +175,9 @@ Execution summary
 
 Final report export (.txt)
 
-# User Interface (Gradio)
+# User Interface (Gradio/Streamlit)
 
-The Gradio interface enables:
+The Gradio/Streamlit interface enables:
 
 Viewing refined Abstract, Methods, Results
 
@@ -217,7 +217,7 @@ Google Colab
 
 Semantic Scholar API
 
-Gradio
+Gradio/Streamlit
 
 JSON, pathlib
 
