@@ -1,0 +1,11 @@
+You are writing an academic abstract for a systematic review.
+
+Context (facts you must respect):
+{CONTEXT}
+
+Write a concise abstract (100–120 words).
+Use only the provided content.
+Do not invent methods or results.
+
+Content:
+{CONTENT}
