@@ -41,7 +41,6 @@ This project implements an automated pipeline for extracting, structuring, and a
 
 📄 Milestone 3: Automated Draft Generation (Week 5–6)
 📌 Overview
-
 This module implements Milestone 3 of the research automation pipeline.
 It focuses on automated academic draft generation by synthesizing extracted research content from multiple papers (Milestone 2 output) using LLM-based text generation.
 
@@ -89,18 +88,13 @@ File	Description
 final_draft.json	Structured machine-readable draft
 final_draft.docx	Human-readable Word document
 final_draft.pdf	Submission-ready PDF
-📑 APA Citation Support
 
-In-text citations follow APA-style format
-(Author et al., Year)
-References are auto-generated using extracted metadata
 
 ⚙️ Configuration
 🔑 Environment Variables (.env)
 GEMINI_API_KEY=your_gemini_api_key_here
-⚠️ .env is excluded from version control for security reasons(but still uploaded for your review).
 
-▶️ How to Run
+ How to Run
 python week_5_6_milestone3.py
 
 *Error Handling & Robustness
@@ -109,3 +103,91 @@ python week_5_6_milestone3.py
 2.Avoids hard-coded model dependencies
 3.Prevents pipeline failure during evaluation
 4.Ensures end-to-end execution in all environments
+
+ Milestone 4: Review, Refinement & UI Integration (Week 7–8)
+ Overview:
+ 
+This module implements Milestone 4 (Week 7–8) of the automated research pipeline.
+It extends Milestone 3 (Automated Draft Generation) by introducing a human-in-the-loop review and refinement cycle, along with a polished interactive UI for final evaluation and revision.
+The goal of this milestone is to ensure that the automatically generated academic draft is:
+
+Critically reviewed
+Refined for academic quality
+User-controllable
+Presentation-ready
+
+Objectives Achieved:
+
+Review and refinement cycle for generated content
+Revision suggestions and quality evaluation module
+Final UI integration using Gradio
+User-triggered re-run of revision cycle
+Final report preparation
+Final testing, documentation, and demo readiness
+
+Core Features:
+Review & Quality Evaluation
+Performs rule-based quality checks on generated sections
+Evaluates:
+Length adequacy
+Sentence structure
+Readability
+
+Revision Suggestions (LLM-Assisted):
+
+Uses Google Gemini (2.5 Flash preferred) to:
+Critique generated sections
+Suggest targeted academic improvements
+Suggestions focus on:
+
+Clarity
+Coherence
+Academic tone
+
+Does not overwrite content automatically
+
+User-Triggered Revision Cycle:
+
+A dedicated “Critique / Revise” button allows users to:
+Trigger evaluation
+View suggestions
+Generate a refined version of the section
+Enables human-in-the-loop control, essential for academic writing
+
+Final UI Integration using Gradio:
+
+The module provides a polished Gradio interface that:
+
+Displays generated sections in separate tabs:
+
+Abstract
+Methods
+Results
+
+Shows:
+Original section
+Quality evaluation
+Revision suggestions
+Revised version
+This UI enables interactive review, refinement, and demonstration.
+
+How to run:
+pip install gradio python-dotenv
+python week_7_8_milestone4.py
+
+Error Handling & Robustness:
+Gracefully handles:
+
+Revoked API keys
+Gemini overload (503 errors)
+Network/API failures
+
+Prevents crashes during UI interaction
+Allows safe demo even in restricted environments
+Clear warning messages displayed instead of runtime failures
+
+Pipeline Position
+Milestone 1 → Auotmactic paper selection 
+Milestone 2 → PDF Extraction & Analysis
+Milestone 3 → Automated Draft Generation
+Milestone 4 → Review, Refinement & UI Integration
