@@ -5,7 +5,7 @@ This project implements an end-to-end automated research assistant that searches
 
 The system is designed to support research automation, academic writing assistance, and literature synthesis, following a milestone-based development approach over 8 weeks.
 
-Milestone 1: Topic Input & Paper Search (Week 1–2)
+# Milestone 1: Topic Input & Paper Search (Week 1–2)
  Overview
 
 This module allows users to input a research topic and automatically retrieve relevant academic papers using the Semantic Scholar API.
@@ -13,46 +13,66 @@ This module allows users to input a research topic and automatically retrieve re
  Key Features
 
 Topic-based paper search
+
 Optional filters (year, citation count)
+
 Metadata extraction (title, authors, year, venue, PDF availability)
+
 JSON-based storage of search results
+
 Logging for reproducibility
 
-📄 Milestone 2: PDF Text Extraction & Analysis (Week 3–4)
+# Milestone 2: PDF Text Extraction & Analysis (Week 3–4)
 📌 Overview
 
 This module processes downloaded PDFs and extracts structured, analyzable text data.
 
-✨ Core Features:
+ Core Features:
 
 Robust PDF text extraction using PyMuPDF
+
 Section-wise parsing (Abstract, Methods, Results, etc.)
+
 Header pattern expansion (e.g., Experimental Setup, Discussion)
+
 Key-finding extraction using TF-IDF
+
 Cross-paper thematic comparison
+
 Validation of extracted content
+
 Structured dataset generation
 
 Technologies Used:
 
 Python
+
 PyMuPDF / pymupdf4llm
+
 scikit-learn
+
 pandas
 
-📄 Milestone 3: Automated Draft Generation (Week 5–6)
-📌 Overview
+# Milestone 3: Automated Draft Generation (Week 5–6)
+ Overview
+ 
 This module implements Milestone 3 of the research automation pipeline.
 It focuses on automated academic draft generation by synthesizing extracted research content from multiple papers (Milestone 2 output) using LLM-based text generation.
 
 The system generates structured drafts for:
+
 Abstract
+
 Methods
+
 Results
+
 References (APA format)
+
 It is designed to be robust, reproducible, and evaluation-safe, with fallback mechanisms to ensure execution even in restricted environments.
 
-🧠 Core Features
+ Core Features:
+ 
 ✅ Automated Section Drafting
 Generates Abstract, Methods, and Results sections automatically
 Uses synthesized findings across multiple papers
@@ -70,24 +90,34 @@ Ensures no runtime failure during evaluation
 Guarantees reproducibility in offline or restricted environments
 This design choice follows industry best practices for AI system robustness.
 
-📂 Input & Output
-📥 Input
+Input & Output
+ Input
 JSON metadata files from Milestone 2
 
 Located in:
+
 processed/metadata/
+
 Each file contains:
+
 Extracted sections
+
 Key findings
+
 Themes
+
 Paper metadata
 
-📤 Output
+Output:
+
 Generated drafts are stored in:
 milestone3_output/
+
 File	Description
 final_draft.json	Structured machine-readable draft
+
 final_draft.docx	Human-readable Word document
+
 final_draft.pdf	Submission-ready PDF
 
 
@@ -96,6 +126,7 @@ final_draft.pdf	Submission-ready PDF
 GEMINI_API_KEY=your_gemini_api_key_here
 
  How to Run
+ 
 python week_5_6_milestone3.py
 
 *Error Handling & Robustness
@@ -105,7 +136,7 @@ python week_5_6_milestone3.py
 3.Prevents pipeline failure during evaluation
 4.Ensures end-to-end execution in all environments
 
- Milestone 4: Review, Refinement & UI Integration (Week 7–8)
+# Milestone 4: Review, Refinement & UI Integration (Week 7–8)
  Overview:
  
 This module implements Milestone 4 (Week 7–8) of the automated research pipeline.
