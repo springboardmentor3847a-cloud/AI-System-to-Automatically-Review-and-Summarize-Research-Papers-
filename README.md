@@ -1,43 +1,44 @@
-This directory includes a few sample datasets to get you started.
+# Automated Research Paper Analysis & Draft Generation System
+## Short Project Description
 
-*   `california_housing_data*.csv` is California housing data from the 1990 US
-    Census; more information is available at:
-    https://docs.google.com/document/d/e/2PACX-1vRhYtsvc5eOR2FWNCwaBiKL6suIOrxJig8LcSBbmCbyYsayia_DvPOOBlXZ4CAlQ5nlDD8kTaIDRwrN/pub
+This project implements an end-to-end automated research assistant that searches academic papers, extracts and analyzes their content, synthesizes findings across multiple papers, generates structured academic drafts using Large Language Models (LLMs), and finally enables human-in-the-loop review and refinement via an interactive UI.
 
-*   `mnist_*.csv` is a small sample of the
-    [MNIST database](https://en.wikipedia.org/wiki/MNIST_database), which is
-    described at: http://yann.lecun.com/exdb/mnist/
+The system is designed to support research automation, academic writing assistance, and literature synthesis, following a milestone-based development approach over 8 weeks.
 
-*   `anscombe.json` contains a copy of
-    [Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet); it
-    was originally described in
+Milestone 1: Topic Input & Paper Search (Week 1–2)
+ Overview
 
-    Anscombe, F. J. (1973). 'Graphs in Statistical Analysis'. American
-    Statistician. 27 (1): 17-21. JSTOR 2682899.
+This module allows users to input a research topic and automatically retrieve relevant academic papers using the Semantic Scholar API.
 
-    and our copy was prepared by the
-    [vega_datasets library](https://github.com/altair-viz/vega_datasets/blob/4f67bdaad10f45e3549984e17e1b3088c731503d/vega_datasets/_data/anscombe.json).
+ Key Features
 
-# Automated Research Paper Text Extraction and Analysis
+Topic-based paper search
+Optional filters (year, citation count)
+Metadata extraction (title, authors, year, venue, PDF availability)
+JSON-based storage of search results
+Logging for reproducibility
 
-# Overview
-This project implements an automated pipeline for extracting, structuring, and analyzing text from academic research paper PDFs.
+📄 Milestone 2: PDF Text Extraction & Analysis (Week 3–4)
+📌 Overview
 
-# Features
-- Robust PDF text extraction
-- Section-wise content extraction
-- Automatic key-finding extraction using TF-IDF
-- Cross-paper similarity analysis
-- Validation of extracted text
-- Structured dataset generation
+This module processes downloaded PDFs and extracts structured, analyzable text data.
 
-## Technologies Used
-- Python
-- PyMuPDF
-- pymupdf4llm
-- scikit-learn
-- pandas
+✨ Core Features:
 
+Robust PDF text extraction using PyMuPDF
+Section-wise parsing (Abstract, Methods, Results, etc.)
+Header pattern expansion (e.g., Experimental Setup, Discussion)
+Key-finding extraction using TF-IDF
+Cross-paper thematic comparison
+Validation of extracted content
+Structured dataset generation
+
+Technologies Used:
+
+Python
+PyMuPDF / pymupdf4llm
+scikit-learn
+pandas
 
 📄 Milestone 3: Automated Draft Generation (Week 5–6)
 📌 Overview
