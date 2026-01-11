@@ -215,11 +215,17 @@ Gemini overload (503 errors)
 Network/API failures
 
 Prevents crashes during UI interaction
+
 Allows safe demo even in restricted environments
+
 Clear warning messages displayed instead of runtime failures
 
-Pipeline Position
+Pipeline Position:
+
 Milestone 1 → Auotmactic paper selection 
+
 Milestone 2 → PDF Extraction & Analysis
+
 Milestone 3 → Automated Draft Generation
+
 Milestone 4 → Review, Refinement & UI Integration
