@@ -103,20 +103,16 @@ The system generates:
 
 ---
 
-## 📂 Screenshots
+## 📸 Screenshots
 
-Add your screenshots here:
+### 🖥️ Interface View
+![UI Screenshot](screenshots/UI%20Screenshot.png)
 
-- Interface View  
-  ![UI Screenshot](screenshots/ui.png)
+### ✅ Validation Output
+![Validation Screenshot](screenshots/Validation%20Screenshot.png)
 
-- Validation Output  
-  ![Validation Screenshot](screenshots/validation.png)
-
-- Graph Visualization  
-  ![Graphs Screenshot](screenshots/graphs.png)
-
-(Create a folder named `screenshots/` and place your images there)
+### 📊 Graph Visualization
+![Graphs Screenshot](screenshots/Graphs%20Screenshot.png)
 
 ---
 
