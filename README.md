@@ -52,7 +52,7 @@ The project is divided into 6 modular stages, functioning as a complete **ETL (E
 
 ```
 
-git clone [https://github.com/yourusername/research-automation-tool.git](https://github.com/yourusername/research-automation-tool.git)
+git clone https://github.com/springboardmentor3847a-cloud/AI-System-to-Automatically-Review-and-Summarize-Research-Papers
 cd research-automation-tool
 
 ```
