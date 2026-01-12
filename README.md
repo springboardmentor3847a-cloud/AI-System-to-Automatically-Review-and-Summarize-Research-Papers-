@@ -88,16 +88,16 @@ Introduces a human-in-the-loop review and refinement process through an interact
 pip install gradio
 python app.py
 
-###Pipeline Flow
+##Pipeline Flow
 Paper Search → PDF Extraction → Draft Generation → Review & Refinement
 
-###Final Outcome
+##Final Outcome
 Automated academic research workflow
 Reduced manual effort in literature review and drafting
 Structured and professional research drafts
 Interactive refinement interface
 
-###Technologies Used
+##Technologies Used
 Python
 Semantic Scholar API
 pdfplumber
