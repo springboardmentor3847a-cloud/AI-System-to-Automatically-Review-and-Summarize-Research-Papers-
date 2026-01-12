@@ -148,4 +148,5 @@ $env:PDF_RETRY_ONLY_ON_RETRYABLE = 1                 # skip restricted hosts
 ## 📌 Notes
 - Legacy UI files (`ui/app.py`, `ui/app_flask.py`) and demo scripts were removed to streamline the project.
 - Use `ui/app_modern.py` as the primary entry point for the final experience.
-- See `MILESTONE3_SUMMARY.md` for a narrative of the journey and final checks.
+- See `MILESTONE4_SUMMARY.md` for a narrative of the journey and final checks.
+
