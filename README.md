@@ -1,4 +1,5 @@
-📄 Automated Research Paper Analysis & Draft Generation System
+***📄 Automated Research Paper Analysis & Draft Generation System***
+
 🔹 Short Project Description
 
 This project implements an end-to-end automated research assistant that searches academic papers, extracts and analyzes their content, synthesizes findings across multiple papers, generates structured academic drafts using Large Language Models (LLMs), and enables human-in-the-loop review and refinement via an interactive web-based UI.
