@@ -81,7 +81,7 @@ Open in browser: http://localhost:8501
 Technologies Used
 
 Python
-Streamlit
+Gradio
 OpenAI / LLM
 SQLite
 PyPDF
