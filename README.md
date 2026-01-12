@@ -7,6 +7,12 @@ This project implements an **end-to-end automated research analysis pipeline** t
 The system is developed using a **milestone-based approach**, where **Milestone 1 and Milestone 2 are combined into a single notebook** for implementation efficiency.
 
 ---
+## Final Project Summary
+
+This project presents an automated research analysis pipeline developed across four milestones. Milestone 2 focused on research paper acquisition, PDF processing, and structured text extraction. Milestone 3 applied AI-based summarization and analytical techniques to generate meaningful insights and an automated literature review.
+
+Milestone 4 finalized the system through output refinement, quality evaluation, and stability verification. The final system demonstrates an end-to-end, scalable, and reliable approach for automated academic literature analysis.
+
 
 ## 🎯 Project Objectives
 - Automate research paper discovery from open-access sources  
@@ -92,7 +98,7 @@ The system is developed using a **milestone-based approach**, where **Milestone 
 
 ## ▶️ How to Run the Project
 
-### Step 1: Run Milestone 1
+###Step 1: Run Milestone 1
 ```bash
 Run all cells in Milestone_1
 
