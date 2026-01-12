@@ -34,7 +34,7 @@ A final PDF review paper is created
  Project Folder Structure
 research_ai/
 │
-├── app.py                # Streamlit UI
+├── app.py                # Gradio UI
 ├── backend.py            # Core system logic
 ├── auth.py               # User authentication
 ├── database.py           # SQLite database handling
