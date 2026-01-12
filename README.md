@@ -1,64 +1,138 @@
-📘 AI System to Automatically Review and Summarize Research Papers
+AI System for Automated Research Review & Summarization 🧠📚
+🚀 Overview
+This project is an AI-powered automated research assistant designed to streamline the literature review process. It autonomously searches for research papers, downloads PDFs, extracts text, analyzes content, and generates comprehensive summaries and literature reviews.
 
-An AI-powered end-to-end system that automates the process of reviewing academic research papers — from paper retrieval to a refined final literature review — using LLMs and structured NLP pipelines.
+By leveraging Semantic Scholar API, arXiv, PyMuPDF, and OpenAI's GPT models, this system transforms hours of manual research into a streamlined, automated workflow.
 
-🚀 Features
+🌟 Key Features
+Automated Paper Search: Fetches relevant research papers from Semantic Scholar and arXiv based on user topics.
 
-🔍 Automated research paper search & PDF retrieval
+Intelligent PDF Processing: Downloads available open-access PDFs and extracts text using layout-aware techniques (pymupdf4llm) for high fidelity.
 
-📄 Section-wise PDF text extraction
+Structure-Aware Analysis: Identifies and segments academic sections (Abstract, Methodology, Results, Conclusion).
 
-🧠 GPT-based generation of Abstract, Methods, and Results
+AI-Powered Summarization: Uses LLMs (GPT-4o-mini) to generate concise summaries for each section and the paper as a whole.
 
-📊 Cross-paper synthesis and literature review generation
+Cross-Paper Synthesis: Compares multiple papers to identify trends, common methodologies, and research gaps.
 
-✍️ Review, critique, and refinement cycle
+Instant UI: Includes a Gradio web interface for real-time interaction and quick results.
 
-📘 Final consolidated academic report
+Robust Error Handling: Features safe fallbacks for API failures, "Speed Mode" for testing, and secure API key management.
 
-🖥️ Gradio-based UI (designed for local execution)
-)
+🛠️ Project Architecture
+The system is organized into modular "Milestones" that handle specific stages of the pipeline:
 
-🧠Workflow
-Paper Search → PDF Extraction → Section Analysis
-→ Draft Generation → Cross-Paper Synthesis
-→ Review & Refinement → Final Report
-🛠️ Tech Stack
+1. Module 1: Search & Retrieval
+Goal: Fetch metadata for research papers.
 
-Python
+Tools: Semantic Scholar API (semanticscholar), requests, pandas.
 
-OpenAI (GPT-based models)
+Output: JSON and CSV datasets of relevant papers.
 
-Semantic Scholar API
+2. Module 2: Acquisition & Extraction
+Goal: Download PDFs and extract raw text.
 
-PyMuPDF / PyMuPDF4LLM
+Tools: requests, fitz (PyMuPDF), pymupdf4llm.
 
-Gradio (UI)
+Process: Handles PDF downloads and uses layout-aware extraction to preserve document structure.
 
-JSON-based modular pipeline
+3. Milestone 2: Deep Analysis
+Goal: Structure extracted text and validate content.
 
-🗓️ Milestones Covered
-✅ Milestone 1: Paper Retrieval
+Process:
 
-✅ Milestone 2: PDF Extraction & Analysis
+Cleans noise from text.
 
-✅ Milestone 3: Draft Generation & Synthesis
+Segments text into academic sections (Abstract, Methods, Results).
 
-✅ Milestone 4: Review, Refinement & Final Report
+Extracts key findings using keyword heuristics.
 
-⚠️ UI Note
+Performs cross-paper comparisons (e.g., common terminology).
 
-The Gradio interface is fully implemented but intended for local execution.
-Due to Python 3.12 and uvicorn limitations in Google Colab, UI execution in Colab may be unstable. The core AI pipeline runs successfully.📄 Output
+4. Milestone 3: AI Summarization & Synthesis
+Goal: Generate human-readable insights.
 
-Structured section summaries
+Tools: OpenAI GPT-4o-mini.
 
-Synthesized literature review
+Output:
 
-Quality-evaluated and refined final report
+Section-wise summaries.
 
-✅ Status
+Critical analysis (strengths, limitations, implications).
 
-✔ End-to-end pipeline implemented
-✔ All milestones completed
-✔ Ready for evaluation and presentation
+A comprehensive Literature Review synthesizing all processed papers.
+
+5. Milestone 4: Review & Final Report
+Goal: Quality assurance and final formatting.
+
+Process: Uses AI to critique and revise sections for clarity and academic tone, generating a final polished report.
+
+💻 Installation & Setup
+Prerequisites
+Python 3.8+
+
+Jupyter Notebook / Google Colab
+
+API Keys for:
+
+Semantic Scholar (Optional but recommended for higher rate limits)
+
+OpenAI (Required for summarization features)
+
+Installation
+Clone the repository and install the dependencies:
+
+Bash
+
+git clone https://github.com/your-username/ai-research-review-system.git
+cd ai-research-review-system
+pip install semanticscholar pymupdf pymupdf4llm openai gradio python-dotenv pandas tabulate arxiv
+Configuration
+Environment Variables: Create a .env file or use Google Colab Secrets to store your API keys.
+
+Code snippet
+
+SEMANTIC_SCHOLAR_API_KEY=your_key_here
+OPENAI_API_KEY=your_key_here
+Directories: The script automatically creates the necessary folders:
+
+data/search_results: JSON/CSV metadata.
+
+downloads: PDF files.
+
+data/extracted: Processed text JSONs.
+
+data/milestone_3 & data/milestone_4: Final reports.
+
+🚀 Usage
+You can run the notebook cells sequentially to execute the full pipeline, or run the Gradio app for a quick interface.
+
+Running the Full Pipeline (Notebook)
+Search: Run Module 1 to input a topic (e.g., "Machine Learning") and fetch papers.
+
+Download: Run Module 2 to download PDFs for the found papers.
+
+Extract & Analyze: Run Milestone 2 to parse text and extract key findings.
+
+Synthesize: Run Milestone 3 & 4 to generate the AI summaries and final Literature Review.
+
+Running the Web Interface (Gradio)
+The project includes a Gradio-based UI for quick searches.
+
+Run the final cell in the notebook.
+
+Click the public link provided (e.g., Running on public URL: https://...).
+
+Enter a topic and get an instant table of papers and smart summaries.
+
+📊 Sample Output
+Literature Review Snippet:
+
+"The reviewed papers utilize diverse approaches. Cytoscape focuses on network visualization, while WebArena provides a realistic environment for autonomous agents. A common limitation across studies is the reliance on high computational resources..."
+
+Key Findings Extraction:
+
+Performance: Studies report consistent improvements over baseline models.
+
+Key Trends: Integration of neural networks in environmental modeling.
+
