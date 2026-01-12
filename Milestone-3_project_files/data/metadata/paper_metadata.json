@@ -1,0 +1,289 @@
+{
+    "topic": "ai automation",
+    "search_date": "2026-01-12 11:46:40",
+    "filters": {
+        "year_min": 2020,
+        "year_max": null,
+        "min_citations": 50,
+        "author": null
+    },
+    "total_papers": 10,
+    "papers": [
+        {
+            "title": "Re-examining AI, automation and datafication in education",
+            "abstract": "for",
+            "authors": [
+                "Ben Williamson",
+                "Felicitas Macgilchrist",
+                "J. Potter"
+            ],
+            "year": 2023,
+            "citation_count": 102,
+            "influential_citation_count": 6,
+            "paper_id": "f483436ceb244f6100d81b51e0ff9249c2f635c9",
+            "url": "https://www.semanticscholar.org/paper/f483436ceb244f6100d81b51e0ff9249c2f635c9",
+            "pdf_url": "https://www.tandfonline.com/doi/pdf/10.1080/17439884.2023.2167830?needAccess=true&role=button",
+            "publication_date": "2023-01-02T00:00:00",
+            "venue": "Journal of Educational Media",
+            "publication_types": null,
+            "external_ids": {
+                "DOI": "10.1080/17439884.2023.2167830",
+                "CorpusId": 256391338
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "Explainable AI for cybersecurity automation, intelligence and trustworthiness in digital twin: Methods, taxonomy, challenges and prospects",
+            "abstract": "N/A",
+            "authors": [
+                "Iqbal H. Sarker",
+                "Helge Janicke",
+                "Ahmad Mohsin",
+                "A. Gill",
+                "Leandros A. Maglaras"
+            ],
+            "year": 2024,
+            "citation_count": 102,
+            "influential_citation_count": 4,
+            "paper_id": "159a4bc22e37b176504894b9b2ce88ea9005f0e3",
+            "url": "https://www.semanticscholar.org/paper/159a4bc22e37b176504894b9b2ce88ea9005f0e3",
+            "pdf_url": "https://doi.org/10.1016/j.icte.2024.05.007",
+            "publication_date": "2024-05-01T00:00:00",
+            "venue": "ICT express",
+            "publication_types": [
+                "JournalArticle"
+            ],
+            "external_ids": {
+                "DBLP": "journals/ict-express/SarkerJMGM24",
+                "DOI": "10.1016/j.icte.2024.05.007",
+                "CorpusId": 269971088
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "Developing trustworthy artificial intelligence: insights from research on interpersonal, human-automation, and human-AI trust",
+            "abstract": "The rapid advancement of artificial intelligence (AI) has impacted society in many aspects. Alongside this progress, concerns such as privacy violation, discriminatory bias, and safety risks have also surfaced, highlighting the need for the development of ethical, responsible, and socially beneficial AI. In response, the concept of trustworthy AI has gained prominence, and several guidelines for developing trustworthy AI have been proposed. Against this background, we demonstrate the significance of psychological research in identifying factors that contribute to the formation of trust in AI. Specifically, we review research findings on interpersonal, human-automation, and human-AI trust from the perspective of a three-dimension framework (i.e., the trustor, the trustee, and their interactive context). The framework synthesizes common factors related to trust formation and maintenance across different trust types. These factors point out the foundational requirements for building trustworthy AI and provide pivotal guidance for its development that also involves communication, education, and training for users. We conclude by discussing how the insights in trust research can help enhance AI’s trustworthiness and foster its adoption and application.",
+            "authors": [
+                "Yugang Li",
+                "Baizhou Wu",
+                "Yuqi Huang",
+                "Shenghua Luan"
+            ],
+            "year": 2024,
+            "citation_count": 69,
+            "influential_citation_count": 5,
+            "paper_id": "d8c20ea7ab5f9e73a02446becd7d88bc3ff3b1f9",
+            "url": "https://www.semanticscholar.org/paper/d8c20ea7ab5f9e73a02446becd7d88bc3ff3b1f9",
+            "pdf_url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1382693/pdf",
+            "publication_date": "2024-04-17T00:00:00",
+            "venue": "Frontiers in Psychology",
+            "publication_types": [
+                "Review",
+                "JournalArticle"
+            ],
+            "external_ids": {
+                "PubMedCentral": "11061529",
+                "DOI": "10.3389/fpsyg.2024.1382693",
+                "CorpusId": 269224475,
+                "PubMed": "38694439"
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "Enhancing Precision Agriculture: A Comprehensive Review of Machine Learning and AI Vision Applications in All-Terrain Vehicle for Farm Automation",
+            "abstract": "N/A",
+            "authors": [
+                "Mrutyunjay Padhiary",
+                "Debapam Saha",
+                "Raushan Kumar",
+                "Laxmi Narayan Sethi",
+                "Avinash Kumar"
+            ],
+            "year": 2024,
+            "citation_count": 108,
+            "influential_citation_count": 1,
+            "paper_id": "c07d5be9c22540ad811d164e21595d56400fde70",
+            "url": "https://www.semanticscholar.org/paper/c07d5be9c22540ad811d164e21595d56400fde70",
+            "pdf_url": "https://doi.org/10.1016/j.atech.2024.100483",
+            "publication_date": "2024-06-01T00:00:00",
+            "venue": "Smart Agricultural Technology",
+            "publication_types": [
+                "JournalArticle",
+                "Review"
+            ],
+            "external_ids": {
+                "DOI": "10.1016/j.atech.2024.100483",
+                "CorpusId": 270276986
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "AI-driven warehouse automation: A comprehensive review of systems",
+            "abstract": "This comprehensive review explores the profound impact of artificial intelligence (AI) on warehouse automation, providing an in-depth examination of various AI-driven systems. As industries increasingly embrace automation to enhance efficiency and streamline operations, the integration of AI technologies into warehouse management systems has become pivotal, reshaping the landscape of logistics and supply chain management. AI-driven warehouse automation systems leverage advanced algorithms to optimize various aspects of warehouse operations, from inventory management to order fulfillment. Machine learning algorithms play a key role in demand forecasting, allowing warehouses to predict and adapt to changing customer needs. Computer vision technologies enhance robotic vision, facilitating tasks such as item recognition, pick-and-place operations, and quality control. These advancements significantly contribute to increased accuracy, speed, and cost-effectiveness in warehouse processes. The review provides a detailed examination of the applications of AI in warehouse automation, encompassing autonomous mobile robots (AMRs), robotic arms, and automated guided vehicles (AGVs). AMRs equipped with AI algorithms navigate warehouse environments autonomously, optimizing pick routes and adapting to changes in the warehouse layout. Robotic arms, enhanced by AI, enable precise and adaptable material handling, contributing to the efficiency of tasks like packing and palletizing. AGVs, guided by AI, ensure seamless material transport within warehouses, enhancing overall operational agility. Recent trends in AI-driven warehouse automation systems underscore the dynamic evolution of this field. Edge computing solutions empower these systems to process data locally, reducing latency and enhancing real-time decision-making. Reinforcement learning algorithms enable robotic systems to learn and adapt their behavior based on changing environmental conditions, contributing to continuous improvement and efficiency gains. In conclusion, this review illuminates the pivotal role of AI in transforming warehouse automation systems, revolutionizing the way logistics and supply chain operations are conducted. The collaborative synergy between AI and warehouse automation promises to drive unprecedented advancements in efficiency, accuracy, and adaptability within the evolving landscape of modern warehouses.",
+            "authors": [
+                "Enoch Oluwademilade Sodiya",
+                "Uchenna Joseph Umoga",
+                "Olukunle Oladipupo Amoo",
+                "Akoh Atadoga"
+            ],
+            "year": 2024,
+            "citation_count": 66,
+            "influential_citation_count": 0,
+            "paper_id": "0fdb31a57ef6f03f7374db930792a0c90ee7f4e2",
+            "url": "https://www.semanticscholar.org/paper/0fdb31a57ef6f03f7374db930792a0c90ee7f4e2",
+            "pdf_url": "https://gsconlinepress.com/journals/gscarr/sites/default/files/GSCARR-2024-0063.pdf",
+            "publication_date": "2024-02-28T00:00:00",
+            "venue": "GSC Advanced Research and Reviews",
+            "publication_types": [
+                "JournalArticle",
+                "Review"
+            ],
+            "external_ids": {
+                "DOI": "10.30574/gscarr.2024.18.2.0063",
+                "CorpusId": 267954941
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "AI-big data analytics for building automation and management systems: a survey, actual challenges and future perspectives",
+            "abstract": "In theory, building automation and management systems (BAMSs) can provide all the components and functionalities required for analyzing and operating buildings. However, in reality, these systems can only ensure the control of heating ventilation and air conditioning system systems. Therefore, many other tasks are left to the operator, e.g. evaluating buildings’ performance, detecting abnormal energy consumption, identifying the changes needed to improve efficiency, ensuring the security and privacy of end-users, etc. To that end, there has been a movement for developing artificial intelligence (AI) big data analytic tools as they offer various new and tailor-made solutions that are incredibly appropriate for practical buildings’ management. Typically, they can help the operator in (i) analyzing the tons of connected equipment data; and; (ii) making intelligent, efficient, and on-time decisions to improve the buildings’ performance. This paper presents a comprehensive systematic survey on using AI-big data analytics in BAMSs. It covers various AI-based tasks, e.g. load forecasting, water management, indoor environmental quality monitoring, occupancy detection, etc. The first part of this paper adopts a well-designed taxonomy to overview existing frameworks. A comprehensive review is conducted about different aspects, including the learning process, building environment, computing platforms, and application scenario. Moving on, a critical discussion is performed to identify current challenges. The second part aims at providing the reader with insights into the real-world application of AI-big data analytics. Thus, three case studies that demonstrate the use of AI-big data analytics in BAMSs are presented, focusing on energy anomaly detection in residential and office buildings and energy and performance optimization in sports facilities. Lastly, future directions and valuable recommendations are identified to improve the performance and reliability of BAMSs in intelligent buildings.",
+            "authors": [
+                "Yassine Himeur",
+                "Mariam Elnour",
+                "F. Fadli",
+                "N. Meskin",
+                "I. Petri",
+                "Y. Rezgui",
+                "F. Bensaali",
+                "A. Amira"
+            ],
+            "year": 2022,
+            "citation_count": 343,
+            "influential_citation_count": 6,
+            "paper_id": "f17fabd53bccc1ee7360dbb72e050b4a347d4304",
+            "url": "https://www.semanticscholar.org/paper/f17fabd53bccc1ee7360dbb72e050b4a347d4304",
+            "pdf_url": "https://link.springer.com/content/pdf/10.1007/s10462-022-10286-2.pdf",
+            "publication_date": "2022-10-15T00:00:00",
+            "venue": "Artificial Intelligence Review",
+            "publication_types": [
+                "JournalArticle",
+                "Review"
+            ],
+            "external_ids": {
+                "DBLP": "journals/air/HimeurEFMPRBA23",
+                "PubMedCentral": "9568938",
+                "DOI": "10.1007/s10462-022-10286-2",
+                "CorpusId": 252950675,
+                "PubMed": "36268476"
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "AI-Based Modeling: Techniques, Applications and Research Issues Towards Automation, Intelligent and Smart Systems",
+            "abstract": "Artificial intelligence (AI) is a leading technology of the current age of the Fourth Industrial Revolution (Industry 4.0 or 4IR), with the capability of incorporating human behavior and intelligence into machines or systems. Thus, AI-based modeling is the key to build automated, intelligent, and smart systems according to today’s needs. To solve real-world issues, various types of AI such as analytical, functional, interactive, textual, and visual AI can be applied to enhance the intelligence and capabilities of an application. However, developing an effective AI model is a challenging task due to the dynamic nature and variation in real-world problems and data. In this paper, we present a comprehensive view on “AI-based Modeling” with the principles and capabilities of potential AI techniques that can play an important role in developing intelligent and smart systems in various real-world application areas including business, finance, healthcare, agriculture, smart cities, cybersecurity and many more. We also emphasize and highlight the research issues within the scope of our study. Overall, the goal of this paper is to provide a broad overview of AI-based modeling that can be used as a reference guide by academics and industry people as well as decision-makers in various real-world scenarios and application domains.",
+            "authors": [
+                "Iqbal H. Sarker"
+            ],
+            "year": 2022,
+            "citation_count": 770,
+            "influential_citation_count": 22,
+            "paper_id": "22548cb1c72e4966a3c465c8363c1e421ab66748",
+            "url": "https://www.semanticscholar.org/paper/22548cb1c72e4966a3c465c8363c1e421ab66748",
+            "pdf_url": "https://link.springer.com/content/pdf/10.1007/s42979-022-01043-x.pdf",
+            "publication_date": "2022-02-01T00:00:00",
+            "venue": "SN Computer Science",
+            "publication_types": [
+                "Review",
+                "JournalArticle"
+            ],
+            "external_ids": {
+                "DBLP": "journals/sncs/Sarker22",
+                "PubMedCentral": "8830986",
+                "DOI": "10.1007/s42979-022-01043-x",
+                "CorpusId": 246543111,
+                "PubMed": "35194580"
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "GPT4AIGChip: Towards Next-Generation AI Accelerator Design Automation via Large Language Models",
+            "abstract": "The remarkable capabilities and intricate nature of Artificial Intelligence (AI) have dramatically escalated the imperative for specialized AI accelerators. Nonetheless, designing these accelerators for various AI workloads remains both labor- and time-intensive. While existing design exploration and automation tools can partially alleviate the need for extensive human involvement, they still demand substantial hardware expertise, posing a barrier to non-experts and stifling AI accelerator development. Motivated by the astonishing potential of large language models (LLMs) for generating high-quality content in response to human language instructions, we embark on this work to examine the possibility of harnessing LLMs to automate AI accelerator design. Through this endeavor, we develop GPT4AIGChip, a framework intended to democratize AI accelerator design by leveraging human natural languages instead of domain-specific languages. Specifically, we first perform an in-depth investigation into LLMs' limitations and capabilities for AI accelerator design, thus aiding our understanding of our current position and garnering insights into LLM-powered automated AI accelerator design. Furthermore, drawing inspiration from the above insights, we develop a framework called GPT4AIGChip, which features an automated demo-augmented prompt-generation pipeline utilizing in-context learning to guide LLMs towards creating high-quality AI accelerator design. To our knowledge, this work is the first to demonstrate an effective pipeline for LLM-powered automated AI accelerator generation. Accordingly, we anticipate that our insights and framework can serve as a catalyst for innovations in next-generation LLM-powered design automation tools.",
+            "authors": [
+                "Yonggan Fu",
+                "Yongan Zhang",
+                "Zhongzhi Yu",
+                "Sixu Li",
+                "Zhifan Ye",
+                "Chaojian Li",
+                "Cheng Wan",
+                "Ying Lin"
+            ],
+            "year": 2023,
+            "citation_count": 106,
+            "influential_citation_count": 5,
+            "paper_id": "460fc460695bce86e66da0f1e4f7a7a7a3b1481a",
+            "url": "https://www.semanticscholar.org/paper/460fc460695bce86e66da0f1e4f7a7a7a3b1481a",
+            "pdf_url": "https://arxiv.org/pdf/2309.10730",
+            "publication_date": "2023-09-19T00:00:00",
+            "venue": "2023 IEEE/ACM International Conference on Computer Aided Design (ICCAD)",
+            "publication_types": [
+                "JournalArticle",
+                "Conference"
+            ],
+            "external_ids": {
+                "DBLP": "conf/iccad/FuZYLYLWL23",
+                "ArXiv": "2309.10730",
+                "DOI": "10.1109/ICCAD57390.2023.10323953",
+                "CorpusId": 262053822
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "The blended future of automation and AI: Examining some long-term societal and ethical impact features",
+            "abstract": "N/A",
+            "authors": [
+                "Hisham O. Khogali",
+                "S. Mekid"
+            ],
+            "year": 2023,
+            "citation_count": 171,
+            "influential_citation_count": 4,
+            "paper_id": "c912e4850ea439138ab0001427a64891fe77daf8",
+            "url": "https://www.semanticscholar.org/paper/c912e4850ea439138ab0001427a64891fe77daf8",
+            "pdf_url": "https://doi.org/10.1016/j.techsoc.2023.102232",
+            "publication_date": "2023-03-01T00:00:00",
+            "venue": "Technology and Society",
+            "publication_types": null,
+            "external_ids": {
+                "DOI": "10.1016/j.techsoc.2023.102232",
+                "CorpusId": 257760758
+            },
+            "pdf_available": true
+        },
+        {
+            "title": "Artificial Intelligence (AI) and Automation in Administrative Procedures: Potentials, Limitations, and Framework Conditions",
+            "abstract": "Integrating artificial intelligence (AI) systems into administrative procedures can revolutionize the way processes are conducted and fundamentally change established forms of action and organization in administrative law. However, implementing AI in administrative procedures requires a comprehensive evaluation of the capabilities and limitations of different systems, including considerations of transparency and data availability. Data are a crucial factor in the operation of AI systems and the validity of their predictions. It is essential to ensure that the data used to train AI algorithms are extensive, representative, and free of bias. Transparency is also an important aspect establishing trust and reliability in AI systems, particularly regarding the potential for transparent representation in rule-based and machine-learning AI systems. This paper examines the potential and challenges that arise from integrating AI into administrative procedures. In addition, the paper offers a nuanced perspective on current developments in artificial intelligence and provides a conceptual framework for its potential applications in administrative procedures. Beyond this, the paper highlights essential framework conditions that require continuous monitoring to ensure optimal results in practice.",
+            "authors": [
+                "P. Parycek",
+                "Verena Schmid",
+                "Anna-Sophie Novak"
+            ],
+            "year": 2023,
+            "citation_count": 80,
+            "influential_citation_count": 5,
+            "paper_id": "d8265a8a417d2c53a6ec88fc41a86e4aed161c90",
+            "url": "https://www.semanticscholar.org/paper/d8265a8a417d2c53a6ec88fc41a86e4aed161c90",
+            "pdf_url": "https://link.springer.com/content/pdf/10.1007/s13132-023-01433-3.pdf",
+            "publication_date": "2023-06-20T00:00:00",
+            "venue": "Journal of the Knowledge Economy",
+            "publication_types": [
+                "JournalArticle"
+            ],
+            "external_ids": {
+                "DOI": "10.1007/s13132-023-01433-3",
+                "CorpusId": 259401232
+            },
+            "pdf_available": true
+        }
+    ]
+}
