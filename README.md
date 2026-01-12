@@ -96,29 +96,12 @@ Milestone 4 finalized the system through output refinement, quality evaluation, 
 
 ---
 
-## ▶️ How to Run the Project
+## Key Outcomes
+- Automated and scalable research paper processing pipeline  
+- Robust handling of real-world data issues such as corrupted PDFs  
+- Meaningful AI-generated summaries and literature reviews  
+- Stable and reproducible final outputs suitable for academic use  
 
-###Step 1: Run Milestone 1
-```bash
-Run all cells in Milestone_1
-
-✔ Downloads PDFs
-✔ Extracts and stores text
-
-###Step 2: Run Milestone 3
-Run all cells in Milestone_3.ipynb
-
-✔ Generates summaries
-✔ Produces literature review
-
-####Step 3: Run Milestone 4
-Run all cells in Milestone_4.ipynb
-
-
-✔ Refines outputs
-✔ Evaluates quality
-✔ Generates final report
-
-
-
+## Conclusion
+The final system demonstrates a scalable, reliable, and efficient approach for automated academic literature analysis. By integrating data acquisition, AI-driven analysis, and quality evaluation, the project provides a practical solution for supporting research workflows and knowledge discovery.
 
