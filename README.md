@@ -1,10 +1,12 @@
-AI System for Automated Research Review & Summarization 🧠📚
-🚀 Overview
+**AI System for Automated Research Review & Summarization 🧠📚**
+**
+🚀 Overview**
+
 This project is an AI-powered automated research assistant designed to streamline the literature review process. It autonomously searches for research papers, downloads PDFs, extracts text, analyzes content, and generates comprehensive summaries and literature reviews.
 
 By leveraging Semantic Scholar API, arXiv, PyMuPDF, and OpenAI's GPT models, this system transforms hours of manual research into a streamlined, automated workflow.
 
-🌟 Key Features
+**🌟 Key Features**
 Automated Paper Search: Fetches relevant research papers from Semantic Scholar and arXiv based on user topics.
 
 Intelligent PDF Processing: Downloads available open-access PDFs and extracts text using layout-aware techniques (pymupdf4llm) for high fidelity.
@@ -19,7 +21,7 @@ Instant UI: Includes a Gradio web interface for real-time interaction and quick 
 
 Robust Error Handling: Features safe fallbacks for API failures, "Speed Mode" for testing, and secure API key management.
 
-🛠️ Project Architecture
+**🛠️ Project Architecture**
 The system is organized into modular "Milestones" that handle specific stages of the pipeline:
 
 1. Module 1: Search & Retrieval
@@ -71,29 +73,7 @@ Process: Uses AI to critique and revise sections for clarity and academic tone, 
 Prerequisites
 Python 3.8+
 
-Jupyter Notebook / Google Colab
 
-API Keys for:
-
-Semantic Scholar (Optional but recommended for higher rate limits)
-
-OpenAI (Required for summarization features)
-
-Installation
-Clone the repository and install the dependencies:
-
-Bash
-
-git clone https://github.com/your-username/ai-research-review-system.git
-cd ai-research-review-system
-pip install semanticscholar pymupdf pymupdf4llm openai gradio python-dotenv pandas tabulate arxiv
-Configuration
-Environment Variables: Create a .env file or use Google Colab Secrets to store your API keys.
-
-Code snippet
-
-SEMANTIC_SCHOLAR_API_KEY=your_key_here
-OPENAI_API_KEY=your_key_here
 Directories: The script automatically creates the necessary folders:
 
 data/search_results: JSON/CSV metadata.
@@ -125,7 +105,7 @@ Click the public link provided (e.g., Running on public URL: https://...).
 
 Enter a topic and get an instant table of papers and smart summaries.
 
-📊 Sample Output
+**📊 Sample Output**
 Literature Review Snippet:
 
 "The reviewed papers utilize diverse approaches. Cytoscape focuses on network visualization, while WebArena provides a realistic environment for autonomous agents. A common limitation across studies is the reliance on high computational resources..."
