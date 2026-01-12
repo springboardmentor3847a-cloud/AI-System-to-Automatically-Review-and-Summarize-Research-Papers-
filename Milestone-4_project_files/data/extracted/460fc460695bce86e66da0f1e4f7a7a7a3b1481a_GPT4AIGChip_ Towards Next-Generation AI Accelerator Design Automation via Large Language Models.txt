@@ -1,0 +1,1276 @@
+GPT4AIGChip: Towards Next-Generation AI Accelerator
+Design Automation via Large Language Models
+Yonggan Fu‡, Yongan Zhang‡, Zhongzhi Yu‡, Sixu Li, Zhifan Ye, Chaojian Li, Cheng Wan, Yingyan (Celine) Lin
+School of Computer Science, Georgia Institute of Technology
+{yfu314, yzhang919, zyu401, sli941, zye327. cli851, cwan39, celine.lin}@gatech.edu
+Abstract—The remarkable capabilities and intricate nature of Artificial
+Intelligence (AI) have dramatically escalated the imperative for special-
+ized AI accelerators. Nonetheless, designing these accelerators for various
+AI workloads remains both labor- and time-intensive. While existing
+design exploration and automation tools can partially alleviate the need
+for extensive human involvement, they still demand substantial hardware
+expertise, posing a barrier to non-experts and stifling AI accelerator
+development. Motivated by the astonishing potential of large language
+models (LLMs) for generating high-quality content in response to human
+language instructions, we embark on this work to examine the possibility
+of harnessing LLMs to automate AI accelerator design. Through this
+endeavor, we develop GPT4AIGChip, a framework intended to democ-
+ratize AI accelerator design by leveraging human natural languages
+instead of domain-specific languages. Specifically, we first perform an
+in-depth investigation into LLMs’ limitations and capabilities for AI
+accelerator design, thus aiding our understanding of our current position
+and garnering insights into LLM-powered automated AI accelerator
+design. Furthermore, drawing inspiration from the above insights, we
+develop a framework called GPT4AIGChip, which features an automated
+demo-augmented prompt-generation pipeline utilizing in-context learning
+to guide LLMs towards creating high-quality AI accelerator design. To
+our knowledge, this work is the first to demonstrate an effective pipeline
+for LLM-powered automated AI accelerator generation. Accordingly, we
+anticipate that our insights and framework can serve as a catalyst for
+innovations in next-generation LLM-powered design automation tools.
+Index Terms—AI Accelerators, Design Automation, Large Language
+Models
+I. INTRODUCTION
+The landscape of artificial intelligence (AI), driven by deep neural
+networks (DNNs), has recently undergone transformational progress,
+leading to a pressing demand for specialized AI accelerators. The
+remarkable capabilities and the intricate nature of AI workloads have
+further amplified this demand. However, the design of specialized
+accelerators catering to diverse AI tasks remains an arduous and
+time-consuming venture. Moreover, the level of hardware expertise
+required for using existing design exploration and automation tools
+[11], [13], [14], [17], [36], [43], [45] presents a formidable challenge
+for non-experts, stifling the innovative advancement in AI accelera-
+tors. This complex and technical domain is currently characterized
+by a steep learning curve, which limits access and restricts the
+expansion of AI accelerator design to general AI developers, creating
+an increasing gap between the pace of AI algorithm development and
+corresponding accelerators.
+In the face of these challenges, we find inspiration in the emerging
+capabilities of large language models (LLMs) [16], [25], [35], [44],
+with their amazing capacity to generate high-quality content based on
+human language instructions. These capabilities present a tantalizing
+prospect, inspiring the central question of this study: “Can we harness
+the power of LLMs to automate the design of AI accelerators?”
+Specifically, as shown in Fig. 1, LLM-powered AI accelerator design
+automation aims to explore the accelerator design space with the
+‡Equal contribution.
+Output
+Applications
+...
+Requirements
+Accuracy
+Latency
+...
+Resource
+AI Accelerator
+Input
+Accuracy
+Latency
+...
+Resource
+Search Engine
+Search
+Space
+Search
+Algorithm
+Prompt
+Generator
+LLM
+Code
+Generator
+Deployment
+Measured
+Performance
+LLM-powered AI Accelerator Design Automation
+Fig. 1. A generic LLM-powered AI accelerator design automation pipeline.
+assistance of LLMs, thus generating high-quality accelerator imple-
+mentation that can satisfy user requirements while at the same time
+minimizing human involvement. To answer the above question, we
+first conduct a comprehensive investigation into the limitations and
+capabilities of LLMs, in terms of generating AI accelerator designs.
+This is to understand the current landscape, while also exploring how
+we can better harness the power of LLMs to automate AI accelerator
+design. Informed by the insights drawn from this investigation, we
+develop a framework dubbed GPT4AIGChip, denoting “GPT for AI
+Generated Chip”. GPT4AIGChip aims to democratize AI accelerator
+design and thus make AI accelerator design more accessible, par-
+ticularly to those not well-versed in hardware, by leveraging human
+natural language as design instructions rather than relying on domain-
+specific languages. We summarize our contributions as follows:
+• We thoroughly investigate the limitations and capabilities of
+leveraging existing LLMs to generate AI accelerator designs
+in order to understand our current position and draw useful
+insights on how to effectively leverage current LLMs in a design
+automation pipeline. As a tangible application of these insights,
+we’ve developed GPT4AIGChip, a framework that is the first to
+demonstrate LLM-powered AI accelerator design automation.
+• Through the above comprehensive investigation, we have identi-
+fied three crucial insights for leveraging the strengths of current
+LLMs: Insight-(1) current LLMs struggle with understanding
+lengthy codes exhibiting long dependencies, particularly for their
+infrequently seen languages like high-level synthesis (HLS), thus
+necessitating the decoupling of different hardware functionalities
+in the design space; Insight-(2) given the scarcity of annotated
+data for efficient finetuning of an open-sourced LLM, employing
+a mix of in-context learning and the logical reasoning prowess of
+typically closed-sourced yet powerful LLMs is a more effective
+choice; and Insight-(3) it is critical to augment the prompts of
+LLMs with high-quality demonstrations, which are correlated to
+the context of the input design instructions.
+• Our GPT4AIGChip instantiates the aforementioned Insight-(1)
+by constructing a decoupled accelerator design template written
+in HLS. In this way, it decouples different hardware modules
+and functionalities of an accelerator design, thus for the first
+time enabling LLM-powered AI accelerator design automation.
+• We instantiate the aforementioned Insight-(2)/-(3) by equipping
+GPT4AIGChip with a demo-augmented prompt generator, which
+arXiv:2309.10730v2  [cs.LG]  4 Jan 2025
+
+Misinterpretation of Variable Definitions
+Incorrect BRAM Sizes
+// BRAM Instance
+ap_unit<16> A[4];
+// BRAM Instance
+ap_unit<16> A[6];
+Inability to Capture Long Dependencies
+Incorrect Referred Values
+a = 4, b = 2, c = ?
+... , b = 2, c = ?
+Const int a = 4
+MAC_array(In_ch=a;...
+Const int a = 4
+MAC_array(In_ch=2;...
+Overlooking Crucial User Instructions
+Incorrect Buffer Partitioning
+Incorrect Value Broadcasting
+(a)
+(b)
+(c)
+(d)
+Buf.
+Reg.
+Buf.
+Buf.
+Buf.
+# HLS Pragma UNROLL
+B[i] = reg0;
+# HLS Pragma UNROLL
+B[i] = A[0];
+6×
+# HLS Pragma UNROLL
+    buffer[i] =...
+// Missing Pragma
+    buffer[i] =...
+Over-simplified Implementation
+Fig. 2. Visualization of the identified common failures and limitations of existing LLMs for AI accelerator design automation.
+leverages both the in-context learning and the logical reasoning
+capabilities of powerful GPT models, enabling automated ex-
+ploration of the accelerator search space powered by LLMs.
+• Extensive experiments validate and demonstrate the effective-
+ness of our GPT4AIGChip framework in generating high-quality
+AI accelerator design, while significantly reducing the required
+human efforts and expertise in the design process.
+The insights and framework derived from this work can spark fur-
+ther innovation in next-generation LLM-powered design automation
+tools and illuminate the promising field of AI-generated accelerators.
+II. WHERE WE ARE: THE LIMITATIONS AND CAPABILITIES OF
+CURRENT LLMS FOR AI ACCELERATOR DESIGN
+A. An Overview of the Assessment
+While LLMs excel in various generation tasks (e.g., question
+answering, language translation, and chatbot dialogues), these tasks
+mainly involve natural languages, which LLMs are extensively
+trained on. However, their ability to handle languages and tasks that
+they encounter less frequently during pretraining, e.g., generating AI
+accelerator designs using HLS languages, remains an open question.
+Therefore, to effectively utilize LLMs in automating AI accelerator
+design, it is crucial to have a comprehensive understanding of the
+capabilities and limitations of state-of-the-art (SOTA) LLMs. This
+could help avoid unwarranted optimism or pessimism. Our assess-
+ment aims to provide this understanding, serving as a foundation for
+future innovations in LLM-powered automated AI accelerator design.
+To attain this goal, we first identify the common limitations of
+existing LLMs for AI accelerator design and then validate whether
+finetuning open-sourced LLMs on annotated hardware codes (e.g.,
+HLS) could enhance their understanding of hardware codes and
+design. Ultimately, considering the identified shortcomings in these
+two steps, we reconsider the capabilities of LLMs that could be
+effectively utilized for practical AI accelerator design automation.
+B. Failures and Limitations of Existing LLMs
+To leverage LLMs in generating HLS implementations of AI
+accelerators based on user instructions, one intuitive approach is to
+pair user instructions with commonly adopted HLS templates to serve
+as LLM prompts. In this subsection, we adapt an HLS implementation
+from [46] as our template, which utilizes a widely accepted for-loop-
+based design approach. We assess the capabilities of the SOTA LLM,
+GPT-4 [24], in generating hardware implementations according to our
+specified instructions. However, we observe that LLMs frequently
+generate non-synthesizable, functionally incorrect code. The common
+failures are outlined below.
+Misinterpretation of variable definitions. Implementing hard-
+ware accelerator code requires precise definitions of variables or
+functions to accurately instantiate hardware modules. However, LLMs
+often struggle with this task. For instance, accurately creating an array
+variable to match the size of an on-chip Block RAM (BRAM) is cru-
+cial for computation tile sizes and data reuse levels. Unfortunately, as
+illustrated in Fig. 2 (a), LLMs may instantiate modules with incorrect
+sizes, even when following given instructions. This issue arises from
+LLMs’ difficulty in understanding the connection between identifiers
+TABLE I
+BENCHMARK THE DESIGNS GENERATED BY PROMPTING (1) THE
+CLOSED-SOURCED GPT-4, (2) THE OPEN-SOURCED CODEGEN [21] w/o
+FINETUNING, AND (3) THE FINETUNED CODEGEN [21].
+LLM
+GPT-4 w/o finetune
+CodeGen w/o finetune
+CodeGen w/ finetune
+Pass@100
+42%
+0%
+31%
+in the instruction and the variables defined in the code, leading to
+misinterpretation of the provided quantities in the instruction.
+Inability to capture long dependencies. AI accelerator parameters
+are often intertwined, where a set of parameters for one module
+can influence and be influenced by other modules, causing long
+dependencies. Current LLMs frequently falter when handling these
+long dependencies, neglecting earlier design configurations when
+generating later modules. For example, as mentioned earlier, BRAM
+sizes can affect tiled computation sizes, which may in turn influence
+the number of processing elements (PEs). However, as Fig. 2 (b)
+shows, when we specify the parallelism factor along the input channel
+dimension of weights to be 4, LLMs disregard this when generating
+MAC arrays and consider only 2 parallel input channels.
+Overlooking crucial user instructions. LLMs may struggle with
+reasoning about the relationships (1) among different hardware design
+concepts and (2) between natural language instructions and the code
+to be generated, thus overlooking crucial user instructions. Unlike the
+above long-dependency issue, this limitation involves relationships
+among multiple design concepts, which are not necessarily separated
+by long code blocks. For example, unrolling (parallelizing) com-
+putation along certain data dimensions necessitates partitioning the
+BRAM instance of the dependent data along the same dimensions.
+However, as Fig. 2 (c) shows, the code generated by existing LLMs
+often treats the design concepts in isolation. Additionally, LLMs may
+struggle to link natural language instructions with appropriate code
+generation, e.g., when instructed to modularize certain sub-modules,
+they may fail to identify the relevant domain-specific pragmas.
+Over-simplified implementation. AI accelerator implementation
+requires certain coding styles (e.g., HLS) to accurately depict hard-
+ware behaviors. For instance, to broadcast a single element from one
+buffer to multiple locations in another (partitioned) buffer, direct value
+assignment between the two buffers should be avoided. Instead, we
+need to first assign the element to a register-like variable and then
+assign the data from this intermediate register to multiple locations
+in the other buffer, thus preventing access conflicts within the source
+buffer. However, as shown in Fig. 2 (d), existing LLMs often overlook
+such details in hardware design and generate impractical designs.
+C. Closed-sourced LLMs vs. Finetuned Open-sourced LLMs
+The identified limitations above indicate LLMs’ deficiency in un-
+derstanding hardware design codes like HLS. One potential solution
+could be to finetune open-sourced LLMs with annotated HLS codes.
+However, this approach faces challenges due to the lack of high-
+quality HLS codes annotated with corresponding design descriptions
+and closed-sourced advanced LLMs, preventing finetuning. These
+hurdles suggest adopting an open-sourced yet less powerful LLM.
+
+Correctly Identify the Correlated Demonstrations and Infer the Necessary Modifications
+// in_0 -> col
+// in_1 -> row
+// Output Stationary
+// in_0 -> row
+// in_1 -> col
+// Input Stationary
+// in_0 -> col
+// in_1 -> row
+// Input Stationary
+Generalization and Logical Reasoning Capabilities
+Fig. 3.
+Visualization of the identified generalization and logical reasoning
+capabilities of existing LLMs for AI accelerator design automation.
+This subsection will investigate powerful closed-sourced LLMs ver-
+sus finetuned open-sourced LLMs, aiming for an affordable solution
+without an overly large annotated dataset.
+We benchmark the closed-sourced LLM, GPT-4 [24], and the
+open-sourced LLM for code generation, CodeGen [21]. Following
+the settings in [34], we target a fundamental AI accelerator design
+automation task: implementing the inner product of two vectors
+in HLS. We use the Pass@k metric, representing the portion of
+successful compilations in k attempts, as the performance metric. The
+prompt for both pipelines is: “Implement the inner product operator
+between two vectors in HLS. You are an expert in AI accelerator
+design with extensive HLS coding knowledge.”
+Finetuning strategy. We adopt a two-stage finetuning process:
+First, we collect seven thousand open-sourced HLS code snippets
+from GitHub and finetune CodeGen [21] using a masked prediction
+objective [8]. This enhances the LLM’s hardware knowledge, partic-
+ularly HLS implementations. Second, we create ten customized HLS
+templates with implementation instructions and finetune the LLM to
+generate the corresponding AI accelerator design. This equips the
+LLM with AI accelerator implementation expertise.
+Observations. Tab. I indicates that the pretrained open-sourced
+CodeGen lacks proficiency in AI accelerator design without addi-
+tional finetuning, as evident from its 0% Pass@100 rate. Although our
+two-step finetuning process improves the model’s capabilities, there
+remains a notable discrepancy (e.g., 11% less Pass@100) compared to
+the closed-sourced GPT-4. These findings suggest that in data-limited
+situations, LLMs’ initial competence in the target task outweighs their
+finetuning ability. Consequently, a powerful closed-sourced LLM
+becomes a more suitable choice.
+D. Capabilities of LLMs
+Given the identified failures of LLMs, we reconsider their capabili-
+ties in practical LLM-powered AI accelerator design automation. Pre-
+vious works [4], [7], [16], [21], [50] suggest that LLMs have learned
+rich representations that can be generalized to unseen coding prob-
+lems through supervised finetuning or in-context learning [5], [22],
+[31]. To address the challenge of collecting high-quality instruction-
+code pairs required for finetuning, we explore the possibility of
+in-context learning by providing LLMs with HLS demonstrations
+composed of code pairs and corresponding design descriptions, in
+addition to user instructions. Inspired by the failure cases in Sec. II-B,
+we adopt decoupled hardware templates to avoid long dependencies,
+as detailed in Sec. IV-B. We summarize the identified capabilities of
+LLMs for successful AI accelerator design automation as follows:
+Generalization capability from in-context demonstrations. As
+shown in Fig. 3, given two snippets of HLS demonstrations, LLMs
+can generate a new hardware design following user instructions.
+They do so by maintaining the same coding style and modifying the
+design to meet new requirements, inferring the differences between
+the demonstrated design description and the user instruction. Our
+finding is that when high-quality demonstrations, which bear a certain
+degree of correlation to user instructions, are provided, the in-context
+learning capability of LLMs can be effectively activated.
+Search
+Space
+Prompt
+Search Engine
+Search
+Algorithm
+Demo 1:
+Demo N:
+Inst.
+Code
+...
+Code
+Demo-Augmented Prompt Generator
+Define the Context
+Assume you are an expert in HLS
+codes for AI accelerator design
+Demo A:
+Demo B:
+Inst.
+Code
+Inst.
+Code
+Design Instruction
+Feedback
+Code
+Performance
+Measurement
+Correction & Validation
+Code
+Correction
+...
+Inst.
+Demonstration Library
+LLM
+Prompt: Which two are most
+similar to  Design Instruction 
+Selected Demos
+LLM
+Inst.
+...
+Inst.
+Inst.
+Inst.
+Code
+Code
+Code
+Code
+LLM for demo selection
+Fig. 4. Visualize the workflow of our proposed GPT4AIGChip framework.
+Logical reasoning capability under multiple demonstrations.
+Feeding more diverse demonstrations to LLMs could better har-
+ness their in-context learning capabilities. However, this necessitates
+logical reasoning skills to discern which demonstration should be
+referred to when implementing each item in the user instructions.
+As shown in Fig. 3 (and in Sec. V-E), when given two different
+demonstrations, LLMs can provide a step-by-step analysis of the sim-
+ilarity between the functionalities required by the user instruction and
+those implemented in the demonstrations, subsequently selecting the
+appropriate one as a starting point. This reflects the logical reasoning
+capabilities of LLMs when provided with suitable demonstrations and
+also underscores the significance of high-quality demonstrations.
+III. WHAT WE CAN LEARN: INSIGHTS FROM THE ASSESSMENT
+Drawing upon our comprehension of the limitations and exploitable
+capabilities of LLMs in Sec. II, we distill insights and provide
+guidelines on how to efficiently harness LLMs for AI accelerator
+design automation. These insights establish the groundwork for our
+GPT4AIGChip framework in Sec. IV. Moreover, they possess the
+potential to inspire future innovations in LLM-driven hardware design
+automation. In particular, the following insights are derived:
+Decoupled hardware template design. Current LLMs struggle to
+generate effective AI accelerator designs when built upon commonly
+adopted HLS templates with long dependencies. This issue arises
+from the domain gap between the pretraining data and the infre-
+quently encountered AI accelerator design tasks during pretraining,
+causing a lack of knowledge about both domain-specific languages
+and hardware functionality. Hence, it is crucial to (1) properly design
+the hardware template to decouple different hardware functionalities
+in the design space, thus avoiding long dependencies, and (2) decom-
+pose a complex task into simpler subtasks, i.e., different hardware
+functionalities should be generated independently and progressively,
+rather than generating lengthy codes all at once.
+Prioritize in-context learning given limited data. Given the
+scarcity of annotated data, which is too limited to finetune an open-
+sourced but less powerful LLM in a supervised manner, leveraging the
+combination of in-context learning and logical reasoning capabilities
+of a closed-sourced but powerful LLM is a more effective choice.
+Proper prompt engineering. The key to successful in-context
+learning for hardware design is augmenting prompts with high-
+quality demonstrations in the target domain. These demonstrations are
+anticipated to: (1) exhibit a strong correlation with the input design
+instructions, and (2) encompass a wide range of design parameters
+to convey ample domain knowledge, enhancing the capability of
+addressing various input instructions.
+IV. INSTANTIATE THE DRAWN INSIGHTS: THE PROPOSED
+GPT4AIGCHIP FRAMEWORK
+A. The Overall Pipeline of GPT4AIGChip
+Utilizing the insights from Sec. III, we develop the GPT4AIGChip
+framework, which is designed to empower non-expert users in
+
+leveraging LLMs for automated AI accelerator design. Notably, our
+GPT4AIGChip instantiates the three insights outlined in Sec. III
+by implementing in-context learning atop the closed-sourced but
+powerful GPT-4 [24] and incorporating two essential components:
+(1) the LLM-friendly hardware template (see Sec. IV-B), which
+simplifies intricate AI accelerator codes into a modular structure,
+and (2) the demo-augmented prompt generator (see Sec. IV-C),
+which enhances LLMs’ capacity to generate optimized AI accelerator
+designs by supplementing prompts with well-chosen demonstrations.
+By integrating the LLM-friendly hardware template with the demo-
+augmented prompt generator, our GPT4AIGChip adopts an iterative
+approach to enhance the generated AI accelerator design, progres-
+sively approaching the optimal solution. Each iteration follows a four-
+stage workflow, as depicted in Fig. 4 and outlined below:
+• The search engine identifies the next design and its correspond-
+ing instruction for each module in the LLM-friendly hardware
+template, drawing on feedback from previously searched designs
+to guide the implementation and evaluation.
+• The demo-augmented prompt generator creates a prompt for
+each module, combining relevant demonstrations (instruction-
+code pairs) to enhance the LLMs’ in-context learning.
+• The LLMs equipped with the above prompts sequentially gen-
+erate the hardware design implementation.
+• The design validation flow scrutinizes LLMs’ generated codes,
+executing necessary modifications to assure deployability.
+B. The LLM-friendly Hardware Template Design
+As highlighted in Sec. III, providing the LLM with a hardware
+design template is vital to compensate for its limited AI accelerator
+design knowledge. Yet, as shown in Sec. II-B, existing HLS accel-
+erator templates [10], [27], [39], [46] pose significant challenges for
+LLM-based AI accelerator generation due to their complex design
+parameter coupling and inter-dependency. To address this, we first
+establish design principles for an LLM-friendly accelerator micro-
+architecture and source code template. Guided by these principles,
+we propose a unique modular AI accelerator template, tailored to
+optimize LLM’s capabilities in generating AI accelerator designs.
+We then discuss the implications and advantages of our template in
+enhancing LLM-assisted design generation across broader scenarios.
+The desired template design principles. To ensure effective
+LLM-assisted generation of accelerator designs, we identify three key
+principles for design templates: (1) high modularity, (2) decoupled
+module design, and (3) deep design hierarchies to facilitate step-by-
+step design generation, to address the inherent limitations of LLMs.
+• High modularity: Due to the token capacity restrictions of
+LLMs, the size of the input sample code used during in-context
+learning [5], [22], [31] and the code size for the final generated
+design during each round (i.e., a single LLM model inference)
+are significantly limited. With high modularity, the template is
+segmented into smaller and thus more manageable modules.
+Such a modular design generation approach can substantially
+reduce the required code size for both LLMs’ input and output.
+• Decoupled module design: Segmenting the code template
+into smaller modules can inadvertently introduce coupling and
+dependencies among their configuration settings. As discussed
+in Sec. II-B, this contradicts our goal of input token size
+reduction through high modularity, as the LLM must recall
+previous modules’ settings. To counteract this, we propose
+independent module generation, each maintaining its own local
+settings. However, this can lead to sub-optimal overall designs,
+with potential data rate mismatches between connected modules
+causing stalls or deadlocks. To harmonize module operation, we
+suggest an additional search engine and adaptable inter-module
+communication schemes. These can optimally harmonize all
+local settings, mediating communication rates, and bandwidth
+discrepancies. Consequently, the LLM can generate each module
+based on its local settings, maintaining the decoupling principle.
+• Deep design hierarchies for step-by-step design genera-
+tion: The complexity of accelerators can result in large code
+sizes within even one single module, which may exceed the
+handling capacity of an LLM. To address this, our template
+adopts a hierarchy-based, module-by-module generation ap-
+proach, streamlining the process and reducing the complexity
+at each stage. Every module consists of multiple sub-modules
+adhering to a decoupling principle, which may further contain
+their own sub-modules. This recursive nesting persists until
+further division is unfeasible (see Level-L in Fig. 5 (b)). This
+allows the LLM to systematically generate design hierarchies
+for each module, constraining the code size and complexity at
+each step.
+Overview of the proposed accelerator template. Incorporating
+the three key principles above, we introduce a new, modular, and
+decoupled accelerator micro-architecture and corresponding code
+template, as displayed in Fig. 5 (b). While here we focus on the
+widely-used GEMM operator considering its extensive application
+across various AI algorithms, our template retains a generic structure.
+Comprising a collection of versatile modules, each can be flexibly re-
+designed according to the prompts and local configuration settings,
+offering varying hardware efficiency or even unique functionalities.
+To guide precise and decoupled code generation by LLMs, each
+module in our template strictly corresponds to a function instantiation
+in the source code, as illustrated in Fig. 5 (b). Each module is
+hierarchically composed of nested sub-modules to facilitate LLMs’
+step-by-step generation. Modules are interconnected via stream-
+based communication links and asynchronous data FIFOs, to reduce
+the controlling overhead of handling potential mismatches between
+different modules’ data production and consumption rates. Processing
+onset and termination within each module primarily hinge on data
+availability, promoting fine-grained operation overlap and streamlin-
+ing control overhead [15]. For modules with multiple input ports,
+such as the interconnect module in Fig. 5 (b), we include additional
+synchronization logic to ensure data alignment and accuracy.
+Key components of the proposed accelerator template. We
+elaborate on different modules shown in Fig. 5 (b) below.
+• Buffer modules: These are designed to facilitate parallel data
+access for subsequent computing units and to harness varied data
+reuse patterns. They define (1) the on-chip memory partition and
+the corresponding data allocation for parallel access, and (2) the
+procedures for refreshing, resetting, or retaining the data within
+buffers, dictated by control signals associated with different
+data reuse patterns. Double buffers are assumed for all possible
+design styles to ensure optimal throughput.
+• Computing units modules: These modules primarily han-
+dle computations, e.g., multiplications and additions, within
+their parallel computing units. Implemented as a collection of
+Multiply-and-Accumulate (MAC) units, their interconnects can
+be tailored according to different design prompts, striking a
+balance between spatial data reuse, MACs’ data propagation
+latency, and on-chip buffer bandwidth contention. We structure
+nested design hierarchies for easier LLM-assisted generation
+and to accommodate a variety of MAC interconnect styles. For
+
+ template<micro_arch_config>
+ Module1(run_time_args) {
+   // datastream init
+   ...
+   // sub-module 1 instatiation
+   SubModule1<micro_arch_config>(
+       run_time_args
+    );
+   ...
+   // sub-module M instatiation
+   SubModuleM<micro_arch_config>(
+        run_time_args
+    );
+  }
+TopModule(interfaces) {
+  // interface config
+  ...
+  // interconnecting datastream init
+  hls::stream<...> in_buffer0_out
+  hls::stream<...> in_buffer1_out
+  ...
+  // module 1 instatiation
+  Module1<micro_arch_config>(
+            run_time_args
+  );
+   ...
+   // module N instatiation
+   ModuleN<micro_arch_config>(
+           run_time_args
+   );
+}
+Host + Communication Peripherals
+DDR
+Input Buffer 2
+On
+Chip
+Ctrl
+Interconnect
+Computing Units
+Output Buffer
+Level-1
+Level-2
+Level-L (Finest) 
+...
+ template<config>
+ void PE_lane_out_st(args) {
+   #pragma HLS INLINE off
+   if (enable == 1) {
+     for (int i = 0; ...) {
+       #pragma HLS UNROLL
+       out_0[i] += in_0[i] * in_1[i]; 
+      }
+    }
+ }
+ TopModule(...) {
+   for (...) {
+     for (...) {
+       
+       input_buffering_o(args);
+       for ...
+       ...
+       for ...
+       computing_units_o(args);
+     
+     }
+   }
+ }
+Non-modular Baseline
+① One-shot design generation
+② Coupled design parameters and
+long dependency
+Host
+Ctrl
+(b)
+(a)
+Input Buffer 1
+Interconnect
+Decoupled Accelerator Template
+Hierarchical 
+Decoupled
+Fig. 5. (a) LLMs with a non-modular template are limited by one-shot design generation, coupled design parameters, and long dependency; (b) In contrast,
+the proposed modular and decoupled accelerator template, which facilitates step-by-step design generation in a hierarchical manner.
+example, individual MACs may be linked to create a 1D PE-
+lane sub-module, while multiple PE lanes can be interconnected
+to forge a larger 2D PE-array module, enhancing scalability.
+• Interconnect modules: They are designed to flexibly distribute
+and synchronize data between buffer modules and computing
+units modules. Their flexibility becomes crucial when the com-
+puting units consist of multiple 2D PE arrays and when the
+algorithm-to-PE-array mapping can change at run-time.
+• Control (Ctrl) modules: They handle initial control data re-
+trieval from the host, control data decoding, and potential
+runtime control data generation to alter various modules’ modes.
+• Flexible communication arbitrators: These are designed to
+manage potential mismatches in data production/consumption
+rates and bandwidths between interconnected modules, thus
+facilitating rate and bandwidth conversion.
+Implication and advantages of the proposed template. The
+proposed template offers three key benefits: (1) by reducing the
+code size with decoupling module design and utilizing deep design
+hierarchies, the template allows LLMs to use limited input and output
+token capacity to generate complicated accelerator designs in a step-
+by-step manner, enhancing LLMs’ in-context learning capability;
+(2) as illustrated in Sec. II-C, LLMs’ potential for generating AI
+accelerator designs can be further enlarged when finetuned using an
+additional dataset of sample code and prompt pairs. Our proposed
+template simplifies this finetuning process. It allows developers to
+generate the dataset in a module by module and hierarchy by
+hierarchy way, greatly reducing design complexity; and (3) the
+principles identified for the proposed template extend beyond the
+domain of HLS. The same issues concerning LLM-assisted design
+generation, as outlined in Sec. II-B, still exist when leveraging LLMs
+to generate designs for other programming languages. Therefore, the
+aforementioned key principles are generally applicable, though the
+technical implementations for different domains may vary.
+C. The Demo-Augmented Prompt Generator Design
+As outlined in Sec. III and prior studies [4], [23], [44], a carefully
+enhanced prompt, reinforced with demonstrations, can effectively
+facilitate in-context learning for LLMs. This imparts LLMs with vital
+task-specific knowledge, unlocking their full capabilities. However,
+the prompt length limit makes it impractical to incorporate all
+possible demonstrations into one prompt. To tackle this, our demo-
+augmented prompt generator aims to efficiently generate prompts
+that automatically select the most relevant demonstrations from our
+crafted library and incorporate them into the prompt, balancing
+prompt length with the resulting in-context learning performance.
+Workflow. Inspired by previous studies highlighting LLMs’ ability
+in identifying similarities between different instructions [4], we
+employ LLMs to facilitate demonstration selection within our demo-
+augmented prompt generator, which further minimizes the demand
+for human expertise in AI accelerator design. Specifically, as shown
+in Fig. 4, in each iteration, given a design instruction generated by the
+search engine, we deploy an LLM to identify the similarity between
+the generated design instruction and those within the demonstration
+library. We then select the two most similar instructions, pairing
+them with their corresponding implementation as the demonstrations
+for this iteration of code generation. Then, we generate the demo-
+augmented prompt using the following template:
+• Assume you are an expert in HLS codes for AI accelerator
+design, I will now provide you with an instruction on gener-
+ating the [Module Name] for AI accelerator design. Below are
+two demonstration instructions and the corresponding generated
+code. Demo A: Instruction: [Demo A Instruction]. Code: [Demo
+A Code]; Demo B: Instruction: [Demo B Instruction]. Code:
+[Demo B Code]. Now please generate the code with the follow-
+ing instruction: [Design Instruction].
+Demonstration library. The high-quality demonstration library is
+a critical component in our demo-augmented prompt generator. The
+demonstrations within this library essentially serve as the primary
+knowledge source for LLMs to acquire domain-specific insights. As
+suggested in Sec. III, our goal is to assemble a demonstration library
+that encompasses a diverse range of design choices for the target
+domain, i.e., GEMM in this paper. This ensures that the library
+provides demonstrations with abundant domain knowledge, catering
+to the diverse design instructions generated from the search engine.
+To achieve this, we adhere to the following guiding principles during
+the construction of our demonstration library:
+• Highly correlated instruction and code pairs: Each demon-
+stration includes a detailed implementation instruction and the
+corresponding code, accompanied by comments. Each line of in-
+struction is explicitly linked to specific code segments, providing
+clarity on their correlation and rationale.
+• Diverse design choices: To ensure LLMs find demonstrations
+with sufficient domain knowledge for a given design instruction,
+we generate separate demonstrations illustrating modifications
+for each design parameter in our search space (Sec. IV-D).
+Given the large search space size that GPT4AIGChip considers,
+generating a large number of distinct AI accelerator designs based on
+the principles outlined above requires substantial human effort. For-
+tunately, our proposed LLM-friendly hardware template (Sec. IV-B)
+makes it feasible. This template exhibits high modularity and allows
+for the decoupled generation of each module within an AI accelerator.
+This approach significantly reduces the required human effort in two
+ways: (1) each module is a concise and structured implementation
+
+focused on a specific function. Therefore, the implementation of one
+module does not require considering the impact on other modules,
+resulting in a streamlined and less labor-intensive implementation
+process; and (2) not all modules in the template are affected by all
+the parameters in the search space. As a result, the potential design
+variations for each module are substantially reduced compared to the
+entire AI accelerator design.
+D. Implementation of Other Components in GPT4AIGChip
+Hardware design space. To ensure the performance of generated
+accelerators for diverse designs, a generic accelerator design space
+is crucial. It enables a flexible design process, providing the code
+generator with multiple options to customize the design of each target
+operator. Utilizing the template from Sec. IV-B, we identify five key
+hardware design parameters:
+• MAC array sizes: They indicate the total number of MACs in
+the MAC array of the instantiated accelerator.
+• Network-on-Chip (NoC) styles: They determine the distribution
+of data to and from computing units, as well as the propagation
+of data among them. They can be classified into three main
+types: uni-cast, multi-cast, and broadcast. To promote design
+diversity, these styles are independently employed in various
+hierarchies of computing units, including individual MACs, 1D
+MAC lanes, and 2D MAC arrays. Furthermore, NoC styles are
+configured separately for different data types, e.g., the two input
+operands and one output in GEMM, enlarging design variations.
+• On-chip buffer sizes: They denote the capacities of three prin-
+cipal buffers integral to the accelerator design, which consists
+of two input buffers and one (partial) output buffer. The sizes
+of all additional auxiliary buffers and registers are determined
+based on the capacities of these three principal buffers.
+• On-chip buffer partition styles: They determine the data
+allocation among on-chip memory blocks within each buffer. By
+dividing the data across multiple blocks, parallel accesses can
+be achieved through buffer partitioning. Two dimensions, namely
+data width and height, can be employed for such partitioning.
+• Data reuse patterns: They define how data once buffered is
+reused during computation. Changing how buffers and DRAM
+exchange data leads to diverse reuse strategies, e.g., first-input
+operand reuse, second-input operand reuse, or output reuse.
+The adopted search algorithm. GPT4AIGChip’s accelerator
+search adopts an evolutionary algorithm known as tournament se-
+lection [19], which iteratively evolves the accelerator’s design. This
+iterative evolution process begins by initializing a population P,
+consisting of |P| randomly selected accelerator designs {hw} from
+the available design space. Specifically, in each iteration, a subset S
+of a fixed size is randomly selected from P. The superior designs,
+judged by top-tier hardware performance from LLM-generated im-
+plementation, become parent designs {hw}parent. New accelerator
+designs {hw}child then emerge via mutation - a random tweak in a
+parent design parameter - and crossover - a random element exchange
+between two parents. The resultant {hw}child are added into P. To
+preserve a constant population size |P|, the oldest designs are phased
+out from P, following [32]. Finally, once the maximum number of
+cycles is reached, the accelerator design with the highest performance
+throughout the search is chosen as the optimal solution.
+Design validation and code correction flow. GPT4AIGChip
+also integrates a process to validate and ensure the functionality
+of LLM-generated designs, consisting of three main stages: (1)
+Synthesizability Evaluation, (2) Correctness Verification, and (3)
+Performance Analysis. In Synthesizability Evaluation, we initially
+employ standardized Vivado HLS tools [42] to synthesize LLM-
+generated codes. Subsequently, output log messages are processed via
+a custom error parser, armed with empirically-tested error detection
+and correction protocols. If the parser confronts errors beyond its
+capabilities, it may necessitate (1) LLM-driven design regeneration
+or (2) human intervention for error rectification. The current setup
+incorporates procedures for detecting and addressing undefined vari-
+ables, improper HLS pragma usage, and out-of-bound array (memory)
+access. Furthermore, we ensure that the design produces the desired
+results through the results correctness check. Specifically, a test-bench
+template is constructed featuring anticipated input and output. The
+produced output is subsequently contrasted with the expected output
+to confirm accuracy. Given the variety of possible errors, this step
+doesn’t include automatic correction. In case of incorrect results, de-
+sign regeneration is required. Finally, we assess performance metrics
+(e.g., latency) and resource usage to provide feedback to the search
+engine, as depicted in Fig. 4. Vivado HLS built-in tools generate
+these performance and resource estimations after design synthesis.
+V. EXPERIMENTAL EVALUATION
+A. Experiment Setup
+We demonstrate the effectiveness of our GPT4AIGChip framework
+for automatically exploring the optimal AI accelerator design written
+in HLS on top of the design space introduced in Sec. IV-D. In
+particular, we adopt GPT-4 [24] as the default LLM and adopt the
+standard Vivado HLS design flow [42], using a ZCU104 FPGA with
+XCZU7EV MPSoC [1], for accelerator validation. We allocate 1024
+digital signal processors (DSPs) for both baselines and our generated
+designs, unless noted. The final performance is measured onboard
+with PYNQ [41] as the deployment environment.
+B. Benchmark with Manual and Automated Designs
+To validate the quality of the generated hardware designs of
+our GPT4AIGChip framework, we benchmark with two baselines,
+including (1) hardware designs delivered by an industry-level de-
+sign automation tool CHaiDNN [40] and (2) manually optimized
+designs by human experts based on our template, in terms of the
+acceleration efficiency for six different networks under two input
+resolutions. In the case of manually optimized designs, an expert
+hardware designer adjusts and finetunes the parameters outlined in
+our suggested templates. This process continues until either no further
+performance gains can be achieved within a reasonable timeframe
+(approximately one day) or the expert designer determines that no
+further improvements can be made based on empirical evidence.
+Observation.
+As
+shown
+in
+Fig.
+6,
+we
+observe
+that
+(1)
+our
+GPT4AIGChip
+framework
+can
+consistently
+outperform
+CHaiDNN [40], e.g., a 2.0%∼16.0% latency reduction across
+six networks and two resolution settings, indicating that our
+GPT4AIChip has successfully and practically demonstrated the first
+LLM-powered AI accelerator design automation framework; and (2)
+our searched accelerator design can match the hardware efficiency
+achieved by manual designs from human experts while enjoying
+much-reduced labor costs. This also implies that our searched
+accelerator implementation has the potential to serve as a good
+reference or initialization for human designers.
+C. Effectiveness of the Search Scheme
+To validate the effectiveness of our search scheme, we visualize
+the Pareto frontier, i.e., the trade-off between latency and the utilized
+resources in terms of DSPs, on top of ResNet-50 with an input
+resolution of 224 × 224, achieved by the hardware designs searched
+via GPT4AIGChip and benchmark with those delivered via a random
+
+Latency (ms)
+VGG-16
+ResNet-18
+W-ResNet-32
+VGG-16
+ResNet-18
+ResNet-50
+resolution: 32x32 (CIFAR)
+resolution: 224x224 (ImageNet)
+Fig. 6. Benchmark GPT4AIGChip’s generated designs with CHaiDNN’s [40]
+generated ones and manually optimized ones by experts on six networks.
+1.44x
+1.57x
+# of DSPs
+Latency (sec)
+Fig. 7.
+Benchmark the latency-resource Pareto frontier achieved by
+GPT4AIGChip’s search scheme, random search, and manual optimization.
+search in our design space. In addition, we also benchmark with
+manually optimized accelerator implementation by human experts.
+Observation. In Fig. 7, we can observe that although the designs
+generated by a random search under-perform manually optimized
+designs by human experts in terms of the achievable latency-resource
+trade-off under a relatively rich DSP setting, our GPT4AIGChip
+framework can outperform the random search baseline and match
+the hardware efficiency achieved by manual expert designs under
+comparable resources, indicating the effectiveness of our search
+scheme in Sec. IV-D. Note that given a tight DSP budget, the
+efficiency of different designs is naturally similar.
+D. Ablation Study of the Prompt Generator
+To validate the effectiveness of our proposed demo-augmented
+prompt generator, we validate the impact of different prompt de-
+sign strategies on LLMs’ accelerator design generation performance.
+Specifically, we use the generation of the output stationary computing
+units defined in Sec. IV-B as the target application with Pass@10, as
+defined in Sec. II-C, as the evaluation metric.
+Prompt format and explicitness. We first validate the necessity
+of using the demo-augmented prompt when generating the code.
+Specifically, we consider two alternative prompt designs: (1) No
+Demo, which uses the same design instruction but without demo
+instruction and code; (2) High-Level Description, which replaces the
+explicit instructions in the demo with high-level descriptions (e.g.,
+output stationary computing units). As shown in Tab. II, our demo-
+augmented prompt improves the LLM’s ability in generating desired
+accelerator designs by 50% and 30% in terms of Pass@10 rates over
+the two baselines No Demo and High-Level Description, respectively.
+Demonstration selection. We further validate the importance of
+incorporating appropriate demonstrations in the prompt. Specifically,
+we consider two alternatives other than selecting the most similar
+demonstrations: (1) random selection, denoted as Random; (2) se-
+lecting the most unrelated demonstrations, denoted as Dissimilar. As
+TABLE II
+ABLATION STUDY ON THE PROMPT FORMAT AND EXPLICITNESS.
+Prompt
+No Demo
+High-Level Description
+Demo-Augmented (Ours)
+Pass@10
+10%
+30%
+60%
+TABLE III
+ABLATION STUDY ON THE DEMONSTRATION SELECTION CRITERIA.
+Criteria
+Dissimilar
+Random
+Similar (Ours)
+Pass@10
+30%
+50%
+60%
+shown in Tab. III, using the most similar demonstrations can better
+impart necessary knowledge in the prompt, leading to 10% and 30%
+higher Pass@10 rates over Random and Dissimilar, respectively.
+The number of demonstrations. We also evaluate the number
+of demonstrations needed in the prompt. Tab. IV shows that (1)
+introducing demonstration (i.e., # Demo > 0) significantly improves
+the performance, and (2) providing 2 demonstrations leads to a
+satisfactory trade-off between Pass@10 rates and prompt length.
+TABLE IV
+ABLATION STUDY ON THE NUMBER OF DEMONSTRATIONS PROVIDED.
+THE SETTING ADOPTED BY GPT4AIGCHIP IS BOLDED.
+# Demo
+0
+1
+2
+3
+Pass@10
+10%
+50%
+60%
+60%
+E. Visualizing the Generated Designs
+To better illustrate the design generation process from in-context
+demonstrations, we provide one example in Fig. 8, where the LLM is
+prompted by two demonstrations that correspond to the inner-/outer-
+product-based matrix multiplication implementation, respectively, and
+is instructed to generate the implementation of a row-wise-product-
+based design. We can observe that our framework exhibits good log-
+ical reasoning about the relationship between the desired design and
+the two given demonstrations, as the generated implementation can
+successfully identify the reusable codes from the two demonstrations
+and fuse them in a logically correct manner, i.e., adopt a spatial
+reduction along the PE lane, following the inner-product solution,
+and broadcast one element along the PE row, following the outer-
+product solution. This indicates the generalization capability of our
+GPT4AIGChip framework.
+VI. LIMITATIONS AND FUTURE WORK
+We recognize that our work marks the initial step towards LLM-
+aided AI accelerator design automation, with significant efforts still
+needed to propel this promising yet demanding field forward. In order
+to provide insights into future research within this domain, we discuss
+our limitations and the resulting inspiration for future work.
+Dependence on the demonstration library. Our framework’s
+dependence on an available demonstration library tailored to the
+target domain is still essential to compensate for the existing LLMs’
+limited comprehension of AI accelerator designs. However, con-
+structing such a library demands non-trivial hardware expertise and
+constrains the capacity for cross-domain applicability. To tackle
+this challenge, a promising avenue for future investigation involves
+amassing annotated hardware design codes alongside corresponding
+descriptions, which can be utilized for LLM finetuning. This approach
+encodes AI accelerator design knowledge into the LLMs’ weights,
+diminishing the reliance on human expertise and enhancing gener-
+alization across diverse domains. Additionally, the accumulation of
+high-quality paired data can also set a benchmark for the community
+to evaluate the capabilities of forthcoming LLMs.
+
+Demo 1: Inner Product
+1. Input_0 stationery
+2. Input_0 row and input_1 column are multi-cast to a PE column
+3. Input_0 stays in each MAC when all the MACs have the data
+4. Each MAC on a PE column produces the partial results of a single output
+1. Output stationery
+2. Each element of the input_0 row is broadcast along the PE row and 
+    a column of input_0 is multi-cast to all the MACs in a PE column
+3. Each element of the input_1 row is broadcast along the PE column 
+    and a row of input_1 is multi-cast to all the MACs in a PE row
+4. Each MAC in a column of macs in a PE lane will process a dot product 
+    sequentially and each PE lane process multiple dot products in parallel
+1. Input_0 stationery
+2. Input_0 row is multi-cast to a PE row and propagates along a PE column
+3. Each element of the input_1 row is broadcast along the PE row and
+    a row of input_1 is multi-cast to all the MACs in a PE lane (PE column)
+4. Each MAC on a PE row produces a partial result for different outputs in a row
+5. Each MAC on a PE column produces the partial results of a single output 
+Demo 2: Outer Product
+Instruction: Row-wise Product
+  
+    if(input_0_stream_in_index < PE_ARRAY_HEIGHT){ //load input data from in_0 stream
+       ap_uint<PE_ARRAY_WDITH * T_input_type::width> in_0_data = in_0.read();
+       //multi-cast in_0_data to each PE in a PE row
+       multi_cast<T_input_type, PE_ARRAY_WIDTH>(in_0_data, in_0_reg, input_0_stream_in_index);}
+    if(input_0_stream_in_index >= PE_ARRAY_HEIGHT){
+        ap_uint<PE_ARRAY_HEIGHT * T_input_type::width> in_1_data = in_1.read();
+        for(int i = 0; i < PE_ARRAY_HEIGHT; i++){
+            #pragma HLS UNROLL //broadcast in_1_data to each PE in a PE row 
+            broadcast<T_input_type,PE_ARRAY_WIDTH>(in_1_data.range((i+1)*T_input_type::width-1, i*T_input_type::width), in_1_reg, i);}
+    
+        ap_uint<1> enable_1d = 1;
+        
+        for(int i = 0; i < PE_ARRAY_WIDTH; i++){ //PE array computing using 1D PE lanes
+            #pragma HLS UNROLL  //1D PE lane in charge of dot product
+            PE_lane_1D_output_st_compute<T_input_type,T_output_type,PE_ARRAY_WIDTH>(in_0_reg, in_1_reg, out_0_reg, i, enable_1d);}        
+        ap_uint<PE_ARRAY_WIDTH * T_output_type::width> out_0_data;
+        for(int i = 0; i < PE_ARRAY_WIDTH; i++){ //concatenate the output data from each PE lane in parallel
+            #pragma HLS UNROLL
+            out_0_data.range((i+1)*T_output_type::width-1, i*T_output_type::width) = out_0_reg[i];}
+        for(int i = 0; i < PE_ARRAY_WIDTH; i++){
+            #pragma HLS UNROLL
+            out_0_reg[j][i] = 0;}
+        out_0.write(out_0_data);}
+From Demo 1
+From Demo 2
+Generated Design
+Prompt
+Fig. 8. Visualize the generated row-wise-product-based implementation of GPT4AIGChip following the instructions and the demonstrations of inner-/outer-
+product-based matrix multiplication, for which we show the design descriptions only and hide the codes for visual clarity.
+Human involvement requirements. Our framework still neces-
+sitates human involvement to rectify the interfaces of the generated
+hardware modules and assemble them into the final accelerator. This
+requirement arises from the diverse implementation styles of different
+design choices, leading to inevitable inconsistencies in the module-
+wise interface, particularly when expanding the hardware template
+to encompass a wider array of domains. In future endeavors, this
+challenge could potentially be addressed by crafting novel hardware
+templates and design principles that strike a balance between gener-
+ality and modularity. Such an approach would cater to the preferred
+formats of both human designers and LLMs, potentially reducing the
+need for extensive human intervention. Additionally, when coupled
+with LLM finetuning, explicit regularizations can be applied to LLMs
+to ensure the consistency of interface implementation.
+Verification cost of the generated accelerator. Beyond the
+accelerator design phase, the verification cost associated with ac-
+celerator design can be substantial, a facet not encompassed by
+our present framework. Addressing this omission and consequently
+furnishing a comprehensive and accurate AI accelerator generation
+pipeline entails the development of verification tools tailored to LLM-
+generated accelerator designs. In future endeavors, such tools are of
+paramount importance to guarantee the soundness of the designs and
+to automatically rectify prevalent LLM-related anomalies. These tools
+could be constructed based on human insights into LLM design biases
+and/or through the creation of another LLM specifically customized
+for verification purposes.
+VII. RELATED WORK
+LLMs and in-context learning. LLMs, e.g., GPT-4 [24] and Al-
+paca [16], have demonstrated outstanding performance across various
+tasks, attributed to extensive pretraining, high-quality datasets, and
+effective tuning methods [8], [9], [16], [24], [28]–[30], [48]. One key
+ability of LLMs is in-context learning, where providing a few relevant
+input-output pairs can largely enhance task performance [3], [12],
+[18], [20], [31], [33], [47], [49]. Nevertheless, employing in-context
+learning for AI accelerator design automation encounters challenges
+stemming from token length limitations in LLMs (e.g., 4096 tokens
+for GPT-4 [24]). The complexity of AI accelerator design code can
+easily surpass this limit, necessitating a decoupled hardware template
+and the judicious selection of highly correlated demonstrations.
+LLM-powered code generation. Previous work has leveraged
+LLMs to generate code, particularly in languages with substantial
+pretraining resources like Python, or highly structured ones like
+SQL [6], [21], [26], [37], [50]. For hardware code generation, LLMs
+have been finetuned on Verilog codes for code completion [34] and
+used for bug-fixing [2]. Existing LLM-powered code generation pri-
+marily targets languages that are highly structured and akin to natural
+languages or focuses on simpler tasks such as code completion. They
+are not able to generate complex, domain-specific hardware designs
+based on human instructions, which require a deep understanding
+and reasoning of the target domain. In contrast, our work represents
+the first endeavor to harness the power of LLMs for generating AI
+accelerator designs based on natural languages.
+Design automation for DNN accelerators. To facilitate AI
+accelerator design, various design automation tools have been de-
+veloped for FPGA and/or ASIC-based accelerators. For example,
+Deepburning [38] and TensorLib [14] utilize pre-built templates with
+customizable parameters to construct FPGA-based DNN accelera-
+tors; AutoDNNChip [43] adopts a cohesive graph representation,
+encompassing a broad spectrum of accelerator designs, to enhance
+the applicability of its proposed design automation. However, these
+existing tools still require nontrivial hardware expertise and often
+rely on domain-specific languages, necessitating deep knowledge of
+hardware architecture and thus limiting the accessibility to most AI
+developers. To address these limitations, GPT4AIGChip aspires to
+produce high-quality hardware codes in response to natural language
+instructions, reducing the entry barrier for AI developers unfamiliar
+with hardware and thus expediting AI accelerator innovations.
+VIII. CONCLUSION
+This work delves into the capabilities of LLMs for AI accelerator
+design automation. As a crucial first step, we conducted an in-
+depth investigation of LLMs’ strengths and limitations in automated
+AI accelerator generation, drawing vital insights into the prospects
+of LLM-powered design automation. Building on these insights,
+we develop GPT4AIGChip, which integrates an automated prompt-
+generation pipeline using in-context learning to guide LLMs towards
+creating high-quality AI accelerator designs. Various experiments
+and ablation studies validate the effectiveness of GPT4AIGChip in
+generating high-performance AI accelerators in response to human
+natural languages. To our knowledge, this work marks the first
+successful demonstration of a pipeline for LLM-powered automated
+AI accelerator generation, highlighting the untapped potential of
+LLMs in design automation and suggesting promising avenues for
+next-generation AI accelerator development.
+ACKNOWLEDGEMENT
+The work is supported by the National Science Foundation (NSF)
+through the CCRI program (Award number: 2016727), an NSF
+CAREER award (Award number: 2048183), and CoCoSys, one of the
+seven centers in JUMP 2.0, a Semiconductor Research Corporation
+(SRC) program sponsored by DARPA.
+
+REFERENCES
+[1] “Ds891-zynq-ultrascale-plus-overview,”
+https://docs.xilinx.com/v/u/
+en-US/ds891-zynq-ultrascale-plus-overview, (Accessed on 02/21/2023).
+[2] B. Ahmad et al., “Fixing hardware security bugs with large language
+models,” arXiv preprint arXiv:2302.01215, 2023.
+[3] T. Brown et al., “Language models are few-shot learners,” Advances in
+neural information processing systems, vol. 33, pp. 1877–1901, 2020.
+[4] S. Bubeck et al., “Sparks of artificial general intelligence: Early exper-
+iments with gpt-4,” arXiv preprint arXiv:2303.12712, 2023.
+[5] S. C. Chan et al., “Data distributional properties drive emergent few-shot
+learning in transformers,” arXiv preprint arXiv:2205.05055, 2022.
+[6] A. Chen et al., “Improving code generation by training with natural
+language feedback,” arXiv preprint arXiv:2303.16749, 2023.
+[7] M. Chen et al., “Evaluating large language models trained on code,”
+arXiv preprint arXiv:2107.03374, 2021.
+[8] J. Devlin et al., “Bert: Pre-training of deep bidirectional transformers
+for language understanding,” arXiv preprint arXiv:1810.04805, 2018.
+[9] L. Floridi and M. Chiriatti, “Gpt-3: Its nature, scope, limits, and
+consequences,” Minds and Machines, vol. 30, pp. 681–694, 2020.
+[10] Y. Fu et al., “Auto-nba: Efficient and effective search over the joint space
+of networks, bitwidths, and accelerators,” in International Conference on
+Machine Learning.
+PMLR, 2021, pp. 3505–3517.
+[11] R. Garg et al., “A taxonomy for classification and comparison of
+dataflows for gnn accelerators,” arXiv preprint arXiv:2103.07977, 2021.
+[12] S. Garg et al., “What can transformers learn in-context? a case study
+of simple function classes,” Advances in Neural Information Processing
+Systems, vol. 35, pp. 30 583–30 598, 2022.
+[13] Y. Guan et al., “FP-DNN: An automated framework for mapping deep
+neural networks onto FPGAs with RTL-HLS hybrid templates,” in 2017
+IEEE 25th Annual International Symposium on Field-Programmable
+Custom Computing Machines (FCCM).
+IEEE, 2017, pp. 152–159.
+[14] L. Jia et al., “Tensorlib: A spatial accelerator generation framework for
+tensor algebra,” in 2021 58th ACM/IEEE Design Automation Conference
+(DAC).
+IEEE, 2021, pp. 865–870.
+[15] B. Khailany et al., “A modular digital vlsi flow for high-productivity
+soc design,” in Proceedings of the 55th Annual Design Automation
+Conference, 2018, pp. 1–6.
+[16] A. Koubaa, “Gpt-4 vs. gpt-3.5: A concise showdown,” 2023.
+[17] S. Liang et al., “Deepburning-gl: an automated framework for generating
+graph neural network accelerators,” in ICCAD, 2020.
+[18] J. Liu et al., “What makes good in-context examples for gpt-3?” arXiv
+preprint arXiv:2101.06804, 2021.
+[19] B. L. Miller et al., “Genetic algorithms, tournament selection, and the
+effects of noise,” Complex systems, vol. 9, no. 3, pp. 193–212, 1995.
+[20] S. Min et al., “Noisy channel language model prompting for few-shot
+text classification,” arXiv preprint arXiv:2108.04106, 2021.
+[21] E. Nijkamp et al., “Codegen: An open large language model for code
+with multi-turn program synthesis,” arXiv preprint arXiv:2203.13474,
+2022.
+[22] C. Olsson et al., “In-context learning and induction heads,” arXiv
+preprint arXiv:2209.11895, 2022.
+[23] OpenAI,
+“Gpt-3.5,”
+https://platform.openai.com/docs/models/gpt-3-5,
+(Accessed on 04/10/2023).
+[24] OpenAI, “Gpt-4,” https://platform.openai.com/docs/models/gpt-4, (Ac-
+cessed on 04/10/2023).
+[25] L. Ouyang et al., “Training language models to follow instructions with
+human feedback,” Advances in Neural Information Processing Systems,
+vol. 35, pp. 27 730–27 744, 2022.
+[26] G. Poesia et al., “Synchromesh: Reliable code generation from pre-
+trained language models,” arXiv preprint arXiv:2201.11227, 2022.
+[27] E. Qin et al., “Enabling flexibility for sparse tensor acceleration via
+heterogeneity,” arXiv preprint arXiv:2201.08916, 2022.
+[28] A. Radford et al., “Improving language understanding by generative pre-
+training,” 2018.
+[29] A. Radford et al., “Language models are unsupervised multitask learn-
+ers,” OpenAI blog, vol. 1, no. 8, p. 9, 2019.
+[30] C. Raffel et al., “Exploring the limits of transfer learning with a unified
+text-to-text transformer,” The Journal of Machine Learning Research,
+vol. 21, no. 1, pp. 5485–5551, 2020.
+[31] Y. Razeghi et al., “Impact of pretraining term frequencies on few-shot
+reasoning,” arXiv preprint arXiv:2202.07206, 2022.
+[32] E. Real et al., “Regularized evolution for image classifier architecture
+search,” in Proceedings of the aaai conference on artificial intelligence,
+vol. 33, no. 01, 2019, pp. 4780–4789.
+[33] F. Rong, “Extrapolating to unnatural language processing with gpt-3’s
+in-context learning: The good, the bad, and the mysterious,” 2021.
+[34] S. Thakur et al., “Benchmarking large language models for automated
+verilog rtl code generation,” arXiv preprint arXiv:2212.11140, 2022.
+[35] H. Touvron et al., “Llama: Open and efficient foundation language
+models,” arXiv preprint arXiv:2302.13971, 2023.
+[36] R. Venkatesan et al., “Magnet: A modular accelerator generator for
+neural networks,” in 2019 IEEE/ACM International Conference on
+Computer-Aided Design (ICCAD).
+IEEE, 2019, pp. 1–8.
+[37] X. Wang et al., “Code4struct: Code generation for few-shot structured
+prediction from natural language,” arXiv preprint arXiv:2210.12810,
+2022.
+[38] Y. Wang et al., “Deepburning: Automatic generation of fpga-based
+learning accelerators for the neural network family,” ser. DAC ’16.
+New York, NY, USA: Association for Computing Machinery, 2016.
+[Online]. Available: https://doi.org/10.1145/2897937.2898003
+[39] Z. Wei et al., “Hlsdataset: Open-source dataset for ml-assisted fpga
+design using high level synthesis,” arXiv preprint arXiv:2302.10977,
+2023.
+[40] Xilinx Inc., “Chaidnnv2 - hls based dnn accelerator library for xilinx ul-
+trascale+ mpsocs,” https://github.com/Xilinx/CHaiDNN, accessed 2023-
+05-08.
+[41] Xilinx Inc., “PYNQ: PYTHON PRODUCTIVITY,” http://www.pynq.io/,
+accessed 2023-05-08.
+[42] Xilinx
+Inc.,
+“Vitis
+high-level
+synthesis,”
+https://www.xilinx.com/
+products/design-tools/vitis/vitis-hls.html, (Accessed on 05/08/2023).
+[43] P. Xu et al., “AutoDNNchip: An automated dnn chip predictor
+and builder for both FPGAs and ASICs,” The 2020 ACM/SIGDA
+International Symposium on Field-Programmable Gate Arrays, Feb
+2020. [Online]. Available: http://dx.doi.org/10.1145/3373087.3375306
+[44] S. Zhang et al., “Opt: Open pre-trained transformer language models,”
+arXiv preprint arXiv:2205.01068, 2022.
+[45] X. Zhang et al., “DNNBuilder: an automated tool for building high-
+performance DNN hardware accelerators for FPGAs,” in Proceedings of
+the International Conference on Computer-Aided Design.
+ACM, 2018,
+p. 56.
+[46] X. Zhang et al., “Skynet: a hardware-efficient method for object de-
+tection and tracking on embedded systems,” Proceedings of Machine
+Learning and Systems, vol. 2, pp. 216–229, 2020.
+[47] Y. Zhang et al., “Active example selection for in-context learning,” arXiv
+preprint arXiv:2211.04486, 2022.
+[48] Y. Zhang et al., “Dialogpt: Large-scale generative pre-training for
+conversational response generation,” arXiv preprint arXiv:1911.00536,
+2019.
+[49] Z. Zhao et al., “Calibrate before use: Improving few-shot performance
+of language models,” in International Conference on Machine Learning.
+PMLR, 2021, pp. 12 697–12 706.
+[50] Q. Zheng et al., “Codegeex: A pre-trained model for code gener-
+ation with multilingual evaluations on humaneval-x,” arXiv preprint
+arXiv:2303.17568, 2023.

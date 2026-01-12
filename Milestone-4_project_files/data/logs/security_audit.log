@@ -1,0 +1,24 @@
+2026-01-12 17:08:13,658 - SECURITY - INFO - Input validated: topic='deep learning...'
+2026-01-12 17:08:13,675 - SECURITY - WARNING - Validation failed: 1 validation error for SearchRequest
+topic
+  String should have at least 3 characters [type=string_too_short, input_value='AI', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_too_short
+2026-01-12 17:08:13,676 - SECURITY - WARNING - Validation failed: 1 validation error for SearchRequest
+topic
+  String should have at least 3 characters [type=string_too_short, input_value='', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_too_short
+2026-01-12 17:08:13,687 - SECURITY - INFO - Input validated: topic='scriptalert(xss)/script deep learning...'
+2026-01-12 17:08:13,719 - SECURITY - WARNING - Prompt injection detected: pattern='ignore\s+previous\s+instructions'
+2026-01-12 17:08:13,720 - SECURITY - WARNING - Prompt injection detected: pattern='system\s*:\s*'
+2026-01-12 17:08:13,720 - SECURITY - WARNING - Prompt injection detected: pattern='\{\{.*\}\}'
+2026-01-12 17:08:13,728 - SECURITY - INFO - API key accessed: TEST_API_KEY
+2026-01-12 17:08:13,735 - SECURITY - ERROR - Error in : SafeError: Test error
+2026-01-12 17:08:13,736 - SECURITY - ERROR - Error in : RateLimitError: Limit exceeded
+2026-01-12 17:08:13,737 - SECURITY - ERROR - Error in : Exception: Internal secret error
+2026-01-12 17:08:15,899 - SECURITY - INFO - Input validated: topic='img src=x onerror=alert(1) research...'
+2026-01-12 17:08:15,900 - SECURITY - WARNING - Prompt injection detected: pattern='ignore\s+previous\s+instructions'
+2026-01-12 17:08:15,917 - SECURITY - ERROR - Error in : Exception: Database error: password=secret123, host=internal.db
+2026-01-12 17:08:16,345 - SECURITY - WARNING - Validation failed: 1 validation error for SearchRequest
+topic
+  String should have at most 200 characters [type=string_too_long, input_value='deep learning deep learn...learning deep learning ', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_too_long

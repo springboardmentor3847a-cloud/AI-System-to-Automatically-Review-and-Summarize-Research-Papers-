@@ -1,0 +1,468 @@
+arXiv:2301.02390v1  [eess.IV]  6 Jan 2023
+Deep-learning models in medical image analysis:
+Detection of esophagitis from the Kvasir Dataset
+Kyoka Yoshioka1†, Kensuke Tanioka2, Satoru Hiwa2 and Tomoyuki Hiroyasu2
+1Graduate School of Life and Medical Sciences, Doshisha University, Kyoto, Japan
+2Department of Biomedical Sciences and Informatics, Doshisha University, Kyoto, Japan
+(Tel: +81-774-65-6020; E-mail: tomo@is.doshisha.ac.jp)
+Abstract: Early detection of esophagitis is important because this condition can progress to cancer if left untreated. However,
+the accuracies of different deep learning models in detecting esophagitis have yet to be compared. Thus, this study aimed to
+compare the accuracies of convolutional neural network models (GoogLeNet, ResNet-50, MobileNet V2, and MobileNet V3) in
+detecting esophagitis from the open Kvasir dataset of endoscopic images. Results showed that among the models, GoogLeNet
+achieved the highest F1-scores. Based on the average of true positive rate, MobileNet V3 predicted esophagitis more conﬁdently
+than the other models. The results obtained using the models were also compared with those obtained using SHapley Additive
+exPlanations and Gradient-weighted Class Activation Mapping.
+Keywords: Kvasir dataset, Deep Learning, Convolutional Neural Networks, Gradient-Weighted Class Activation Mapping,
+SHAP, SHapley Additive exPlanation
+1. INTRODUCTION
+With the development of artiﬁcial intelligence (AI), sev-
+eral studies have focused on the application of this technol-
+ogy in the medical ﬁeld.
+In gastroenterology, AI is used
+to detect inﬂammation, polyps, and stomach cancer and de-
+velop systems that can automatically determine the severity
+of symptoms [1] [2] [3] [4]. AI models are expected to im-
+prove diagnostic accuracy and reduce medical costs by pre-
+venting misdiagnosis by humans.
+Various deep learning and AI models, including deep
+learning convolutional neural network (CNN) models, have
+been proposed and used for medical image recognition and
+analysis. However, these models differ in accuracy, and com-
+paring this aspect is important to identify which model is
+suitable for a speciﬁc application in endoscopic imaging.
+The z-line is an anatomic landmark located posterior to
+the stomach and esophagus. Esophagitis is an inﬂammation
+of the esophagus that appears as a break in the esophageal
+mucosa relative to the z-line [5]. The z-line and esophagitis
+can be described as normal and diseased conditions, respec-
+tively. Early detection of esophagitis is necessary because
+this condition can cause complications (e.g., esophageal ul-
+cer, bleeding, and stricture) and progress to cancer if left
+untreated. Therefore, distinguishing between the z-line and
+esophagitis is necessary. However, this procedure is difﬁcult
+[6]. In addition, the accuracies of various models in detecting
+esophagitis have yet to be compared.
+Thus, this study aimed to compare the accuracies of sev-
+eral CNN models, including GoogLeNet [7], ResNet-50 [8],
+MobileNet V2 [9], and MobileNet V3 [10], in identifying
+z-lines and esophagitis in endoscopic images from the open
+Kvasir dataset. These models have received considerable at-
+tention in recent years after winning in the ImageNet Large
+Scale Visual Recognition Challenge (ILSVRC), a competi-
+tion using a large image recognition dataset. The results ob-
+† Kyoka Yoshioka is the presenter of this paper.
+tained by the four CNN models were compared. The training
+models were also compared with the explainable artiﬁcial in-
+telligence (XAI) methods Gradient-weighted Class Activa-
+tion Mapping (Grad-CAM) [11] and SHapley Additive ex-
+Planations (SHAP) [12].
+2. DEEP LEARNING IN MEDICAL IMAGE
+ANALYSIS
+2.1. Typical architecture for image classiﬁcation
+CNN is a deep learning method specialized for image
+recognition. It is widely used for identifying lesion sites in
+medical images. It combines a convolutional layer with a
+pooling layer and ﬁnally iterates through all the combined
+layers to generate the results. In this study, we compared
+the results of different CNN models used for site identiﬁ-
+cation in medical images. The CNN models used included
+GoogleNet and ResNet, the successive winning models of
+ILSVRC, and MobileNet V2 and MobileNet V3, which have
+attracted considerable attention in recent years because of
+their small computational and memory.
+2.1.1. GoogLeNet
+GoogLeNet was the winning model at ILSVRC in 2014
+The model consists of an Inception module, 1×1 convolu-
+tion, auxiliary loss, and global average pooling. GoogLeNet
+can be multi-layered using the Inception module, but 1×1
+convolution is performed before each convolution calcula-
+tion to reduce dimensionality resulting from the large num-
+ber of parameters. The Inception module helps process data
+using multiple ﬁlters in parallel. The fully connected layer
+is removed to increase the width and depth of the network,
+average pooling is used instead of the fully connected layer
+to avoid gradient loss, and class classiﬁcation is performed
+on sub-networks branched from the middle of the network
+by auxiliary loss [7].
+
+2.1.2. ResNet
+ResNet was the winning model at the ILSVRC in 2015.
+The problem of learning not progressing due to gradient loss
+and degradation problems was solved using a method called
+Residual Block, which uses 152 very deep layers to solve the
+problem. The key features of this model are residual block
+and batch normalization using shortcut connection. ResNet
+has several models with different layer depths. ResNet-50
+shows higher accuracy than GoogLeNet in ImageNet clas-
+siﬁcation [8]. However, ResNet-50 requires about twice as
+many parameters as GoogLeNet.
+2.1.3. MobileNet V2
+MobileNet is a small computationally and memory model
+that can adjust the trade-off between accuracy and compu-
+tational load. Depthwise separable convolution decomposes
+the convolution layer into depthwise and pointwise convolu-
+tion for computation. This mechanism reduces the compu-
+tation cost. Furthermore, V2 introduces expand/projection
+layers and inverted residual blocks. Expand/projection lay-
+ers rapidly increase or decrease the number of channels. Mo-
+bileNet V2 achieves comparable accuracy to GoogLeNet and
+ResNet-50 in ImageNet classiﬁcation while signiﬁcantly re-
+ducing the number of parameters [9].
+2.1.4. MobileNet V3
+MobileNet V3 is an improved version of MobileNet V2,
+introducing a squeeze-and-excite structure (SE-block) in the
+inverted residual block, one of the features of MobileNet
+V2. SE-block improves the expressiveness of the model by
+weighting information in the channel direction [13]. Com-
+pared with V2, MobileNet V3 shows more accurate Im-
+ageNet classiﬁcation while shortening total inference time
+[10].
+2.2. Explainable AI (XAI)
+The CNN models were compared with XAI methods
+Grad-CAM and SHAP. The Discussion section explains the
+results obtained using these techniques.
+2.2.1. Grad CAM
+Grad-CAM displays a color map of the area the CNN is
+gazing at for classiﬁcation [11]. It is based on the fact that
+variables with large gradients in the output values of the pre-
+dicted class are essential for classiﬁcation prediction. The
+gradient of each input image pixel with respect to the output
+value of the prediction class in the last convolution layer is
+used.
+2.2.2. SHAP
+SHAP calculates, for each predicted value, how each char-
+acteristic variable affects that prediction [12]. This analysis
+allows us to visualize the impact of an increase or decrease
+in the value of a given characteristic variable.
+3. MATERIALS AND METHODS
+CNN models GoogLeNet, ResNet-50, MobileNet V2, and
+MobileNet V3 were employed to detect esophagitis from the
+open Kvasir dataset of endoscopic images, and their results
+were compared.
+3.1. Kvasir dataset
+The Kvasir dataset is a collection of endoscopic images of
+the gastrointestinal tract. It was annotated and validated by
+certiﬁed endoscopists. The dataset was made available in the
+fall of 2017 through the Medical Multimedia Challenge pro-
+vided by MediaEval. It includes anatomical landmarks (py-
+lorus, z-line, and cecum), disease states (esophagitis, ulcera-
+tive colitis, and polyps), and medical procedures (dyed lifted
+polyps and dyed resection margins). The resolution of the
+images from the Kvasir dataset with these eight classes varies
+from 720×576 pixels to 1920×1072 pixels. Each image has
+a different shooting angle, resolution, brightness, magniﬁca-
+tion, and center point.
+3.2. Prepossessing
+Image prepossessing was performed before training the
+models. Edge artifacts and annotations that interfere with
+learning during the analysis of medical images were re-
+moved. A mask image was created, where pixels with lu-
+minance values below a certain threshold were set to 0. The
+opening process was applied to the mask image to remove the
+annotations. The image was cropped using this ﬁnal mask
+image to obtain the target area. This process was performed
+on all data.
+Each image in the dataset has a different resolution. All
+images were resized to 224×224 pixels by bilinear comple-
+tion and optimized for deep learning input. In addition to
+these processes, data augmentation was performed on the
+data used for learning. We applied two types of data aug-
+mentation: horizontal and vertical ﬂip.
+3.3. Cross Validation
+A total of 1000 image data sets containing z-lines and
+esophagitis were partitioned into test, training, and validation
+data. First, 25% (n = 250) of the total data were randomly se-
+lected to generate test data. Of the remaining data (75%, n =
+750), 50% (n = 500) was used for training and 25% (n = 250)
+for validation.
+The inner loop consisted of training and validation data.
+The model was trained using the training data, and parame-
+ters such as the optimal number of epochs were determined
+using the validation data. Thus, four training models were
+generated. The test data of each model were evaluated, and
+the average of discrimination accuracy of the four times was
+used as the evaluation value of the CNN model. The test,
+training, and validation data were each partitioned to main-
+tain the class proportions.
+3.4. CNN models
+PyTorch was used for the implementation of GoogLeNet,
+ResNet-50, MobileNet V2, and MobileNet V3.
+The ini-
+tial values of all model parameters were pre-trained by Ima-
+geNet, and the models were trained by ﬁne tuning.
+For all models, the Adam optimizer was used for training.
+The batch size was ﬁve, and the maximum number of epochs
+
+was 100. The cross-entropy error shown in equation (1) was
+used as the loss function.
+E(x)
+=
+−
+N
+X
+n=1
+K
+X
+k=1
+dnk log yk(xn; w)
+(1)
+3.5. Evaluation Function
+Five evaluation indices were used in this experiment: ac-
+curacy, precision, recall, speciﬁcity, and F1-score. These
+metrics were calculated using the confusion matrix shown
+in Table 1.
+Table 1. Confusion matrix for a two-class problem
+Predicted Class
+(Positive Class)
+Predicted Class
+(Negative Class)
+Actual Class
+(Positive Class)
+True Positive
+False Negative
+Actual Class
+(Negative Class)
+False Positive
+True Negative
+In this experiment, the z-line and esophagitis were judged
+as the negative and positive classes, respectively. In other
+words, data judged to be esophagitis and z-line by the learn-
+ing model were designated true positive (TP) and false neg-
+ative (FN), respectively.
+Meanwhile, data determined to
+be esophagitis and z-line by the training model were des-
+ignated false positive (FP) and true negative (TN), respec-
+tively. Based on the values of TP, FP, TN, and FN obtained
+from the confusion matrix, the accuracy, precision, recall,
+speciﬁcity, and F1-score of the models were calculated using
+Equations(2) to (6).
+Accuracy =
+T P + T N
+T P + FP + FN + T N
+(2)
+Precision =
+T P
+T P + FP
+(3)
+Recall =
+T P
+T P + FN
+(4)
+Specificity =
+T N
+T N + FP
+(5)
+F1 score =
+2T N
+2T P + FP + FN
+(6)
+4. RESULTS AND DISCUSSIONS
+4.1. Performance comparison between different archi-
+tecture
+The evaluation indices obtained from the experiments are
+shown in Table 2.
+The F1-score results in Table 2 show that GoogLeNet was
+the best among the four models. In other words, GoogLeNet
+was more reliable in predicting esophagitis than the other
+models. Meanwhile, MobileNet V3 showed the highest pre-
+cision and speciﬁcity. In other words, MobileNet V3 was
+the most accurate among the tested models for z-line predic-
+tion. From a medical point of view, an ideal model should be
+Table 2. Performance comparison between different
+architecture
+Model
+ACC
+PREC
+REC
+SPEC
+F1
+GoogLeNet
+0.846
+0.859
+0.830
+0.862
+0.843
+MobileNet V3
+0.842
+0.901
+0.776
+0.908
+0.831
+ResNet-50
+0.833
+0.865
+0.792
+0.874
+0.826
+MobileNet V2
+0.830
+0.852
+0.800
+0.860
+0.825
+likely to distinguish esophagitis with severe symptoms from
+the z-line.
+The average of TP rate were 0.950, 0.923, 0.892, and
+0.841 for MobileNet V3, MobileNet V2, GoogLeNet, and
+ResNet-50, respectively. MobileNet V3 predicted esophagi-
+tis with more conﬁdence than the other models.
+4.2. GoogLeNet analysis
+Grad-CAM and SHAP were applied to the learned model,
+and what kind of the model was created was discussed.
+Fig.1 shows an example of the image results in the case of
+TP predicted by GoogLeNet. In the Grad-CAM results, red
+indicates the most potent activation, and blue indicates the
+weakest activation. In the SHAP results, the SHAP values
+of the patches were computed and rendered in a color map:
+a positive SHHAP value (red) indicates that the class is sup-
+ported. By contrast, a negative SHAP value (blue) indicates
+that the class is rejected.
+Tearing the esophageal mucosa against the z-line is a
+feature of esophagitis.
+According to Fig.1, the results of
+Grad-CAM and SHAP showed that the learned model of
+GoogLeNet can makes predictions focusing on the clinically
+signiﬁcant aspects of esophagitis images. The GoogLeNet
+model learned the ﬁndings that are important for diagnosing
+esophagitis. Comparison results showed that SHAP captured
+the location of multiple mucosal tears in the image more ac-
+curately than Grad-CAM.
+Fig.2 shows the results of applying Grad-CAM and SHAP
+in the FN case. The following can be observed from the re-
+sults of Grad-CAM and SHAP for Fig.2, respectively. In the
+Grad-CAM results, most areas in the image are shown as
+activated regions. Areas that provide the basis for the pre-
+diction are difﬁcult to identify because of the gradient satu-
+ration in the Grad-CAM calculation. In the SHAP results,
+the inﬂammatory areas of the input image are indicated by
+blue pixels. Blue pixels indicate features that have a negative
+contribution to the prediction. In other words, although the
+model incorrectly identiﬁed esophagitis as a z-line, the model
+recognized that areas in the image negatively contributed to
+the z-line decision.
+4.3. MobileNet V3 analysis
+One hundred images were determined to be TP in the
+MobileNet V3 model.
+The SHAP results for the images
+judged to have the highest and lowest probabilities of being
+esophagitis are shown in Fig.3.
+As shown in Fig.3, in cases with a high prediction proba-
+bility, some features may have a negative contribution to the
+
+(a) Raw image
+(b) Grad-CAM
+(c) SHAP
+Fig. 1. True Positive Pattern
+(a) Raw image
+(b) Grad-CAM
+(c) SHAP
+Fig. 2. False Negative Pattern
+Fig. 3. First image predicted positive with 1.000 probability, and second image predicted positive with 0.524 probability.
+prediction. Many features showing negative contributions
+can be identiﬁed in the images with low prediction proba-
+bility for Fig.3. In this case, the prediction probability may
+be low.
+5. CONCLUSIONS
+We compared the accuracies of CNN models, including
+GoogLeNet, ResNet-50, MobileNet V2, and MobileNet V3,
+in identifying z-line and esophagitis in endoscopic images
+from the open Kvasir dataset.
+Among the four models,
+GoogLeNet had the highest F1-score, and MobileNet V3
+had the highest average TP rate. These results suggest that
+GoogLeNet performs better than state-of-the-art CNN mod-
+els in medical image recognition. In addition, MoblieNet V3
+is a cost-effective model because of its low memory and short
+training time. Each model was analyzed and compared with
+Grad-CAM, and SHAP. Other models, datasets, and model
+analyses are warranted for veriﬁcation.
+REFERENCES
+[1]
+Peng-Jen Chen, Meng-Chiung Lin, Mei-Ju Lai, Jung-
+Chun Lin, Henry Horng-Shing Lu, and Vincent S
+Tseng. Accurate classiﬁcation of diminutive colorectal
+polyps using computer-aided analysis. Gastroenterol-
+ogy, 154(3):568–575, 2018.
+[2]
+Toshiaki Hirasawa, Kazuharu Aoyama, Tetsuya Tan-
+imoto, Soichiro Ishihara, Satoki Shichijo, Tsuyoshi
+Ozawa, Tatsuya Ohnishi, Mitsuhiro Fujishiro, Keigo
+Matsuo, Junko Fujisaki, et al. Application of artiﬁcial
+intelligence using a convolutional neural network for
+detecting gastric cancer in endoscopic images. Gastric
+Cancer, 21(4):653–660, 2018.
+
+[3]
+Pedro Guimar˜aes, Andreas Keller, Tobias Fehlmann,
+Frank Lammert, and Markus Casper.
+Deep-learning
+based detection of gastric precancerous conditions.
+Gut, 69(1):4–6, 2020.
+[4]
+Yaqiong Zhang, Fengxia Li, Fuqiang Yuan, Kai Zhang,
+Lijuan Huo, Zichen Dong, Yiming Lang, Yapeng
+Zhang, Meihong Wang, Zenghui Gao, et al. Diagnosing
+chronic atrophic gastritis by gastroscopy using artiﬁcial
+intelligence. Digestive and Liver Disease, 52(5):566–
+572, 2020.
+[5]
+Konstantin
+Pogorelov,
+Kristin
+Ranheim
+Randel,
+Carsten Griwodz, Sigrun Losada Eskeland, Thomas
+de Lange,
+Dag Johansen,
+Concetto Spampinato,
+Duc-Tien Dang-Nguyen, Mathias Lux, Peter Thelin
+Schmidt, et al. Kvasir: A multi-class image dataset for
+computer aided gastrointestinal disease detection. In
+Proceedings of the 8th ACM on Multimedia Systems
+Conference, pages 164–169, 2017.
+[6]
+Timothy Cogan, Maribeth Cogan, and Lakshman
+Tamil.
+Mapgi:
+accurate identiﬁcation of anatomi-
+cal landmarks and diseased tissue in gastrointestinal
+tract using deep learning. Computers in biology and
+medicine, 111:103351, 2019.
+[7]
+Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Ser-
+manet, Scott Reed, Dragomir Anguelov, Dumitru Er-
+han, Vincent Vanhoucke, and Andrew Rabinovich. Go-
+ing deeper with convolutions. In Proceedings of the
+IEEE conference on computer vision and pattern recog-
+nition, pages 1–9, 2015.
+[8]
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian
+Sun. Deep residual learning for image recognition. In
+Proceedings of the IEEE conference on computer vision
+and pattern recognition, pages 770–778, 2016.
+[9]
+Mark Sandler, Andrew Howard, Menglong Zhu, An-
+drey Zhmoginov, and Liang-Chieh Chen. Mobilenetv2:
+Inverted residuals and linear bottlenecks. In Proceed-
+ings of the IEEE conference on computer vision and
+pattern recognition, pages 4510–4520, 2018.
+[10] Andrew Howard, Mark Sandler, Grace Chu, Liang-
+Chieh Chen, Bo Chen, Mingxing Tan, Weijun Wang,
+Yukun Zhu, Ruoming Pang, Vijay Vasudevan, et al.
+Searching for mobilenetv3.
+In Proceedings of the
+IEEE/CVF international conference on computer vi-
+sion, pages 1314–1324, 2019.
+[11] Ramprasaath R Selvaraju, Michael Cogswell, Abhishek
+Das, Ramakrishna Vedantam, Devi Parikh, and Dhruv
+Batra. Grad-cam: Visual explanations from deep net-
+works via gradient-based localization. In Proceedings
+of the IEEE international conference on computer vi-
+sion, pages 618–626, 2017.
+[12] Scott M Lundberg and Su-In Lee. A uniﬁed approach
+to interpreting model predictions. Advances in neural
+information processing systems, 30, 2017.
+[13] Jie Hu, Li Shen, and Gang Sun. Squeeze-and-excitation
+networks. In Proceedings of the IEEE conference on
+computer vision and pattern recognition, pages 7132–
+7141, 2018.

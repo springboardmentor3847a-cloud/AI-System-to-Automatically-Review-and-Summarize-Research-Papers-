@@ -1,0 +1,1437 @@
+Vol.:(0123456789)
+1 3
+A Novel Artificial Neuron‑Like Gas Sensor 
+Constructed from CuS Quantum Dots/Bi2S3 
+Nanosheets
+Xinwei Chen1, Tao Wang1, Jia Shi1, Wen Lv1, Yutong Han1, Min Zeng1, Jianhua Yang1, 
+Nantao Hu1, Yanjie Su1, Hao Wei1, Zhihua Zhou1, Zhi Yang1 *, Yafei Zhang1 *
+HIGHLIGHTS
+•	 An ultra-sensitive capture of ­NO2 molecules and fast charge collection and transfer has been realized by constructing the model of 
+artificial neuron-likegas sensing structure based on CuS quantum dots (QDs)/Bi2S3 nanosheets (NSs)realizes.
+•	 Simulation analysis revealed that CuS QDs and ­Bi2S3NSs can be used, respectively, as the main adsorption sites and charge transport 
+pathways, thus leading to a greatly enhanced gas capture ability and charge conduction performance of ­NO2.
+ABSTRACT  Real-time rapid detection of toxic gases at room temperature 
+is particularly important for public health and environmental monitoring. 
+Gas sensors based on conventional bulk materials often suffer from their 
+poor surface-sensitive sites, leading to a very low gas adsorption ability. 
+Moreover, the charge transportation efficiency is usually inhibited by the 
+low defect density of surface-sensitive area than that in the interior. In this 
+work, a gas sensing structure model based on CuS quantum dots/Bi2S3 
+nanosheets (CuS QDs/Bi2S3 NSs) inspired by artificial neuron network is 
+constructed. Simulation analysis by density functional calculation revealed 
+that CuS QDs and ­Bi2S3 NSs can be used as the main adsorption sites and 
+charge transport pathways, respectively. Thus, the high-sensitivity sensing 
+of ­NO2 can be realized by designing the artificial neuron-like sensor. The 
+experimental results showed that the CuS QDs with a size of about 8 nm 
+are highly adsorbable, which can enhance the ­NO2 sensitivity due to the 
+rich sensitive sites and quantum size effect. The ­Bi2S3 NSs can be used as a charge transfer network channel to achieve efficient charge 
+collection and transmission. The neuron-like sensor that simulates biological smell shows a significantly enhanced response value (3.4), 
+excellent responsiveness (18 s) and recovery rate (338 s), low theoretical detection limit of 78 ppb, and excellent selectivity for ­NO2. 
+Furthermore, the developed wearable device can also realize the visual detection of ­NO2 through real-time signal changes. 
+KEYWORDS  Artificial neuron-like gas sensor; Heterostructure design; Nitrogen dioxide detection; Wearable device
+   ISSN 2311-6706
+e-ISSN 2150-5551
+      CN 31-2103/TB
+ARTICLE
+Cite as
+Nano-Micro Lett. 
+(2022) 14:8
+Received: 11 July 2021 
+Accepted: 23 August 2021 
+Published online: 2 December 2021 
+© The Author(s) 2021
+https://doi.org/10.1007/s40820-021-00740-1
+ *	 Zhi Yang, zhiyang@sjtu.edu.cn; Yafei Zhang, yfzhang@sjtu.edu.cn
+1	 Key Laboratory of Thin Film and Microfabrication (Ministry of Education), Department of Micro/Nano Electronics, School of Electronic 
+Information and Electrical Engineering, Shanghai Jiao Tong University, Shanghai 200240, People’s Republic of China
+
+	
+Nano-Micro Lett. (2022) 14:8
+8  Page 2 of 15
+https://doi.org/10.1007/s40820-021-00740-1
+© The authors
+1  Introduction
+Over the last decades, the gradual development of indus-
+trialization and urbanization leads to the deterioration of 
+environmental quality, especially the air condition [1, 2]. In 
+order to cope with the timely detection of toxic and hazard-
+ous gases and to prevent the related diagnosis of respiratory 
+injuries and diseases, the active development of low-cost, 
+durable, high-performance gas sensors has become the 
+focus of current research [3, 4]. With the development of 
+the “Internet of Things” and artificial neural networks, the 
+design of wearable gas sensors provides a promising strategy 
+to broaden the practical applications by combining real-time 
+monitoring and big data analysis, which allows the device 
+applicable to the early detection of any health hazards [5–8]. 
+Therefore, exploring wearable devices with improved room 
+temperature detection ability ranks as the key to expand the 
+field of gas sensing.
+Similarities between biological structures and artificial 
+neural-like networks have inspired the development of neu-
+ron-based mechanical sensing and optical sensing [9–11]. 
+The olfactory neurons that exist in the olfactory bulb of 
+higher animals play a key role in extracting olfactory signals 
+through gas sensing [12]. When the human body’s olfactory 
+receptors receive a certain intensity of stimulation, it will 
+cause changes in the cell membrane surface potential to trig-
+ger action potentials, convert chemical signals into electrical 
+signals, and conduct signal analysis along the nerve fibers 
+to the central system. A large number of olfactory sensory 
+neurons and rapid potential changes are essential for high 
+spiritual sensitivity. Inspired by this, it is very meaningful 
+to construct an artificial neuron-like sensor model that is dif-
+ferent from traditional bulk sensitive materials and contains 
+a large number of adsorption sites and fast charge transport 
+channels.
+Among active sensing materials for artificial neurons, 
+binary or heterogeneous structures constructed from two-
+dimensional (2D) materials can achieve rapid response, 
+which is of great significance for room temperature wearable 
+sensing in practical applications. Bismuth sulfide ­(Bi2S3) 
+with the direct bandgap of 1.3 eV, high carrier mobility, 
+and excellent environment-friendly characteristics received 
+potential attention in sensing applications [13, 14]. As a 
+member of the stibnite family, the layered structure of ­Bi2S3 
+is projected along the b-axis direction by atomic-scale 
+ribbons, which are fixed together by van der Waals (vdW) 
+forces. Bulk ­Bi2S3 can be separated into two-dimensional 
+(2D) layer structures along the (010) crystal facets main-
+tained by weak vdW forces [15, 16]. Unfortunately, like 
+other similar 2D gas-sensitive materials, 2D-layered ­Bi2S3 
+exhibits poor recovery properties at room temperature, 
+which severely limits its widespread applications [17, 18]. 
+In addition, recent studies have also proved that CuS as a 
+p-type semiconductor material can be used alone or as a 
+second-phase modifier to achieve rapid detection of trace 
+gases at room temperature [19, 20]. Therefore, modifying 
+the surface of 2D ­Bi2S3 nanosheets (NSs)with OD CuS 
+quantum dots (QDs) can realize the scattered construction 
+of sensitive points on the neuron-like network and develop 
+a neuron-like olfactory system that is different from the tra-
+ditional inefficient adsorption detection-type sensors. This 
+will effectively help to achieve rapid and sensitive detection 
+at room temperature.
+Herein, we first report a sensor model inspired by the bio-
+logical olfactory neuron system, which realizes the efficient 
+detection of ­NO2 by uniformly loading CuS QDs on ­Bi2S3 
+NSs. Density functional theory (DFT) reveals the charge 
+distribution and transfer process of 0D-2D heterojunction 
+neurons before and after contacting gas molecules. As a 
+result, the 0D p-type CuS quantum dots with higher adsorp-
+tion energy for ­NO2 molecules are confirmed to be the main 
+adsorption sites for the target gas, and the 2D n-type ­Bi2S3 
+nanosheets provide the main transfer path for the charge car-
+riers. Subsequent experiments confirmed that appropriately 
+high-tuned 0D QDs were loaded on the carrier as second-
+phase particles. Attribute to the numerous active adsorption 
+sites and a large amount of charge transfer, interface elec-
+tronic interaction can be greatly enhanced, which facilitates 
+the action of gas molecules on the material surface [21, 
+22]. Moreover, the design of this n–p heterojunction can 
+effectively increase the rate of charge transfer and has real-
+ized the ultra-sensitive response of artificial neurons to the 
+stimulation of gas molecules. Therefore, this study uses the 
+synergistic effect between high adsorption energy and fast 
+charge transfer to simulate the biological olfactory detection 
+process by rationally constructing heterojunction neurons 
+and further realizes the sensitive monitoring of ­NO2. Finally, 
+the sensing materials have been further integrated into our 
+self-developed wearable gas detection equipment. The real-
+time display and cloud storage of detection signals on smart 
+
+Nano-Micro Lett. (2022) 14:8	
+Page 3 of 15  8
+1 3
+device applications through data collection and Bluetooth 
+wireless transmission has been fully achieved. Our work 
+sheds light on the rational design of bio-simulation intel-
+ligence, wearable, and wireless sensing equipment toward 
+the “neuron-like sensitive intelligence era.”
+2  Experimental Section
+2.1  Synthesis of ­Bi2S3 NSs
+30 mg of commercial bulk ­Bi2S3 powder was added to a 
+25 mL flask. 10 mL of aqueous ethanol in various volume 
+ratios was added as a dispersion solvent. Ultrasonication was 
+performed for 8 h. Then, the precipitate was removed by 
+centrifugation treatment.
+100 mg of ­Bi2S3 powder and acetonitrile was ground 
+with agate mortar for 2 h [23]. The samples were dried with 
+a vacuum oven and then redistribute in a ethanol aqueous 
+solution (70 vol%, 50 mL, Fig. S1). After ultrasonic treat-
+ment at 200 W for 3 h, the supernatant was extracted by 
+centrifugation at 1500 rpm for 20 min to collect ­Bi2S3 NSs 
+[17, 24].
+2.2  Synthesis of CuS QDs/Bi2S3 NSs and CuS
+0.0138 g of Cu(NO3)2 and 0.01 g of ­Na2S∙9H2O were dis-
+solved in 20 mL of ethanol aqueous solution, respectively. 
+Then, 0.1 g ­Bi2S3 NSs were dispersed in 10 mL ethanol 
+and stirred continuously with an ultrasonic instrument for 
+30 min. The dispersion was mixed with the above two solu-
+tions, respectively, for reaction, and finally, the prepared 
+CuS QDs/Bi2S3 NSs were collected after centrifugation 
+and washing [22]. Following the same procedure as above, 
+bare CuS was obtained with the addition of only Cu(NO3)2 
+and ­Na2S∙9H2O. The as-prepared products were named as 
+BC-2.5, BC-3, BC-4, BC-5, BC-6, BC-7.5, BC-10, and 
+BC-20 corresponding to 2.5, 3, 4, 5, 6, 7.5, 10, and 20 wt% 
+of CuS, respectively.
+2.3  Sensor Device Fabrication and Sensing 
+Measurements
+The sensor device uses a flexible electrode sputtered with 
+Au fingers on polyimide (PI) substrate. Clean the electrode 
+surface alternately with deionized water and ethanol to pro-
+mote the contact between the sensing membrane and the 
+electrode. To fabricate the gas sensor, the ethanol disper-
+sion of CuS QDs/Bi2S3 NSs with a concentration of 70 
+vol% was sprayed onto the PI electrode using inkjet print-
+ing equipment. Finally, the as-prepared sensors were dried 
+in the vacuum oven.
+The details of the gas-sensitive test system can be found 
+in our previous paper [25]. In simple terms, the chamber was 
+purged with dry compressed air before the measurement to 
+stabilize the baseline signal. Subsequently, the mass flow 
+controller (MFC) was used to control the flow of ­NO2 and 
+dry compressed air with an initial concentration to obtain 
+­NO2 dilution gas of different concentrations with a flow rate 
+of 1 standard liter/min (SLM). The Agilent 4156C analyzer 
+was utilized to detect current changes of gas sensors at room 
+temperature (25 °C). The response value is defined as Ra/Rg, 
+which are resistances of the sensor when exposed to com-
+pressed air and ­NO2, respectively. In addition, the response 
+and recovery time (τres and τrec) are the time required for 
+the sensor to fully respond and recover to 90% after being 
+exposed to ­NO2.
+2.4  Characterizations
+Crystallinity and morphology of as-prepared CuS QDs/
+Bi2S3 NSs sample were analyzed with the X-ray diffractom-
+etry (XRD, D8 ADVANCE, Bruker), transmission electron 
+microscopy (TEM, JEM-2100, JEOL, Japan), and scanning 
+electron microscopy (SEM, Carl Zeiss Ultra Plus, Ger-
+many). The chemical components and band structures were 
+studied by X-ray photoelectron spectroscopy and ultravio-
+let photoelectron spectroscopy (XPS and UPS, Kratos Axis 
+­UltraDLD). Ultraviolet–visible (UV–vis) absorption spectra 
+(Perkin-Elmer, USA) were utilized to characterize band-
+gaps of materials. The Raman spectra were acquired on 
+the confocal Raman microscope (RENISHAW, England). 
+Mott–Schottky plots measurements were performed with 
+an electrochemical workstation (CHI 760E, Shanghai 
+Chenhua).
+
+	
+Nano-Micro Lett. (2022) 14:8
+8  Page 4 of 15
+https://doi.org/10.1007/s40820-021-00740-1
+© The authors
+3  Results and Discussion
+3.1  DFT Calculation of Neuron‑like Sensor Network 
+Inspired by Olfactory Sensory Neurons
+It is of great significance to deeply understand the perception 
+process of the olfactory organs of organisms to odor mol-
+ecules and to compare the mechanism of artificial neuron gas 
+sensors with it. As shown in Fig. 1a, when the human body’s 
+olfactory receptors receive a certain intensity of stimulation, 
+it will cause changes in the surface potential of the cell mem-
+brane to trigger action potentials, convert chemical signals 
+into electrical signals, and conduct analysis along nerve fib-
+ers to the central system and generate corresponding reac-
+tion [12]. A large number of sensory neurons in the bio-
+logical olfactory system can realize super-sensitivity to gas 
+molecules, and the timely conduction of electric potentials 
+realizes the rapid transmission of signals. Inspired by this, 
+the CuS QDs/Bi2S3 NSs-based neuron-like sensing model 
+constructed by loading the 0D adsorption sites on the 2D 
+semiconductor transmission channel has great potential to 
+realize highly sensitive sensing of ­NO2 molecules.
+In order to reveal the role of artificial olfactory neuron 
+sensing interface in the process of ­NO2 sensing, DFT was 
+used to analyze the adsorption and charge transfer processes 
+of ­NO2. Four binding structures of ­NO2 on CuS-Bi2S3 are 
+studied in our work, and the adsorption conformation is 
+shown in Fig. 1d–g. The corresponding binding energies 
+( Eb = ENO2 + ECuO−Bi2S3 −Etotal ) are 1.15, 1.70, 1.45, and 
+2.25 eV. The results showed that ­NO2 prefers to bind to 
+CuS-Bi2S3 with forming N-Cu bonds, and the type of Bi-O 
+binding structure has the smallest binding energy, and the 
+length of M(Bi/Cu)-O bond is listed in Table S1. To explain 
+the difference of binding property, charge density difference, 
+Bader charge transfer, and M–O bond length are analyzed. 
+Clearly, the binding structure with Cu–O bond structure is 
+favorable with the highest binding. As displayed in Fig. 1b, 
+c and Table S2, for Bi-O structure, the charge is mainly 
+transferred between Bi and O atoms, while for Cu–O, it is 
+between Cu and O atoms. Bader charge analysis shows that 
+CuO and ­NO2 have greater charge transfer, which may be 
+beneficial to the binding of ­NO2, which is consistent with 
+the relationship between adsorption energy. This series of 
+DFT results proved the conclusion that 0D CuS QDs are 
+used as ­NO2 sensitive points, and 2D ­Bi2S3 NSs are used as 
+a charge transport network to achieve an efficient gas sens-
+ing response. Therefore, in the sensing process of artificial 
+olfactory neurons, the CuS QDs/Bi2S3 NSs heterostructure 
+sensing unit can efficiently adsorb gas molecules and quickly 
+transfer charge signals, which undoubtedly greatly improves 
+the efficient sensing of ­NO2.
+3.2  CuS QDs/Bi2S3 NSs‑Based Sensor Inspired 
+by Biological Olfactory Neurons
+Figure 2a shows the process of recognition and perception of 
+the smell of the external environment by organisms. When 
+the receptors located in the olfactory bulb of the human body 
+are stimulated by a certain intensity of gas molecules, olfac-
+tory receptor cells release electrical signals. The electrical 
+signal is then conducted in the olfactory glomerulus and 
+finally sent to the brain area for perception and recognition 
+[12].
+Inspired by the sensory nervous system, we tried to prove 
+that the sensory synapses of the artificial neuron structure 
+have the same perceptual behavior as biological percep-
+tion. The schematic diagram of olfactory artificial neuron 
+is revealed in Fig. 2b. It includes an ultra-thin PI substrate 
+deposited with interdigital electrodes and a sensitive detec-
+tion unit based on CuS QDs/Bi2S3 NSs heterostructure. In 
+the gas sensor, 0D-2D CuS QDs/Bi2S3 NSs are stacked on 
+an ultra-thin PI substrate deposited with Au electrodes by 
+inkjet printing (optical image in Fig. 2b–i). Besides, ­NO2 
+molecules with strong electron deprivation properties are 
+adsorbed on the surface of artificial neurons in the sensing 
+process, which triggers changes in the surface charge distri-
+bution by depriving them of charges and finally leads to the 
+generation of electrical signals (Fig. 2b-ii).
+3.3  Artificial Neuron‑like Sensing Layer Based on CuS 
+QDs/Bi2S3 NSs Heterostructure
+To achieve ultra-sensitive detection, it is particularly impor-
+tant to construct a reasonable sensor layer of artificial olfac-
+tory neurons. As schematically shown in Fig. 3a, in brief, 
+ultrasonic stripping of bulk ­Bi2S3 was executed in a mixed 
+solution of anhydrous ethanol and deionized water for the 
+first time without any further complicated cleaning treat-
+ment. In stark contrast to commercial bulk ­Bi2S3 (Fig. S2), 
+
+Nano-Micro Lett. (2022) 14:8	
+Page 5 of 15  8
+1 3
+the lateral size and thickness of ­Bi2S3 NSs were reduced 
+from a few micrometers to the nanometer scale upon grind-
+ing and ultrasonic treatment.
+Subsequently, a simple two-step chemical precipitation 
+technique was designed to hybridize CuS QDs to the sur-
+face of ­Bi2S3 NSs, and its chemical structure is shown in 
+Fig. 3b. The composite structures of BC-5 (a series of CuS 
+QDs modified ­Bi2S3 NSs hybrid materials with different CuS 
+content are numbered BC-n, where n is the mass percentage 
+of CuS QDs in the hybrid material, n = 2.5, 3, 4, 5, 6, 7.5, 
+10, and 20) were studied by SEM and TEM. As shown in 
+Fig. 3c, the morphology of BC-5 keeps the same as the bare 
+­Bi2S3 NSs, which still exhibits a nanosheet appearance as the 
+lateral size of ca. 200 nm without an observable change in 
+morphology upon the loading of CuS. The thin 2D structure 
+supplies a boosted surface area for the CuS QDs loading.
+CuS QDs (≈ 8 nm) uniformly distributed on the surface 
+of ­Bi2S3 NSs are observed in the TEM image (Fig. 3d). 
+Attribute to the higher surface energy at the edge positions 
+of nanosheets and the individual distribution of quantum 
+dots without agglomerates or clusters, the CuS QDs are 
+prone to be attached to the edge positions of ­Bi2S3 NSs. The 
+intimate attachment of CuS QDs on ­Bi2S3 NSs demonstrates 
+the strong bonding and interacting heterogeneous structures 
+at the interface, which is essential for their enhanced sensing 
+performance [22, 26].
+Based on the high-resolution TEM (HR-TEM), a 0.56 nm 
+lattice spacing is found for ­Bi2S3 NSs and BC-5 (Figs. S2d 
+and 3e), which corresponds to the (020) facets of ­Bi2S3 crys-
+tal and again supports the process of selective orientation 
+stripping of ­Bi2S3 NSs [13]. Additionally, a lattice fringe 
+spacing of 0.304 nm is also found in Fig. 3e, which can 
+be ascribed to the crystallographic facet (102) of CuS. The 
+confirmation of these lattices further proves that the con-
+struction of CuS QDs and ­Bi2S3 NSs forms a heterostructure 
+rather than a simple physical mixing [27]. In addition, the 
+(d)
+(a)
+(b)
+(c)
+(f)
+(e)
+(g)
+signal
+Axon
+Sensory nerve
+Synapse
+Olfactory bulb
+Top view
+Top view
+Side view
+Side view
+Odor signal
+a
+a
+a
+c
+c
+a
+b
+b
+b
+b
+c
+c
+n2
+n4
+a
+a
+b
+a
+c
+c
+a
+a
+a
+a
+c
+c
+a
+b
+b
+b
+b
+b
+c
+b
+b
+c
+c
+c
+n3
+n2
+n1
+n4
+Fig. 1   a Schematic diagram of charge change of biological olfactory system during stimulation. Sensing mechanism and the possible interaction 
+energy of gases with configurations on the CuS QDs/Bi2S3 NSs using DFT calculations. b and c Diagrams of charge density difference of ­NO2 
+on CuS-Bi2S3 with n2 and n4 binding structure for side and top view, where the charge density isosurfaces of blue and yellow are 0.0015 and 
+-0.0015 e Å−3, respectively. d-g Binding structures of ­NO2 on CuS-Bi2S3
+
+	
+Nano-Micro Lett. (2022) 14:8
+8  Page 6 of 15
+https://doi.org/10.1007/s40820-021-00740-1
+© The authors
+presence of ­Bi2S3 NSs results in a more uniform loading 
+of CuS QDs on its surface. The detailed microstructure of 
+the irregular CuS without substrate nanosheets is indicated 
+in Fig. S4c. The XRD confirmed the structural regularity 
+of bulk material and the crystal planes of orthorhombic 
+­Bi2S3. Exfoliated ­Bi2S3 NSs show preferential orientation 
+along the (010) facet, which increases the intensity of the 
+peaks including (130), (310) and (020) (Fig. S3a). In addi-
+tion, a decrease in the overall peak intensity of the product 
+sample has been observed, demonstrating that the exfolia-
+tion process distorts the crystal lattice [16, 28]. The similar 
+Raman spectrum patterns of bulk material and thin layer 
+are displayed in Fig. S3b, Supporting Information. The 
+transverse in-plane ­Ag vibration peaks occurring at 188 and 
+240 ­cm−1 and the longitudinal ­B1g vibrations at 168 and 
+265 ­cm−1 coincide with the values reported previously [29]. 
+It is noteworthy that ­Bi2S3 NSs have a similar Raman signal 
+as bulk material, further confirming that the properties of 
+nanosheets remain unchanged after liquid-phase exfoliation 
+process.
+XRD pattern of the CuS QDs/Bi2S3 NSs (Fig. 2f) is spe-
+cifically indexed into orthorhombic ­Bi2S3 and hexagonal 
+CuS [27, 30]. As a blank control, bare CuS was prepared 
+without the loading of ­Bi2S3 NSs. The bare CuS has revealed 
+a single-phase structure in XRD and Raman tests as expected 
+in the pure hexagonal phase (Fig. S4) [31]. X-ray photoelec-
+tron spectroscopy (XPS) measurements have been further 
+used to study the elements in CuS QDs/Bi2S3 NSs and other 
+products. As displayed in Figs. 3g and S5, the full XPS spec-
+trum of the heterostructure includes the corresponding peaks 
+that are associated with ­Bi2S3, while the peak at 931.9 and 
+951.7 eV, respectively, supports the presence of Cu ­2p3/2 and 
+­2p1/2 in CuS [32]. This confirms the successful formation of 
+CuS and ­Bi2S3 in the composite product, which shows no 
+difference with XRD results.
+To consider the potential distribution of the resting state 
+of the artificial neuron sensor layer before being stimulated 
+by the olfactory sense, the interface interaction between 
+the CuS QDs and ­Bi2S3 NSs was further studied. The elec-
+tronic structures of the composite products and the pure 
+phase monomer constituent elements were studied by high-
+resolution XPS measurement. As displayed in Fig. 4a, two 
+separated peaks in the Bi 4f XPS spectrum at 158.3 and 
+163.6 eV are ­4f7/2 and ­4f5/2 hybridized orbitals of the Bi 
+(a)
+(b)
+Olfactory bulb
+Odor signal
+Olfactory receptor cells activate
+to emit electrical signals
+Bone
+Nasal
+epithelial cells
+Olfactory neuron
+Odorant
+receptor
+Air with odorant molecules
+CuS/Bi2S3
+Au
+100 μm
+i
+ii
+e−
+e−
+Electron
+Hole
+Au layer
+Gas sensitive
+materials
+CuS
+Bi2S3
+Cu layer
+Polyimide
+Ni layer
+Odor signal
+Fig. 2   a Schematic diagram of biological olfactory system. b Schematic diagram of artificial olfactory neuron sensing based on CuS QDs/Bi2S3 
+NSs heterostructure
+
+Nano-Micro Lett. (2022) 14:8	
+Page 7 of 15  8
+1 3
+4f orbital energy level for BC-5 sample, respectively [33]. 
+Compared with bare ­Bi2S3 NSs, the peak position shifts to 
+the high binding energy, indicating that the electron density 
+on the ­Bi2S3 surface in BC-5 nanocomposites is reduced. 
+Two peaks at 932.1 and 952.2 eV of Cu 2p (Fig. 4b) can be 
+regarded as the ­Cu2+ [30]. Compared to bare CuS, the peak 
+position shifts about 1 eV toward the lower binding energy, 
+indicating an elevated electron density on the Cu surface in 
+the BC-5 nanocomposite. Meanwhile, the S 2p XPS spec-
+tra in Fig. 4a, c show similar results. The results of these 
+peak shifts prove the formation of heterogeneous structures. 
+The charge transfer between the interfaces is from ­Bi2S3 to 
+CuS. Moreover, the chemical bonds formed between CuS 
+QDs and ­Bi2S3 NSs lead to the rapid migration of interfacial 
+charges and induce the appearance of strong polarization and 
+strong electric fields, which help to enhance the adsorption 
+and desorption efficiency of ­NO2 [21, 26, 34].
+To understand the charging behavior of the CuS QDs/
+Bi2S3 NSs, the charge density difference at the interface was 
+studied using DFT calculation. As exhibited in Fig. S6 in 
+Supporting Information, three Cu atoms in the CuS QDs/
+Bi2S3 NSs composite structure are bonded at the (010) crys-
+tal plane S–S bridge site. From the three-dimensional migra-
+tion diagram of the CuS QDs/Bi2S3 NSs interfacial charge 
+in Fig. 4d, the CuS QDs/Bi2S3 NSs interfacial charge shows 
+a strong polarization, efficient electron–hole separation, and 
+redistribution state. The differential charge density and bader 
+charge transfer values are displayed in Table S3, showing 
+a strong bonding formed between CuS and ­Bi2S3, and the 
+bader charge transfer value is 3.371 e, which illustrates the 
+(d)
+(a)
+(b)
+(c)
+(f)
+(e)
+(g)
+View from b axis
+View from c axis
+Van der Waals substrate
+View
+from
+a
+axis
+a
+a
+c
+b
+c
+b
+Bismuth
+Sulfur
+c
+a
+b
+Cu
+S
+Bi
+Interfacial charge transfer
+500 nm
+5 nm
+CuS
+BC-5
+BC-5
+BC-2.5
+BC-10
+CuS
+Binding energy (eV)
+2θ (degree)
+10     20    30    40    50    60    70     80
+1000     800       600      400      200         0
+Intensity (a.u.)
+Intensity (a.u.)
+CuS:PDF#06-0464
+Bi2S3:PDF#17-0320
+Bi2S3NSs
+Bi2S3(020)
+0.56 nm
+2 nm
+0.302 nm
+CuS (102)
+Cu 2p1/2
+Cu 2p3/2
+Bi 4p
+Bi 4p
+Bi 4f
+O 1s
+C 1s
+S 2s
+S 2p
+O 2s
+Fig. 3   CuS QDs/Bi2S3 NSs heterostructure and characterization of CuS and ­Bi2S3 NSs. a Schematic diagram of crystal structure and fracture-
+exfoliation process of ­Bi2S3 bulk material with selective orientation. b Schematic representation of the atomic structure of CuS QDs/ ­Bi2S3 NSs. 
+c-e SEM, TEM and HR-TEM images of BC-5. f XRD patterns of CuS QDs/Bi2S3 NSs, CuS and ­Bi2S3 NSs. g Full XPS survey spectrum of 
+BC-5
+
+	
+Nano-Micro Lett. (2022) 14:8
+8  Page 8 of 15
+https://doi.org/10.1007/s40820-021-00740-1
+© The authors
+correctness of this structural model and proves that the inter-
+facial charge is transferred from ­Bi2S3 to CuS.
+Besides, to gain a deeper understanding of the redistri-
+bution of interfacial charges and to reveal the transition 
+process of ­Bi2S3 NSs upon CuS QDs loaded on the sur-
+face, the energy band structure of the interface materials 
+was further characterized. Herein, ultraviolet photoelec-
+tron spectroscopy (UPS) measurements are employed to 
+establish the specific energy band location of heterojunc-
+tion, where the position of the conduction band (CB), the 
+Fermi energy level ­(Ef), and the valence band maximum 
+(VB) are determined by ­Ef = 21.22 eV − ­Ecutoff ­(Ecutoff is 
+the energy at which the secondary light emission starts), 
+­EV = 21.22 eV − ­[Ecutoff − ­(Ef − ­EVM)] ­(EVM is the valence 
+band maximum). Then, the bandgap values of ­Bi2S3 and CuS 
+were, respectively, determined to be 1.3 and 1.8 eV from the 
+UV–Vis diffuse reflectance spectra and the corresponding 
+Tauc plots (Fig. S8) [35]. In addition, the Mott–Schottky 
+technique is employed to study the semiconductor properties 
+of interfacial materials, as well as flat-band potentials. As 
+shown in Fig. 4g, h, the positive and negative slope indicates 
+the n-type and p-type behavior of ­Bi2S3 and CuS, while its 
+flat-band potential is calculated as -0.34 V, as well as 0.5 V, 
+respectively [34, 36].
+Moreover, the specific energy band locations of het-
+erojunction materials are described in Fig. S9 with a cor-
+responding model to explain the interfacial charge redis-
+tribution. When the two different semiconductors at the 
+interface come into contact, due to the distance between the 
+­Ef of ­Bi2S3 and the vacuum electron energy level ­(Evac) of 
+(d)
+(a)
+(b)
+(c)
+(f)
+(e)
+(h)
+(g)
+Potential (V vs.NHE)
+Binding energy (eV)
+Binding energy (eV)
+Binding energy (eV)
+Binding energy (eV)
+Binding energy (eV)
+Potential (V vs. NHE)
+−0.2
+0.0
+0.2
+0.4
+0.6
+0.8
+−0.2
+0.0
+0.2
+0.4
+0.6
+−0.34 V
+1.5 kHz
+0.5 kHz
+1.5 kHz
+0.5 kHz
+0.5 V
+20
+15
+10
+5
+0
+8
+6
+4
+2
+0
+C−2 (109 F−2)
+C−2 (109 F−2)
+Bi2S3 NSs
+hυ-Φ
+hυ-Φ
+CuS
+CuS
+CuS
+Intensity (a.u.)
+Intensity (a.u.)
+Intensity (a.u.)
+Intensity (a.u.)
+Intensity (a.u.)
+Bi
+Cu
+S
+c
+b
+a
+c
+b
+a
+Side view
+Top view
+Secondary electron
+Cut-off
+Fermi level
+Secondary electron
+Cut-off
+Fermi level
+BC-5
+BC-5
+Bi2S3 NSs
+Cu 2p1/2
+S 2p1/2
+S 2p1/2
+Cu 2p3/2
+Bi 4f5/2
+Bi 4f7/2
+S 2p3/2
+S 2p1/2
+S 2p3/2
+168
+164
+160
+156
+152
+968
+960
+952
+944
+936
+928
+168
+172
+164
+160
+156
+20 18 16 14 12 10 8
+6 4 2
+0
+20 18 16 14 12 10 8
+6 4 2
+0
+Fig. 4   Analysis of interface charge state of the heterostructure. a-c High-resolution XPS spectra of Bi 4f, Cu 2p and S 2p of the BC-5, CuS, and 
+­Bi2S3 NSs. d Charge distribution at the interface of CuS QDs and ­Bi2S3 NSs calculated by density functional theory. UPS spectra of e ­Bi2S3 and 
+f CuS. Mott − Schottky plots for g ­Bi2S3 NSs and h CuS
+
+Nano-Micro Lett. (2022) 14:8	
+Page 9 of 15  8
+1 3
+-4.37 eV, driven by the thermodynamic difference between 
+the work function of ­Bi2S3 (-4.37 eV) and CuS (-4.79 eV), 
+electrons will spontaneously transfer from ­Bi2S3 to CuS 
+across the interface, thus forming an electron depletion layer 
+on the surface of ­Bi2S3. On the contrary, holes of p-type 
+CuS near the interface tend to diffuse into n-type ­Bi2S3, thus 
+establishing a hole depletion layer on the CuS surface. The 
+electron–hole diffusion continues until the heterojunction 
+establishes a uniform ­Ef, which conduces to the energy band 
+bending at the interface. Furthermore, the CuS QDs/Bi2S3 
+NSs p–n junction exhibits a type-II band structure, which 
+is conducive to inhibit electron–hole recombination [37].
+3.4  Sensing Performance of the Artificial Olfactory 
+Neuron‑like Sensor
+To assess the effect of interfacial electrons on materials after 
+the construction of heterogeneous structures, the sensing 
+material was sprayed on the electrode surface using inkjet 
+printing technology, and the change of its gas-sensitive 
+performance was studied in a homemade dynamic sensing 
+system (Figs. S10 and S11). The variation in sensing perfor-
+mance of starting bulk materials, ­Bi2S3 NSs, and CuS QDs/
+Bi2S3 NSs with different weight ratios for 10 ppm ­NO2 is 
+displayed in Figs. 5a, S12 and S13. The exfoliated ­Bi2S3 NSs 
+showed greater electrical resistance compared to the bulk 
+material, which was ascribed to the large number of defects 
+introduced after liquid-phase exfoliation (Table S4) [17, 26]. 
+The pristine ­Bi2S3 displayed an increase in resistance imme-
+diately after being exposed to ­NO2, indicating an n-type 
+semiconducting property as identical to the Mott–Schottky 
+(M–S) test results. Meanwhile, the larger specific surface 
+area after exfoliation enriches the number of the active sites 
+on the samples, resulting in increased response and reduced 
+recovery performance.
+When CuS QDs are loaded at the lower concentrations 
+(2.5 wt% and 3 wt%), an increase in the sample resistance, 
+as well as a decrease in the response magnification, can be 
+observed, which can be attributed to the recombination of 
+electrons in ­Bi2S3 NSs with holes from the p-type CuS. As 
+the loading amount of CuS QDs further increases (beyond 
+4 wt%), the sensor exhibits a decreasing resistance change 
+in the presence of ­NO2, indicating that the n-type ­Bi2S3 has 
+been completely transformed into a p-type complex by the 
+multiple (hole) injection of p-type CuS. This result suggests 
+that the CuS QDs/Bi2S3 NSs possess a complete transition 
+of n- to p-type in semiconductor properties. When the CuS 
+QDs loading on the surface of ­Bi2S3 NSs is further increased 
+(over 6 wt%, until it reaches bare CuS), a further decrease 
+in the surface resistance of sensitive materials is observed. 
+This phenomenon is attributed to the further increase in the 
+majority carrier (hole) concentration of the p-type semicon-
+ductor composite product. The continuous improvement of 
+the conductivity of sensitive materials makes the resistance 
+change more difficult to be observed, which is manifested as 
+a decrease in the response rate [38].
+By comparing the response and recovery properties of the 
+heterojunction-based sensors with different CuS QDs load-
+ings to 10 ppm ­NO2, BC-5 has been identified as the optimal 
+device with a response amplification of 3.4 and ultra-fast 
+response and recovery rates (18 and 338 s, respectively) 
+without the assistance of any additional means. Our BC-5 
+has shown a grand advance in sensing performance over 
+the previously reported works on ­NO2 room temperature 
+flexible sensors (Table S5). According to the previous DFT 
+calculations, compared to the initial bulk ­Bi2S3 material, 
+the reason for the superior performance of the BC-5-based 
+sensor attributes to the construction of many sensitive points 
+and the rapid conduction of charges.
+To reveal the importance of reversibility for BC-5-based 
+gas sensors, the cyclic test is executed to 10 ppm ­NO2. The 
+sensing performance was kept nearly unchanged after five 
+cycle uses (Fig. 5b). In addition, Fig. 5c shows the response-
+recovery curves of the BC-5-based sensor exposed to ­NO2 
+at concentrations of 500 ppb to 100 ppm. With the response 
+change and error bar data summarized in Fig. S13, BC-
+5-based sensors exhibit excellent sensitivity and recovery 
+capability. The theoretical limit of detection (LOD) of the 
+device toward ­NO2 was calculated as approximately 78 ppb 
+by the least squares method using ­3RMSnoise divided by the 
+slope of the low-concentration partial fit curve (Fig. S14b) 
+[8, 39]. The fitted curve shows a dichotomous distribution 
+due to the scattering effect of ­NO2 molecules resulting in 
+reduced carrier mobility [40].
+To study the sensing performance of the device in the 
+real environment, we have further investigated its long-
+term stability and selectivity. The long-term stability of 
+BC-5-based sensor was estimated upon exposure to 10 ppm 
+­NO2 for 2 months at an interval of 1 week (Fig. S14c). The 
+response value of the device remained virtually unchanged 
+for two months, indicating excellent long-term stability. 
+
+	
+Nano-Micro Lett. (2022) 14:8
+8  Page 10 of 15
+https://doi.org/10.1007/s40820-021-00740-1
+© The authors
+This result indicates that the depletion layer formed at the 
+interface by our heterostructure building process can act as 
+a passivation layer, preventing environmental oxidation of 
+sulfides and leading to reliable long-term stability [41, 42]. 
+Furthermore, the selectivity of BC-5-based sensor for dif-
+ferent gases was tested. Different analytes were investigated 
+including 10 ppm ­NO2, ­H2S, ­NH3, ­SO2, ­H2, and NO. As 
+shown in Figs. 5d and S15, the response value for ­NO2 was 
+significantly higher than other test gases, indicating that the 
+device exhibited excellent selectivity. Besides, considering 
+the influence of humidity, the sensor was exposed to 10 ppm 
+­NO2 with relative humidity ranging from 0 to 80% (Fig. 
+S16). The response value decreases from 3.4 to 1.6 as the 
+relative humidity increased, indicating that the sensor can 
+still work normally under high humidity conditions. The 
+negligible decrease in response is probably arising from the 
+fact that some ­H2O molecules occupy the sensing sites [43].
+In addition, the illustration of Fig. 5e depicts a schematic 
+diagram of the mechanical strain bending direction of the 
+flexible device. The flexible sensor was bent at 30º and 60º 
+followed by sensing tests in 10 ppm ­NO2 for five cycles. 
+The response results of the device clearly showed that the 
+bending of the flexible electrode will not reduce the property 
+of the as-prepared device.
+3.5  Gas sensing Mechanisms of the Artificial 
+Neuron‑like Olfactory System
+Based on the DFT calculations and the corresponding exper-
+imental results, we conducted an in-depth understanding and 
+discussion on the mechanism of the artificial neuron-like 
+sensor based on CuS QDs/Bi2S3 NSs to enhance the ­NO2 
+sensing performance.
+First of all, the DFT calculation results prove that in the 
+neuron-like sensor model constructed by the olfactory sen-
+sory neurons, a large number of dispersed OD CuS QDs can 
+be used as ­NO2 sensitive points to efficiently capture gas 
+molecules. The 2D ­Bi2S3 NSs as a conductive network and 
+a heterojunction substrate can achieve rapid charge transfer 
+through synergy.
+Secondly, the artificial olfactory neuron sensor based on 
+the heterogeneous structure of CuS QDs/Bi2S3 NSs has the 
+same charge transfer method as the biological olfactory per-
+ception process in the resting state and after being stimulated 
+(a)
+(b)
+(c)
+(d)
+(e)
+(NO2)
+tresponse=18 s
+trecovery=338 s
+Bi2S3 NSs
+n-type response
+p-type response
+0.5 1
+2.5
+5
+10
+25
+50
+100
+BC-5
+nitric
+oxide
+nitrogen
+dioxide
+hydrogen
+sulfide
+sulfur
+dioxide
+ammonia
+hydrogen
+Bent (α=30°)
+Bent (α=60°)
+Bending
+Relaxing
+Response
+Resistance (MΩ)
+Resistance (MΩ)
+Resistance (MΩ)
+Resistance (MΩ)
+Time (s)
+Time (s)
+Time (s)
+Time (s)
+Cycle times
+55
+35
+15
+80
+60
+40
+20
+80
+60
+40
+20
+80
+60
+40
+20
+4.0
+3.6
+3.2
+2.8
+0
+200
+400
+600
+800
+0
+200
+400
+600
+800
+1
+2
+3
+4
+5
+0
+1000
+2000
+3000
+0
+2000
+4000
+6000
+α
+θ
+Fig. 5   NO2 sensing performances BC-5-based sensor. a Resistance variation for the device to ­NO2 at 10 ppm concentration. b Response-recov-
+ery curve of the device for 5 cycles to 10 ppm ­NO2. c Transient response-recovery curve for the device to ­NO2 with different concentrations. d 
+Selectivity for the device to 10 ppm different target gases. e Response graph and response error bar for the device to 10 ppm ­NO2 with different 
+bending angles
+
+Nano-Micro Lett. (2022) 14:8	
+Page 11 of 15  8
+1 3
+by gas molecules. The charge distribution process of the 
+CuS QDS/Bi2S3 NSs heterostructure itself in the resting state 
+was studied in the previous chapter. In brief, upon intimate 
+contact, electrons move spontaneously from ­Bi2S3 to CuS 
+across the interface for the equilibrium of Fermi level, lead-
+ing to the formation of the electron and hole depletion layer 
+on the surface of ­Bi2S3 and CuS, respectively. In addition, 
+the formation of a built-in electric field and the bending of 
+energy band also occur.
+As shown in Fig. S17, when exposed to ­NO2 (electron 
+acceptor), gas molecules are adsorbed onto the CuS QDs 
+surface and trap electrons, breaking the equilibrium of the 
+built-in electric field formed previously. The additional 
+holes return to CuS that change the width of the potential 
+barrier until formed a new equilibrium. The presence of a 
+potential barrier in the heterojunction at the interface can 
+reflect small fluctuations in carrier concentration due to the 
+adsorption of ­NO2 molecules as large changes in resistance, 
+which undoubtedly facilitates the response process [44]. In 
+addition, the built-in electric field can also accelerate the 
+charge carrier transfer efficiency, so as to improve the sens-
+ing performance [45, 46].
+Furthermore, the switch from n-type to p-type character 
+and the construction of surface heterostructures also affects 
+the selectivity of the device. Compared with other gases, the 
+adsorption of ­NO2 with a higher charge density can signifi-
+cantly increase the heterojunction barrier and improve its 
+sensing performance [37]. The design of this series of inter-
+facial heterostructures and charge modulation successfully 
+enhanced the room temperature sensing performance of the 
+artificial olfactory neuron-like sensors for ­NO2, making it 
+significantly better than the previously reported ­Bi2S3-based 
+sensors and providing a new idea for the design of the het-
+erogeneous interface of the biological simulation artificial 
+olfactory neuron sensor.
+3.6  Wireless Wearable Devices and Real‑time 
+Monitoring of ­NO2
+In the previous content, we correlated the process of biologi-
+cal olfactory perception with the electrical signal generation 
+and transmission process of the artificial neuron-like sensor 
+in the process of detecting gas. The result of the transmission 
+of sensory signals in the organism is the reception, analysis 
+and response of the central nervous system of the brain. This 
+series of processes is consistent with the sensor’s back-end 
+information collection and real-time data extraction. Previ-
+ously, many flexible gas sensors have been developed while 
+their real-world applications in wireless and wearable elec-
+tronics still confront a challenge and are rarely demonstrated 
+[47]. Intending to design wearable applications in real time, 
+we integrated CuS QDs/Bi2S3 NSs-based artificial neuron-
+like sensor, circuit, and data acquisition to develop a port-
+able ­NO2-monitoring system (Fig. 6a).
+The hardware and software block diagram of the as-
+prepared device system is illustrated in Fig. 6b. During the 
+operation of the device, Bluetooth communication is first 
+turned on, and the mobile device equipped with the self-
+developed Android-based application scans the surrounding 
+Bluetooth devices and verifies and connects after finding a 
+matching sensing device. After the connection, the applica-
+tion will request the data acquisition circuitry for informa-
+tion such as the sensor’s output voltage and real-time time. 
+Once the data are obtained, the application can calibrate 
+the ambient temperature and humidity, connect to a data-
+base to calculate the corresponding environmental pollution 
+conditions, and display the relevant gas concentrations in 
+real-time according to the requirements written. Moreover, 
+by presetting the threshold value, the user can be warned in 
+time when the pollution is aggravated and the gas concentra-
+tion exceeds the standard.
+For the working tests in this paper, a 200 mAh recharge-
+able lithium-polymer battery (TF402030) was used to 
+provide the appropriate voltage for all circuits, and the 
+actual voltage on the flexible sensing device was 3.3 V 
+(device circuit schematic is displayed in Fig. S18). The 
+double-sided copper-clad flexible PCB is connected to the 
+PI flexible electrode deposited with the gold finger by flex-
+ible silver wires (Fig. S19a), ensuring the flexibility of the 
+wearable device and the accuracy of data transmission. 
+The entire wireless wearable sensing device was tested for 
+­NO2 atmosphere in a fume hood at room temperature. In 
+the actual test procedure, the signal connection and trans-
+mission from the Bluetooth device were first performed 
+(Fig. S19b and Video S1), followed by a drop in the resist-
+ance value on the mobile application with the tube placed 
+beside the device, i.e., the ­NO2 signal was detected. As the 
+gas tube is removed, the curve trajectory spontaneously 
+
+	
+Nano-Micro Lett. (2022) 14:8
+8  Page 12 of 15
+https://doi.org/10.1007/s40820-021-00740-1
+© The authors
+returns to the baseline (Fig. 6c). Also, given the fact that 
+the interface-modulated CuS QDs/Bi2S3 NSs were able to 
+return the signal to baseline without external assistance, 
+we tested a continuous response for 4 min and revealed it 
+on a phone application to demonstrate the reproducibility 
+(Fig. S19c and Video S2).
+The results presented herein efficiently cross-fertilize 
+the fields of biological neuron-like sensing unit design, 
+mechanical circuit fabrication, and software development 
+to successfully develop wearable sensing devices that 
+are lightweight, visual, and multifunctional. The advan-
+tages of biomimetic association, cheap, and low power 
+(a)
+(b)
+(c)
+Inkjet printing
+Flexible wearable
+sensing device
+Toxic and hazardous
+gases (NO2)
+Wireless signal
+transmission
+Hazard
+warning and
+rescue
+Wireless transmission and
+real-time warning detection
+Sensor
+Sensor
+Front-end
+Circuit
+Power Tree
+MiniApp
+CC2540
+SoC
+CC2540
+SoC
+12-Bit ADC
+8051 MCU
+RAM/Flash
+Bluetooth
+Other
+Peripherals
+Electronic monitoring
+equipment
+Cloud
+Scaning
+Device
+Match
+Device
+Establish
+Connection
+Request
+Receive
+Bluetooth
+Protocol
+Stack
+Humidity
+Temperature
+Battery
+Display
+Record
+Alarm
+Curve
+Gas (NO2) on
+Gas (NO2) on
+Gas (NO2) off
+Gas (NO2) off
+Gas tube
+Gas sensor
+Gas sensor
+2 cm
+2 cm
+Time (s)
+Information
+Bluetooth
+Stop
+Clear
+Sensor data is 1250
+Sen.0
+0.0
+19.1
+38.2
+57.3
+76.4
+95.6
+Fig. 6   Application process of the wireless wearable sensor system. a Schematic diagram of structure and application concept of wireless wear-
+able devices. b Circuit hardware and software logic block diagram. c Photographs of the change in response to ­NO2 gas by smartphone applica-
+tion during the actual test
+
+Nano-Micro Lett. (2022) 14:8	
+Page 13 of 15  8
+1 3
+consumption allow for sustainable utilization, and the 
+development of wireless data transmission coincides with 
+the expansion of the modern Internet of Things.
+4  Conclusions
+In summary, a self-designed bio-simulated neuron-like 
+gas sensor that can drive wireless wearable devices for 
+real-time monitoring of ­NO2 has been reported. First, 0D 
+p-type CuS QDs were successfully loaded onto the sur-
+face of 2D n-type ­Bi2S3 NSs. Characterization analysis 
+and DFT calculations were used for the first time to reveal 
+that the charge transfer process of artificial neuron-like 
+sensors in the resting state and when stimulated by gas is 
+consistent with the process of biological olfactory percep-
+tion. Moreover, the heterogeneous integration of artificial 
+neuron-like sensor was unveiled that synergistically com-
+bines CuS QDs sites with high adsorption energy for target 
+gas molecules and ­Bi2S3 NSs as fast charge transport chan-
+nels. Compared with traditional bulk sensing materials, the 
+problem of high-efficiency detection at room temperature 
+can be effectively solved by this type of artificial neuron-
+like sensor through many scattered sensitive points. This 
+exhibits an ultra-fast response (18 s) and recovery (338 s), 
+an exceptional theoretical detection limit (78 ppb), a tun-
+able sensing mechanism, and excellent selectivity. Second, 
+through the low-concentration ­NO2 ventilation analysis of 
+the wearable gas sensing device on the arm of the human 
+subject, the visualization and real-time observation of the 
+target gas on the smartphone app is realized. This artificial 
+neuron-like device establishes a promising platform for the 
+next generation of simulating complex biological nerv-
+ous systems and promoting the development of artificial 
+intelligence.
+Acknowledgements  This work was supported by the National 
+Natural Science Foundation of China (61971284), the Oceanic 
+Interdisciplinary Program of Shanghai Jiao Tong University 
+(SL2020ZD203 and SL2020MS031) and Scientific Research 
+Fund of Second Institute of Oceanography, Ministry of Natural 
+Resources of P. R. China (SL2003), Shanghai Sailing Program 
+(21YF1421400) and Startup Fund for Youngman Research at 
+Shanghai Jiao Tong University. We also acknowledge analysis sup-
+port from the Instrumental Analysis Center of Shanghai Jiao Tong 
+University and the Center for Advanced Electronic Materials and 
+Devices of Shanghai Jiao Tong University. The computations in 
+this paper were run on the π 2.0 cluster supported by the Center for 
+High Performance Computing at Shanghai Jiao Tong University.
+Funding  Open access funding provided by Shanghai Jiao Tong 
+University.
+Open Access  This article is licensed under a Creative Commons 
+Attribution 4.0 International License, which permits use, sharing, 
+adaptation, distribution and reproduction in any medium or format, 
+as long as you give appropriate credit to the original author(s) and 
+the source, provide a link to the Creative Commons licence, and 
+indicate if changes were made. The images or other third party 
+material in this article are included in the article’s Creative Com-
+mons licence, unless indicated otherwise in a credit line to the 
+material. If material is not included in the article’s Creative Com-
+mons licence and your intended use is not permitted by statutory 
+regulation or exceeds the permitted use, you will need to obtain 
+permission directly from the copyright holder. To view a copy of 
+this licence, visit http://​creat​iveco​mmons.​org/​licen​ses/​by/4.​0/.
+Supplementary Information  The online version contains 
+supplementary material available at https://​doi.​org/​10.​1007/​
+s40820-​021-​00740-1.
+References
+	1.	 C. Figueres, P.J. Christiana, R. Fuller. Landrigan, Tackling air 
+pollution, climate change, and NCDs: time to pull together. 
+Lancet. 392(10157), 1502–1503 (2018). https://​doi.​org/​10.​
+1016/​S0140-​6736(18)​32740-5
+	2.	 X. Han, H.G.W. Godfrey, L. Briggs, A.J. Davies, Y. Cheng 
+et al., Reversible adsorption of nitrogen dioxide within a 
+robust porous metal–organic framework. Nat. Mater. 17, 
+691–696 (2018). https://​doi.​org/​10.​1038/​s41563-​018-​0104-7
+	3.	 Z. Meng, R.M. Stolz, L. Mendecki, K.A. Mirica, Electrically-
+transduced chemical sensors based on two-dimensional nano-
+materials. Chem. Rev. 119(1), 478–598 (2019). https://​doi.​org/​
+10.​1021/​acs.​chemr​ev.​8b003​11
+	4.	 A.V. Agrawal, N. Kumar, M. Kumar, Strategy and future 
+prospects to develop room-temperature-recoverable ­NO2 gas 
+sensor based on two-dimensional molybdenum disulfide. 
+Nano-Micro Lett. 13, 38 (2021). https://​doi.​org/​10.​1007/​
+s40820-​020-​00558-3
+	5.	 Y. Pang, Z. Yang, Y. Yang, T.L. Ren, Wearable electronics 
+based on 2D materials for human physiological information 
+detection. Small 16, 1901124 (2019). https://​doi.​org/​10.​1002/​
+smll.​20190​1124
+	6.	 M.A.A. Mamun, M.R. Yuce, Recent progress in nanomaterial 
+enabled chemical sensors for wearable environmental moni-
+toring applications. Adv. Funct. Mater. 30, 2005703 (2020). 
+https://​doi.​org/​10.​1002/​adfm.​20200​5703
+	7.	 N. Tang, C. Zhou, L. Xu, Y. Jiang, H. Qu et al., A fully inte-
+grated wireless flexible ammonia sensor fabricated by soft 
+nano-lithography. ACS Sens. 4(3), 726–732 (2019). https://​
+doi.​org/​10.​1021/​acsse​nsors.​8b016​90
+	8.	 S. Guo, D. Yang, S. Zhang, Q. Dong, B. Li et al., Development 
+of a cloud-based epidermal ­MoSe2 device for hazardous gas 
+
+	
+Nano-Micro Lett. (2022) 14:8
+8  Page 14 of 15
+https://doi.org/10.1007/s40820-021-00740-1
+© The authors
+sensing. Adv. Funct. Mater. 29, 1900138 (2019). https://​doi.​
+org/​10.​1002/​adfm.​20190​0138
+	9.	 S.T. Keene, C. Lubrano, S. Kazemzadeh, A. Melianas, Y. 
+Tuchman et al., A biohybrid synapse with neurotransmitter-
+mediated plasticity. Nat. Mater. 19, 969–973 (2020). https://​
+doi.​org/​10.​1038/​s41563-​020-​0703-y
+	10.	 J.R. Yu, X.X. Yang, G.Y. Gao, Y. Xiong, Y.F. Wang et al., 
+Bioinspired mechano-photonic artificial synapse based on gra-
+phene/MoS2 heterostructure. Sci. Adv. 7, eabd9117 (2021). 
+https://​advan​ces.​scien​cemag.​org/​conte​nt/7/​12/​eabd9​117
+	11.	 Q.B. Zhu, B. Li, D.D. Yang, C. Liu, S. Feng et al., A flexible 
+ultrasensitive optoelectronic sensor array for neuromorphic 
+vision systems. Nat. Commun. 12, 1798 (2021). https://​doi.​
+org/​10.​5281/​zenodo.​45409​48
+	12.	 E. Chong, M. Moroni, C. Wilson, S. Shoham, S. Panzeri et al., 
+Manipulating synthetic optogenetic odors reveals the cod-
+ing logic of olfactory perception. Science 368, 1329 (2020). 
+https://​scien​ce.​scien​cemag.​org/​conte​nt/​368/​6497/​eaba2​357
+	13.	 X. Yang, S. Tian, R. Li, W. Wang, S. Zhou, Use of single-
+crystalline ­Bi2S3 nanowires as room temperature ethanol sen-
+sor synthesized by hydrothermal approach. Sens. Actuators 
+B: Chem. 241, 210–216 (2017). https://​doi.​org/​10.​1016/j.​snb.​
+2016.​10.​074
+	14.	 T.X. Fu, Gas sensor based on three dimensional ­Bi2S3 
+nanowires network for ammonia detection at room tempera-
+ture. Mater. Res. Bull. 99, 460–465 (2018). https://​doi.​org/​
+10.​1016/j.​mater​resbu​ll.​2017.​11.​038
+	15.	 N. Dhar, N. Syed, M. Mohiuddin, A. Jannat, A. Zavabeti 
+et al., Exfoliation behavior of van der waals strings: case 
+study of ­Bi2S3. ACS Appl. Mater. Interfaces 10(49), 42603–
+42611 (2018). https://​doi.​org/​10.​1021/​acsami.​8b147​02
+	16.	 W. Huang, C. Xing, Y. Wang, Z. Li, L. Wu et al., Fac-
+ile fabrication and characterization of two-dimensional 
+bismuth(III) sulfide nanosheets for high-performance pho-
+todetector applications under ambient conditions. Nanoscale 
+10, 2404–2412 (2018). https://​doi.​org/​10.​1039/​C7NR0​
+9046C
+	17.	 Y.T. Han, D. Huang, Y.J. Ma, G.L. He, J. Hu et al., Design 
+of hetero-nanostructures on ­MoS2 nanosheets to boost ­NO2 
+room-temperature sensing. ACS Appl. Mater. Interfaces 10, 
+22640–22649 (2018). https://​doi.​org/​10.​1021/​acsami.​8b058​11
+	18.	 M. Ikram, L. Liu, Y. Liu, M. Ullah, L. Ma et al., Controllable 
+synthesis of ­MoS2@MoO2 nanonetworks for enhanced ­NO2 
+room temperature sensing in air. Nanoscale 11, 8554–8564 
+(2019). https://​doi.​org/​10.​1039/​C9NR0​0137A
+	19.	 F.A. Sabah, N.M. Ahmed, Z. Hassan, H.S. Rasheed, High 
+performance CuS p-type thin film as a hydrogen gas sensor. 
+Sens. Actuators A: Phys. 249, 68–76 (2016). https://​doi.​org/​
+10.​1016/j.​sna.​2016.​08.​026
+	20.	 T. Ahamad, M. Naushad, S.M. Alshheri, Fabrication of highly 
+porous N/S doped carbon embedded with CuO/CuS nanopar-
+ticles for ­NH3 gas sensing. Mater. Lett. 268, 127515 (2020). 
+https://​doi.​org/​10.​1016/j.​matlet.​2020.​127515
+	21.	 H. Wang, K.Y. Xie, Y. You, Q. Hou, K. Zhang et al., Real-
+izing interfacial electronic interaction within ZnS quantum 
+dots/N-rGO heterostructures for efficient Li–CO2 batteries. 
+Adv. Energy Mater. 9, 1901806 (2019). https://​doi.​org/​10.​
+1002/​aenm.​20190​1806
+	22.	 X. Xin, Y. Zhang, X. Guan, J. Cao, W. Li et al., Enhanced 
+performances of PbS quantum-dots-modified ­MoS2 compos-
+ite for ­NO2 detection at room temperature ACS Appl. Mater. 
+Interfaces 11(9), 9438–9447 (2019). https://​doi.​org/​10.​1021/​
+acsami.​8b209​84
+	23.	 E.P. Nguyen, B.J. Carey, T. Daeneke, J.Z. Ou, K. Latham 
+et al., Investigation of two-solvent grinding-assisted liquid 
+phase exfoliation of layered ­MoS2. Chem. Mater. 27(1), 53–59 
+(2015). https://​doi.​org/​10.​1021/​cm502​915f
+	24.	 Y. Yao, L. Tolentino, Z. Yang, X. Song, W. Zhang et al., 
+High-concentration aqueous dispersions of ­MoS2. Adv. Funct. 
+Mater. 23, 3577–3583 (2013). https://​doi.​org/​10.​1002/​adfm.​
+20120​1843
+	25.	 X.W. Chen, S. Wang, C. Su, Y.T. Han, C. Zou et al., Two-
+dimensional Cd-doped porous ­Co3O4 nanosheets for enhanced 
+room-temperature ­NO2 sensing performance. Sens. Actuators 
+B: Chem. 305, 127393 (2020). https://​doi.​org/​10.​1016/j.​snb.​
+2019.​127393
+	26.	 Y.T. Han, Y. Liu, C. Su, S.T. Wang, H. Li et al., Interface 
+engineered ­WS2/ZnS heterostructures for sensitive and revers-
+ible ­NO2 room temperature sensing. Sens. Actuators B: Chem. 
+296, 126666 (2019). https://​doi.​org/​10.​1016/j.​snb.​2019.​
+126666
+	27.	 Z. Pan, F. Cao, X. Hu, X. Ji, A facile method for synthesiz-
+ing CuS decorated ­Ti3C2 MXene with enhanced performance 
+for asymmetric supercapacitors. J. Mater. Chem. A 7, 8984 
+(2019). https://​doi.​org/​10.​1039/​C9TA0​0085B
+	28.	 R.M. Clark, J.C. Kotsakidis, B. Weber, K.J. Berean, B.J. Carey 
+et al., Exfoliation of quasi-stratified ­Bi2S3 crystals into micron-
+scale ultrathin corrugated nanosheets. Chem. Mater. 28(24), 
+8942–8950 (2016). https://​doi.​org/​10.​1021/​acs.​chemm​ater.​
+6b034​78
+	29.	 F. Lu, R. Li, N. Yan Li, J. Yang. Huo et al., Improving the 
+field-effect performance of ­Bi2S3 single nanowires by an 
+asymmetric device fabrication. ChemPhysChem (2015). 
+https://​doi.​org/​10.​1002/​cphc.​20140​2594
+	30.	 J. Ni, Y. Zhao, T. Liu, H. Zheng, L. Gao et al., Strongly cou-
+pled ­Bi2S3@CNT hybrids for robust lithium storage. Adv. 
+Energy Mater. 4, 1400798 (2014). https://​doi.​org/​10.​1002/​
+aenm.​20140​0798
+	31.	 T. Hurma, S. Kose, XRD Raman analysis and optical prop-
+erties of CuS nanostructured film. Optik 127, 6000 (2016). 
+https://​doi.​org/​10.​1016/j.​ijleo.​2016.​04.​019
+	32.	 S. Bera, A.K. Katiyar, A.K. Sinha, S.P. Mondal, S.K. Ray, 
+Resistive switching characteristics of a single Zn-doped CuS 
+nanoball anchored with multi-walled carbon nanotubes. Mater. 
+Design 101, 197–203 (2016). https://​doi.​org/​10.​1016/j.​matdes.​
+2016.​03.​160
+	33.	 C. Hong, Y.I. Kim, J.H. Seo, J.H. Kim, A. Ma et al., Com-
+prehensive study of the growth mechanism and photoelectro-
+chemical activity of a ­BiVO4/Bi2S3 nanowire composite. ACS 
+Appl. Mater. Interfaces 12(35), 39713–39719 (2020). https://​
+doi.​org/​10.​1021/​acsami.​0c075​77
+
+Nano-Micro Lett. (2022) 14:8	
+Page 15 of 15  8
+1 3
+	34.	 L. Liu, M. Ikram, L. Ma, X. Zhang, H. Lv et al., Edge-exposed 
+­MoS2 nanospheres assembled with ­SnS2 nanosheet to boost 
+­NO2 gas sensing at room temperature. J. Hazard. Mater. 393, 
+122325 (2020). https://​doi.​org/​10.​1016/j.​jhazm​at.​2020.​122325
+	35.	 L. Meng, J. He, W. Tian, M. Wang, R. Long et al., Ni/Fe 
+codoped ­In2S3 nanosheet arrays boost photo-electrochemical 
+performance of planar Si photocathodes. Adv. Energy Mater. 
+9, 1902135 (2019). https://​doi.​org/​10.​1002/​aenm.​20190​2135
+	36.	 Y. Guo, J. Yang, D. Wu, H. Bai, Z. Yang et al., Au nanoparti-
+cle-embedded, nitrogen-deficient hollow mesoporous carbon 
+nitride spheres for nitrogen photofixation. J. Mater. Chem. A 
+8, 16218 (2020). https://​doi.​org/​10.​1039/​D0TA0​3793A
+	37.	 W. Zheng, Y. Xu, L. Zheng, C. Yang, N. Pinna et al., ­MoS2 van 
+der waals p–n junctions enabling highly selective room-tem-
+perature ­NO2 sensor. Adv. Funct. Mater. 30, 2000435 (2020). 
+https://​doi.​org/​10.​1002/​adfm.​20200​0435
+	38.	 S.Y. Cho, H.J. Koh, H.W. Yoo, J.S. Kim, H.T. Jung, Tunable 
+volatile-organic-compound sensor by using Au nanoparticle 
+incorporation on ­MoS2. ACS Sens. 2(1), 183–189 (2017). 
+https://​doi.​org/​10.​1021/​acsse​nsors.​6b008​01
+	39.	 H. Liu, M. Li, O. Voznyy, L. Hu, Q. Fu et al., Physically flex-
+ible, rapid-response gas sensor based on colloidal quantum dot 
+solids. Adv. Mater. 26, 2718–2724 (2014). https://​doi.​org/​10.​
+1002/​adma.​20130​4366
+	40.	 Q. Sun, J. Wang, J. Hao, S. Zheng, P. Wan et al., ­SnS2/SnS p–n 
+heterojunctions with an accumulation layer for ultrasensitive 
+room-temperature ­NO2 detection. Nanoscale 11, 13741–13749 
+(2019). https://​doi.​org/​10.​1039/​C9NR0​2780G
+	41.	 S. Cui, Z. Wen, X. Huang, J. Chang, J. Chen, Stabilizing ­MoS2 
+nanosheets through ­SnO2 nanocrystal decoration for high-
+performance gas sensing in air. Small 11, 2305–2313 (2015). 
+https://​doi.​org/​10.​1002/​smll.​20140​2923
+	42.	 Z. Qin, C. Ouyang, J. Zhang, L. Wan, S. Wang et al., 2D ­WS2 
+nanosheets with ­TiO2 quantum dots decoration for high-per-
+formance ammonia gas sensing at room temperature. Sens. 
+Actuators B: Chem. 253, 1034–1042 (2017). https://​doi.​org/​
+10.​1016/j.​snb.​2017.​07.​052
+	43.	 W.Y. Chen, X. Jiang, S.-N. Lai, D. Peroulis, L. Stanciu, 
+Nanohybrids of a MXene and transition metal dichalcoge-
+nide for selective detection of volatile organic compounds. 
+Nat. Commun. 11, 1302 (2020). https://​doi.​org/​10.​1038/​
+s41467-​020-​15092-4
+	44.	 K.M.B. Urs, N.K. Katiyar, R. Kumar, K. Biswas, A.K. Singh 
+et al., Multi-component (Ag–Au–Cu–Pd–Pt) alloy nanopar-
+ticle-decorated p-type 2D-molybdenum disulfide ­(MoS2) for 
+enhanced hydrogen sensing. Nanoscale 12, 11830–11841 
+(2020). https://​doi.​org/​10.​1039/​D0NR0​2177F
+	45.	 D. Fu, C. Zhu, X. Zhang, C. Li, Y. Chen, Two-dimensional 
+net-like ­SnO2/ZnO heteronanostructures for high-performance 
+­H2S gas sensor. J. Mater. Chem. A 4, 1390–1398 (2016). 
+https://​doi.​org/​10.​1039/​C5TA0​9190J
+	46.	 J. Hao, D. Zhang, Q. Sun, S. Zheng, J. Sun, Y. Wang, Hierar-
+chical ­SnS2/SnO2 nanoheterojunctions with increased active-
+sites and charge transfer for ultrasensitive ­NO2 detection. 
+Nanoscale 10, 7210–7217 (2018). https://​doi.​org/​10.​1039/​
+C8NR0​1379A
+	47.	 J.V. Vaghasiya, C.C.M. Martinez, J. Vyskočil, Z. Sofer, M. 
+Pumera, Integrated Biomonitoring Sensing with Wearable 
+Asymmetric Supercapacitors Based on ­Ti3C2 MXene and 
+1T-Phase ­WS2 Nanosheets. Adv. Funct. Mater. 30, 2003673 
+(2020). https://​doi.​org/​10.​1002/​adfm.​20200​3673
