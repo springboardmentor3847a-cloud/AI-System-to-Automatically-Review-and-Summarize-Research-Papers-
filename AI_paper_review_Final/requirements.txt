@@ -1,0 +1,57 @@
+# ============================================================
+# AI Paper Review System - Requirements
+# Complete dependencies for all milestones
+# ============================================================
+
+# =========================
+# CORE DEPENDENCIES
+# =========================
+semanticscholar>=0.8.0      # Semantic Scholar API client
+requests>=2.31.0            # HTTP library for PDF downloads
+python-dotenv>=1.0.0        # Environment variable management
+tqdm>=4.66.0                # Progress bars for downloads
+
+# =========================
+# PDF & TEXT PROCESSING
+# =========================
+PyMuPDF>=1.23.0             # PDF text extraction (fitz)
+PyMuPDF4LLM>=0.0.1          # Enhanced PDF extraction for LLMs
+
+# =========================
+# WORKFLOW ORCHESTRATION
+# =========================
+langgraph>=0.0.1            # Graph-based workflow orchestration
+
+# =========================
+# SECURITY & VALIDATION
+# =========================
+pydantic>=2.5.0             # Input validation with strict schemas
+
+# =========================
+# UI
+# =========================
+gradio>=4.0.0               # Web UI for the application
+
+# =========================
+# EXPORT FORMATS
+# =========================
+python-docx>=1.1.0          # Export to DOCX
+reportlab>=4.0.0            # Export to PDF
+
+# =========================
+# TESTING
+# =========================
+pytest>=8.0.0               # Test framework
+pytest-cov>=4.0.0           # Coverage reporting
+
+# =========================
+# OPTIONAL / FUTURE
+# =========================
+# langchain>=0.1.0          # For LLM chains (future)
+# openai>=1.0.0             # OpenAI API (future)
+
+# =========================
+# NETWORKING
+# =========================
+certifi>=2023.7.22          # SSL certificate handling
+urllib3>=2.0.0              # HTTP client utilities

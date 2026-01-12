@@ -1,0 +1,6 @@
+2025-12-17 19:06:37,376 - __main__ - INFO - Starting text extraction for 3 papers
+2025-12-17 19:06:37,379 - __main__ - WARNING - Extraction with pymupdf4llm failed for data/pdfs\7f5d5e032011ec4f3f6b2a414ba5a5c0a8b696f6_Security Vulnerability Detection Using Deep Learning Natural Language Processing.pdf: Function 'to_text' is only available in PyMuPDF-Layout mode
+2025-12-17 19:06:37,494 - __main__ - WARNING - Extraction with pymupdf4llm failed for data/pdfs\5263141f4c7c3b7b6e6abdb1c88f190005f9c755_A Comprehensive Survey of Deep Learning Techniques Natural Language Processing.pdf: Function 'to_text' is only available in PyMuPDF-Layout mode
+2025-12-17 19:06:37,873 - __main__ - WARNING - Extraction with pymupdf4llm failed for data/pdfs\6b251abe70615f4c3a34a67cfa776a914367ad6e_How to keep text private_ A systematic review of deep learning methods for privacy-preserving natural language processing.pdf: Function 'to_text' is only available in PyMuPDF-Layout mode
+2025-12-17 19:06:38,373 - __main__ - INFO - Extraction complete. Success: 3 / 3
+2025-12-17 19:06:38,376 - __main__ - INFO - Updated dataset written to data/metadata/selected_papers.json

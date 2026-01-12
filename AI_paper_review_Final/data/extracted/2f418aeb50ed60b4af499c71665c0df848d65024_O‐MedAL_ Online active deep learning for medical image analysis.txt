@@ -1,0 +1,977 @@
+O R I G I N A L A R T I C L E
+O-MedAL: Online Active Deep Learning for
+Medical Image Analysis
+Asim Smailagic1
+|
+Pedro Costa3
+|
+Alex Gaudio1
+|
+Kartik Khandelwal1
+|
+Mostafa Mirshekari2
+|
+Jonathon
+Fagert2
+|
+Devesh Walawalkar1
+|
+Susu Xu2
+|
+Adrian
+Galdran3
+|
+Pei Zhang1
+|
+Aurélio Campilho3,4
+|
+Hae
+Young Noh2
+1Department of Electrical and Computer
+Engineering, Carnegie Mellon University,
+Pittsburgh PA, USA
+2Department of Civil and Environmental
+Engineering, Carnegie Mellon University,
+Pittsburgh PA, USA
+3INESC TEC, Porto, Portugal
+4Faculty of Engineering, University of Porto,
+Portugal
+Correspondence
+Asim Smailagic, Department of Electrical
+and Computer Engineering, Carnegie
+Mellon University, Pittsburgh PA, USA
+Email: asim@cs.cmu.edu
+Funding information
+This work was supported in part by the
+European Regional Development Fund
+through the Operational Programme for
+Competitiveness and Internationalisation –
+COMPETE 2020 Programme and in part by
+the National Funds through the Fundação
+para a Ciência e a Tecnologia under Project
+CMUPERI/TIC/0028/2014.
+Active Learning methods create an optimized labeled train-
+ing set from unlabeled data. We introduce a novel Online
+Active Deep Learning method for Medical Image Analysis.
+We extend our MedAL active learning framework to present
+newresultsinthispaper. Ournovelsamplingmethodqueries
+the unlabeled examples that maximize the average distance
+to all training set examples. Our online method enhances
+performance of its underlying baseline deep network. These
+novelties contribute signiﬁcant performance improvements,
+including improving the model’s underlying deep network
+accuracy by 6.30%, using only 25% of the labeled dataset to
+achieve baseline accuracy, reducing backpropagated images
+during training by as much as 67%, and demonstrating ro-
+bustness to class imbalance in binary and multi-class tasks.
+K E Y W O R D S
+Active Learning, Online Learning, Deep Learning, Medical Image
+Analysis
+1
+arXiv:1908.10508v2  [cs.LG]  27 Jul 2020
+
+2
+SMAILAGIC ET AL.
+FIGUR E 1
+Proposed Active Learning pipeline. To solve a supervised classiﬁcation task, we will use a deep network
+(DN), an initial labeled dataset Dtr ain, an unlabeled dataset Dor acl e, and an oracle who can label data. We desire to
+label as few examples as possible. Each active learning iteration, we use the DN to compute a feature embedding for all
+labeled examples in Dtr ain and the top M unlabeled examples from Dor acl e with highest predictive entropy. We select
+and label oracle examples furthest in feature space from the centroid of all labeled examples. The oracle examples are
+selected one at a time, and the centroid updated after each labeling. We train the model on the expanded training set
+and repeat the process. In the online setting, the model weights are not reset between iterations and we use only the
+newly labeled examples and a subset of previously labeled examples.
+INTRODUCTION
+Active Learning (AL) is an emerging technique for machine learning that aims to reduce the amount of labeled training
+data necessary for the learning task. AL techniques are sequential in nature, employing various sampling methods to
+select examples from an unlabeled set. The selected examples are labeled and then used to train the model. A carefully
+designed sampling method can reduce the overall number of labeled data points required to train the model and make
+the model robust to class imbalances Ertekin et al. (2007) or implicit bias Richards et al. (2011) in the dataset.
+AL assumes the training process requires labeled data, and secondly that data is costly to label. Medical image
+analysis is particularly well framed by these assumptions, as the domain offers many opportunities for machine learning
+solutions, and labeling medical images requires extensive investment of time and effort by trained medical personnel. In
+particular, AL can be especially useful in the context of deep learning for medical image analysis, where deep networks
+typically require large labeled training datasets (Litjens et al., 2017).
+We introduce MedAL in our prior work. MedAL is a novel AL approach to optimize the selection of unlabeled
+samples by combining predictive entropy based uncertainty sampling with a distance function on a learned feature
+space (Smailagic et al., 2018). MedAL’s active sampling mechanism minimizes the required labels by selecting only those
+unlabeled images that are most informative to the model as it trains.
+However, MedAL does not address improving computational efﬁciency. Each time new labeled examples are added
+to the training set, MedAL resets the model weights and re-trains the model using all available labeled data. As a result,
+
+SMAILAGIC ET AL.
+3
+the method processes training examples many more times than necessary, increasing the time between each sampling
+step. In a real world application, the trained medical personnel labeling the data would need to wait for the model to
+ﬁnish training, reducing the interactivity and applicability of the system.
+To improve the computational performance of MedAL, we introduce “Online” MedAL (O-MedAL) which trains the
+model incrementally by using only the new set of labeled data and a subset of previously labeled data. By minimizing
+the training data used in each AL iteration, O-MedAL is computationally faster and more accurate than the original
+baseline model while retaining all the beneﬁts of MedAL. MedAL is experimentally validated on three medical image
+diagnosis tasks and modalities: diabetic retinopathy detection from retinal fundus images, breast cancer grading from
+histopathological images, and melanoma diagnosis from skin images. O-MedAL is compared to MedAL on the retinal
+fundus image dataset for diabetic retinopathy detection. To the best of our knowledge, online active learning has never
+been directly applied to a medical image analysis setting, and it has never been applied to a deep learning setting. In fact,
+there is little prior work on online active learning. We discuss existing approaches and their drawbacks in the Related
+Work section.
+Our main contributions are:
+•
+Novelty: we present a novel AL sampling method that queries the unlabeled examples maximally distant to the
+centroid of all training set examples in a learned feature space.
+•
+Accurate: we introduce an online training technique that is more accurate than the original baseline model trained
+on a fully labeled dataset.
+•
+Data Efﬁcient: our method achieves better results with fewer labeled examples than competing methods.
+•
+Computationally Efﬁcient: online training signiﬁcantly reduces training time and the required number of backpropa-
+gated examples. We also reduce the sampling method runtime from quadratic to linear.
+•
+Robust: our active learning method performs well on binary and multi-class classiﬁcation problems as well as
+balanced and unbalanced datasets.
+The remainder of the paper is structured as follows: in the Related Work section, we discuss relevant prior work
+on active and online learning approaches. In the Proposed Method section, we describe the sampling process and
+online training technique. In the Experiments section, we present results comparing MedAL to common active learning
+approaches on three medical image datasets. We also present results comparing O-MedAL to MedAL. Finally, we
+discuss the implications of the results and future directions, and we provide conclusions summarizing our work.
+RELATED WORK
+Most AL systems approach the challenge of labeling data by selecting unlabeled examples likely to improve predictive
+performance. The AL scenario assumes that an oracle can assign a label to the selected examples. In practice, the
+process of labeling data can be difﬁcult, time-consuming and expensive. Therefore, it is valuable to design sampling
+methods that identify the unlabeled examples most informative to the learning task while querying as few labels as
+possible.
+AL was applied to histopathological image analysis on unbalanced data (Homeyer et al., 2012), cell nucleus segmen-
+tation (Wen et al., 2018), CT scan and MRI analysis (Pace et al., 2015), and computer-aided diagnosis of masses in digital
+mammograms (Zhao et al., 2018). An AL uncertainty sampling method was created for skin lesion segmentation (Górriz
+et al., 2017). Additionally, AL was used in a Multiple Instance Learning framework for tuberculosis detection of chest
+radiographies (Melendez et al., 2016).
+
+4
+SMAILAGIC ET AL.
+The main AL scenarios include membership query synthesis, pool-based active learning and stream-based active
+learning. In membership query synthesis, the learner generates an unlabeled input and queries its label (Angluin, 2004).
+In pool-based active learning, a pool of unlabeled instances is ranked and the top k subset is labeled (Settles, 2008).
+Stream-based active learning assumes a stream of unlabeled data and the learner decides on-the-ﬂy whether to label it
+(Dasgupta et al., 2008).
+The sample/query mechanisms mainly include Query By Committee (QBC) (Freund et al., 1997, 1993), Expected
+Error Reduction (EER) (Cohn et al., 1995; Melville and Mooney, 2004), Expected Model Change (EMC) (Cai et al., 2013;
+Freytag et al., 2014), and Uncertainty Sampling (US) (Yang et al., 2015; Lewis and Catlett, 1994; Lewis and Gale, 1994).
+Our work mainly expands on pool-based active learning and US. US is a sampling technique to select and label the
+unlabeled examples the model is most uncertain about. Uncertainty can by computed by predictive entropy, or the
+entropy of a prediction p( ˆx |x) given an unlabeled input example x. US selects unlabeled examples near the classiﬁcation
+boundary without making use of labels. Building on the US technique, we propose to sample unlabeled examples
+maximally dissimilar to the training set examples.
+The work of (Zhang et al., 2018) proposed a pool-based active learning method for highly imbalanced data. The
+method automatically pseudo-labels similar examples that have high conﬁdence, and it asks an expert to label examples
+most similar to rare classes and dissimilar to examples from the common class. This work complements ours nicely, with
+key differences. We sample only the most distant examples across all classes, and we incorporate predictive entropy
+of the classiﬁer model into the active sampling method. While (Zhang et al., 2018) trains two distinct deep networks,
+we train just one deep network, which is more efﬁcient. To start the active learning process, their method uses a large
+initial dataset in which an expert has already labeled many images. In contrast, our method performs well with an initial
+dataset of just one labeled example. We additionally introduce an online learning sampling method to gain further
+improvements in performance and efﬁciency, whereas their work focuses on only the active sampling part.
+Regarding online active learning, some prior works exist. The work of (Murugesan and Carbonell, 2017) proposes a
+multi-task learning algorithm to minimize labeling requests by attempting to infer a label with high conﬁdence from
+other tasks rather than ask the oracle for the label. The work of (Sculley, 2007) addresses a setting where the algorithm
+requests a label immediately after an example has been classiﬁed; the method reduces the computational cost simply
+because it requires less labels. The work of (Baram et al., 2003) proposes an multi-arm bandits method where learners
+are selected from the ensemble to sample the next example to be labeled. The reward function for the bandits problem is
+classiﬁcation entropy maximization. In some cases, the approach has better performance than other ensemble methods
+evaluated.
+More recently, (Zhou et al., 2017) propose an online AL method for biomedical image analysis. This work presents
+an active and incremental learning method for medical image data. While classical AL methods retrain the entire model,
+in this work a deep convolutional network is continuously ﬁne-tuned at each AL iteration. We generalize and further
+improve the online incremental training approach by sampling a random subset of the entire labeled dataset at each AL
+iteration. Our results and analysis show that using a random subset of the labeled data is more efﬁcient and achieves
+better overall performance than using the full dataset for continuous ﬁne tuning.
+PROPOSED METHOD
+AL techniques developed for classical machine learning methods are not ideal for Deep Neural Network (DNN) architec-
+tures. In particular, (Zhang et al., 2016) shows DNNs are capable of ﬁtting a random labeling of the training data with
+low uncertainty. These ﬁndings suggest that traditional AL sampling methods based on predictive uncertainty will be
+less effective with DNNs.
+
+SMAILAGIC ET AL.
+5
+We present a method speciﬁcally tailored to DNNs. We ﬁrst describe our novel AL sampling method and then we
+show how to train the system using online learning.
+|
+Sampling Based on Distance between Feature Embeddings
+As shown in Figure 1, let Dtr ain be the initial training set of labeled examples and Dor acl e be the unlabeled dataset. We
+train a model using Dtr ain and then use the model to ﬁnd a ﬁxed number of the most informative unlabeled examples,
+x∗∈Dor acl e. These examples are then labeled and added to Dtr ain and the model is trained on the new data. Oracle
+examples are iteratively labeled in this fashion until the oracle set is exhausted or sufﬁcient performance is attained.
+Uncertainty-based methods for choosing x∗∈Dor acl e evaluate about how informative a given x ∈Dor acl e is by
+computing the uncertainty in the model’s prediction. In this work, we depart from the standard practice of only using
+the model’s prediction to choose x∗. Instead, we propose to use a feature embedding function f (x) ∈Òn in conjunction
+with uncertainty.
+In particular, we ﬁrst compute the predictive entropy of each unlabeled example in Dor acl e and then we select
+only the top M highest entropy examples as a set CM . Using this subset of Dor acl e reduces the number of examples
+considered and ensures the active learning process ultimately selects unlabeled examples closest to the decision
+boundary.
+CM = {x|x ∈Dor acl e, is_topM(entropy(model(x)))}.
+(1)
+To further evaluate the amount of new information an unlabeled example, x ∈CM , can add to the training set, we
+evaluate each example’s average distance in feature space to each labeled example xi ∈Dtr ain by means of a feature
+embedding function f and a distance function d.
+s(x) = 1
+N
+N
+Õ
+i=1
+d(f (xi ), f (x)),
+(2)
+where xi ∈Dtr ain, x ∈CM , f (x) is the feature embedding function and d(a, b) is a Euclidean distance function.
+We calculate s(x) for every example in CM ⊂Dor acl e, then ask the oracle to label the example that maximizes s
+and add the example to Dtr ain. We repeat this process to select a ﬁxed number of examples from CM .
+x∗= arg max
+x∈CM
+s(x).
+(3)
+Finally, we train the model on the new data and repeat the sampling process over again.
+The original MedAL paper(Smailagic et al., 2018) evaluateda variety of distance functions and foundempirically that
+Euclidean distance and cosine distance yielded the highest and second highest entropy, respectively, when classifying a
+random subset of unlabeled examples. While this evidence suggests either metric is suitable choice for d, we choose
+Euclidean distance.
+The following proof shows that using Euclidean distance reduces the computation of s(x)[x ∈CM from a pairwise
+distance matrix between examples in Dor acl e and Dtr ain (which is O(M N ) operations) to a simple distance of each
+unlabeled point to the centroid of labeled examples (which is O(M ) operations), thereby gaining a quadratic to linear
+speedup in each AL iteration. This speedup makes O-MedAL tractable for larger datasets, particularly if there are
+already many labeled examples (such as in later AL iterations). A drawback still remains that the method depends on
+
+6
+SMAILAGIC ET AL.
+computing feature embeddings, f (x), for each unlabeled example, which can be expensive. We also do not know if the
+linear speedup is possible with cosine distance.
+Theorem 1 In any AL iteration, the unlabeled example x∗∈CM can be found with O(M ) evaluations of the Euclidean distance
+function d.
+First, note that the embeddings of examples x ∈CM and examples xi ∈Dtr ain are points in high dimensional space
+f (x) ∈Òd . If we assume the space is Euclidean, then the embeddings of examples in Dtr ain have a centroid deﬁned
+by the average of each coordinate: y = [y (1), . . . , y (d)] = [ 1
+N
+ÍN
+i=1 f (xi )(1), . . . , 1
+N
+ÍN
+i=1 f (xi )(d)], where superscript (j )
+denotes the j th coordinate.
+Second, notethatthescalarscores(x)foranygivenexamplex ∈CM canbefoundexactlybyevaluatingd(f (x), f (xi ))
+for all xi ∈Dtr ain. The score permits an ordering of examples in CM , and therefore we can ﬁnd x∗= arg maxx∈CM s(x).
+However, evaluating each score exactly is unnecessary. We can use only the knowledge of the ordering to ﬁnd the maxi-
+mum; we do not need the speciﬁc scores s(x). To this end, we introduce an operator φrank ⟨.⟩which returns the index of
+the given element in an array sorted from smallest to largest. Clearly, x∗= arg maxx∈CM s(x) = arg maxx∈CM φrank ⟨s(x)⟩
+We now prove that the ordering of examples x ∈CM is preserved when s(x) = d(f (x), y), where d is Euclidean
+distance and y is the centroid of embeddings for elements in Dtr ain.
+φrank ⟨s(x)⟩= φrank ⟨d(f (x), y)⟩
+(4)
+φrank
+*
+1
+N
+N
+Õ
+i=1
+v
+u
+u
+t d
+Õ
+j
+ f (xi )(j ) −f (x)(j )2
++
+= φrank
+*v
+u
+u
+t d
+Õ
+j
+ 
+f (x)(j ) −1
+N
+N
+Õ
+i=1
+f (xi )(j )
+!2+
+(5)
+In one dimension, an ordering is preserved through any uniform stretching or shrinking of a number line. We deﬁne
+the following properties of an ordered variable z ∈Ò and scalar constant c: φrank ⟨z ⟩= φrank ⟨z + c⟩= φrank ⟨cz ⟩.
+Furthermore, if z ≥0, then φrank ⟨z ⟩= φrank
+
+√z
+
+=⇒φrank
+
+Í √z
+
+= φrank ⟨Í z ⟩. We can use these properties to
+simplify both sides of Eq. (5) by considering z = f (x)(j ) and then removing the square root and constant terms.
+φrank
+* N
+Õ
+i=1
+d
+Õ
+j
+
+f (xi )(j ) −f (x)(j )2
++
+= φrank
+* d
+Õ
+j
+ 
+f (x)(j ) −1
+N
+N
+Õ
+i=1
+f (xi )(j )
+!2+
+(6)
+φrank
+* N
+Õ
+i=1
+d
+Õ
+j
+
+f (xi )(j )2
++
+
+f (x)(j )2
+−2f (x)f (xi )
++
+= φrank
+*
+1
+N 2
+d
+Õ
+j
+"
+Nf (x)(j ) −
+N
+Õ
+i=1
+f (xi )(j )
+#2+
+(7)
+φrank
+* N
+Õ
+i=1
+d
+Õ
+j
+
+f (x)(j )2
+−2f (x)f (xi )
++
+= φrank
+* d
+Õ
+j
+N
+"
+N
+
+f (x)(j )2
+−2f (x)(j )
+N
+Õ
+i=1
+f (xi )(j )
+#
++
+d
+Õ
+j
+ N
+Õ
+i=1
+f (xi )(j )
+!2+
+(8)
+= φrank
+* d
+Õ
+j
+N
+Õ
+i=1
+
+f (x)(j )2
+−2f (x)(j )f (xi )(j )
++
+.
+(9)
+The right and left sides are equivalent, which proves the ordering is preserved when using the distance to the
+centroid of the labeled examples. It follows that x∗= arg maxx∈CM φrank ⟨d(f (x), y)⟩is a valid score function and can be
+computed with O(M ) distance function evaluations.
+
+SMAILAGIC ET AL.
+7
+In following sections, we will describe in detail the feature embedding function f (x), and speciﬁcally how we train
+the model with new labels.
+|
+Deep Representations as Feature Embeddings
+We train a Convolutional Neural Network (CNN) based architecture to extract powerful representations from the data
+and simultaneously solve the image classiﬁcation problem. When interpreted in metric space, the feature embeddings
+learned by CNNs are known to encode semantic meaning. In particular, nearby elements tend to be visually similar
+(Mikolov et al., 2013; Costa et al., 2018), and conversely, elements that are far away tend to be visually different. We
+therefore make the assumption that images with mostly similar features will have a smaller distance in embedding space,
+while images with mostly different features will have a larger distance. The assumption that the feature embedding can
+be interpreted in metric space is the basis for Eq. (2).
+As shown in Figure 1, we deﬁne the feature embedding function, f (x) ∈Òn, as the activations of a particular CNN
+layer. Since f (x) is tied to the model, it evolves during training. As the model performance improves, the model will
+extract better representations, leading to better classiﬁcation accuracy as well as more informative examples sampled
+from Dor acl e. If f (x) was statically deﬁned, the function could be computed off-line and the model reduces to a simple
+predictive entropy based sampling method.
+|
+Online Active Learning
+The online learning technique describes how we train the model given a stream of newly labeled examples generated
+by the AL sampling method. Online MedAL (O-MedAL) introduces a few changes to MedAL. First, while MedAL re-
+initializes the model parameters each AL iteration, O-MedAL maintains the parameters at each new AL iteration and
+incrementally updates the model. This change enables signiﬁcant computational savings because while MedAL re-trains
+the model once per AL iteration, O-MedAL trains just one model across all AL iterations, and the total number of epochs
+used to train the model can be an order of magnitude smaller. Second, MedAL trains the model using the full training set
+Dtr ain, while O-MedAL trains on the newly labeled items and a random subset of previously labeled items. We have
+found empirically that including a non-null subset of previously labeled data is necessary, and we discuss further in
+the Discussion section. Using a subset of available training data also reduces the overall number of examples used to
+train the model. Both of these changes result in computational efﬁciency. The ﬁrst change reduces the total number of
+epochs required to train the model while the second change reduces the number of examples per epoch.
+The number of examples that will be used to update model weights during backpropagation increases exponentially,
+and can be expressed using the equation:
+Nt =
+tÕ
+i=1
+Ei [ℓ+ p |Dtr ain |i−1]
+where
+|Dtr ain |i−1 = |Dtr ain |0 + (i −1)ℓ,
+(10)
+where Nt is the cumulative number of example images used for backpropagation after t AL iterations, ℓis the number of
+images labeled each AL iteration, p ∈[0, 1] is the hyperparameter determining the fraction of previously labeled dataset
+to use, |Dtr ain |i−1 is the number of labeled examples in the previous AL iteration and Ei is the number of epochs at the
+i th AL iteration. |Dtr ain |0 is the initial number of labeled examples; for O-MedAL, |Dtr ain |0 = 1. The equation is useful
+to estimate the number of images processed by backpropagation. It can also be used to estimate how many times an
+
+8
+SMAILAGIC ET AL.
+O-MedAL model’s parameters have been updated after any given AL iteration; in this case, the cumulative number of
+weight updates will be Nt /b, where b is the minibatch size.
+EXPERIMENTS
+We perform experiments on three medical datasets to validate the accuracy and robustness of our proposed approach.
+First, we introduce the datasets. Next, we describe MedAL and online MedAL implementation details. Then, we evaluate
+our sampling method on the three datasets. Last, we evaluate our online training approach.
+|
+Dataset Description
+No DR
+DR
+Benign
+Malignant
+Normal
+Benign
+In situ
+Invasive
+FIGUR E 2
+Examples from all three datasets evaluated in this work. From left to right, top to bottom: Messidor,
+Skin Cancer and Breast Cancer datasets. The class labels are shown bellow each of the images.
+Active learning reduces the amount of labeled data necessary for training, and it is therefore well positioned medical
+image analysis. We evaluate MedAL on three publicly available datasets. Figure 2 presents representative images in
+these datasets.
+Messidor Dataset contains 1200 eye fundus images from 654 diabetic and 546 healthy patients collected from
+three hospitals in France, we believe between 2005 and 2006. This dataset was labeled for Diabetic Retinopathy (DR)
+grading and for Risk of Macular Edema. We use Messidor to classify eye fundus images as healthy (DR grade = 0) or
+diseased (DR grade > 0).
+Breast Cancer Diagnosis Dataset, originally presented in the ICIAR 2018 Grand Challenge (Aresta et al., 2019),
+consists of 400 high resolution images of breast tissue cells evenly split into four distinct classes: Normal, Benign, in-situ
+carcinoma and invasive carcinoma (100 images per class).
+Skin Cancer dataset contains 900 cell tissue images classiﬁed as either benign or malignant (Gutman et al., 2016).
+The dataset is unbalanced, with 80% benign examples and 20% positive examples. MedAL makes possible the following
+class balancing technique: in each AL iteration, we query additional malignant training examples by making use of
+
+SMAILAGIC ET AL.
+9
+Parameters
+Messidor
+Breast Cancer
+Skin Cancer
+(train + oracle) size
+768
+320
+700
+validation set size
+240
+0
+0
+test set size
+192
+80
+200
+|Dtr ain |0 - Initial training set size
+100
+30
+100
+ℓ- Imgs labeled each AL iter
+20
+5
+10
+M - Num max entropy samples
+50
+30
+50
+TABL E 1
+MedAL Implementation Details. Showing dataset size and values of parameters used.
+randomized preprocessing techniques.
+|
+MedAL Implementation
+The underlying convolutional neural network architecture is Inception V3 (Szegedy et al., 2016), with weights pre-
+trained on ImageNet. We replace the top layer with Global Average Pooling and then a Fully-Connected layer, where
+the number of hidden units corresponds to the number of output classes in the dataset. We use Adam (Kingma and Ba,
+2014) optimizer with learning rate of 2e −4 and we use the default recommended values for β1 (0.9) and β2 (0.999).
+At the start of each AL iteration, we reset the model’s weights the initial starting values (after pre-training on
+ImageNet). The top layer weights, since they were not pre-trained on ImageNet, are randomly initialized using the
+Glorot method (Glorot and Bengio, 2010).
+Each AL iteration, we train the model until it reaches 100% training accuracy. We perform hyperparameter selection
+using only the Messidor validation set and we apply these same hyperparameters to the Skin Cancer and Breast Cancer
+datasets in order to avoid using a labeled validation set for these datasets. The ability to avoid using a validation set
+is important to show both robustness of our method and to show that our method minimizes the number of labeled
+images used. Table 1 shows the dataset size and the speciﬁc hyperparameters that were different across the datasets.
+We follow the ORB initialization method described in (Smailagic et al., 2018) to create the initial training set Dtr ain.
+For data pre-processing, we resize all images to 512 × 512 pixels and use the following dataset augmentation: 15 degree
+random rotation, random scaling in the range [0.9, 1], and random horizontal ﬂips.
+To conﬁgure the AL sampler, we use the Euclidean distance function, and we obtain feature embeddings from the
+Mixed5 layer of Inception V3. These choices are a result of our prior empirical evidence that this combination of layer
+and distance function achieves the highest entropy (Smailagic et al., 2018).
+|
+Online Active Learning (O-MedAL) Implementation
+We start with the conﬁguration deﬁned in the MedAL Implementation Details section, and then make the following
+changes.
+First, we replace the Inception V3 network with a ResNet18 network (He et al., 2015) pre-trained on ImageNet.
+ResNet18 performs nearly as well as Inception V3 on the fully labeled dataset, and ResNet18 is a smaller model. Since
+one of the reasons to consider O-MedAL is computational efﬁciency, we decided to use ResNet18. We use the SGD
+
+10
+SMAILAGIC ET AL.
+optimizer with a Nesterov momentum of 0.9, learning rate of 0.003, weight decay of 0.01. The batch size is 48. We
+replace the last layer with a linear layer followed by Sigmoid. The feature embeddings are extracted from the output of
+the "layer 2" layer. We consider ResNet18 converged on Messidor at 80 epochs. ResNet18 with these hyperparameters
+is the network used for all O-MedAL evaluation experiments.
+Second, regarding Messidor, we use an 80/20 random split stratiﬁed across hospitals. The split is re-computed
+each time a model is trained. It assigns 949 images to the combined train and oracle sets, and the remaining 238 images
+to the test set. For these tests, we also correct the published errata associated with Messidor’s dataset (this includes
+removal of 13 duplicate images from one of the hospitals).
+We use the same pre-processing transformations used for MedAL evaluation, and we also use the same hyperpa-
+rameters for Messidor; the number of max entropy samples is M = 50 and images added per iteration is ℓ= 20. For
+results described in the O-MedAL Evaluation section, we do not use ORB initialization for MedAL or O-MedAL models,
+and more speciﬁcally, |Dtr ain |0 = 1 randomly sampled and labeled image.
+Third, we introduce a hyperparameter, p ∈[0.0, 1.0], that determines at any given AL iteration what percent of
+previously labeled examples in Dtr ain should be used to train the model. The same images are used for all epochs
+in a given AL iteration. This parameter is the independent variable of our O-MedAL experiments. It was previously
+described in Equation 10.
+Fourth, since the method is online, we do not reset the weights of the model at the start of each AL iteration.
+Fifth, for the O-MedAL evaluation, O-MedAL and MedAL models identiﬁed by a patience parameter are trained for
+at most 150 epochs per AL iteration, with an early stopping patience of 5, 10 or 20. O-MedAL models that do not specify
+patience are trained for a ﬁxed 10 epochs per AL iteration.
+Last, we rewrite the code in a new implementation, migrating from Keras to PyTorch. The new code is available
+online at https://www.github.com/adgaudio/O-MedAL.
+|
+Distance-based Sampling Method Evaluation
+We compare the performance of our AL sampling method on the three datasets mentioned above to the performance of
+uncertainty sampling and random sampling. The datasets each present different learning challenges: Messidor as a
+balanced binary classiﬁcation, the Breast Cancer dataset as a balanced multi-class classiﬁcation, and the Skin Cancer
+dataset as an unbalanced binary classiﬁcation. After each AL iteration, the test accuracy of our model is evaluated.
+Our method consistently outperforms both uncertainty and random sampling on all three datasets, as shown
+in Figure 3. Random sampling chooses images uniformly at random, and therefore on balanced datasets, we expect
+accuracy to increase in a nearly linear fashion. Any improvement over random sampling will choose more informative
+images earlier in the sampling process, resulting in a non linear curve. MedAL shows large increases in accuracy with
+fewer images. For instance, on Messidor, Figure 3a shows our method obtains 80% accuracy with 425 images, whereas
+uncertainty sampling and random sampling require 625 and 700 images, respectively, to achieve the same 80% accuracy.
+Moreover, our method obtains results comparable to the baseline accuracy using only 650 of 768 training images
+(84.6%).
+As shown in Figure 3b, our method is also consistently better than competing methods in the Breast Cancer dataset,
+although the difference is not as striking as in Messidor. Our approach reaches 82% accuracy with 230 of 320 (76.9%)
+images labeled, whereas uncertainty sampling and random sampling require 250 and 255 images, respectively, to
+achieve the same accuracy.
+Finally, our approach also reaches 69% accuracy on the Skin Cancer dataset with 460 images labeled, as shown in
+Figure 3c, whereas uncertainty sampling and random sampling require 570 and 640 labeled training images, respectively,
+
+SMAILAGIC ET AL.
+11
+(a) Messidor: Test Accuracy.
+0.72
+0.74
+0.76
+0.78
+0.80
+0.82
+0.84
+0.86
+Baseline Accuracy on entire dataset
+[320 images] (84.51%)
+Random sampling
+Entropy measure
+Our method
+Accuracy
+(b) Breast Cancer: Test Accuracy.
+(c) Skin Cancer: Test Accuracy.
+(d) Skin Cancer: Test AUC.
+FIGUR E 3
+MedAL outperforms competing methods by obtaining better performance with fewer labeled training
+images. Figures (a), (b) and (c) show that MedAL outperforms random sampling and uncertainty sampling (entropy
+measure) by consistently obtaining better test set accuracy as the size of the training set increases. Figure (d) shows
+that MedAL outperforms a Deep Bayesian AL method (Gal et al., 2017) in terms of Area Under the ROC curve.
+to achieve the same results. Furthermore, our method achieves baseline accuracy of 71% after being trained with 610 of
+700 images (87%).
+MedAL’s consistently superior performance on the Breast and Skin Cancer datasets show that the distance based
+sampling method is robust to different properties in the given unlabeled dataset. In particular, we show robustness to
+balanced and imbalanced class distributions for binary and multi-class classiﬁcation tasks.
+|
+Online Active Learning (O-MedAL) Evaluation
+We evaluate O-MedAL by comparing it to MedAL and the ResNet18 baseline across three areas: test set accuracy,
+percent dataset labeled and computational efﬁciency. In particular, we conduct a study to determine whether previously
+labeled data is useful or necessary to train the model. Results show that the online approach signiﬁcantly improves over
+the baseline in all three areas.
+We train O-MedAL nine times independently, varying p, the percent of previously labeled images to include in any
+particular AL iteration. The nine values we consider are p ∈{0.0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1.0}. These
+models all have a ﬁxed 10 epochs per AL iteration. We further evaluate the p = 0.125 and p = 0.875 models using
+patience of 5, 10 and 20, as these two values of p were best performing.
+Figure 4 shows the test accuracy (y-axis) as a function of percent dataset labeled (x-axis) for one O-MedAL (red
+line) and one MedAL model (green line). Percent dataset labeled is directly proportional to AL iteration. Within an AL
+iteration, we compute test accuracy after each epoch. Therefore, the x axis can equivalently be labeled with a sequence
+
+12
+SMAILAGIC ET AL.
+2
+10
+21
+31
+42
+52
+63
+75
+88
+100
+Percent Dataset Labeled
+0.00
+0.25
+0.50
+0.75
+1.00
+Test Accuracy
+MedAL (patience=20)
+Online MedAL (p=0.875, patience=10)
+ResNet18 (max accuracy)
+FIGUR E 4
+O-MedAL vs. MedAL Mechanics O-MedAL (red) preserves the labeling efﬁciency of MedAL (green)
+with less computation and higher accuracy, showing robustness to imbalance in the unlabeled data, Dor acl e.
+of the form (AL iteration, epoch). The dashed blue line is the baseline ResNet18 highest test accuracy (85.71%).
+The plot exposes key details of MedAL’s learning process. MedAL (green line) resets the weights of the model
+at each AL iteration and then trains for up to 150 epochs (subject to early stopping). The model starts at the same
+initialization (with 49.58% test accuracy) and spends time redundantly re-learning the same features to regain the
+accuracy of the former AL iteration.
+If MedAL converges before 100% of dataset is labeled, it effectively re-trains the baseline model multiple times.
+Assuming overﬁtting does not decrease test accuracy, we can expect the model’s max accuracy to have exceeded the
+baseline accuracy due to random chance. The results of Figure 4 conﬁrm MedAL exceeded baseline accuracy. An
+improvement in accuracy over MedAL’s highest accuracy is thus a signiﬁcant improvement over the baseline. Secondly,
+we also see that the MedAL curve reaches baseline accuracy when approximately 61% of the dataset is labeled, which
+is slightly better than our previous tests on MedAL with Inception V3. Possible reasons for this improvement are (a)
+different dataset (the Messidor train set is larger, train and test sets are stratiﬁed across hospitals and the duplicate
+images removed), (b) not using ORB initialization, (c) a larger patience value (patience=20), (d) different implementation
+(PyTorch vs Keras).
+The red lines of Figure 4 represent our second most accurate O-MedAL model, which uses p = 0.875, or 87.5%
+of previously labeled data at each AL iteration, and has early stopping (patience = 10). Each small vertical red line
+represents the epochs of one AL iteration. The lines are separated in order to visually align O-MedAL epochs to the
+MedAL epochs at each AL iteration. We can see by the spacing between red lines that the model trains for fewer epochs
+than MedAL. In contrast to the MedAL model, we also see O-MedAL’s minimum accuracy at the start of each AL iteration
+is generally increasing, which suggests that the online method is able to learn incrementally without forgetting previous
+learnings.
+The table and two subplots of Figure 5 show how O-MedAL exposes a three-way relationship between accuracy,
+percent dataset labeled and computational efﬁciency. For MedAL and O-MedAL, respectively, the green markers
+highlight the most accurate models, the purple markers show the most data efﬁcient models, and the black and dark
+purple markers show the most computationally efﬁcient models. Figure 5b addresses computational efﬁciency while
+Figure 5c addresses accuracy. Both plots share an x axis of percent dataset labeled. The dashed horizontal blue line
+represents the baseline ResNet18 model trained on the fully labeled dataset for 80 epochs. The dotted blue lines are
+MedAL. For clarity, we plot only the best performing O-MedAL models.
+Figure 5b plots the cumulative number of examples processed (on log scale) as a function of the percent dataset
+labeled. The curve for each ﬁxed epoch model can be computed before training using Equation 10. The curves for
+models using patience are not computed in advance of training, since early stopping leads to varying epochs per AL
+
+SMAILAGIC ET AL.
+13
+Experiment
+Max Test Accuracy
+Percent Labeled
+Examples Processed
+Wall Time
++
+OMedAL p=0.875, patience=5
+92.02% (+6.30%)
+90.62%
+177658 (+134.01%)
+1:29
+X
+MedAL (patience=20)
+91.18% (+5.46%)
+73.76%
+1178079 (+1451.74%)
+10:06
++
+OMedAL p=0.875, patience=20
+85.71% (+0.00%)
+25.29%
+48335 (-36.33%)
+0:56
+X
+MedAL (patience=20)
+86.97% (+1.26%)
+33.72%
+265106 (+249.19%)
+4:14
++
+OMedAL, p=0.125
+85.71% (+0.00%)
+80.08%
+24296 (-67.82%)
+0:54
+OMedAL, p=0.125, patience=5
+85.71% (+0.00%)
+48.47%
+51759 (-31.82%)
+0:39
+ResNet18 Baseline
+85.71% (+0.00%)
+100.00%
+75920 (+0.00%)
+0:22
+(a) Experimental Results
+20
+40
+60
+80
+100
+Percent Dataset Labeled
+103
+104
+105
+106
+Number of Examples Processed (log scale)
+Online Medal
+p=0.125, 10 epoch
+p=0.875, 10 epoch
+p=0.125, patience=05
+p=0.875, patience=05
+p=0.875, patience=10
+p=0.875, patience=20
+MedAL
+patience=20 (150 epoch)
+patience=10 (150 epoch)
+ResNet18 (at best accuracy)
+(b) O-MedAL Computational Efﬁciency
+20
+40
+60
+80
+100
+Percent Dataset Labeled
+0.5
+0.6
+0.7
+0.8
+0.9
+Max Test Accuracy
+Online MedAL
+p=0.125, 10 epoch
+p=0.875, 10 epoch
+p=0.125, patience=05
+p=0.875, patience=05
+p=0.875, patience=10
+p=0.875, patience=20
+MedAL
+patience=10 (150 epoch)
+patience=20 (150 epoch)
+ResNet18 (best accuracy)
+(c) O-MedAL Accuracy
+FIGUR E 5
+O-MedAL Evaluation. Showing how computational efﬁciency (b) and accuracy (c) relate to labeling
+efﬁciency. Marked points and table (a) highlight which MedAL and O-MedAL models perform best in each category.
+iteration. MedAL and O-MedAL curves show exponential growth. However, we show with the gray and purple markers
+that O-MedAL models reach baseline accuracy using less data and backpropagating fewer images than the baseline,
+suggesting O-MedAL can scale to larger datasets.
+To further examine the computationally efﬁciency of our online method, we measure total training time (wall time)
+of the shown models. The right-most column of the table (5c) shows that the online method trains on Messidor between
+4.5 to 6.8 times faster than MedAL, though no model is faster than the ResNet18 baseline. This is primarily due to
+the fact that at each AL iteration, the algorithm evaluates the feature embedding for every labeled and unlabeled
+image, and secondarily due to the fact that we evaluated validation performance once per epoch. O-MedAL models
+tested have approximately 500 to 2000 small epochs compared to ResNet18’s 80 large epochs. We evaluate validation
+performance each epoch, which is useful for the analysis in this paper, but leads to unnecessarily large wall time. Indeed,
+validation performance in practice can be computed once per AL iteration. The most interesting ﬁnding in the wall time
+analysis is that the O-MedAL model (p=0.875, patience=20) with the purple marker should be relatively computationally
+expensive model (as evidenced by Figure 5b), yet it shows small wall time, processes fewer examples and achieves
+baseline accuracy with less labeled data than most of the models we tested. This ﬁnding is counter-intuitive, yet offers
+useful practical advice when working with O-MedAL. While one might assume a smaller model should train faster and
+process fewer examples, we found that the larger, more computationally expensive models can reach baseline accuracy
+
+14
+SMAILAGIC ET AL.
+just as efﬁciently using less labeled data. This motivates generally choosing p close to 1.
+Figure 5c plots test accuracy as a function of percent dataset labeled. The p = 0.875 O-MedAL models consistently
+show the highest accuracy over the AL iterations, which also means these models have the best data labeling efﬁciency.
+As p decreases, the model exchanges a decreased accuracy for fewer training examples backpropagated. The low
+accuracy of the p = 0.125 model is evidence that we need to include some amount of previously labeled data while
+training the model. We also found that three ﬁxed epoch O-MedAL models (p ∈{0.375, 0.75, 0.875}) and all p = 0.875
+models with patience outperform the best MedAL model, which denotes a signiﬁcant improvement over the baseline.
+The fact that these models exceed the baseline accuracy is very important and suggests that OMedAL is able to ﬁnd
+subsets of the training data that are more useful to the task than the full dataset.
+Our results show that O-MedAL signiﬁcantly improves the accuracy of its underlying ResNet18 model by as much
+as 6.3%. We also show that O-MedAL can reach the same performance as its baseline model using only 25% of the
+training dataset. Third, we show that O-MedAL is even able to backpropagate 67% fewer examples than the ResNet18
+model, with modest increase in wall time.
+DISCUSSION AND FUTURE WORK
+On each of the three datasets tested, MedAL achieves a higher overall accuracy and uses less labeled training data. The
+results conﬁrm that informative examples are maximally dissimilar in feature space to previously trained examples and
+close to the decision boundary of the current model.
+Our proposed active learning framework uses the trained baseline model to sample unlabeled examples. As the
+model improves its ability to classify the data, it also naturally improves its ability to identify unlabeled examples worthy
+of labeling. Since the method samples examples with maximum uncertainty and distance to the labeled examples,
+we can infer that its performance will continue to improve relative to other sampling techniques on larger unlabeled
+datasets. We also show the method is robust to class imbalance in the unlabeled datasets by showing consistent
+improvement over competing methods on multi-class unbalanced data, multi-class balanced data, and binary balanced
+data via the Skin Cancer, Breast Cancer and Messidor datasets, respectively. Future work could attempt to quantify
+how the performance changes as a function of unlabeled dataset size and also measure how the class distribution of the
+unlabeled dataset changes.
+Our online component to the active learning framework enhances the applicability of the framework to numerous
+scenarios. The most pertinent is the medical setting where there is not enough labeled data to train a supervised deep
+model, but there exist human annotators interested in using a predictive model to enhance their diagnostic workﬂow.
+For instance, in Diabetic Retinopathy, a physician must manually review high resolution retinal fundus images of Diabetic
+patients for microaneurysms that may be only a few pixels large. O-MedAL enables the training of a deep model in
+such a setting, where it interactively asks the physician to annotate certain images most likely to improve the model’s
+ability, and simultaneously returns a set of predictions on a set of images. The online component enables near real-time
+interaction with a human annotator, where if we set the batch size to M = 1, the model is as up-to-date as possible each
+time it queries an unlabeled example and generates a set of predictions. Setting M = 1 is desirable but intractable for
+many active learning methods, including MedAL without the online portion, where the annotator would need to wait
+hours between training events before labeling the next batch of images. To the best of our knowledge, O-MedAL is the
+only existing framework enabling near real-time training of deep models on limited data in an active learning context.
+As future work, we plan to incorporate O-MedAL into more real world medical applications with clinical annotators, like
+we have done in our EyeQual project paper (Costa et al., 2019).
+O-MedAL is presented as a solution for active learning, but the framework may have useful applications as a more
+
+SMAILAGIC ET AL.
+15
+generalized mechanism for training supervised deep learning models. Further work should explore whether the 6%
+improvement in accuracy of the baseline model generalizes to other architectures and datasets. The ability to reach
+higher accuracy using less of the data suggests the framework can also be used to identify a subset of training examples
+that are not useful to a particular learning task.
+CONCLUSIONS
+In this paper we extend MedAL by introducing an online learning method. The online method retains all the beneﬁts of
+MedAL while improving both its accuracy and computational efﬁciency.
+We evaluate MedAL on three distinct medical image datasets: Messidor, the Breast Cancer dataset, and the Skin
+Cancer dataset. Our results show that MedAL is efﬁcient, requiring less labeled examples than existing methods. The
+method achieves comparable results to a model trained on the fully labeled dataset using only 650 of 768 images.
+Additionally, MedAL attains 80% accuracy using 425 images, corresponding to 32% and 40% reduction compared to
+uncertainty and random sampling methods, respectively. Finally, we show that MedAL is robust, performing well on
+both binary and multi-class classiﬁcation problems, and also on balanced and unbalanced datasets. MedAL shows
+consistently better performance than the competing methods on all three medical image datasets.
+We compare O-MedAL to both MedAL and the underlying baseline deep network. We show that O-MedAL is more
+accurate, improving test accuracy of its underlying ResNet18 deep network by 6.30%. We also show that O-MedAL
+achieves the baseline model’s accuracy when only 25.29% of the dataset is labeled. Finally, O-MedAL is computationally
+efﬁcient, reducing training wall time by 4.5 to 6 times over MedAL and processing up to 68% fewer examples than the
+baseline ResNet18 with only 80% of the dataset. We have shown that O-MedAL is a mechanism for efﬁciently training
+deep supervised models in an active learning setting, and that it signiﬁcantly improves performance of the underlying
+baseline model while using less data.
+CO N FL I C T OF IN T E R E S T
+The authors declare that they have no conﬂicts of interest for this work.
+RE F E R E N C E S
+Angluin, D. (2004) Queries revisited. Theoretical Computer Science, 313, 175–194.
+Aresta, G., Araújo, T., Kwok, S., Chennamsetty, S. S., Safwan, M., Alex, V., Marami, B., Prastawa, M., Chan, M., Donovan, M.,
+Fernandez, G., Zeineh, J., Kohl, M., Walz, C., Ludwig, F., Braunewell, S., Baust, M., Vu, Q. D., To, M. N. N., Kim, E., Kwak,
+J. T., Galal, S., Sanchez-Freire, V., Brancati, N., Frucci, M., Riccio, D., Wang, Y., Sun, L., Ma, K., Fang, J., Kone, I., Boulmane, L.,
+Campilho, A., Eloy, C., Polónia, A. and Aguiar, P. (2019) Bach: Grand challenge on breast cancer histology images. Medical
+Image Analysis, 56, 122 – 139. URL: http://www.sciencedirect.com/science/article/pii/S1361841518307941.
+Baram, Y., El-Yaniv, R. and Luz, K. (2003) Online choice of active learning algorithms. Journal of Machine Learning Research, 5,
+255–291.
+Cai, W., Zhang, Y. and Zhou, J. (2013) Maximizing expected model change for active learning in regression. In 2013 IEEE 13th
+International Conference on Data Mining, 51–60. IEEE.
+Cohn, D. A., Ghahramani, Z. and Jordan, M. I. (1995) Active learning with statistical models. In Advances in neural information
+processing systems, vol. 4, 705–712.
+
+16
+SMAILAGIC ET AL.
+Costa, P., Araújo, T., Aresta, G., Galdran, A., Mendonça, A. M., Smailagic, A. and Campilho, A. (2019) Eyewes: Weakly supervised
+pre-trained convolutional neural networks for diabetic retinopathy detection. In 2019 16th International Conference on
+Machine Vision Applications (MVA), 1–6.
+Costa, P., Galdran, A., Meyer, M. I., Niemeijer, M., Abràmoff, M., Mendonça, A. M. and Campilho, A. (2018) End-to-end adversar-
+ial retinal image synthesis. IEEE Transactions on Medical Imaging, 37, 781–791.
+Dasgupta, S., Hsu, D. J. and Monteleoni, C. (2008) A general agnostic active learning algorithm. In Advances in neural information
+processing systems, 353–360.
+Ertekin, S., Huang, J., Bottou, L. and Giles, L. (2007) Learning on the border: Active learning in imbalanced data classiﬁcation. In
+Proceedings of the Sixteenth ACM Conference on Conference on Information and Knowledge Management, CIKM ’07, 127–136.
+New York, NY, USA: ACM. URL: http://doi.acm.org/10.1145/1321440.1321461.
+Freund, Y., Seung, H. S., Shamir, E. and Tishby, N. (1993) Information, prediction, and query by committee. In Advances in neural
+information processing systems, 483–490.
+— (1997) Selective sampling using the query by committee algorithm. Machine learning, 28, 133–168.
+Freytag, A., Rodner, E. and Denzler, J. (2014) Selecting inﬂuential examples: Active learning with expected model output
+changes. In European Conference on Computer Vision, 562–577. Springer.
+Gal, Y., Islam, R. and Ghahramani, Z. (2017) Deep Bayesian active learning with image data. In Proceedings of the 34th In-
+ternational Conference on Machine Learning (eds. D. Precup and Y. W. Teh), vol. 70 of Proceedings of Machine Learning Re-
+search, 1183–1192. International Convention Centre, Sydney, Australia: PMLR. URL: http://proceedings.mlr.press/
+v70/gal17a.html.
+Glorot, X. and Bengio, Y. (2010) Understanding the difﬁculty of training deep feedforward neural networks. In Proceedings of
+the Thirteenth International Conference on Artiﬁcial Intelligence and Statistics, 249–256.
+Górriz, M., Giró-i Nieto, X., Carlier, A. and Faure, E. (2017) Cost-effective active learning for melanoma segmentation. In ML4H:
+Machine Learning for Health Workshop at NIPS 2017. Long Beach, CA, USA.
+Gutman, D., Codella, N. C., Celebi, E., Helba, B., Marchetti, M., Mishra, N. and Halpern, A. (2016) Skin lesion analysis toward
+melanoma detection: A challenge at the international symposium on biomedical imaging (isbi) 2016, hosted by the interna-
+tional skin imaging collaboration (isic). arXiv preprint arXiv:1605.01397.
+He, K., Zhang, X., Ren, S. and Sun, J. (2015) Deep residual learning for image recognition. CoRR, abs/1512.03385. URL: http:
+//arxiv.org/abs/1512.03385.
+Homeyer, A., Schenk, A., Dahmen, U., Dirsch, O., Huang, H. and Hahn, H. K. (2012) A comparison of sampling strategies for
+histological image analysis. Journal of Pathology Informatics, 2, 11.
+Kingma, D. P. and Ba, J. (2014) Adam: A Method for Stochastic Optimization. arXiv e-prints, arXiv:1412.6980.
+Lewis, D. D. and Catlett, J. (1994) Heterogeneous uncertainty sampling for supervised learning. In Machine learning proceedings
+1994, 148–156. Elsevier.
+Lewis, D. D. and Gale, W. A. (1994) A sequential algorithm for training text classiﬁers. In Proceedings of the 17th Annual Interna-
+tional ACM SIGIR Conference on Research and Development in Information Retrieval, 3–12. Springer-Verlag New York, Inc.
+Litjens, G., Kooi, T., Bejnordi, B. E., Setio, A. A. A., Ciompi, F., Ghafoorian, M., Van Der Laak, J. A., Van Ginneken, B. and Sánchez,
+C. I. (2017) A survey on deep learning in medical image analysis. Medical image analysis, 42, 60–88.
+Melendez, J., Ginneken, B. v., Maduskar, P., Philipsen, R. H. H. M., Ayles, H. and Sánchez, C. I. (2016) On Combining Multiple-
+Instance Learning and Active Learning for Computer-Aided Detection of Tuberculosis. IEEE Transactions on Medical Imaging,
+35, 1013–1024.
+
+SMAILAGIC ET AL.
+17
+Melville, P. and Mooney, R. J. (2004) Diverse ensembles for active learning. In Proceedings of the twenty-ﬁrst international confer-
+ence on Machine learning, 74. ACM.
+Mikolov, T., Chen, K., Corrado, G. S. and Dean, J. (2013) Efﬁcient estimation of word representations in vector space. arXiv
+preprint arXiv:1605.01397. URL: http://arxiv.org/abs/1301.3781.
+Murugesan, K. and Carbonell, J. (2017) Active learning from peers. In Advances in Neural Information Processing Systems, 7008–
+7017.
+Pace, D. F., Dalca, A. V., Geva, T., Powell, A. J., Moghari, M. H. and Golland, P. (2015) Interactive Whole-Heart Segmentation in
+Congenital Heart Disease. In Medical Image Computing and Computer-Assisted Intervention – MICCAI 2015, Lecture Notes in
+Computer Science, 80–88.
+Richards, J. W., Starr, D. L., Brink, H., Miller, A. A., Bloom, J. S., Butler, N. R., James, J. B., Long, J. P. and Rice, J. (2011) ACTIVE
+LEARNING TO OVERCOME SAMPLE SELECTION BIAS: APPLICATION TO PHOTOMETRIC VARIABLE STAR CLASSIFI-
+CATION. The Astrophysical Journal, 744, 192. URL: https://doi.org/10.1088%2F0004-637x%2F744%2F2%2F192.
+Sculley, D. (2007) Online active learning methods for fast label-efﬁcient spam ﬁltering. In CEAS.
+Settles, B. (2008) Curious machines: Active learning with structured instances. Ph.D. thesis, University of Wisconsin–Madison.
+Smailagic, A., Costa, P., Noh, H. Y., Walawalkar, D., Khandelwal, K., Galdran, A., Mirshekari, M., Fagert, J., Xu, S., Zhang, P. et al.
+(2018) Medal: Accurate and robust deep active learning for medical image analysis. In 2018 17th IEEE International Confer-
+ence on Machine Learning and Applications (ICMLA), 481–488. IEEE.
+Szegedy, C., Vanhoucke, V., Ioffe, S., Shlens, J. and Wojna, Z. (2016) Rethinking the inception architecture for computer vision.
+In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2818–2826.
+Wen, S., Kurc, T. M., Hou, L., Saltz, J. H., Gupta, R. R., Batiste, R., Zhao, T., Nguyen, V., Samaras, D. and Zhu, W. (2018) Comparison
+of Different Classiﬁers with Active Learning to Support Quality Control in Nucleus Segmentation in Pathology Images.
+AMIA Summits on Translational Science Proceedings, 2017, 227–236.
+Yang, Y., Ma, Z., Nie, F., Chang, X. and Hauptmann, A. G. (2015) Multi-class active learning by uncertainty sampling with diver-
+sity maximization. International Journal of Computer Vision, 113, 113–127.
+Zhang, C., Bengio, S., Hardt, M., Recht, B. and Vinyals, O. (2016) Understanding deep learning requires rethinking generaliza-
+tion. arXiv preprint arXiv:1611.03530.
+Zhang, C., Tavanapong, W., Kijkul, G., Wong, J., de Groen, P. C. and Oh, J. (2018) Similarity-based active learning for image
+classiﬁcation under class imbalance. In 2018 IEEE International Conference on Data Mining (ICDM), 1422–1427.
+Zhao, Y., Zhang, J., Xie, H., Zhang, S. and Gu, L. (2018) Minimization of annotation work: diagnosis of mammographic masses
+via active learning. Physics in Medicine and Biology, 63, 115003.
+Zhou, Z., Shin, J., Zhang, L., Gurudu, S., Gotway, M. and Liang, J. (2017) Fine-tuning convolutional neural networks for biomedi-
+cal image analysis: actively and incrementally. In Proceedings of the IEEE conference on computer vision and pattern recognition,
+7340–7351.

@@ -1,0 +1,1235 @@
+Vol:.(1234567890)
+Journal of the Knowledge Economy (2024) 15:8390–8415
+https://doi.org/10.1007/s13132-023-01433-3
+1 3
+Artificial Intelligence (AI) and Automation in Administrative 
+Procedures: Potentials, Limitations, and Framework Conditions
+Peter Parycek1 · Verena Schmid2 · Anna‑Sophie Novak2
+Received: 13 July 2022 / Accepted: 31 May 2023 / Published online: 20 June 2023 
+© The Author(s) 2023
+Abstract
+Integrating artificial intelligence (AI) systems into administrative procedures can 
+revolutionize the way processes are conducted and fundamentally change established 
+forms of action and organization in administrative law. However, implementing AI 
+in administrative procedures requires a comprehensive evaluation of the capabilities 
+and limitations of different systems, including considerations of transparency and 
+data availability. Data are a crucial factor in the operation of AI systems and the 
+validity of their predictions. It is essential to ensure that the data used to train AI 
+algorithms are extensive, representative, and free of bias. Transparency is also an 
+important aspect establishing trust and reliability in AI systems, particularly regard-
+ing the potential for transparent representation in rule-based and machine-learning 
+AI systems. This paper examines the potential and challenges that arise from inte-
+grating AI into administrative procedures. In addition, the paper offers a nuanced 
+perspective on current developments in artificial intelligence and provides a concep-
+tual framework for its potential applications in administrative procedures. Beyond 
+this, the paper highlights essential framework conditions that require continuous 
+monitoring to ensure optimal results in practice.
+Keywords  Artificial intelligence · AI · Law · Automation · Digital law · 
+Transparency · Bias · Digital Government · E-Government · Legal Tech
+ *	 Anna‑Sophie Novak 
+	
+anna-sophie.novak@donau-uni.ac.at
+	
+Peter Parycek 
+	
+peter.parycek@donau-uni.ac.at
+	
+Verena Schmid 
+	
+verena.schmid@donau-uni.ac.at
+1	
+Vice Rector ‑ Vice Rectorate for Teaching/Scientific Education and Digital Transformation 
+(CDO), University for Continuing Education Krems, Krems an Der Donau, Austria
+2	
+Research Associate, University for Continuing Education Krems, Krems an Der Donau, Austria
+
+8391
+1 3
+Journal of the Knowledge Economy (2024) 15:8390–8415	
+Introduction
+The digital age has brought numerous advances and technological improvements, 
+transforming how we live, work, and interact with each other, so the importance 
+of E-Government has also become increasingly apparent in recent years (De Vries 
+et al., 2015). E-Government provides numerous benefits for government, businesses, 
+and citizens (Edelmann & Mergel, 2022) and aims to increase the efficiency, trans-
+parency, and accessibility of government services (Gupta, 2019). E-Government 
+can improve citizens’ quality of life and create a more responsive and accountable 
+administration by automating administrative procedures, reducing bureaucracy, and 
+improving online access to information and services (Toll et al., 2019). Therefore, 
+developing and implementing E-government initiatives is a crucial aspect of mod-
+ernizing and improving administrative processes and services (Zuiderwijk et  al., 
+2021). Recent efforts in E-government include the development of the e-ID or the 
+creation of electronic delivery options. The focus has been on making services user-
+centric, including creating faster processes through the automation of administrative 
+procedures. In recent years, the topic of automation has become increasingly impor-
+tant (Desouza et al., 2020) (Aoki, 2020) and includes both full and partial automa-
+tion. Currently, automation is mainly considered in Unified Modeling Language 
+(UML), which is suitable for representing rules and relationships that non-experts 
+can understand. The execution of the rules is still up to an imperative programming 
+language and the underlying predefined routines. Advances in AI research have led 
+to increased consideration of its potential to automate administrative processes. 
+This approach is not new and has been explored in E-government for more than 3 
+decades, with projects aimed at using AI to automate laws or support the legisla-
+tive process. Two different research streams have evolved in the field, rule-based 
+AI and machine-learning AI systems, which are the two main systems of artificial 
+intelligence. Rule-based AI systems use a set of pre-determined rules to solve prob-
+lems and make decisions and are therefore considered particularly suitable for law. 
+These systems can be precise and accurate in their decisions, but they are limited by 
+the rules they have been programmed with and cannot adapt to new situations. On 
+the other hand, machine-learning AI systems are designed to learn from data and 
+make decisions based on patterns and relationships found in that data. They have the 
+potential to make more accurate predictions and decisions but require large amounts 
+of data to learn from and can sometimes make unexpected or incorrect decisions. 
+The various systems, their potential to automate administrative processes, and the 
+associated challenges are the focus of our studies.
+Automation through rule-based systems holds significant potential in the con-
+tinental European legal system, for example, in Germany or Austria, which is a 
+result of the nature of the legal system itself (Legrand, 1996) (Horton, 2011). In 
+the civil law system that prevails there, laws are codified and clearly defined, pro-
+viding a comprehensive framework for the administration of legal decisions (Fon 
+& Parisi, 2006). This structure makes it easier for rule-based AI systems to auto-
+mate processes and aid in decision-making because the rules are clearly defined 
+and predictable.
+
+8392
+	
+Journal of the Knowledge Economy (2024) 15:8390–8415
+1 3
+In contrast, the Anglo-American legal system, also known as the common law 
+system, relies on judicial decisions and the principle of “stare decisis,” i.e., the 
+notion that legal decisions should be based on past precedents. This system relies 
+on reasoning processes in which legal decisions by higher authorities are considered 
+binding on lower bodies (Scalia, 1995). For this paper, we chose to focus on the 
+civil law system with examples from Germany and Austria, where the principle of 
+legality prevails, as a blueprint for other civil law countries. The principle of legal-
+ity states that all public administration may only be executed based on the law. This 
+principle holds that all citizens are subject to the law and that all public power must 
+be exercised within the limits of the law. This means that individuals and institu-
+tions, including the government and the judiciary, are bound by the law and must 
+act in accordance with it. In countries where the principle of legality is predominant, 
+the “Law is Code” concept needs to be examined in more detail. The idea that law 
+can be encoded as computer code and integrated into automated systems aligns well 
+with the principles of legality and transparency: by codifying laws clearly and con-
+cisely, automated systems can ensure that they are applied consistently and fairly, 
+reducing the risk of human error, and improving the efficiency of the legal process. 
+This has the potential to improve access to justice and increase trust in the legal sys-
+tem, particularly when the legal process can be complex and time-consuming.
+Our paper deals with the research question: what are the benefits, major chal-
+lenges and limitations, and framework conditions for the use of automation and AI 
+in administrative procedures?
+To provide a thorough analysis in the legal context, we focused our studies on 
+Austria and Germany, two countries with well-established legal systems. As legal 
+scholars with extensive expertise in these legal frameworks, we can conduct an in-
+depth and nuanced analysis of the legal context surrounding our research questions. 
+By focusing on these specific countries, we provided a comprehensive and detailed 
+understanding of the legal and regulatory framework that informs the issues under 
+consideration. Due to the high degree of formalization and the close legal ties of 
+administrative action, administrative law is well-suited for legal automation. How-
+ever, ensuring that certain framework conditions are met is important to facilitate 
+successful implementation.
+In the following section, we examine the background and development of auto-
+mation in public administration. This analysis serves as a crucial foundation for 
+understanding the current state of the field and the opportunities for improvement. 
+Additionally, this section presents a comprehensive overview of the various stages at 
+which automation can be implemented. Subsequently, the paper proceeds to present 
+the research design. This section is followed by a discussion section that addresses 
+the research questions, which are divided into subsections: First, the potentials of 
+using rule-based and machine learning systems are presented to show the benefits 
+AI can bring to public administration. However, it is also important to consider the 
+challenges and considerations that arise when implementing AI systems. There-
+fore, the following section discusses these hurdles, limitations, and implications. 
+Finally, we have developed frameworks based on our research and a thorough review 
+of the relevant literature to provide a guide for implementing AI in administrative 
+processes.
+
+8393
+1 3
+Journal of the Knowledge Economy (2024) 15:8390–8415	
+Background
+Digitization of Law
+Digitization of law describes the use of digital technologies in a legal context and 
+does not take place in a vacuum but is rather integrated into the topic of technol-
+ogy and culture, and they mutually influence each other (Boehme-Neßler, 2008). 
+The associated technical terms can be clearly defined, while “culture” and the 
+associated social and economic impact cannot.
+In the context of culture and to what extent the culture of law or society is 
+changing, there are discussions such as Lessig’s: Thus Lawrence Lessig’s book 
+“Code and Other Laws of Cyberspace” is shaping the discourse with “Code is 
+Law,” which describes the law-like effect of hardware and software in digital 
+cyberspace (Lessig, 1999). Alongside the system of order that a constitution pro-
+vides for citizens, a technical system of order has developed among the platform 
+operators such as Google, Facebook, and others. These platforms have become 
+an integral part of the public space, significantly shaping public opinion and 
+discourse. However, their actions, like content moderation, are often character-
+ized by a lack of transparency and democratic legitimation. Digital marketplace 
+providers or cloud service providers, like Amazon Web Services (AWS), Micro-
+soft, or Google, may even withdraw access to marketplaces or cloud infrastruc-
+ture services. A prominent example became the case of the social network Parler, 
+which evolved into an online space for right-wingers and was used to promote 
+and organize the attack on the Capitol. As a reaction to the attack, Parler was 
+removed from the app stores by Google and Apple, as well as banned from the 
+AWS cloud services (Munn, 2021). Platform operators have assumed suprana-
+tional supremacy, operating basic infrastructures, communication networks, and 
+public discourse spaces moderated or made visible by programmed algorithms. 
+This phenomenon can be described as a digital curtain draped over our real lives 
+(Scholz et al., 2020). On the other hand, the concept of “Law is Code” describes 
+that programming is already done in the law (Mohun & Roberts, 2020) (Danish 
+Agency for Digitization, 2018) (Novak et al., 2021). There is a growing need to 
+develop legal frameworks that enable the implementation of automation in a man-
+ner that is ethical, sustainable, and socially responsible. To achieve a success-
+ful implementation, it is essential to study and understand the criteria required 
+for the formulation of such laws at an early stage, which involves identifying the 
+potential risks and challenges associated with automation, as well as the societal 
+and ethical implications of its use. This issue also presents an opportunity for 
+further research.
+From a technical perspective, two categories can be distinguished: legal docu-
+mentation and legal automation (Pohle, 2022). Legal documentation is the use 
+of IT for documentation and information. Typical examples are the transfer of 
+data storage to electronic registers and databases or the provision of information. 
+Legal automation is the possibility of full or partial automation of legally rel-
+evant actions such as judgments, administrative acts, or contract conclusions. The 
+
+8394
+	
+Journal of the Knowledge Economy (2024) 15:8390–8415
+1 3
+interaction of legal automation and legal documentation can be well demonstrated 
+through the example of family allowance without application in Austria: the pay-
+ment of family allowance without application, as it has been possible in Austria 
+since 2015, would not be possible if there were no corresponding registers and 
+databases from which the data could be mapped in a logical process. This exam-
+ple clearly illustrates the interaction between automation and documentation and 
+that automation is impossible without documentation.
+An example from the area of civil law is smart contracts. These are self-executing, 
+autonomous computer protocols that can facilitate, execute, and enforce agreements 
+between parties (Corrales et al., 2019). Here, the requirements and consequences of 
+entering a contract are programmed in advance in an algorithm (Forgó & Zöchling-
+Jud, 2018). Compliance with the agreements can be checked in real-time, and if there 
+is a discrepancy, a penalty can be imposed, for example. The automation of contract 
+law can be programmed in a tamper-proof manner with the help of blockchain tech-
+nology (Corrales et al., 2019)—and is, again, both documentation and automation of 
+the law. Fully automated legal processes or legal assistance systems are also known 
+as LegalRobots (Wagner, 2020). These technical developments, such as smart con-
+tracts, blockchain technologies, or LegalRobots, are in the broadest sense referred to 
+as legal tech (Corrales et al., 2019).
+Digitization of law has had a significant impact by streamlining processes, reduc-
+ing bureaucracy, and increasing transparency. Digital platforms and E-government 
+services have made it easier for citizens to access information about their rights and 
+obligations and to complete administrative procedures online, which has led to a 
+more efficient and user-friendly public administration system that reduces process-
+ing times and improves citizen experience (Gasova & Stofkova, 2017). The digiti-
+zation of law has also made it easier for public authorities to monitor compliance 
+with and enforcement of laws, contributing to more efficient and effective use of 
+public resources (Umbach & Tkalec, 2022). Overall, the digitization of law has sig-
+nificantly impacted administrative procedures, making them more accessible, trans-
+parent, and efficient for citizens.
+In the field of administration, which encompasses a broad range of tasks, automa-
+tion has the potential to streamline administrative processes, reduce manual errors, 
+and free up valuable resources for more critical tasks. As such, automation is emerg-
+ing as a game-changer in administration (Berglind et al., 2022). Assistance systems 
+to support legal users are already in use. They are expected to increase in the next 
+few years due to the available data, technical development, and innovative spirit—
+from supporting research to supporting the creation of legal texts to checking con-
+clusive argumentation (Crawford & Schultz, 2019) (Collenette et al., 2023). These 
+systems can also be used in the field of legistics to test and simulate the enforcement 
+of laws (Atkinson et al., 2020).
+The emergence of blockchain technology has opened a wide range of opportuni-
+ties and rethinking of public administration. By integrating authentic state registry 
+data into their processes, blockchain providers could incorporate the state registry 
+date of individuals and their objects into smart contracts in case of a transfer or 
+ownership. For example, the new ownership of a property or a car is intended to be 
+transferred to state registers through automated contracts without any interaction of 
+
+8395
+1 3
+Journal of the Knowledge Economy (2024) 15:8390–8415	
+public servants. These changes will lead to an entirely new form of administration 
+and thus need an in-depth discussion about the constitutional and societal conse-
+quences and the role and meaning of administration. If contracts are programmed in 
+civil law, the question arises as to what extent laws could be programmed as code. 
+Administrative law can lend itself to this because of the high level of formalization 
+and the large amount of data available in registers and applications of the adminis-
+tration or even the economy.
+Our research paper explores the potential and hurdles for the automation of 
+administrative procedures. The issue of aligning administrative law with civil 
+law is beyond the scope of this study but represents promising future research 
+opportunities.
+The Beginnings of Mechanized/Automated Systems in Public Administration
+“Automation” describes the execution of a process by means of technical perfor-
+mance without human action or intervention (Houy et al., 2019). The term that pre-
+cedes the idea of automation of the computing age is that of mechanization, presum-
+ably inspired by the various automata of the time, such as Vaucanson’s mechanical 
+duck from 1738. This duck was able to take grains from a hand, swallow them, 
+digest them, and excrete them again at the end. In his criticism of the “naïve” auto-
+mation euphoria of the legal tech hype, Jhering used the duck as a comparison to the 
+judicial application of the law, “The case is pushed in at the front and comes out at 
+the back as a verdict” (Meder, 2020, p. 24).
+The vision of mechanized law has a centuries-old tradition dating back to Roman 
+law (Kantorowicz, 1925). The “mechanized” law was supposed to allow the direct 
+application of legal regulation without interpretation. The motive for this was often 
+the conflict of power and the distrust between the legislator and the person exer-
+cising the law. This situation was especially the case in absolutist state systems 
+with a lack of separation of powers, in which the legislative, executive, and judicial 
+branches were united in “one ruler.” Thus, the ruler had to ensure that, although 
+he had to rely on human decision-makers for the actual execution of his laws, he 
+controlled the interpretation of the law. He had to ensure the judiciary was closely 
+bound to him in interpreting the law. Such considerations were already made when 
+the “Corpus iuris” was compiled under Emperor Justinian—any editing of the 
+sources beyond the mechanical was forbidden (Meder, 2020) (c) (Savigny, 1814). 
+Another example can be observed in the political discourse leading up to the draft-
+ing of the Prussian General Land Law. According to Hattenhauer, a cabinet order 
+dated July 27, 1780, aimed to achieve two central reform objectives. Firstly, all leg-
+islation for the states and subjects was to be composed in their native language, with 
+precise definitions and comprehensive collection. Secondly, in line with the argu-
+ments of the legal philosopher Beccaria, the authority of judges was to be restricted 
+or even eliminated, through the creation of a law commission charged with interpret-
+ing and advancing the law (Hattenhauer, 1995).
+Absolutist systems failed with their vision of a final mechanical administra-
+tion and jurisprudence acting according to their will. The attempt to represent the 
+
+8396
+	
+Journal of the Knowledge Economy (2024) 15:8390–8415
+1 3
+diversity of life in a definitive set of laws has also failed (Fiedler, 1985). In many 
+cases, the legal system has evolved horizontally openly, allowing for different inter-
+pretations and ensuring dynamic legal development. The discussion of the mecha-
+nization or automation of law has continued over the centuries but has remained 
+primarily a theoretical discussion.
+In the German administration, mechanical data processing began in the 1920s 
+with the first punched card machines in the postal and railroad administrations to 
+support human activities (Gräwe, 2011). According to a report to the Bundestag, 21 
+computer and EDP systems were in use in 1957 (Gräwe, 2011). By 1968, this num-
+ber had risen to 3863 systems (BT-Drucksache V/3355, 1968). These were mainly 
+used for their namesake activity of computation (to compute = to calculate some-
+thing) and took over numerical mass and routine activities (Gräwe, 2011), including 
+the calculation of payments and emoluments, the calculation of pensions, the postal 
+check service, the preparation of statistics and the performance of scientific calcula-
+tions, and, as a special feature, the maintenance of the Central Register of Foreign-
+ers (BT-Drucksache VI/648, 1970). Whereby the report to the Bundestag explicitly 
+states as a rationalization effect that “[…] it must be stated that without the introduc-
+tion of EDP, various tasks would not have been tackled at all and other tasks could 
+no longer have been carried out properly due to the increased demands in terms of 
+type and scope” (BT-Drucksache VI/648, 1970). The report also already contains 
+plans for the subsequent development steps. In particular, the establishment of a reg-
+ister in which “[…] numerous personal and subject files are kept, with the result 
+that the information required jointly by several administrative agencies can be stored 
+by one agency for all and retrieved by everyone” (BT-Drucksache V/3355, 1968, 
+p. 4). Ideas are already discernible here that were to reemerge decades later under 
+the designations “once-only” and “digital-ready legislation” (Schmidt et al., 2021) 
+(Lachana et al., 2018) (Justesen & Plesner, 2022).
+Levels of Automation in Administrative Procedures
+Based on the findings in the literature, different levels of automation of adminis-
+trative action can be categorized as follows: full automation, partial automation of 
+administrative action, and assistance systems that offer specific automated support 
+functions for administrative staff.
+In the case of full automation, all sub-steps and the coordination of the entire 
+process are transferred to a system (Etscheid, 2018) so that all procedural steps can 
+be carried out without human intervention (Guckelberger, 2019). For example, in 
+Austria, no-application procedures (“no-stop-shops”) can be used to pay out family 
+allowances without any application from citizens.1 For simply structured and stand-
+ardized procedures with an external trigger that gives rise to a claim, full automation 
+1  The payment of family allowance in Austria is an application-free procedure, as the conditions for the 
+granting of family allowance are checked automatically based on the child’s data recorded by the registry 
+office after a birth. If all the necessary data is available, all further steps up to the payment of the family 
+allowance are carried out automatically.
+
+8397
+1 3
+Journal of the Knowledge Economy (2024) 15:8390–8415	
+without a dedicated application is conceivable and, as the first procedures have 
+shown, possible (Kompetenzzentrum Öffentliche IT). In Austria, the only techni-
+cal implementations of these procedures are rule-based standardized administrative 
+procedures carried out by querying data points from registers or specialized applica-
+tions, including family allowances and income tax returns.
+In partially automated administrative processes, some procedural steps are taken 
+over independently by technical systems (Guckelberger, 2019). Individual steps that 
+cannot be automated are processed by humans. The human-generated results are 
+transferred to a technical system for further processing, and potentially automated 
+decisions can be made. AI systems are not obligated to check the results of the par-
+tial steps performed by humans; the overall responsibility remains with the human 
+(Etscheid, 2018). A similar variant of partial automation is the preparation of a deci-
+sion with automated checking of the legally relevant facts, whereby humans take the 
+final decision. Partial automation can be further classified depending on when it is 
+used. Ex ante, for example, information can be provided as a basis for decision-mak-
+ing, or decision proposals can be made; ex post, human decisions can be reviewed 
+(Braun Binder & Spielkamp, 2021). The two major related problems here are the 
+high level of trust in machine-based decisions (“automation bias”) and the associ-
+ated reduction in the decision corridor of the human. The more extensive the review 
+and preparation of the decision, the greater the associated risks. The extent to which 
+the need for human review in the event of a positive decision in a single-party pro-
+cedure could be omitted should be discussed. From the perspective of partial auto-
+mation of administrative action, the concept of “augmented intelligence” is helpful, 
+which relies on the synergy of humans and machines. Here, AI does not replace 
+humans but explores the synergistic interaction of humans and machines (Kirste, 
+2019). Research on augmented intelligence aims at concepts of joint solution find-
+ing between humans and machines (Carter & Nielsen, 2017). By combining data 
+science, machine learning, and human intelligence, the legitimacy of administrative 
+action can benefit the decision-making phase ().
+The third variant of automation is assistance systems. In this category, automa-
+tion does not refer to the entire procedure but rather to specific elements in the pro-
+cedure that are executed through automated data processing and provide results to 
+administrative staff for further processing. AI-based systems that have been devel-
+oped and trained for predefined tasks are particularly suitable for evaluating data 
+sets. Assistance systems differ in that they merely facilitate processes of information 
+procurement and evaluation through automation but do not automate administrative 
+action to a predominant degree—the boundaries between assistance systems and 
+partially automated administrative action are fluid.
+Research Design
+Our studies are based on a scoping review (Munn et al., 2022) and the use of juris-
+prudential methods. We decided to use a scoping review approach to identify knowl-
+edge gaps, clarify key concepts, and determine the body of literature on the topic of 
+automation in public administration (Munn et al., 2018). The first step was to define 
+
+8398
+	
+Journal of the Knowledge Economy (2024) 15:8390–8415
+1 3
+the research questions, which served as a guideline for our studies  (Peters et al., 
+2015): What are the potentials, limitations, and framework conditions for the use of 
+AI and automation in administrative procedures? Subsequently, we searched for rel-
+evant literature and studies published in international journals and the Austrian and 
+German legal literature. The literature was reviewed and evaluated based on prede-
+termined inclusion and exclusion criteria (Sucharew & Macaluso, 2019). Inclusion 
+criteria for the literature review included studies relevant to the research question, 
+providing clear and transparent methods and results or investigating the relationship 
+between law and society, or the impact of automated decisions on social outcomes. 
+Keywords and topics by which we defined relevant results included “automation in 
+public administration,” “artificial intelligence,” “administrative procedures,” “trans-
+parency in public administration,” “transparency and artificial intelligence,” “history 
+of automation,” and “use cases AI in public administration.” Exclusion criteria were 
+a lack of relevance for our research question or inaccessibility due to restrictions. 
+The total number of sources considered in more detail was about 130, which we 
+then reduced to the most essential for our studies. Finally, the main findings were 
+synthesized, and conclusions were drawn to respond to the research questions. Our 
+approach allowed us to identify knowledge gaps and provide a solid theoretical and 
+empirical basis for new research on this topic. In addition to the scoping review, 
+we have also applied jurisprudential methods as legal scholars. These methods are 
+the techniques and approaches used to study the law and legal systems and include, 
+among others, comparative law, legal history, legal philosophy, and legal reasoning. 
+Using jurisprudential methods ensures that the findings are grounded in a strong 
+theoretical and conceptual framework. Combining a comprehensive literature review 
+and using jurisprudential methods provides a solid foundation for our studies.
+Discussion
+This section addresses the research questions: What are the advantages of automa-
+tion in administrative procedures? What are the main challenges and limitations that 
+need to be overcome? And what are the factors that need to be considered when 
+introducing AI into administrative procedures? By examining these questions, this 
+paper aims to provide insights into the potential of automation in administrative pro-
+cedures, as well as the challenges and opportunities that must be navigated to ensure 
+its successful implementation. This section is structured into three corresponding 
+subsections to provide a comprehensive overview of the addressed questions.
+Potentials of Automation in Administrative Procedures
+IT systems in widespread use in business and public administration follow impera-
+tive programming, in which humans give the instructions, rules, and the opera-
+tional sequence to the computer system. As aids for programming, independently 
+of the selected programming language, UML (Unified Modeling Language) became 
+established for the graphic representation and modeling of expirations, terms, and 
+
+8399
+1 3
+Journal of the Knowledge Economy (2024) 15:8390–8415	
+relations, which is suitable for the representation of rules and relations, which can 
+also be understood by laypersons. The execution of the rules is further incumbent on 
+an imperative programming language and the underlying predefined routines. Dif-
+ferent from this are the rule-based and machine-learning systems described below.
+Potentials of Rule‑based Systems in Administrative Procedures
+Rule-based systems have been developed for more than 4 decades, including expert 
+systems for decision support. Rule-based systems typically consist of a database 
+that, depending on the domain, is equipped with formalized structured expert 
+knowledge and can also be further developed. Based on the knowledge base, the 
+rules are mapped to establish relationships between the data objects and are usu-
+ally formed as conditional sentences: “If A, then B” (Timmermann, 2020). In the 
+context of administrative procedures, the Austrian family allowance shocontrast to 
+rule-based systems, whose programming reflects the lawuld be mentioned here: If 
+persons are residents or usually reside in Austria and have a minor child, then they 
+are entitled to family allowance. If–then decision rules contain factual prerequisites 
+that must be examined in the administrative procedure. These include, for exam-
+ple, conditions, sub-conditions, or exceptions. Decision rules are usually codified 
+in natural language (legal) texts, which lawyers use and often perceive as confusing 
+by laypersons. Clear and precise specifications are necessary for programming to 
+be able to represent legal rules (Etscheid, 2018). Therefore, from the perspective of 
+technology, a clear decision-making structure of the laws and the associated proce-
+dural sequences are the basis for automating administrative procedures.
+Rule-based systems have the programmed logic specified in advance and are built 
+on clear, fixed, and finite criteria that justify the rule selection made—this makes 
+the systems transparent. (Zalnieriute et al., 2019). These clearly defined calculation, 
+action, and/or processing rules for solving a problem are called algorithms. To model 
+the knowledge base, the rules must be represented in as simple a syntactic form as 
+possible. This increases comprehensibility (Beierle & Kern-Isberner, 2019) and makes 
+visualizations in tree structures possible. Legal statutes are structured into individual 
+pieces of information stored in nodes of a navigable knowledge tree and linked to each 
+other according to a rule-based logic. This makes requirements with possible alterna-
+tives, exceptions, and their relationship to each other visible. Similarly, obstacles and 
+ambiguities can be more easily identified in advance. In addition, flowcharts and tree 
+diagrams serve as visual communication between lawyers and software developers and 
+support the communication of legal rules and processes. The representation and qual-
+ity of generally valid rules are suitable for simple closed systems but find their limits 
+in complex and open systems. The logical structure and the connections between rules 
+enable rule-based systems to describe the path to the result, so there is a high degree of 
+transparency in the system, and the verifiability by the user is ensured.
+In addition to the formalization of legal principles and terms, the compilation and 
+formalization of the facts are a necessary basis for subsumption and determining 
+legal consequences. The use of templates for formalizing facts has a long tradition 
+in administrative procedures and is the basis for the automated subsumption of facts 
+
+8400
+	
+Journal of the Knowledge Economy (2024) 15:8390–8415
+1 3
+under elements of the law. Provided that no further fact-finding is required, the nec-
+essary formalizations can be solved without (great) technical effort.
+The basics for automated administrative procedures are the formalization of 
+the law by explicitly representing the administrative procedure’s structure and the 
+respective material law in combination with formalized legal terms with the help of 
+ontologies and a formalized set of facts via the structured capture of forms. Under 
+these conditions, automating administrative procedures with algorithms is possible 
+in principle. If one condition is not met, the feasibility is limited to partial automa-
+tion or assistance systems for the legal user. Therefore, the scope of application is 
+limited to non-complex issues that can be recorded with structured forms.
+Potentials of Machine‑learning Systems in Administrative Procedures
+In contrast to rule-based systems, whose programming reflects the law text as accu-
+rately as possible, machine-learning systems do not apply legal norms to arrive at 
+their decisions. These systems learn inductively and require a large amount of data, 
+e.g., of relevant cases or decisions. This data provides the basis for using machine 
+learning algorithms to identify patterns and relationships statistically significant to 
+the decision (Rühl, 2020). The first machine-learning systems can already be found 
+in legal practice.
+Two developments are particularly noteworthy from a legal application perspec-
+tive. One is the progress in the developments of AI-assisted text generation, such 
+as GPT3, published by OpenAI. Based on the analysis of selected texts, the GPT3 
+algorithm can be trained in such a way that, once the training phase is complete, 
+it can mimic the common writing style of a domain. First projects have also led to 
+results for the legal field, which are suitable as a support service, for example, for 
+drafting legal texts. The algorithm creates legal texts without knowing the actual 
+legal context—these AI systems could be described as non-knowing artificial law-
+yers. These capabilities are suitable for creating first drafts of decisions or finding 
+content in legal databases.
+The second development is machine-learning systems that use semantic algo-
+rithms to search independently for rules in legal texts and can also present and apply 
+them in a way that is comprehensible to humans. Another area of machine-learning 
+use in an administrative procedure context is the data-supported prediction of a deci-
+sion in a concrete lawsuit. Two different types of systems are used here: metadata 
+and fact-of-the-case analyses (Rühl, 2020). The LexMachina system, for example, is 
+based on (training) data from over 100,000 cases, with information about the parties 
+involved, their representatives, and the judges. Based on the metadata or descriptive 
+data of the persons involved, the system calculates the probability of a successful 
+outcome of the case without analyzing the data regarding similar cases. In contrast, 
+the facts-of-the-case analyses work by comparing the case’s facts with other relevant 
+cases and the decisions made in these instances. These systems, which are already in 
+use, do not make an independent decision and do not provide a reason for their deci-
+sion but rather predict a possible outcome of proceedings.
+If the corresponding prerequisites are met (sufficiently high quality and quantity 
+of the training data and protection against bias in data and systems or the systems or 
+
+8401
+1 3
+Journal of the Knowledge Economy (2024) 15:8390–8415	
+the guarantee of explainability of the results and transparency of the AI systems), 
+it is conceivable for administrative procedures that the parties are presented with 
+a decision drafted by machine-learning. They can decide whether they still want to 
+conduct the proceedings in front of a human being or accept the “AI decision.”
+Challenges and Limitations for Automation in Administrative Procedures
+Integrating automation and technology in administrative procedures has the poten-
+tial to revolutionize how public services are delivered. However, this approach is not 
+without its challenges and limitations. In this chapter, we examine some of the key 
+issues that arise when integrating automation into administration. Specifically, we 
+consider the challenges that arise from the formalization of the law, the discretion 
+afforded to administrative authorities, the availability and quality of data, and poten-
+tial bias in automated decision-making.
+Formalization of Law
+Fully automated processes take over administrative action, while in partial automa-
+tion, only parts run automatically. The starting point of digitization and automation 
+is standards, laws, and the associated hurdles of formalizing the law. Viktor von 
+Knapp attempted to transfer parts of divorce and alimony law to a computer and laid 
+out early on the central role that the problem of formalizing legal processes plays in 
+automation (Gräwe, 2011) (Knapp, 1963).
+The formalization of law is sometimes described as both impossible and undesir-
+able. Legal language could by no means be considered unambiguous and precise. 
+This also results from the aim of the law to reflect the complexities of real-life situ-
+ations within a regulatory framework. To accomplish this, a certain degree of ambi-
+guity is intentionally incorporated to enable decision-making through subsumption 
+and assessment by individuals. The formalization of legal terms is limited in theory 
+and practice, e.g., by missing specifications of local or temporal dimensions (e.g., 
+“temporary”), by the use of different threshold values (e.g., for company sizes) or 
+because of the use of terms which are used differently depending on the law or the 
+legal field (e.g., “child,” “household,” “income,” or “habitual residence”) (Kar et al., 
+2019) (Berger & Kolain, 2021). Concepts in the legal norm, such as “residence” 
+or “minor,” must therefore be linked to clear definitions and criteria. Synonymous 
+terms must be related via ontologies, and supposedly synonymous terms must be 
+unambiguously resolved. Unambiguous, formalized legal terms are a prerequisite for 
+a (partially) automated enforcement of laws in the form of “if–then” rules (Raabe 
+et al., 2012). Despite all these difficulties, the need for clear definitional criteria does 
+not necessarily mean that legal terms must be completely standardized, i.e., fully 
+harmonized. In a report on the concept of “income,” the German National Stand-
+ards Control Council examined the possibility of a more differentiated approach: the 
+“modularization” of the concept of income (Normenkontrollrat, 2021).
+
+8402
+	
+Journal of the Knowledge Economy (2024) 15:8390–8415
+1 3
+Administrative Authority’s Discretion
+Through the increased automated processing of structured parts, administrative pro-
+cedures that require human intervention, judgment, and the exercise of discretion 
+become more visible (Ringeisen et al., 2018). The term “discretion” is used in this 
+context to describe administrative latitude. These grant the responsible decision-
+makers freedom of choice, within a certain legal framework, as to which decision 
+they will make (). Such weighing processes for decisions are considered hurdles for 
+automated decisions, and this is because administrative staff must intervene at this 
+point and process the case. In these cases, however, partial automation should be 
+considered, which can already lead to a considerable reduction in the workload (Kar 
+et al., 2019).
+The (non-)suitability of administrative processes for automation cannot be deter-
+mined solely based on the discretion granted: Not all procedures that do not require 
+discretion are suitable for automated processing. Reasons can be a lack of data avail-
+ability, insufficient data quality, or complex fact-finding (Braun Binder, 2020). On 
+the contrary, norms that grant discretionary powers do not necessarily mean that 
+automation is ruled out (Etscheid, 2018). With rule-based systems, discretionary 
+decisions can be “measured” in an automated manner if, for example, sufficient 
+empirical knowledge or supreme court decisions are available from which rules on 
+the mapping of the consideration criteria can be derived. This enables the formula-
+tion of decision rules with test criteria and a weighting of these. Using the rule-
+based systems, an automated discretionary decision can be made, which can also 
+be justified by the system. It would also be conceivable to have a group of experts 
+define the scope of the discretion (Commission, 2019).
+Mechanically automated subsumption of cases in the sense of a “subsumption 
+machine” is, therefore, only possible in exceptional cases. The term “subsumption 
+machine,” frequently used in this context, is to be understood as a theoretical con-
+struction still far from being implemented (Meder, 2020). This position is confirmed 
+by legal informatics projects of the last 4 to 6 decades, which have not led to full 
+automation of the actual subsumption process but have found their limits in assis-
+tance systems (Raabe et al., 2012).
+Availability and Quality of Data
+To derive generally valid rules statistically, significant sets of similar events are 
+necessary. Machine-learning systems can be used in administrative procedures only 
+if the number of cases is sufficiently high. According to a study, approximately 
+500,000 court rulings are issued annually in Germany (Kaulartz & Braegelmann, 
+2020). However, based on case analysis, this number may be too low for AI train-
+ing. The figure of 500,000 should not be seen as an absolute number; sufficient data 
+depends on the specific task and the learning model approach chosen. In addition 
+to the necessary amount of data, methods must be developed suitable for extracting 
+rules from the existing data sets. If the data quality is sufficient, insights can also be 
+gained through small-data analyses. For successful data analyses, the relationship 
+of the data to the research question is crucial. For this, data must be available in 
+
+8403
+1 3
+Journal of the Knowledge Economy (2024) 15:8390–8415	
+acceptable quantity and quality (Datenethikkommission, 2019). However, data, even 
+if available in high quality, may not be suitable for the desired purpose and context 
+due to the specific characteristics of the data set.
+Data quality can play a role in very different ways; the decisive factor in determin-
+ing the necessary quantity of data are the relationships between requirement, learning 
+model, and data quality. In cases where it is impossible to obtain sufficient data in the 
+necessary quantity or quality, synthetic data can be a possible solution (Raji, 2021). 
+In the case of the fundamental suitability of synthetic data for the respective applica-
+tion area, they can be generated in the necessary quantity, and the data quality can be 
+measured during the creation process. Likewise, the bias of the data can be counter-
+acted during the generation of the data. In practice, a combination of real and syn-
+thetic data can be used, the so-called “augmentation.” For this purpose, real data are 
+supplemented with synthetic data in such quantity that they cover a more extensive 
+set of constellations than the real data alone would not (Wong et al., 2016).
+Another key challenge to developing data-driven systems is the availability of 
+productive inputs. Questions arise about the availability of the relevant data, such 
+as whether the algorithm has access to all factors that state the facts. Access to all 
+factors that decision-makers have to take into account must be ensured in any case 
+(Oswald, 2018). This access requires linking to digital evidence and registers, stand-
+ardized interfaces to the data sources, and ensuring the quality of the available data. 
+This circumstance opens a wide range of new data protection issues that will not be 
+discussed further here. The decisive factor will be which data must be made avail-
+able to the machine-learning systems at which stage of development. If the machine-
+learning system can be trained on a simulated register landscape with fictitious data 
+and is only given access to the registers after the learning phase has been completed, 
+this will certainly have to be evaluated differently than if the system has to be trained 
+with access to real register data. Apart from data protection, it is also still unclear to 
+what extent the quality of the learning results differs between real and synthetic reg-
+ister data and how the results of such machine-learning systems would be evaluated.
+Consideration of Bias
+Learning data provided to machine-learning systems form the basis of their subse-
+quent decisions. In simple terms, they copy the logic patterns already present in the 
+data. Accordingly, systematic biases in the data can lead to discriminatory derived 
+rules. Insufficient representativeness or a low number of cases of a social group in 
+the training data may lead to distortions and, thus, not taking into account the spe-
+cifics of this group (Datenethikkommission, 2019). Although it should be noted that 
+discriminatory or unfair decisions can also be made by humans, using a system with 
+discriminatory effects can have a broader impact. Therefore, in the development of 
+machine-learning systems, the detection of systematic biases is crucial, especially, 
+but not only, when used in decision-making processes involving individuals or legal 
+entities. Since data-based systems only consider statistically significant factors, 
+important reasons that speak for or against a decision can be left out. This is referred 
+to as an omitted variable bias (Mehrabi et al., 2021). Training data are considered 
+representative if they represent an exact and merely structurally reduced image of 
+
+8404
+	
+Journal of the Knowledge Economy (2024) 15:8390–8415
+1 3
+the population—if this is not the case, we speak of a bias due to the selection of the 
+training data (sampling bias) (Mehrabi et al., 2021). It is also conceivable that fac-
+tors such as class, rank, or confessions enter into the decision, either as direct fac-
+tors or through correlations to factors that should not be relevant and contradict the 
+principle of equality before the law (discriminatory bias) (Zalnieriute et al., 2019). 
+For the use of machine learning systems, it must be ensured that no discriminatory 
+characteristics are taken into account and that the result is not distorted by correla-
+tions in the data that are not causally related to the output (von Blumröder & Breiter, 
+2020a, b).
+The discussion about possible biases in the training data of machine-learning AI 
+systems and the potentially reinforcing discriminatory effect can also be used as 
+an opportunity to bring the problems now made visible into the political discourse 
+(Datenethikkommission, 2019). A possible distortion of reality by the AI systems 
+can thus, upon closer examination, also prove to be an established prejudice. Trans-
+parency and insight can be used to design countermeasures to reduce prejudice and 
+bias; from general awareness through open, transparent discourse to digital tools that 
+can be used in the respective proceedings to draw attention to it or even to compen-
+sate for the biases and prevent a possible error of judgment.
+Transparency and Explainability
+The transparency of AI systems is an essential prerequisite for their use. Important 
+elements for explainability are information on how the algorithm was programmed, 
+what influences it was exposed to in a possible learning phase, and how this inter-
+action led to the concrete decision. The relevant literature distinguishes different 
+degrees of explainability of data-based systems. Building on Lipton’s framework 
+(Lipton, 2016), Waltl/Vogl have developed a model of explainability, differentiating 
+between two types of transparency (Waltl & Vogl, 2018): those about system func-
+tionalities—the general logic, purposes or meanings, and intended consequences—
+and those about outcomes.
+As shown in Fig. 1 based on Waltl/Vogl, a distinction can be made between the 
+system’s transparency and the result’s transparency (Waltl & Vogl, 2018). The sys-
+tem’s transparency includes information about the IT system, the algorithms used, 
+and the data used—both the training data in the case of machine-learning systems 
+and the processed data for the respective decision. In general, but especially in 
+Fig. 1   Based on Waltl & Vogl, 2018
+
+8405
+1 3
+Journal of the Knowledge Economy (2024) 15:8390–8415	
+applying automation in administrative procedures, the transparency and traceability 
+of the result calculated by the machine are relevant.
+Transparency of the System  The system’s transparency deals with the algorithms, 
+rules, and calculations underlying a decision. In terms of the transparency of 
+a system, a decision is transparent if it is technically comprehensible and can be 
+explained (Zalnieriute, Moses, Lyria Bennett, & Williams, 2019). The transparency 
+of the system functionality is given if the entire algorithm and its program compo-
+nents, databases, training models, and input data are published—this comprehen-
+sive publication may be opposed by the protection of business secrets (e.g., of the 
+manufacturer or the supplier of the training data) or the protection of the AI system 
+against manipulation by users (The Royal Society, 2019). In the case of machine-
+learning systems, the origin and structure of training data, the input design, the input 
+data, and the output design should be documented to create comprehensive transpar-
+ency (Engelmann & Puntschuh, 2020).
+The transparency of the technical functioning of an AI system is intended for 
+experts (The Royal Society, 2019). This form of transparency can be relevant for 
+potential supervisory authorities or for experts from society who can review AI 
+systems. Regular assessment of the algorithm and its components can be used, for 
+example, to improve predictive accuracy or to check the equal treatment of groups 
+(Zalnieriute et al., 2019); or, in the case of rule-based systems, to safeguard the func-
+tioning of the elements and to check that the derived information and rules underly-
+ing the result are up to date.
+For broader access from society, additional models and representations can be 
+applied that can also be understood by people with little or no AI competence. 
+One way of implementing this is to develop a modular system that can be “decom-
+posed” so that the decision can be analyzed based on individual stages and a 
+weighting of these stages, which can contribute to low threshold explainability 
+(The Royal Society, 2019).
+To reduce the risk of manipulation in the case of extensive system transparency, 
+the “proxy” model approach was developed. Proxy models describe the correspond-
+ing real AI system by a similar model without revealing the details of the developed 
+algorithm to be disclosed. These interpretable models provide information about the 
+basic mode of operation without allowing precise predictions about concrete deci-
+sion ways (The Royal Society, 2019) and thus protect against manipulating the sys-
+tem’s input by the users.
+Another aspect that can contribute to transparency and subsequently to the 
+acceptance of automated decisions is labeling automated decisions, especially in 
+privacy-sensitive areas (Art. 13, 22 General Data Protection Regulation). Labe-
+ling can be done utilizing symbols that are visually easy to grasp (Guckelberger, 
+2019). The proposed AI regulation by the European Commission2 plans to regulate 
+2  COM(2021) 206 final.
+
+8406
+	
+Journal of the Knowledge Economy (2024) 15:8390–8415
+1 3
+transparency obligations in more detail in the form of information obligations for 
+AI systems and, to this end, has defined categories in the proposal for when AI 
+systems must be labeled; for example, in the case, that humans interact with a sys-
+tem or systems record emotions.
+Transparency of the Result  The focus of the transparency of results is the explain-
+ability of an AI system’s outcome or decision. In the case of rule-based systems, the 
+transparency of the result is ensured by the possibility of visualizing the decision-
+making process and the possibility of natural language reasoning. This is different 
+when using machine-learning systems, which can visualize their rules and deriva-
+tions or justify their decision only in the case of semantic algorithms but without 
+transparently presenting a derivation. For this reason, machine-learning systems are 
+also called black-box systems, which can lead to correct results, but it is not compre-
+hensible for humans how their result is calculated. In the legal domain, the question 
+remains to what extent the comprehensibility of the motives of a decision is manda-
+tory if the result can be checked for correctness with the existing legal framework.
+Compared to machine-learning systems, rule-based AI systems still have the 
+advantage of comprehensibility of results, both in technical system transpar-
+ency and transparency of the result. The technical layperson can check the tex-
+tual description of the result, as well as the decision path. High transparency, 
+therefore, continues to be of great importance in the “age of machine learning” 
+in applying the law. Rule-based systems are therefore suitable for the automation 
+of administrative action, e.g., for creating individual concrete legal acts, but only 
+in exceptional cases for the full automation of an entire law. Machine-learning AI 
+systems have the advantage of not relying on the formalization of law but require 
+qualitative, context-specific data in sufficient quantity.
+Furthermore, the results and their rationale are incomprehensible to the techni-
+cal layman, and ML systems are therefore referred to as black-box systems. Fur-
+ther development cycles may lead to new decisions and decision patterns that are 
+also untraceable.
+Advances in the creation of natural language texts by machine-learning algo-
+rithms show the potential to independently compose legal texts in the future with-
+out knowing the actual legal context of the norms or the decisions. The potential 
+lies in the interaction between humans and machines as assistance systems for 
+legal users, which process the results generated by the AI system, for example, in 
+a subsumption process.
+Another variant of the transparency of results is the presentation of coun-
+terfactual statements. Counterfactual statements show which data points would 
+have to change for a desired result to occur. Multiple counterfactual scenarios 
+can also be output since there are multiple desirable outcomes and multiple ways 
+to achieve each of these outcomes (Wachter et al., 2017). While it is legally rel-
+evant to inform the parties of the considerations that led to the award, it is further 
+essential to learn, through the rationale for the decision, what factors would have 
+to change in order to lead to a different decision.
+
+8407
+1 3
+Journal of the Knowledge Economy (2024) 15:8390–8415	
+To what extent machine-learning systems will independently generate a decision 
+is questionable. Humans will only check for deviations or provide further safeguards 
+to protect against disadvantageous decisions, e.g., with the restriction that only posi-
+tive decisions will be issued automatically.
+Conclusions on the Transparency of AI Systems  Rule-based systems are highly effec-
+tive in formulating digital-friendly laws because they can process large amounts of 
+structured data and provide clear, concise results. On the other hand, machine-learn-
+ing systems can be valuable as a support tool for legal professionals, but it is impor-
+tant to acknowledge that these systems require a high degree of expert knowledge 
+and that biases must be considered. With the increasing use of technology in the 
+legal industry, both rule-based and machine-learning systems have the potential to 
+improve the speed and accuracy of legal decision-making processes significantly.
+Framework Conditions for the Use of AI in Administrative Procedures
+The proposal for an EU regulation on AI has already set the course for a framework 
+for using artificial intelligence. According to this, a risk-based approach is chosen 
+for AI systems, which provides a code of conduct for systems without the high risk 
+and sets concrete requirements for data, documentation, traceability, information 
+provision, transparency, human supervision, as well as robustness and accuracy for 
+systems with high risk. The European Commission’s White Paper on AI also focuses 
+on the public sector. Accordingly, administrations in rural areas and public service 
+operators should be prioritized in the dialog.
+In the previous chapters, the challenges and use cases specific to rule-based and 
+machine-learning systems were presented. In this chapter, based on a literature 
+review, we set up frameworks to be considered when using AI systems to automate 
+administrative procedures. For the framework conditions, we distinguish different 
+levels, which we analyze, as shown in Fig. 2.
+Individual Level
+Assuming the case of (partially) automated administrative action, the interaction of 
+humans and the influence of an AI-based assistance system on the decision corridor 
+is crucial. In the current discourse on the use of AI-based systems, the safeguards 
+of humans are cited as co-decision makers (“humans in the loop”): humans control 
+and take the final decision. The “automation bias,” which has been known for more 
+than 2 decades (Skitka et al., 1999), shows in different experimental constellations 
+Fig. 2   Examples of framework conditions
+
+8408
+	
+Journal of the Knowledge Economy (2024) 15:8390–8415
+1 3
+that humans rely on the recommendations of assistance systems, and experimental 
+groups make better decisions without machine support. Another problem is the ten-
+dency of people to selectively accept algorithmic advice if it corresponds to their 
+pre-existing beliefs and stereotypes (Alon-Barkat & Busuioc, 2021). The “human 
+in the loop” concept is, therefore, a sensitive safeguard that has now become estab-
+lished as a standard but can ultimately also lead to undesirable results (Enarsson 
+et al., 2021).
+The partial automation of administrative action and the use of assistance systems 
+to support administrative action should therefore be safeguarded at the individual 
+level with measures to prevent disproportionate reliance on machine information 
+or to counteract selective perception and use of information that reinforces existing 
+beliefs (stereotypes). Especially in the case of systems that are developed to support 
+legal users in their work—whether by adopting certain parts of the procedures or by 
+providing decision support—these should be integrated into the design process at 
+an early stage (user-centered design). In addition to joint design, the interaction of 
+legal users with the system can be observed during the creation and test phases to 
+calibrate it accordingly but also in order to be able to observe the effects on admin-
+istrative action in the decision-making process. Beyond the test phases, continuous 
+monitoring is recommended, in which the interaction with the system is observed. 
+Here, particular attention should be paid to changes in the level of knowledge and 
+judgment and to the way in which legal users deal with the information provided by 
+the system.
+Technical Level
+IT security is a fundamental requirement in developing technical systems in the pub-
+lic sector, so this aspect is not examined in detail. Specific aspects of automation 
+systems are increased quality assurance of technical systems, transparency of sys-
+tems, and the possibility of verifying results. The risk-based approach of the German 
+Data Ethics Commission classifies automation systems in administrative action as at 
+least under level 3 (Datenethikkommission, 2019). This is associated with require-
+ments such as transparency obligations, risk impact assessment, or ex-post control 
+procedures. Regarding transparency obligations, in particular, the transparency of 
+information on the system used, which can only be checked by specialists, ideally, 
+committees should be set up which have sufficient technical and financial resources 
+to be able to check and evaluate systems on an ongoing basis and accordingly also 
+have access to training data or different levels of technology. Training data analysis 
+and monitoring for possible biases, e.g., biases reflected in historical data, should be 
+ensured. Due to the use of possible personal data in the learning phase, evaluations 
+by committees must be carried out with sensitivity and safeguarded by legal require-
+ments that regulate the types, scope, and access of the data that can be used.
+Quality assurance and documentation should be ensured for both the initial 
+development and the further development of the systems. Limits to transparency 
+and a comprehensible representation of IT systems are an increasing problem due 
+to the composition of different components and modes of operation, which exists 
+independently of the lack of comprehensibility of machine-learning AI systems. 
+
+8409
+1 3
+Journal of the Knowledge Economy (2024) 15:8390–8415	
+Publishing the specific mode of operation and decision-making of the algorithm 
+represents a comprehensible limit to transparency because an excess of transpar-
+ency can create a risk of manipulation. One way of achieving system transpar-
+ency despite all this is to use proxy model approaches, which present the basic 
+functions but do not allow any further derivations for the purpose of manipulation 
+by users. An even more far-reaching requirement is the “counterfactual explana-
+tion” already described as part of the transparency of results, which shows which 
+factors were missing in order to reach a positive decision (Wachter et al., 2017). 
+In addition, in the case of administrative action, a particularly effective traditional 
+safeguard can be provided by checking the results. (Partially) automated deci-
+sions in administrative action can also be reviewed via the formal and material 
+specifications, regardless of the technology used, via the results. This is done on 
+an ongoing basis via individual complaints but can also be done continuously 
+as a quality assurance measure with the help of random sampling by the author-
+ity. This special feature of a review of the results of the (partially) automated 
+decision enables continuous quality assurance, which, combined with appropri-
+ate transparency, can be evaluated as a high-quality safeguard for automation and 
+algorithmic decisions.
+Organizational Level
+The public sector and its authorities have a special responsibility in the develop-
+ment and use of automated systems. The following aspects must be given special 
+consideration:
+The creation of general provisions for the necessary transparency and trace-
+ability of systems for (partially) automated decision-making should be ensured. 
+Continuous further development and quality assurance should therefore be estab-
+lished. It must be ensured that the automation of administrative action corre-
+sponds to the current state of the law and produces results that are both techni-
+cally and professionally correct. To this end, quality assurance systems should be 
+developed to consider and integrate technical and legal further development. In 
+order to identify potential dangers and sources of error, the use of risk manage-
+ment systems should be examined (Djeffal, 2019). Risk management systems can 
+be used to establish an early warning system for legal violations (Martini, 2019).
+In addition, further legal safeguards, such as labeling obligations, monitoring 
+obligations, or extended legal remedies, up to and including retroactive healing of 
+all incorrectly issued notices, should be examined. One question that still needs 
+to be clarified for the future is how to deal with erroneous automated decisions 
+that have already been issued and whether and what effect erroneous decisions 
+have on other procedures. To this end, reviewing the established legal protection 
+mechanisms in the context of automated procedures makes sense. It is impor-
+tant to bear in mind that different procedures and their corresponding automa-
+tion modes can have different positive and negative effects on different protected 
+interests or constitutional principles.
+
+8410
+	
+Journal of the Knowledge Economy (2024) 15:8390–8415
+1 3
+Societal Level
+In view of the special responsibility of the public sector, an evaluation of the accept-
+ance and possible consequences for society should be carried out before an AI 
+application is developed or commissioned. In addition to careful planning, using 
+automated administrative action may also be ethically imperative if positive effects 
+are achieved, for example, in the case of targeted social transfer services through 
+automated administrative procedures without the need for applications or if human 
+bias can be ruled out through automated decisions. Due to the dynamic changes 
+and unforeseeable or unpredictable side effects, continuous monitoring should also 
+be ensured at the societal level, for example, through accompanying studies. The 
+European Commission’s White Paper on Artificial Intelligence recommends the 
+development of two ecosystems: First, an “ecosystem for excellence” should be cre-
+ated between the public and private sectors that encompass the entire value chain. 
+Furthermore, the European regulation of key elements should create an ecosystem 
+for trust. In the context of this ecosystem of excellence, the question of competence 
+building and continuing education also arises at the societal level. It is becoming 
+increasingly important for legal practitioners to build up a fundamental interest in 
+and knowledge of AI techniques such as machine learning.
+Conclusions
+The general digitization of administrative activities has a long tradition. For more 
+than 5 decades, information technologies have been used for efficient and effective 
+digital processes to streamline workflows. The high degree of formalization and the 
+close legal ties of administrative action make administrative law particularly suitable 
+for legal automation.
+In this paper, we have presented potential applications, as well as hurdles that 
+need to be encountered for the use of automated systems in administrative proce-
+dures. In addition, we have created a set of framework conditions that need to be 
+considered.
+One of the most important aspects is that regulation of automated administrative 
+procedures with external effects is necessary. In addition to careful planning, using 
+automated administrative procedures may also be ethically advisable if positive 
+effects are achieved, for example, in the case of targeted social transfer payments 
+through automated administrative procedures. No-stop or simplified procedures 
+reduce the barriers for citizens to access state benefits. In addition, the establishment 
+of automated procedures relieves clerks of routine work and frees them to focus on 
+more complex cases. In addition to cost-effectiveness, the quality of the procedures 
+is also increased. Conditionally programmed administrative regulations as “if–then” 
+rules are particularly suitable for automation. Any existing discretionary terms must 
+be checked for their measurability to enable full automation of administrative proce-
+dures throughout.
+In developing and using AI systems for administrative procedures, the vari-
+ous forms of biases must be considered. AI systems are complex—in the design, 
+
+8411
+1 3
+Journal of the Knowledge Economy (2024) 15:8390–8415	
+development, and training phase, as well as in actual use, and especially in the inter-
+action between the legal user and the AI system. Errors can occur at any of these 
+stages, which can lead to inequity. Quality assurance of the development and opera-
+tion, as well as transparency of the systems, must be ensured. The concept of safe-
+guarding AI systems by final human decision-makers (“human in the loop”) is a 
+safeguarding measure that should be viewed critically. In the worst case, this can 
+legitimize biased or incorrect decisions by the AI through the human in the “deci-
+sion loop.” Decisive factors include whether there are sufficient time and resources 
+to make recommendations, whether sufficient specific competencies are ensured to 
+critically scrutinize the calculated information or how “uncontroversial” it is, or how 
+“incontrovertible” information is presented. The human bias additionally increases 
+these risks.
+Legal users must be integrated into the design process of IT systems at an early 
+stage (user-centered design). In addition to the joint design, the interaction of the 
+legal users with the system must be continuously monitored to identify negative 
+effects at an early stage and to make design adjustments. Even before an AI appli-
+cation is developed or commissioned, an evaluation of its acceptance and possible 
+consequences for society as a whole should be examined. Because of the dynamic 
+changes and unintended or unpredictable side effects, ongoing monitoring should 
+also be carried out at the societal level.
+Free access to legal data is a key foundation for the development and verifiabil-
+ity of AI systems, access is important for verification for both rule-based AI and 
+machine-learning AI. Because of potential biases and prejudices that may reside 
+specifically in training data, access to and review of personal data must be ensured 
+by independent bodies. The provision of legal data is gaining importance with the 
+ongoing digitization and automation of the law, as well as the establishment of assis-
+tance systems in applying the law. Shared data circles among participating organiza-
+tions—from authorities to courts to companies—can lead to added value for all par-
+ties involved. Furthermore, free and open access to non-personal legal data promotes 
+innovation, democracy, and the rule of law, so exclusive access should be avoided.
+In the event of widespread use of AI systems to support the application of the law, 
+the dynamic development of law that, among other things, also societal changes, 
+must be ensured. To this end, provisions must be made for the ongoing develop-
+ment of the systems. Besides the potential advantages of the automation of the law 
+and legal assistance systems, their use can also lead to a reduction or leveling of the 
+quality of legal action.
+This paper does not attempt to review the entire body of law when it comes to AI 
+and law—rather, it offers an in-depth look at the potentials, limitations, and frame-
+work conditions for the use of AI and automation in administrative procedures. In 
+addition, the importance and possibilities for addressing transparency and explain-
+ability for automating administrative procedures in the various AI systems are 
+covered. It should be noted that this paper focuses on examples of automation of 
+administrative procedures from Austria and Germany, where the principle of legal-
+ity prevails. When analyzing Anglo-American scenarios, it is essential to remem-
+ber that this paper was written from a continental European perspective. Further 
+research includes, as indicated in the chapters above, the influence of data usage on 
+
+8412
+	
+Journal of the Knowledge Economy (2024) 15:8390–8415
+1 3
+administrative procedures: If blockchain technology is used as a state registry and 
+laypersons can change public registers by self-reporting, the effects would funda-
+mentally change the role of public administration.
+Legal informatics is now more than six decades young, and its research projects 
+have fallen short of expectations, especially in terms of implementation and applica-
+tion in legal practice. The causes are manifold but can be grouped into three problem 
+areas. The first field is the complexity of the open legal language, which can be for-
+malized only selectively. The second problem field is the legal subsumption process, 
+which cannot be represented mathematically and logically. And the third field was 
+the lack of computing power, data storage capacity, and availability of legal data. In 
+the first two problem areas, no new theoretical foundations were laid. The question 
+remains to what extent the technologies and legal data available today can help to 
+overcome the first two existing hurdles. The field of legal informatics, in general, 
+is called upon to lay the foundations for the effective regulation of digital societies. 
+The natural laws of the digital world challenge the legal system that has evolved over 
+the analog centuries. Satisfactory, effective regulation is needed for data use, AI 
+development, social media platform operators, and cloud infrastructure operators. 
+This requires knowledge about how digital technologies work and their impact, not 
+only for effective government regulation but also to understand and mapping digital 
+processes of business models.
+Automation of administrative procedures requires standards and laws that are 
+suitable for this aim. For the drafting of standards and laws suitable for automation, 
+the cooperation of legal experts with enforcement experts and computer scientists is 
+crucial. As an interdisciplinary team, law and technology can be thought through, 
+and technology can be thought out and designed together. Existing data can be used, 
+or new data can be created. Law has the responsibility to shape the digital trans-
+formation that permeates all areas of life in an effective and balanced way and to 
+develop the law for this purpose further.
+Funding  Open access funding provided by Danube University Krems University for Continuing 
+Education.
+Data Availability  The authors confirm that the data supporting the findings of this study are available 
+within the article.
+Open Access   This article is licensed under a Creative Commons Attribution 4.0 International License, 
+which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long 
+as you give appropriate credit to the original author(s) and the source, provide a link to the Creative 
+Commons licence, and indicate if changes were made. The images or other third party material in this 
+article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line 
+to the material. If material is not included in the article’s Creative Commons licence and your intended 
+use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permis-
+sion directly from the copyright holder. To view a copy of this licence, visit http://​creat​iveco​mmons.​org/​
+licen​ses/​by/4.​0/.
+
+8413
+1 3
+Journal of the Knowledge Economy (2024) 15:8390–8415	
+References
+Alon-Barkat, S., & Busuioc, M. (2021). Decision-makers processing of AI algorithmic advice: Automa-
+tion bias versus selective adherence. arXiv.
+Aoki, N. (2020). An experimental study of public trust in AI chatbots in the public sector. Government 
+Information Quarterly, 37(4), 101490.
+Atkinson, K., Bench-Capon, T., & Bollegala, D. (2020). Explanation in AI and law: Past, present and 
+future. Artificial Intelligence, 289, 103387.
+Beierle, C., & Kern-Isberner, G. (2019). Regelbasierte Systeme. In C. Beierle, & G. Kern-Isberner, Meth-
+oden wissensbasierter Systeme. Springer.
+Berger, C., & Kolain, M. (2021). Recht digital: schwer verständlich »by design« und allenfalls teilweise 
+automatisierbar? kompetenzzentrum öffentliche IT.
+Berglind, N., Fadia, A., & Isherwood, T. (2022). Mckinsey.com. Retrieved from https://​www.​mckin​sey.​
+com/​indus​tries/​public-​and-​social-​sector/​our-​insig​hts/​the-​poten​tial-​value-​of-​ai-​and-​how-​gover​nments-​
+could-​look-​to-​captu​re-​it
+Boehme-Neßler, V. (2008). Unscharfes recht - überlegungen zur relativierung des rechts in der digitalisi-
+erten welt, schriftenreihe zur rechtssoziologie und rechtstatsachenforschung.
+Braun Binder, N. (2020). Als verfügungen gelten anordnungen der maschinen im einzelfall: dystopie oder 
+künftiger Verwaltungsalltag?
+Braun Binder, N., & Spielkamp, M. (2021). Einsatz künstlicher intelligenz in der Verwaltung.
+BT-Drucksache V/3355. (1968). Retrieved from https://​dserv​er.​bunde​stag.​de/​btd/​05/​033/​05033​55.​pdf
+BT-Drucksache VI/648. (1970). Retrieved from https://​dserv​er.​bunde​stag.​de/​btd/​06/​006/​06006​48.​pdf
+Carter, S., & Nielsen, M. (2017). Using Artificial Intelligence to Augment Human Intelligence.
+Collenette, J., Atkinson, K., & Bench-Capon, T. (2023). Explainable AI tools for legal reasoning about 
+cases: A study on the European Court of Human Rights. Artificial Intelligence, 317, 103861.
+Commission, G. D. (2019). Gutachten der Datenethikkommission.
+Corrales, M., Fenwick, M., & Haapio, H. (2019). Legal tech, smart contracts and blockchain. Springer.
+Crawford, K., & Schultz, J. (2019). AI systems as state actors. Columbia Law Review, 119(7), 1941–1972.
+Danish Agency for Digitization. (2018). Retrieved from guidance on digital-ready legislation - on incor-
+porating digitisation and implementation in the preparation of legislation: https://​en.​digst.​dk/​media/​
+20206/​en_​guida​nce-​regar​ding-​digit​al-​ready-​legis​lation-​2018.​pdf
+Datenethikkommission. (2019). Gutachten der datenethikkommission. Berlin.
+De Vries, H., Bekkers, V., & Tummers, L. (2015). Innovation in the public sector: A systematic review 
+and future research agenda. Public Administration.
+Desouza, K., Dawson, G., & Chenok, D. (2020). Designing, developing, and deploying artificial intel-
+ligence systems: Lessons from and for the public sector. Business Horizons, 63(2), 205–213.
+Djeffal, C. (2019). Künstliche Intelligenz. In T. Klenk, F. Nullmeier, & G. Wewer, Handbuch Digital-
+isierung in Staat und Verwaltung.
+Edelmann, N., & Mergel, I. (2022). The implementation of a digital strategy in the Austrian Public Sec-
+tor. dg.o 2022, June 15–17, 2022, Virtual Event, Republic of Korea.
+Enarsson, T., Enqvist, L., & Naarttijärvi, M. (2021). Approaching the human in the loop – legal perspec-
+tives on hybrid human/algorithmic decision-making in three contexts. Information & Communica-
+tions Technology Law, 31, 1.
+Engelmann, J., & Puntschuh, M. (2020). KI im behördeneinsatz: erfahrungen und empfehlungen.
+Etscheid, J. (2018). Automatisierungspotenziale in der Verwaltung. In R. Mohabbat Kar, B. Thapa, & 
+P. Parycek, (Un)berechenbar? Algorithmen und Automatisierung in Staat und Gesellschaft. Berlin.
+Fiedler, H. (1985). Entwicklung der Informationstechnik und Entwicklung von Methoden für die öffen-
+tliche Verwaltung
+Fon, V., & Parisi, F. (2006). Judicial precedents in civil law systems: A dynamic analysis. International 
+Review of Law and Economics, 26(4), 519–535.
+Forgó, N., & Zöchling-Jud, B. (2018). Das Vertragsrecht des ABGB auf dem Prüfstand: Überlegungen im 
+digitalen Zeitalter. ÖJT.
+Gasova, K., & Stofkova, K. (2017). E-government as a quality improvement tool for citizens’ services. 
+Procedia Engineering, 192, 225–230.
+Gräwe, S. (2011). Die Entstehung der Rechtsinformatik.
+Guckelberger, A. (2019). Öffentliche Verwaltung im Zeitalter der Digitalisierung.
+
+8414
+	
+Journal of the Knowledge Economy (2024) 15:8390–8415
+1 3
+Gupta, K. (2019). Artificial intelligence for governance in India: Prioritizing the challenges using ana-
+lytic hierarchy process (AHP). Int. J. Recent Technol. Eng, 8, 3756–3762.
+Hattenhauer, D. (1995). Das ALR im Widerstreit der Politik. In Wolff, Das Preußische Allgemeine 
+Landrecht.38.
+Horton, S. (2011). 3 Contrasting Anglo-American and Continental European civil service systems. In A. 
+Massey, International Handbook an Civil Service Systems (pp. 31–53).
+Houy, C., Hamberg, M., & Fettke, P. (2019). Robotic process automation in public administrations. In M. 
+Räckers, Digitalisierung von Staat und Verwaltung. Bonn.
+Justesen, L., & Plesner, U. (2022). The double darkness of digitalization: Shaping digital-ready legis-
+lation to reshape the conditions for public-sector digitalization. Science, Technology, and Human 
+Values, 47(1), 146–173.
+Kantorowicz, H. (1925). Aus der Vorgeschichte der Freirechtslehre.
+Kar, R., Thapa, B., Hunt, S., & Parycek, P. (2019). Recht digital: Maschinenverständlich und 
+Automatisierbar.
+Kaulartz, M., & Braegelmann, T. (2020). Rechtshandbuch artificial intelligence und machine learning.
+Kirste, M. (2019). Augmented intelligence – Wie Menschen mit KI zusammen arbeiten. In V. Wittpahl, 
+Künstliche Intelligenz.
+Knapp, V. (1963). Über die Möglichkeiten der Anwendung kybernetischer Methoden in Gesetzgebung 
+und Rechtsanwendung.
+Lachana, Z., Alexopoulos, C., Loukis, E., & Charaladibis, Y. (2018). Identifying the different genera-
+tions of Egovernment: an analysis framework. The 12th Mediterranean Conference on Information 
+Systems (MCIS).
+Legrand, P. (1996). European legal systems are not converging. The International and Comparative Law 
+Quarterly, 45(1), 52–81.
+Lessig, L. (1999). Code: And other laws of cyberspace.
+Lipton, Z. (2016). The Mythos of model interpretability: In machine learning, the concept of interpret-
+ability is both important and slippery. Queue, 16(3), 31–57.
+Martini, M. (2019). Blackbox Algorithmus - Grundfragen einer Regulierung Künstlicher Intelligenz.
+Meder, S. (2020). Rechtsmaschinen: Von Subsumtionsautomaten, Künstlicher Intelligenz und der Suche 
+nach dem "richtigen" Urteil.
+Mehrabi, N., Morstatter, F., Saxena, N., Lerman, K., & Galstyan, A. (2021). A survey on bias and fair-
+ness in machine learning. ACM Computing SurveysVolume, 54(6), 1–35.
+Mohun, J., & Roberts, A. (2020). Cracking the Code - Rulemaking for Humans and Machines. https://​doi.​
+org/​10.​1787/​19934​351
+Munn, L. (2021). More than a mob: Parler as preparatory media for the U.S. Capitol storming. First 
+Monday.
+Munn, Z., Peters, M., Stern, C., Tufanaru, C., McArthur, A., & Aromataris, E. (2018). Systematic review 
+or scoping review? Guidance for authors when choosing between a systematic or scoping review 
+approach. BMC Medical Research Methodology.
+Munn, Z., Pollock, D., Khalil, H., Alexander, L., McInerney, P., Godfrey, C., . . . & Tricco, A. (2022). 
+What are scoping reviews? Providing a formal definition of scoping reviews as a type of evidence 
+synthesis. JBL Evidence Synthesis.
+Normenkontrollrat, N. (2021). Digitale Verwaltung braucht digitaltaugliches Recht.
+Novak, A.-S., Huber, V., & Virkar, S. (2021). Digital legislation: Quo vadis? ACM International Confer-
+ence Proceeding Series, (p. ACM International Conference Proceeding Series).
+Oswald, M. (2018). Algorithm-assisted decision-making in the public sector: Framing the issues using 
+administrative law rules governing discretionary power.
+Peters, M., Godfrey, C., Khalil, H., McInerney, P., Parker, D., & Soares, C. (2015). Guidance for conduct-
+ing systematic scoping reviews. International Journal of Evidence-Based Healthcare.
+Pohle, J. (2022). ’A legal discipline of the future’ – a short history of the intersection of law and computer 
+science. HIIG Discussion Paper Series No. 2022–05.
+Raabe, O., Wacker, R., Oberle, D., Christian, B., & Funk, C. (2012). Recht ex machina.
+Raji, B. (2021). Rechtliche Bewertung synthetischer Daten für KI-Systeme.
+Ringeisen, P., Bertolosi-Lehr, A., & Demaj, L. (2018). Automatisierung und Digitalisierung in der öffen-
+tlichen Verwaltung: digitale Verwaltungsassistenten als neue Schnittstelle zwischen Bevölkerung 
+und Gemeinwesen.
+Rühl, G. (2020). Künstliche Intelligenz und gerichtliche Streitbeilegung. In T. Braegelmann, & M. Kaulartz, 
+Rechtshandbuch Artifical Intelligence und Machine Learning. C.H. Beck.
+
+8415
+1 3
+Journal of the Knowledge Economy (2024) 15:8390–8415	
+Savigny, F. (1814). Vom Beruf unsrer Zeit für Gesetzgebung und Rechtswissenschaft. https://​doi.​org/​10.​
+11588/​diglit.​11451
+Scalia, A. (1995). Common-law courts in a civil-law system: The role of the United States Federal Courts 
+in Interpreting the Constitution and Laws. Princeton University.
+Schmidt, C., Krimmer, R., & Lampoltshammer, T. (2021). "When need becomes necessity" - the single 
+digital gateway regulation and the once-only principle from a European point of view. Open Identity 
+Summit.
+Scholz, R., Kley, M., & Parycek, P. (2020). Digital infrastructure as a public good: A European 
+perspective.
+Skitka, L., Mosier, K., & Burdick, M. (1999). Does automation bias decision-making? International 
+Journal of Human-Computer Studies, 51(5), 991–1006.
+Sucharew, H., & Macaluso, M. (2019). Methods for research evidence synthesis: The scoping review 
+approach. Journal of Hospital Medicine, 14, 7
+The Royal Society. (2019). Retrieved from Explainable AI.
+Timmermann, D. (2020). Legal-Tech Anwendungen. Nomos.
+Toll, D., Lindgren, I., Melin, U., & Madsen, C. (2019). Artificial intelligence in Swedish Policies: Values, ben-
+efits, considerations and risks. Electronic Government, 301–310.
+Umbach, G., & Tkalec, I. (2022). Evaluating e-governance through e-government: Practices and chal-
+lenges of assessing the digitalisation of public governmental services. Evaluation and Program 
+Planning, 93, 102118.
+von Blumröder, L., & Breiter, A. (2020a). Die nutzung maschineller lernsysteme für den erlass verwal-
+tungsrechtlicher ermessensentscheidungen.
+von Blumröder, L., & Breiter, A. (2020b). Die Nutzung maschineller Lernsysteme für den Erlass verwal-
+tungsrechtlicher Entscheidungen. dms.
+Wachter, S., Mittelstadt, B., & Russell, C. (2017). Counterfactual explanations without opening the black 
+box: Automated decisions and the GDPR. Harv. JL & Tech 31.
+Wagner, J. (2020). Legal Tech und Legal Robots: Der Wandel im Rechtswesen durch neue Technologien 
+und Künstliche Intelligenz.
+Waltl, B., & Vogl, R. (2018). Explainable artificial intelligence - the new frontier in legal informatics. 
+Jusletter IT.
+Wong, S., Gatt, A., Stamatescu, V., & Mark, M. (2016). Understanding data augmentation for classifica-
+tion: When to warp?
+Zalnieriute, M., Moses, L. B., & Williams, G. (2019). The rule of law and automation of government 
+decision-making. Modern Law Review, 425.
+Zuiderwijk, A., Chen, Y.-C., & Salem, F. (2021). Implications of the use of artificial intelligence in 
+public governance: A systematic literature review and a research agenda. Government Information 
+Quarterly, 38(3), 101577.
+Publisher’s Note  Springer Nature remains neutral with regard to jurisdictional claims in published maps 
+and institutional affiliations.
