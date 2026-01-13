@@ -1,153 +1,96 @@
-Milestone 1: Automated Research & Data Collection
-Overview This milestone focuses on setting up the environment and automating the retrieval of academic papers. The system connects to the Semantic Scholar API to search, rank, and download relevant research papers based on user-defined topics.
+📘 Infosys Internship Final Project
+AI-Powered Research Paper Search & Summarization System
+📌 Project Overview
 
+This project focuses on building an AI-assisted research workflow that can:
 
-Key Features
+Search academic papers based on a given topic
 
-Automated Search: Queries the Semantic Scholar database for papers matching a specific topic.
+Rank papers using citation count and relevance
 
-Smart Ranking: Ranks papers based on recency, citation count, and PDF availability.
+Extract and process PDFs of selected research papers
 
-PDF Retrieval: Automatically downloads open-access PDFs to a local directory (data/pdfs).
+Generate concise summaries using Large Language Models (LLMs)
 
-Metadata Logging: Saves dataset metadata (titles, authors, years) for downstream processing.
+The system is designed to help students and researchers quickly understand state-of-the-art research without manually reading multiple papers.
 
+🧠 Key Features
 
-Tech Stack
+🔍 Academic Paper Search using Semantic Scholar API
 
-Language: Python 3.x 
+📊 Ranking & Filtering based on year, citations, and relevance score
 
-Libraries: semanticscholar, requests, pandas.
+📄 PDF Processing and text extraction
 
+✨ LLM-based Summarization for quick insights
 
-Data Source: Semantic Scholar API.
+🔗 Integration with LangChain and Google Generative AI
 
-Usage Instructions
+📈 Scalable architecture suitable for research automation
 
-Install Dependencies: Run the setup cells to install semanticscholar and other base libraries.
+🛠️ Technologies & Libraries Used
 
-Configure Search:
+Python
 
-Run the "Research Assistant" cell.
+Semantic Scholar API
 
-Input a Research Topic (e.g., "Machine Learning").
+LangChain
 
-(Optional) Set filters for Minimum Year and Minimum Citations.
+LangGraph
 
-Output:
+Google Generative AI (Gemini)
 
-The system screens papers and selects the top candidates (default: 3).
+pandas
 
-PDFs are saved to data/pdfs/.
+PyMuPDF (pymupdf4llm)
 
-Milestone 2: Text Extraction & Analysis
-Overview This milestone implements the analysis pipeline. It extracts raw text from the downloaded PDFs and uses Large Language Models (LLMs) to analyze findings and compare papers against one another.
+tiktoken
 
-Key Features
+requests
 
-PDF Parsing: Utilizes pymupdf4llm to convert PDF content into Markdown-formatted text, optimized for LLM processing.
+📂 Project Structure
+Infosys_Intern_Final.ipynb   # Main Jupyter Notebook
+README.md                   # Project documentation
 
-Individual Analysis: Extracts the main objective, methodology, key findings, and limitations from each paper.
+⚙️ Installation & Setup
 
-Cross-Paper Comparison: Synthesizes data to identify common themes, methodological differences, and contradictions across the selected papers.
+Run the following commands before executing the notebook:
 
-Tech Stack
+pip install requests pandas
+pip install semanticscholar
+pip install langchain langchain-google-genai langgraph langsmith
+pip install pymupdf4llm tiktoken
 
-Libraries: pymupdf4llm, langchain-groq, langchain-core.
 
-Models: Llama-3.3-70b-versatile (via Groq API).
+⚠️ Ensure you have a valid Google Generative AI API key configured in your environment variables.
 
-Input: PDFs located in data/pdfs/.
+🚀 How It Works
 
-Usage Instructions
+User provides a research topic
 
-Extract Text: Run the TextExtractionModule to parse PDFs into text files stored in data/processed/.
+System fetches related papers from Semantic Scholar
 
-Run Analysis: Execute the AnalysisModule.
+Papers are ranked and filtered
 
-Ensure the GROQ_API_KEY is set in the environment.
+Selected PDFs are parsed and cleaned
 
-Output:
+LLM generates structured summaries
 
-JSON file generated at data/analysis_results.json containing structured insights and the cross-paper synthesis.
+Output is displayed directly in the notebook
 
-Milestone 3: Draft Generation
-Overview The objective of this milestone is to automatically generate a structured academic draft. The system uses the analysis data from Milestone 2 to write specific sections of a systematic review, including the Abstract, Methodology, and Results.
-+1
+🎯 Use Cases
 
-Key Features
+Literature review automation
 
-Automated Drafting: Generates cohesive text for the Abstract, Methodology Comparison, and Results & Discussion sections.
+Research topic exploration
 
-APA Formatting: Automatically formats references into APA style using the metadata collected in Milestone 1.
+Internship / academic project support
 
-Report Compilation: Aggregates all sections into a single Markdown file (Final_Review_Draft.md).
+Time-efficient paper summarization
 
-Tech Stack
+📌 Outcome
 
-Libraries: langchain, json, os.
-
-Logic: Uses prompt templates to guide the LLM in academic writing styles.
-
-Usage Instructions
-
-Prerequisites: Ensure data/analysis_results.json exists (from Milestone 2).
-
-Generate Draft: Run the DraftGenerationModule cell.
-
-Output:
-
-A Markdown file is saved to data/drafts/Final_Review_Draft.md.
-
-A preview of the draft is displayed directly in the notebook output.
-
-Milestone 4: Review, Refinement & UI
-Overview The final milestone implements a "human-in-the-loop" review cycle and a graphical user interface (GUI). It allows users to assess the quality of the generated draft, request AI-driven revisions, and export a final polished report.
-+2
-
-Key Features
-
-Quality Assessment: An AI agent evaluates the draft for coherence, accuracy, clarity, and rigor, providing a score out of 10.
-
-Interactive UI: A Streamlit-based web interface allows users to view the draft, run assessments, and modify suggestions.
-
-Revision Cycle: Users can trigger an AI revision process based on specific critiques.
-
-
-Final Export: Generates a comprehensive final report including quality metrics and the revised content.
-
-Tech Stack
-
-
-Framework: Streamlit.
-
-Tunneling: localtunnel (to expose the UI from Colab).
-
-Files: Generates app.py dynamically.
-
-Usage Instructions
-
-Write App: Run the cell containing %%writefile app.py to create the Streamlit application file.
-
-Launch Server: Run the final cell to install Streamlit and start the server.
-
-Access UI:
-
-Copy the IP address printed in the output (e.g., from ipv4.icanhazip.com).
-
-Click the loca.lt link provided in the output.
-
-Paste the IP address to bypass the tunnel security page.
-
-Workflow:
-
-Tab 1: Load the draft generated in Milestone 3.
-
-Tab 2: Click "Run Quality Assessment" to see scores and issues.
-
-Tab 3: Review suggestions and click "Apply AI Revisions".
-
-Tab 4: Download the final report.
+This project demonstrates the practical application of AI and LLMs in academic research, combining data retrieval, NLP, and intelligent summarization into a single workflow.
 
 The Final Output
 
