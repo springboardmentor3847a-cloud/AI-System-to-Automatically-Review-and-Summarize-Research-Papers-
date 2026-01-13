@@ -148,5 +148,14 @@ Tab 2: Click "Run Quality Assessment" to see scores and issues.
 Tab 3: Review suggestions and click "Apply AI Revisions".
 
 Tab 4: Download the final report.
-<img width="1918" height="1018" alt="1!" src="https://github.com/user-attachments/assets/4596eb9a-0d3f-49b9-93c8-cba763ed6744" />
+
+The Final Output
+
+<img width="1919" height="1022" alt="Screenshot 2026-01-13 133124" src="https://github.com/user-attachments/assets/4b1580f2-74be-4dab-89c8-a83c0d326e34" />
+
+<img width="1919" height="1022" alt="Screenshot 2026-01-13 133141" src="https://github.com/user-attachments/assets/3053b29e-0727-4473-8234-0a459916489e" />
+
+<img width="1919" height="1019" alt="Screenshot 2026-01-13 133153" src="https://github.com/user-attachments/assets/21faf4c4-9064-4fda-a8df-2abbadbf841b" />
+
+<img width="1919" height="1019" alt="Screenshot 2026-01-13 133228" src="https://github.com/user-attachments/assets/9b25e6c2-1241-444e-a0ef-deb258fbcc1f" />
 
