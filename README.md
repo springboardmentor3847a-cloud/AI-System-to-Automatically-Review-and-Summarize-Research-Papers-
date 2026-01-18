@@ -1,1 +1,1 @@
-This includes the screenshots of Milestones 3 & 4.
+The following screenshots demonstrate the implementation of Milestones 3 and 4.
