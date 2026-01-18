@@ -5,7 +5,7 @@ The following screenshots demonstrate the implementation of Milestones 3 and 4.
 ![1](Milestone.png)
 
 
-![2](Milestonee.png)
+![2](Milestoneeeeeee.png)
 
 
 ![3](Milestone3.png)
