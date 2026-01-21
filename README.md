@@ -45,7 +45,7 @@ Run the following commands before executing the notebook:
 #### pip install pymupdf4llm tiktoken
 
 
- #### Ensure you have a valid Google Generative AI API key configured in your environment variables.
+ #### *_Ensure you have a valid Google Generative AI API key configured in your environment variables_*
 
 ## How It Works
 
