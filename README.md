@@ -4,19 +4,19 @@
 
 This project focuses on building an AI-assisted research workflow that can:
 * #### Search academic papers based on a given topic
-*Rank papers using citation count and relevance
-*Extract and process PDFs of selected research papers
-*Generate concise summaries using Large Language Models (LLMs)
-*The system is designed to help students and researchers quickly understand state-of-the-art research without manually reading multiple papers.
+* #### Rank papers using citation count and relevance
+* #### Extract and process PDFs of selected research papers
+* #### Generate concise summaries using Large Language Models (LLMs)
+* #### The system is designed to help students and researchers quickly understand state-of-the-art research without manually reading multiple papers.
 
  ## Key Features
 
- *Academic Paper Search using Semantic Scholar API
- *Ranking & Filtering based on year, citations, and relevance score
- *PDF Processing and text extraction
- *LLM-based Summarization for quick insights
- *Integration with LangChain and Google Generative AI
- *Scalable architecture suitable for research automation
+ * #### Academic Paper Search using Semantic Scholar API
+ * #### Ranking & Filtering based on year, citations, and relevance score
+ * #### PDF Processing and text extraction
+ * #### LLM-based Summarization for quick insights
+ * #### Integration with LangChain and Google Generative AI
+ * #### Scalable architecture suitable for research automation
 
 
  ## Technologies & Libraries Used
