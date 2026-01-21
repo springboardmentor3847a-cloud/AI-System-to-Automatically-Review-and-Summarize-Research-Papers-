@@ -48,7 +48,7 @@ pip install pymupdf4llm tiktoken
 
  Ensure you have a valid Google Generative AI API key configured in your environment variables.
 
-** How It Works**
+**How It Works**
 
 User provides a research topic
 System fetches related papers from Semantic Scholar
