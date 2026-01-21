@@ -21,47 +21,47 @@ This project focuses on building an AI-assisted research workflow that can:
 
  ## Technologies & Libraries Used
 
-1.Python
-2.Semantic Scholar API
-3.LangChain
-4.LangGraph
-5.Google Generative AI (Gemini)
-6.pandas
-7.PyMuPDF (pymupdf4llm)
-8.tiktoken
+#### 1.Python
+#### 2.Semantic Scholar API
+#### 3.LangChain
+#### 4.LangGraph
+#### 5.Google Generative AI (Gemini)
+#### 6.pandas
+#### 7.PyMuPDF (pymupdf4llm)
+#### 8.tiktoken
 
  ## Project Structure
 
-Infosys_Intern_Final.ipynb   # Main Jupyter Notebook
-README.md                   # Project documentation
+#### Infosys_Intern_Final.ipynb   # Main Jupyter Notebook
+#### README.md                   # Project documentation
 
  ## Installation & Setup
 
 Run the following commands before executing the notebook:
 
-pip install requests pandas
-pip install semanticscholar
-pip install langchain langchain-google-genai langgraph langsmith
-pip install pymupdf4llm tiktoken
+#### pip install requests pandas
+#### pip install semanticscholar
+#### pip install langchain langchain-google-genai langgraph langsmith
+#### pip install pymupdf4llm tiktoken
 
 
- Ensure you have a valid Google Generative AI API key configured in your environment variables.
+ #### Ensure you have a valid Google Generative AI API key configured in your environment variables.
 
 ## How It Works
 
-*User provides a research topic
-*System fetches related papers from Semantic Scholar
-*Papers are ranked and filtered
-*Selected PDFs are parsed and cleaned
-*LLM generates structured summaries
-*Output is displayed directly in the notebook
+* #### User provides a research topic
+* #### System fetches related papers from Semantic Scholar
+* #### Papers are ranked and filtered
+* #### Selected PDFs are parsed and cleaned
+* #### LLM generates structured summaries
+* #### Output is displayed directly in the notebook
 
  ## Use Cases
 
-*Literature review automation
-*Research topic exploration
-*Internship / academic project support
-*Time-efficient paper summarization
+* #### Literature review automation
+* #### Research topic exploration
+* #### Internship / academic project support
+* #### Time-efficient paper summarization
 
  ## Outcome
 
