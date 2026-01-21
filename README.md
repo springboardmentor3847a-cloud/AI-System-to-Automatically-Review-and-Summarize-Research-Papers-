@@ -1,6 +1,6 @@
 # AI-Powered Research Paper Search & Summarization System
 
-**Project Overview**
+### Project Overview
 
 This project focuses on building an AI-assisted research workflow that can:
 *Search academic papers based on a given topic
@@ -9,7 +9,7 @@ This project focuses on building an AI-assisted research workflow that can:
 *Generate concise summaries using Large Language Models (LLMs)
 *The system is designed to help students and researchers quickly understand state-of-the-art research without manually reading multiple papers.
 
- **Key Features**
+ ### Key Features
 
  *Academic Paper Search using Semantic Scholar API
  *Ranking & Filtering based on year, citations, and relevance score
@@ -19,7 +19,7 @@ This project focuses on building an AI-assisted research workflow that can:
  *Scalable architecture suitable for research automation
 
 
- **Technologies & Libraries Used**
+ ### Technologies & Libraries Used
 
 1.Python
 2.Semantic Scholar API
@@ -30,12 +30,12 @@ This project focuses on building an AI-assisted research workflow that can:
 7.PyMuPDF (pymupdf4llm)
 8.tiktoken
 
- **Project Structure**
+ ### Project Structure
 
 Infosys_Intern_Final.ipynb   # Main Jupyter Notebook
 README.md                   # Project documentation
 
- **Installation & Setup**
+ ### Installation & Setup
 
 Run the following commands before executing the notebook:
 
@@ -47,7 +47,7 @@ pip install pymupdf4llm tiktoken
 
  Ensure you have a valid Google Generative AI API key configured in your environment variables.
 
-**How It Works**
+### How It Works
 
 *User provides a research topic
 *System fetches related papers from Semantic Scholar
@@ -56,18 +56,18 @@ pip install pymupdf4llm tiktoken
 *LLM generates structured summaries
 *Output is displayed directly in the notebook
 
- **Use Cases**
+ ### Use Cases
 
 *Literature review automation
 *Research topic exploration
 *Internship / academic project support
 *Time-efficient paper summarization
 
- **Outcome**
+ ### Outcome
 
 This project demonstrates the practical application of AI and LLMs in academic research, combining data retrieval, NLP, and intelligent summarization into a single workflow.
 
-**The Final Output**
+### The Final Output
 
 <img width="1919" height="1022" alt="Screenshot 2026-01-13 133124" src="https://github.com/user-attachments/assets/4b1580f2-74be-4dab-89c8-a83c0d326e34" />
 
