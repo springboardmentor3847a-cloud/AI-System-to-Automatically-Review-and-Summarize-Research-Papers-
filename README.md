@@ -1,4 +1,4 @@
-**AI-Powered Research Paper Search & Summarization System**
+# AI-Powered Research Paper Search & Summarization System
 
 **Project Overview**
 
