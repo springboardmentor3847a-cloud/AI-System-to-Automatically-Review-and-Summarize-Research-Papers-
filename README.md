@@ -1,6 +1,6 @@
 **AI-Powered Research Paper Search & Summarization System**
 
-📌**Project Overview**
+**Project Overview**
 
 This project focuses on building an AI-assisted research workflow that can:
 Search academic papers based on a given topic
@@ -9,17 +9,17 @@ Extract and process PDFs of selected research papers
 Generate concise summaries using Large Language Models (LLMs)
 The system is designed to help students and researchers quickly understand state-of-the-art research without manually reading multiple papers.
 
-🧠 **Key Features**
+ **Key Features**
 
-🔍 Academic Paper Search using Semantic Scholar API
-📊 Ranking & Filtering based on year, citations, and relevance score
-📄 PDF Processing and text extraction
-✨ LLM-based Summarization for quick insights
-🔗 Integration with LangChain and Google Generative AI
-📈 Scalable architecture suitable for research automation
+ Academic Paper Search using Semantic Scholar API
+ Ranking & Filtering based on year, citations, and relevance score
+ PDF Processing and text extraction
+ LLM-based Summarization for quick insights
+ Integration with LangChain and Google Generative AI
+ Scalable architecture suitable for research automation
 
 
-🛠️ **Technologies & Libraries Used**
+ **Technologies & Libraries Used**
 
 Python
 Semantic Scholar API
@@ -31,12 +31,12 @@ PyMuPDF (pymupdf4llm)
 tiktoken
 requests
 
-📂 **Project Structure**
+ **Project Structure**
 
 Infosys_Intern_Final.ipynb   # Main Jupyter Notebook
 README.md                   # Project documentation
 
-⚙️ **Installation & Setup**
+ **Installation & Setup**
 
 Run the following commands before executing the notebook:
 
@@ -46,9 +46,9 @@ pip install langchain langchain-google-genai langgraph langsmith
 pip install pymupdf4llm tiktoken
 
 
-⚠️ Ensure you have a valid Google Generative AI API key configured in your environment variables.
+ Ensure you have a valid Google Generative AI API key configured in your environment variables.
 
-🚀** How It Works**
+** How It Works**
 
 User provides a research topic
 System fetches related papers from Semantic Scholar
@@ -57,14 +57,14 @@ Selected PDFs are parsed and cleaned
 LLM generates structured summaries
 Output is displayed directly in the notebook
 
-🎯 **Use Cases**
+ **Use Cases**
 
 Literature review automation
 Research topic exploration
 Internship / academic project support
 Time-efficient paper summarization
 
-📌 **Outcome**
+ **Outcome**
 
 This project demonstrates the practical application of AI and LLMs in academic research, combining data retrieval, NLP, and intelligent summarization into a single workflow.
 
