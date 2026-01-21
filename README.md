@@ -3,33 +3,32 @@
 **Project Overview**
 
 This project focuses on building an AI-assisted research workflow that can:
-Search academic papers based on a given topic
-Rank papers using citation count and relevance
-Extract and process PDFs of selected research papers
-Generate concise summaries using Large Language Models (LLMs)
-The system is designed to help students and researchers quickly understand state-of-the-art research without manually reading multiple papers.
+*Search academic papers based on a given topic
+*Rank papers using citation count and relevance
+*Extract and process PDFs of selected research papers
+*Generate concise summaries using Large Language Models (LLMs)
+*The system is designed to help students and researchers quickly understand state-of-the-art research without manually reading multiple papers.
 
  **Key Features**
 
- Academic Paper Search using Semantic Scholar API
- Ranking & Filtering based on year, citations, and relevance score
- PDF Processing and text extraction
- LLM-based Summarization for quick insights
- Integration with LangChain and Google Generative AI
- Scalable architecture suitable for research automation
+ *Academic Paper Search using Semantic Scholar API
+ *Ranking & Filtering based on year, citations, and relevance score
+ *PDF Processing and text extraction
+ *LLM-based Summarization for quick insights
+ *Integration with LangChain and Google Generative AI
+ *Scalable architecture suitable for research automation
 
 
  **Technologies & Libraries Used**
 
-Python
-Semantic Scholar API
-LangChain
-LangGraph
-Google Generative AI (Gemini)
-pandas
-PyMuPDF (pymupdf4llm)
-tiktoken
-requests
+1.Python
+2.Semantic Scholar API
+3.LangChain
+4.LangGraph
+5.Google Generative AI (Gemini)
+6.pandas
+7.PyMuPDF (pymupdf4llm)
+8.tiktoken
 
  **Project Structure**
 
@@ -50,19 +49,19 @@ pip install pymupdf4llm tiktoken
 
 **How It Works**
 
-User provides a research topic
-System fetches related papers from Semantic Scholar
-Papers are ranked and filtered
-Selected PDFs are parsed and cleaned
-LLM generates structured summaries
-Output is displayed directly in the notebook
+*User provides a research topic
+*System fetches related papers from Semantic Scholar
+*Papers are ranked and filtered
+*Selected PDFs are parsed and cleaned
+*LLM generates structured summaries
+*Output is displayed directly in the notebook
 
  **Use Cases**
 
-Literature review automation
-Research topic exploration
-Internship / academic project support
-Time-efficient paper summarization
+*Literature review automation
+*Research topic exploration
+*Internship / academic project support
+*Time-efficient paper summarization
 
  **Outcome**
 
