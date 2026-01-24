@@ -1,0 +1,276 @@
+import React, { useState } from 'react';
+import { Search, FileText, Download, TrendingUp, Calendar, Users, ExternalLink, Loader2 } from 'lucide-react';
+
+export default function ResearchPaperSystem() {
+  const [topic, setTopic] = useState('');
+  const [papers, setPapers] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [searchComplete, setSearchComplete] = useState(false);
+  const [selectedPaper, setSelectedPaper] = useState(null);
+
+  const searchPapers = async () => {
+    if (!topic.trim()) return;
+    
+    setLoading(true);
+    setSearchComplete(false);
+    
+    // Simulate API call to your backend
+    setTimeout(() => {
+      const mockResults = [
+        {
+          title: "Physics-informed machine learning",
+          authors: ["George Em Karniadakis", "Ioannis G. Kevrekidis", "Lu Lu", "Paris Perdikaris", "Sifan Wang", "Liu Yang"],
+          year: 2021,
+          paperId: "mock1",
+          abstract: "Physics-informed machine learning (PIML) represents a new paradigm that integrates physical laws and domain knowledge into machine learning models. This approach combines data-driven learning with physics-based constraints to create more robust and interpretable models...",
+          citationCount: 4961,
+          venue: "Nature Reviews Physics",
+          url: "https://example.com/paper1",
+          pdf_url: "https://example.com/paper1.pdf",
+          has_pdf: true
+        },
+        {
+          title: "Fashion-MNIST: a Novel Image Dataset for Benchmarking Machine Learning Algorithms",
+          authors: ["Han Xiao", "Kashif Rasul", "Roland Vollgraf"],
+          year: 2017,
+          paperId: "mock2",
+          abstract: "We present Fashion-MNIST, a new dataset comprising 70,000 grayscale images of fashion products from 10 categories, with 7,000 images per category. The dataset is designed to serve as a direct drop-in replacement for the original MNIST dataset...",
+          citationCount: 9877,
+          venue: "arXiv",
+          url: "https://example.com/paper2",
+          pdf_url: "https://example.com/paper2.pdf",
+          has_pdf: true
+        },
+        {
+          title: "A Survey on Bias and Fairness in Machine Learning",
+          authors: ["Ninareh Mehrabi", "Fred Morstatter", "Nripsuta Saxena", "Kristina Lerman", "Aram Galstyan"],
+          year: 2019,
+          paperId: "mock3",
+          abstract: "Machine learning algorithms are increasingly being used to make decisions that affect people's lives. However, these algorithms can perpetuate and amplify biases present in training data. This survey comprehensively reviews the literature on bias and fairness...",
+          citationCount: 5120,
+          venue: "ACM Computing Surveys",
+          url: "https://example.com/paper3",
+          pdf_url: "https://example.com/paper3.pdf",
+          has_pdf: true
+        }
+      ];
+      
+      setPapers(mockResults);
+      setLoading(false);
+      setSearchComplete(true);
+    }, 1500);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      searchPapers();
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      {/* Header */}
+      <div className="bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 py-6">
+          <div className="flex items-center gap-3">
+            <FileText className="w-8 h-8 text-blue-600" />
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900">Research Paper Review System</h1>
+              <p className="text-sm text-gray-600">Automatically search, review, and summarize academic papers</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        {/* Search Section */}
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">Search Research Papers</h2>
+          <div className="flex gap-3">
+            <div className="flex-1 relative">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input
+                type="text"
+                value={topic}
+                onChange={(e) => setTopic(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Enter research topic (e.g., machine learning, neural networks...)"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              />
+            </div>
+            <button
+              onClick={searchPapers}
+              disabled={loading || !topic.trim()}
+              className="px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Searching...
+                </>
+              ) : (
+                <>
+                  <Search className="w-5 h-5" />
+                  Search
+                </>
+              )}
+            </button>
+          </div>
+          
+          {searchComplete && (
+            <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+              <p className="text-green-800 font-medium">
+                ✓ Found {papers.length} papers on "{topic}"
+              </p>
+              <p className="text-sm text-green-700 mt-1">
+                Papers with PDF available: {papers.filter(p => p.has_pdf).length}
+              </p>
+            </div>
+          )}
+        </div>
+
+        {/* Results Section */}
+        {papers.length > 0 && (
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-2xl font-bold text-gray-900">Search Results</h2>
+              <span className="text-sm text-gray-600">{papers.length} papers found</span>
+            </div>
+
+            <div className="grid gap-6">
+              {papers.map((paper, index) => (
+                <div
+                  key={paper.paperId}
+                  className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow p-6 border border-gray-100"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                          #{index + 1}
+                        </span>
+                        {paper.has_pdf && (
+                          <span className="text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded-full flex items-center gap-1">
+                            <Download className="w-3 h-3" />
+                            PDF Available
+                          </span>
+                        )}
+                      </div>
+
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                        {paper.title}
+                      </h3>
+
+                      <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          <span>{paper.year}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <TrendingUp className="w-4 h-4" />
+                          <span>{paper.citationCount.toLocaleString()} citations</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Users className="w-4 h-4" />
+                          <span>{paper.authors.length} authors</span>
+                        </div>
+                      </div>
+
+                      <div className="mb-4">
+                        <p className="text-sm text-gray-700 mb-2">
+                          <span className="font-semibold">Authors: </span>
+                          {paper.authors.slice(0, 3).join(', ')}
+                          {paper.authors.length > 3 && ` +${paper.authors.length - 3} more`}
+                        </p>
+                        {paper.venue && (
+                          <p className="text-sm text-gray-600">
+                            <span className="font-semibold">Published in: </span>
+                            {paper.venue}
+                          </p>
+                        )}
+                      </div>
+
+                      <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                        {paper.abstract}
+                      </p>
+
+                      <div className="flex gap-3">
+                        {paper.pdf_url && (
+                          <a
+                            href={paper.pdf_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                          >
+                            <Download className="w-4 h-4" />
+                            Download PDF
+                          </a>
+                        )}
+                        <a
+                          href={paper.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          View Details
+                        </a>
+                        <button
+                          onClick={() => setSelectedPaper(paper)}
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 text-purple-700 text-sm font-medium rounded-lg hover:bg-purple-200 transition-colors"
+                        >
+                          <FileText className="w-4 h-4" />
+                          Generate Summary
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Empty State */}
+        {!loading && papers.length === 0 && !searchComplete && (
+          <div className="text-center py-16">
+            <FileText className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-gray-600 mb-2">No papers yet</h3>
+            <p className="text-gray-500">Enter a research topic above to start searching</p>
+          </div>
+        )}
+
+        {/* Summary Modal */}
+        {selectedPaper && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+              <div className="p-6 border-b border-gray-200">
+                <div className="flex items-start justify-between">
+                  <h3 className="text-xl font-bold text-gray-900 pr-8">Paper Summary</h3>
+                  <button
+                    onClick={() => setSelectedPaper(null)}
+                    className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+              <div className="p-6">
+                <h4 className="font-semibold text-gray-900 mb-4">{selectedPaper.title}</h4>
+                <div className="space-y-4 text-sm text-gray-700">
+                  <p className="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                    <strong>Note:</strong> Connect this to your Python backend to generate AI-powered summaries using the Semantic Scholar API and natural language processing.
+                  </p>
+                  <div>
+                    <strong className="block mb-2">Abstract:</strong>
+                    <p className="leading-relaxed">{selectedPaper.abstract}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
